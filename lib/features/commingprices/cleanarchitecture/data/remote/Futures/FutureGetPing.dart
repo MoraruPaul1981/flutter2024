@@ -281,7 +281,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
           }
       )
           .timeout(
-        const Duration(seconds: 5),
+        const Duration(seconds: 20),
         onTimeout: () {
           // Time has run out, do what you wanted to do.
           return  Response(' Timeout Error !!! ', 408); // Request Timeout response status code

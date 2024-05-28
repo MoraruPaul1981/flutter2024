@@ -44,7 +44,7 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
           }
       )
           .timeout(
-        const Duration(seconds: 5),
+        const Duration(seconds:20),
         onTimeout: () {
           // Time has run out, do what you wanted to do.
           return http.Response(' Timeout Error !!! ', 408); // Request Timeout response status code
