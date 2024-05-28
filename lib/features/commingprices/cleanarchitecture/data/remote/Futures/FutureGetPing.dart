@@ -2,6 +2,7 @@
 
 import "dart:async";
 import 'dart:io';
+import 'dart:isolate';
 
 
 import 'package:flutter/cupertino.dart';
@@ -36,30 +37,53 @@ late Logger logger;
       this.logger=logger;
       //TODO адрес пинга к серверу
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
-      print('adressCurrent1C .. $adressCurrent1C');
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
-      print('parsedUrl .. $parsedUrl');
+
+      print('adressCurrent1C .. $adressCurrent1C'+'parsedUrl .. $parsedUrl');
 
       //TODO главный запрос PING #1
-         String IspingOtServer = await oneStepPing(parsedUrl, logger);
-
-      logger.i('IspingOtServer ..  '+IspingOtServer.toString()+'' );
-
-
-
-
-
-      //TODO когад пришли данные #2
-        List<Map<String, List<Entities1CMap>>> getSelfDataCallBack = await twoStepJsonOt1c(IspingOtServer, logger);
-
-      logger.i('getSelfDataCallBack..  '+getSelfDataCallBack.toString()+'' );
+        oneStepPing(parsedUrl, logger)
+            .then((IspingOtServer) async {
+          //TODO then
+          logger.i('IspingOtServer ..  '+IspingOtServer.toString()+'' );
 
 
 
-      //TODO закрвваем Compete после все отработынных операций  #3
-      completer.complete(getSelfDataCallBack    );
-      logger.i('Result completer.isCompleted ..  '+completer.isCompleted.toString()+'' );
-      return getSelfDataCallBack;
+
+          // создаем порт приема сообщений от нового изолята
+     /*     final receivePort = ReceivePort();
+          // создаем новый изолят
+          final isolate = await Isolate.spawn(count, receivePort.sendPort);
+          // запускаем прослушивание входящих сообщений
+          receivePort.listen((message) {
+            print(message);
+          });*/
+
+          var receivePort = ReceivePort();
+          // Here runMyIsolate methos should be a top level function
+          await Isolate.spawn(runMyIsolate, [receivePort.sendPort, "My Custom Message"]);
+          print(await receivePort.first);
+
+
+
+
+
+          //TODO когад пришли данные #2
+          List<Map<String, List<Entities1CMap>>> getSelfDataCallBack = await twoStepJsonOt1c(IspingOtServer, logger);
+
+          logger.i('getSelfDataCallBack..  '+getSelfDataCallBack.toString()+'' );
+
+          //TODO закрвваем Compete после все отработынных операций  #3
+          completer.complete(getSelfDataCallBack    );
+          logger.i('Result completer.isCompleted ..  '+completer.isCompleted.toString()+'' );
+
+
+          return getSelfDataCallBack;
+
+        }).catchError((Object error) {
+          logger.i(' catchError  ERROR $error  ');
+          //TODO оБРАБОТКА пинга
+        });
            //TODO END   CALL BACK
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -68,6 +92,20 @@ late Logger logger;
     }
     return   completer.future;
   }
+
+
+
+
+
+
+// We declare a static function here for an isolated callback function
+static void runMyIsolate(List<dynamic> args) {
+  var sendPort = args[0] as SendPort;
+  print("In runMyIsolate ");
+  Isolate.exit(sendPort, args);
+}
+
+
 
 
 
