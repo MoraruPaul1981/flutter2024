@@ -1,12 +1,8 @@
 
 
 import "dart:async";
-import 'dart:io';
-import 'dart:isolate';
-
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -15,7 +11,6 @@ import 'package:logger/logger.dart';
 import '../../../domain/businesslogic/Interfaces/InterfacePings.dart';
 import '../../../domain/businesslogic/adressJboss/getAdress.dart';
 import '../../../domain/businesslogic/converts/GetConverts.dart';
-
 import '../../../domain/businesslogic/decoding/getDecodingCallback.dart';
 import '../../entities/Entities1CMap.dart';
 import 'FuturesGetSelfData.dart';
