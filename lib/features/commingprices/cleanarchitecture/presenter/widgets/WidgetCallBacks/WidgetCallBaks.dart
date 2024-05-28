@@ -59,13 +59,13 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
   Widget getWidgetProccingError( {required BuildContext context,
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
-    logger.i("starting  getWidgetProccingError");
+    logger.i("starting  getWidgetProccingError $snapshot.error.toString()");
     IntarfaceWaiting  intarfaceWaiting  = GetWidgetWaitingErrors();
 
     return intarfaceWaiting.getWidgetWaitingPing(context: context,
         snapshot: snapshot,
         alwaysStop: Colors.red,
-        currentText: snapshot.error.toString());
+        currentText: "Сервер выкл.!!!");
   }
 
 

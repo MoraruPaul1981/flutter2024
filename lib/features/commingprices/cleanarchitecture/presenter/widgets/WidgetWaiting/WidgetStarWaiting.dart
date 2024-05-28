@@ -58,7 +58,7 @@ class WidgetStarWaiting extends State<StatefulWidgetCommingPrices> {
           logger.i('napshot.connectionState$snapshot.connectionState');
           ///
           ///
-          ///
+          ///TODO: когда нет ошибки
           ///
           if (!snapshot.hasError) {
             var  isArray=snapshot.data as   List<Map<String, List<Entities1CMap>>>;
@@ -87,21 +87,21 @@ class WidgetStarWaiting extends State<StatefulWidgetCommingPrices> {
 
 
 
+
+
+       //TODO: пришла ошибка и показываем её
           }else{
             ///TODO сгенерировальсь Error
-
               //TODO когда ест данные
               logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
               //TODO Возврат по умолчанию
               widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
-
-
-
           }
-        }else{
 
+
+        }else{
           ///TODO сгенерировальсь Error
           if (snapshot.hasError) {
             //TODO когда ест данные
@@ -111,15 +111,12 @@ class WidgetStarWaiting extends State<StatefulWidgetCommingPrices> {
             //TODO return ERROR
             return widgetWatingCallBack;
           }
-
-
         }
 
 
 
-
-
-        //TODO DEFALUT
+        
+        //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
         //TODO нет пришгли  данных
         widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);

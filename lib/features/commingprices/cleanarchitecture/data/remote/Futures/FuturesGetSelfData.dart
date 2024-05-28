@@ -42,7 +42,15 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
             'authorization':'$basicAuth',
             "Access-Control-Allow-Origin": "*"
           }
-      ).catchError(
+      )
+          .timeout(
+        const Duration(seconds: 5),
+        onTimeout: () {
+          // Time has run out, do what you wanted to do.
+          return http.Response(' Timeout Error !!! ', 408); // Request Timeout response status code
+        },
+      )
+          .catchError(
               (Object error) {
             print(' get ERROR $error  ');
           })  as Response;

@@ -25,8 +25,7 @@ late Logger logger;
   @override
   Future<List<Map<String, List<Entities1CMap>>>>? getResponse1c({ required BuildContext context, required Logger logger})  async {
     // TODO: implement getJson1cPing
-   late Completer<List<Map<String, List<Entities1CMap>>>> completer=Completer.sync();
-   late List<Map<String, List<Entities1CMap>>>? getSelfDataCallBack =[];
+   late  Completer<List<Map<String, List<Entities1CMap>>>> completer=Completer.sync();
     try {
       //TODO init LOGER
       this.logger=logger;
@@ -56,6 +55,7 @@ late Logger logger;
 
         }).catchError((Object error) {
           logger.i(' catchError  ERROR $error  ');
+          completer.completeError(error );
           //TODO оБРАБОТКА пинга
         });
            //TODO END   CALL BACK
@@ -78,6 +78,7 @@ late Logger logger;
 
 
 //TODO главный запрос PING #1
+  @override
   Future<List<Map<String, List<Entities1CMap>>>> twoStepJsonOt1c(String IspingOtServer, Logger logger) async {
    var getSelfDataCallBack;
     try{
@@ -98,6 +99,7 @@ late Logger logger;
 
 
   //TODO когад пришли данные #2
+  @override
   Future<String> oneStepPing(Uri parsedUrl, Logger logger) async {
     logger.i('Result parsedUrl ..  '+parsedUrl.toString()+'' );
     return CallBackPing(parsedUrl,  logger) ;
@@ -129,15 +131,19 @@ late Logger logger;
         logger.i('Result  getpingCallBackResponseFirstPart ..  '+getpingCallBackResponseFirstPart.toString()+'' );
 
       //TODO: вторая часть пинга
-        Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart, logger);
-        getProcessingPingTwoPart.catchError(
-                (Object error) {
-              logger.i(' catchError  ERROR $error  ');
-              //TODO оБРАБОТКА пинга
-            });
-        //TODO:
-        getpingCallBack   = await  getProcessingPingTwoPart as  String;
-        logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
+        if (getpingCallBackResponseFirstPart.statusCode == 200) {
+          Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart, logger);
+          getProcessingPingTwoPart.catchError(
+                  (Object error) {
+                logger.i(' catchError  ERROR $error  ');
+                //TODO оБРАБОТКА пинга
+              });
+          //TODO:
+          getpingCallBack   = await  getProcessingPingTwoPart as  String;
+          logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
+        }else{
+          logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
+        }
 
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -251,7 +257,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
   Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID, required Logger logger}) async {
     // TODO: implement getDownloadJsonMaps
     // TODO: implement getDownloadJsonMaps
-   late  Response  getResponse;
+     var  getResponse;
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
@@ -274,10 +280,17 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
             "Access-Control-Allow-Origin": "*"
           }
       )
+          .timeout(
+        const Duration(seconds: 5),
+        onTimeout: () {
+          // Time has run out, do what you wanted to do.
+          return  Response(' Timeout Error !!! ', 408); // Request Timeout response status code
+        },
+      )
           .catchError(
               (Object error) {
             print(' get ERROR $error  ');
-          })  ;
+          })  as Response ;
 
       logger.i('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error

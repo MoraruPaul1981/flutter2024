@@ -36,7 +36,7 @@ class GetWidgetWaitingDontData  implements   IntarfaceWaiting {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: new EdgeInsets.only(left: 5,top:350,right: 5,bottom: 5),
+                margin: new EdgeInsets.only(left: 5,top:400,right: 5,bottom: 5),
                 height: 80,
                 width: 300,
                 // color: Colors.red,

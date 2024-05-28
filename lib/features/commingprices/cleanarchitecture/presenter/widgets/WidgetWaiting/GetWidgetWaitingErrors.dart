@@ -39,7 +39,7 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: new EdgeInsets.only(left: 5,top:350,right: 5,bottom: 5),
+                margin: new EdgeInsets.only(left: 5,top:400,right: 5,bottom: 5),
                 height: 80,
                 width: 300,
                 // color: Colors.red,
@@ -52,7 +52,7 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
 
                     AnimatedTextKit(
                         animatedTexts: [
-                          ColorizeAnimatedText('Ошибка :'+currentText, textStyle: TextStyle(color: Colors.grey,
+                          ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
                             fontSize: 25,
                             fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
                               colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
