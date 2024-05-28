@@ -40,30 +40,29 @@ late Logger logger;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
       print('parsedUrl .. $parsedUrl');
 
-
       //TODO главный запрос PING #1
-         String? IspingOtServer = await CallBackPing(parsedUrl,  logger);
-      logger.i('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
+         String IspingOtServer = await oneStepPing(parsedUrl, logger);
+
+      logger.i('IspingOtServer ..  '+IspingOtServer.toString()+'' );
+
 
 
 
 
       //TODO когад пришли данные #2
-        BigInt Uuid=BigInt.parse('0')  ;
-       int IdUser=8;
+        List<Map<String, List<Entities1CMap>>> getSelfDataCallBack = await twoStepJsonOt1c(IspingOtServer, logger);
 
-          List<Map<String, List<Entities1CMap>>> getSelfDataCallBack=await  CallBackSelfData(IspingOtServer, logger,IdUser,Uuid);
-      logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
+      logger.i('getSelfDataCallBack..  '+getSelfDataCallBack.toString()+'' );
+
+
 
       //TODO закрвваем Compete после все отработынных операций  #3
-
       completer.complete(getSelfDataCallBack    );
       logger.i('Result completer.isCompleted ..  '+completer.isCompleted.toString()+'' );
       return getSelfDataCallBack;
            //TODO END   CALL BACK
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO
       //TODO закрвваем Compete
       completer.completeError(stacktrace );
     }
@@ -75,46 +74,67 @@ late Logger logger;
 
 
 
+//TODO главный запрос PING #1
+  Future<List<Map<String, List<Entities1CMap>>>> twoStepJsonOt1c(String IspingOtServer, Logger logger) async {
+   var getSelfDataCallBack;
+    try{
+         //TODO когад пришли данные #2
+    BigInt Uuid=BigInt.parse('0')  ;
+           int IdUser=8;
+
+     getSelfDataCallBack=await  CallBackSelfData(IspingOtServer, logger,IdUser,Uuid) as  List<Map<String, List<Entities1CMap>>>;
+
+          logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
+  }   catch (e, stacktrace) {
+    print(' get ERROR $e get stacktrace $stacktrace ');
+}
+    return getSelfDataCallBack;
+  }
+
+
+
+
+  //TODO когад пришли данные #2
+  Future<String> oneStepPing(Uri parsedUrl, Logger logger) async {
+    logger.i('Result parsedUrl ..  '+parsedUrl.toString()+'' );
+    return CallBackPing(parsedUrl,  logger) ;
+  }
+
+
+
+
+
+
   //TODO ping
   @override
-  Future<String?> CallBackPing(Uri parsedUrl,   Logger logger ) async {
-      String? getpingCallBack;
+  Future<String> CallBackPing(Uri parsedUrl,   Logger logger ) async {
+    var getpingCallBack ;
     try {
       //TODO только для пинга
         BigInt Uuid=BigInt.parse('0')  ;
        int IdUser=0;
 
-
-      Future<Response?>responsePing =     getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
-      //TODO первый Этам получаем данные из СЕТИ
-      responsePing
-          .then((backresponsejboss) {
-        //TODO получаем Responce
-        backresponsejboss as Response;
-        logger.i('call back backresponsejboss $backresponsejboss  ');
-
-
-        //TODO Get PING
-        Future<String?> getProcessingPing=  getCompetePing(   backresponsejboss, logger);
-        //TODO  processing ping
-        getProcessingPing
-        .then((getpingCallBack ) {
-
-          getpingCallBack as String;
-          logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
-        }).catchError(
-                (Object error) {
-              logger.i(' catchError  ERROR $error  ');
-            });
-        //TODO Self-data
-        return getpingCallBack;
-
-      })
-          .catchError(
+      //TODO: первая часть пинга
+      Future<Response>responsePingFirstPart =     getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
+      responsePingFirstPart.catchError(
                   (Object error) {
                 logger.i(' catchError  ERROR $error  ');
                 //TODO оБРАБОТКА пинга
               });
+      //TODO:
+       var  getpingCallBackResponseFirstPart  = await  responsePingFirstPart as  Response;
+        logger.i('Result  getpingCallBackResponseFirstPart ..  '+getpingCallBackResponseFirstPart.toString()+'' );
+
+      //TODO: вторая часть пинга
+        Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart, logger);
+        getProcessingPingTwoPart.catchError(
+                (Object error) {
+              logger.i(' catchError  ERROR $error  ');
+              //TODO оБРАБОТКА пинга
+            });
+        //TODO:
+        getpingCallBack   = await  getProcessingPingTwoPart as  String;
+        logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
 
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -144,7 +164,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 
 //TODO получаем данные от 1с Севра
-         Future<Response?> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
+         Future<Response> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
 
       responseSelfDataFuture.catchError(
               (Object error) {
@@ -152,7 +172,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
             //TODO оБРАБОТКА пинга
           });
       //TODO получаем Responce Self-Data
-      final   http.Response?  CallBackresponseSelfData=await  responseSelfDataFuture;
+      final   Response CallBackresponseSelfData=await  responseSelfDataFuture;
       //TODO then
       logger.i(' CallBackresponseSelfData .. $CallBackresponseSelfData');
 
@@ -194,7 +214,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 //TODO PING
   @override
-   String?   getComplitingResponsePing(    Response? backresponsejboss)   {
+   String?   getComplitingResponsePing(    Response backresponsejboss)   {
     // TODO: implement getCompletePing
     String?  getCallPing1c;
     try{
@@ -225,10 +245,10 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 //TODO sendResponce
   @override
-  Future<Response?> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID, required Logger logger}) async {
+  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID, required Logger logger}) async {
     // TODO: implement getDownloadJsonMaps
     // TODO: implement getDownloadJsonMaps
-    Response?  getResponse;
+   late  Response  getResponse;
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
@@ -242,21 +262,19 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
       
       //TODO главный запрос
-      getResponse=  await http.get(
+      getResponse =   await http.get(
           url,
           headers: {
             'user':IdUser.toString(),
             'uuid':UUID.toString(),
             'authorization':'$basicAuth',
+            "Access-Control-Allow-Origin": "*"
           }
-      ).timeout(const Duration(seconds: 100),
-      onTimeout: (){
-        return http.Response('Error',408);
-      })
+      )
           .catchError(
               (Object error) {
             print(' get ERROR $error  ');
-          });
+          })  ;
 
       logger.i('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
@@ -267,10 +285,16 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
   }
 
 
+
+
+
+
   @override
-   Future<String?>  getCompetePing( Response? backresponsejboss, Logger logger)  async   {
+   Future<String?>  getCompetePing( Response backresponsejboss, Logger logger)  async   {
     // TODO: implement getCompetePing
+
     logger.i('start backresponsejboss ..  '+backresponsejboss.toString()+'' );
+
       return await getComplitingResponsePing(     backresponsejboss) ;///TODO    return compute(getComplitingResponse ,backresponsejboss  );
     //return     compute(getComplitingResponsePing,backresponsejboss)  ;///TODO    return compute(getComplitingResponse ,backresponsejboss  );
   }

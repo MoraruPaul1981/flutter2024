@@ -16,11 +16,11 @@ class  getDecodingCallback implements InterfaceDecoding{
 
   //TODO decoce PING
   @override
-  String getResponseDecoderPing({required Response? response1C}) {
+  String getResponseDecoderPing({required Response response1C}) {
     // TODO: implement getResponseDecoder
     var   getPing1C;
     try{
-      final byteData = response1C?.bodyBytes.buffer.asByteData();
+      final byteData = response1C.bodyBytes.buffer.asByteData();
       final bugffer=   byteData?.buffer;
       Uint8List? list = bugffer?.asUint8List(byteData!.offsetInBytes, byteData.lengthInBytes) ;
       //TODO

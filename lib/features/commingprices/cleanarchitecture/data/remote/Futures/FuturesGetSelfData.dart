@@ -22,9 +22,9 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
 
   //TODO получаем данные self-data
   @override
-  Future<Response?> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID,required Logger logger}) async {
+  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID,required Logger logger}) async {
     // TODO: implement getDownloadJsonMaps
-      Response?  getResponse;
+      var getResponse;
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
@@ -40,11 +40,12 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
             'user':IdUser.toString(),
             'uuid':UUID.toString(),
             'authorization':'$basicAuth',
+            "Access-Control-Allow-Origin": "*"
           }
       ).catchError(
               (Object error) {
             print(' get ERROR $error  ');
-          });
+          })  as Response;
 
       logger.i('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
@@ -60,14 +61,14 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
  TODO  of processing the
  TODO  incoming stream */
   @override
-  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response? response1C,
+  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response response1C,
     required Logger logger}) {
     // TODO: implement getGeneratorMapCallBack
    late  Future<List<Map<String, List<Entities1CMap>>>> getJson1cSucces ;
     try{
       print('response1C.statusCode $response1C.statusCode');
 
-      logger.i('Result esponse1C.statusCode ..  '+response1C!.statusCode.toString()+
+      logger.i('Result esponse1C.statusCode ..  '+response1C.statusCode.toString()+
           '');
 
       if (response1C.statusCode==200) {
