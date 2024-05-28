@@ -28,49 +28,86 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
     return new Scaffold(
       backgroundColor: Colors.grey[200],
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
 
 
 
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: new EdgeInsets.only(left: 5,top:400,right: 5,bottom: 5),
-                height: 80,
-                width: 300,
-                // color: Colors.red,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200], //assign either here or to the container
-                  borderRadius: BorderRadius.circular(24),),
-                child:  Padding(
-                  padding: EdgeInsets.all(2.0),
-                  child:
-
-                    AnimatedTextKit(
-                        animatedTexts: [
-                          ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
-                              colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
-                            ,
-                      pause: Duration(microseconds: 1),
-                      isRepeatingAnimation: true,
-                      repeatForever: false,
-                    ),
+           Container(
+              alignment: Alignment.center,
+              margin: new EdgeInsets.only(left: 5,top:5,right: 5,bottom: 5),
+              // color: Colors.red,
+              decoration: BoxDecoration(
+                color: Colors.grey[200], //assign either here or to the container
+                borderRadius: BorderRadius.circular(24),),
+              child:  Padding(
+                padding: EdgeInsets.all(2.0),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
+                        colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
+                  ,
+                  pause: Duration(microseconds: 1),
+                  isRepeatingAnimation: true,
+                  repeatForever: false,
                 ),
               ),
+            ),
 
-            ],
 
+          Container(
+            alignment: Alignment.center,
+            margin: new EdgeInsets.only(left: 5,top:5,right: 5,bottom: 5),
+            // color: Colors.red,
+            decoration: BoxDecoration(
+              color: Colors.grey[200], //assign either here or to the container
+              borderRadius: BorderRadius.circular(24),),
+            child:  Padding(
+              padding: EdgeInsets.all(2.0),
+              child: Card(
+                margin: EdgeInsets.all(5.0),
+                color: Colors.white,
+                child: ListTile(
+                    leading:
+                    Icon(
+                      Icons.phone,
+                      color: Colors.black,
+                      size: 20.0,
+                    ),
+                    title:
+                    Text(
+                      '+79158111806',
+                      style: TextStyle(
+                        fontFamily: 'Pacifico',
+                        fontSize: 20.0,
+                        color: Colors.black54,
+                      ),
+                    )
+
+                ),
+              ),
+            ),
           ),
+
+
+
+
+
+
           //TODO END ROW
 
-        ],
-      ),
+
+
+
+            ],
+          ),
+
+
+
+
     );
   }
 
