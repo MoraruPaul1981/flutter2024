@@ -62,7 +62,10 @@ late Logger logger;
           var receivePort = ReceivePort();
           // Here runMyIsolate methos should be a top level function
           await Isolate.spawn(runMyIsolate, [receivePort.sendPort, "My Custom Message"]);
-          print(await receivePort.first);
+          // запускаем прослушивание входящих сообщений
+          receivePort.listen((message) {
+            print(message);
+          });
 
 
 
@@ -101,8 +104,10 @@ late Logger logger;
 // We declare a static function here for an isolated callback function
 static void runMyIsolate(List<dynamic> args) {
   var sendPort = args[0] as SendPort;
+
+  sendPort.send('23232232323232323message');
   print("In runMyIsolate ");
-  Isolate.exit(sendPort, args);
+ // Isolate.exit(sendPort, args);
 }
 
 
