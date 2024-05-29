@@ -1,4 +1,4 @@
-import 'package:commintprices/features/commingprices/cleanarchitecture/presenter/widgets/WidgetWaiting/StarStateStatefulWidgets.dart';
+import 'package:commintprices/features/commingprices/cleanarchitecture/presenter/widgets/WidgetWaiting/ParentWidgetStateful.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -8,7 +8,7 @@ import 'features/commingprices/cleanarchitecture/domain/businesslogic/Loggers/Ge
 
 
 
-
+//TODO: Главный метод запуска Flutter проекта -----       Запускалка
   void  main()    {
   try {
     print('Start  void  main() ');
@@ -32,13 +32,13 @@ import 'features/commingprices/cleanarchitecture/domain/businesslogic/Loggers/Ge
 //TODO метод запуска coming prices
     void startingCommintPrices()  {
     try {
-      late Logger   logger;
+
        //TODO int LOGGER
        GetErros().getFuturelogger()
-           .then((value) {
+           .then((logger) {
          //TODO then
-         logger=  value;
-         logger.i('start value .. ');
+         logger as Logger;
+         logger.i('start startingCommintPrices()  .. ');
 
 
          //TODO starting UI
@@ -171,15 +171,15 @@ class startingwidgetCommingPrices extends StatelessWidget {
       ),
 
       debugShowCheckedModeBanner: false,
-      home:   StatefulWidgetCommingPrices(logger),
+      home:   WidgetStateful(logger),
     );
   }
 
 }
 
-class StatefulWidgetCommingPrices extends StatefulWidget {
+class WidgetStateful extends StatefulWidget {
   Logger logger;
-    StatefulWidgetCommingPrices(this. logger,{super.key});
+    WidgetStateful(this. logger,{super.key});
   @override
 
 /*  //TODO widget ROW
@@ -189,7 +189,7 @@ class StatefulWidgetCommingPrices extends StatefulWidget {
   State<StatefulWidgetCommingPrices> createState() => WidgetPhoneMail();*/////
 
   //TODO Comming Prices
-  State<StatefulWidgetCommingPrices> createState() => StarStateStatefulWidgets( logger: logger);//TODO//
+  State<WidgetStateful> createState() => ParentWidgetStateful( logger: logger);//TODO//
   //TODO
 
   //TODO ENDING widget

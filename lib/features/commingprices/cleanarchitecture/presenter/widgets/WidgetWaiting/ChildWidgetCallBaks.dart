@@ -6,13 +6,12 @@ import 'package:logger/logger.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
-import '../WidgetAllSuccess/WidgetSuccessData.dart';
-import '../WidgetWaiting/GetWidgetDefault.dart';
-import '../WidgetWaiting/GetWidgetWaiting.dart';
-import '../WidgetWaiting/GetWidgetWaitingDontConn.dart';
-import '../WidgetWaiting/GetWidgetWaitingErrors.dart';
-import '../WidgetWaiting/Intarface/IntarfaceWaiting.dart';
-import 'Interface/IntarfaceCallBaks.dart';
+import 'ChildWidgetSuccessData.dart';
+import 'ChildWidgetProccingDefault.dart';
+import 'ChildWidgetProccerWaiting.dart';
+import 'ChildWidgetWaitingDontData.dart';
+import 'ChildWidgetProccingError.dart';
+import 'Intarface/IntarfaceCallBaksWidgets.dart';
 
 
 
@@ -22,12 +21,12 @@ import 'Interface/IntarfaceCallBaks.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class WidgetCallBaks   implements IntarfaceCallBaks {
+class ChildWidgetCallBaks   implements IntarfaceCallBaksWidgets {
 
 
   ///TODO  методы ожидания
   @override
-  Widget getWidgetProccerWaiting({required BuildContext context,
+  Widget WidgetProccerWaiting({required BuildContext context,
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
   logger.i("starting  getWidgetProccingWait");
@@ -42,11 +41,11 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
 
   ///TODO метод по умочанию
    @override
-  Widget getWidgetProccingDefault( {required BuildContext context,
+  Widget WidgetProccingDefault( {required BuildContext context,
      required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
     logger.i("starting  getWidgetProccingDefault");
-    IntarfaceWaiting  intarfaceWaiting= WidgetDefault();
+    IntarfaceWaiting  intarfaceWaiting= ChildWidgetDefault();
     ///TODO return
     return   intarfaceWaiting.
     getWidgetWaitingPing(context:context, snapshot:snapshot,
@@ -56,11 +55,11 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
 
   ///TODO метод по умочанию
   @override
-  Widget getWidgetProccingError( {required BuildContext context,
+  Widget WidgetProccingError( {required BuildContext context,
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
     logger.i("starting  getWidgetProccingError $snapshot.error.toString()");
-    IntarfaceWaiting  intarfaceWaiting  = GetWidgetWaitingErrors(logger);
+    IntarfaceWaiting  intarfaceWaiting  = ChildGetWidgetWaitingErrors(logger);
 
     return intarfaceWaiting.getWidgetWaitingPing(context: context,
         snapshot: snapshot,
@@ -73,12 +72,12 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
 
   ///TODO метод есть данные
   @override
-  Widget getWidgetProccingNasData( {required BuildContext context,
+  Widget WidgetProccingNasData( {required BuildContext context,
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
     //TODO
     logger.i('receiveddatafromC1CallBack ..  '+snapshot.data.toString()+'' );
     //TODO передем на экрна полученные данные
-    return  WidgetSuccessData().getWidgetScaffold(context:context,snapshot:snapshot,logger:logger);
+    return  ChildWidgetSuccessData().getWidgetScaffold(context:context,snapshot:snapshot,logger:logger);
   }
 
 
@@ -88,11 +87,11 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
 
   ///TODO метод нет данных
   @override
-  Widget getWidgetProccingDontData( {required BuildContext context,
+  Widget WidgetProccingDontData( {required BuildContext context,
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
     logger.i("starting  getWidgetProccingDontData");
-    IntarfaceWaiting  intarfaceWaiting   = GetWidgetWaitingDontData();
+    IntarfaceWaiting  intarfaceWaiting   = ChildWidgetWaitingDontData();
     ///TODO return
     return     intarfaceWaiting.getWidgetWaitingPing(context: context,
         snapshot: snapshot,

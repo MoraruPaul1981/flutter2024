@@ -16,7 +16,7 @@ import 'Intarface/IntarfaceDefalut.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class WidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
+class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
 
   @override
   Color alwaysStop;
@@ -29,6 +29,14 @@ class WidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
 
   @override
   AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
+
+
+  //TODO: конструктор
+  ChildWidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop,
+      this.currentText) :super (key:key);
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -153,9 +161,6 @@ class WidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
   }
 
 
-//TODO: конструктор
-  WidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop,
-      this.currentText) :super (key:key);
 
 
 

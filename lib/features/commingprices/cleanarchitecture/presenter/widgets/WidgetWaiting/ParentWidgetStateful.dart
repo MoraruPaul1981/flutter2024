@@ -6,7 +6,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
 import '../../../data/remote/Futures/FutureGetPing.dart';
-import '../WidgetCallBacks/WidgetCallBaks.dart';
+import 'ChildWidgetCallBaks.dart';
 
 
 
@@ -15,10 +15,9 @@ import '../WidgetCallBacks/WidgetCallBaks.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
+class ParentWidgetStateful extends State<WidgetStateful> {
   Logger logger;
-  //TODO json data
-  StarStateStatefulWidgets({ required this.logger } );
+  ParentWidgetStateful({Key? key, required this.logger } ) ;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           logger.i('napshot.connectionState$snapshot.connectionState');
           //TODO Возврат по умолчанию
-          widgetWatingCallBack =WidgetCallBaks().   getWidgetProccerWaiting(  context:context,   snapshot:snapshot,logger:logger);
+          widgetWatingCallBack =ChildWidgetCallBaks().   WidgetProccerWaiting(  context:context,   snapshot:snapshot,logger:logger);
           //TODO return
           return widgetWatingCallBack;
 
@@ -70,7 +69,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
                   +'napshot.connectionState$snapshot.connectionState');
 
               //TODO ПРИШЛИ ДАННЫЕ
-              widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingNasData(   context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingNasData(   context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
 
@@ -79,7 +78,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
             } else {
               logger.i('napshot.connectionState$snapshot.connectionState');
               //TODO нет пришгли  данных
-              widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingDontData(   context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingDontData(   context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
 
@@ -95,7 +94,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
               //TODO когда ест данные
               logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
               //TODO Возврат по умолчанию
-              widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
           }
@@ -107,7 +106,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
             //TODO когда ест данные
             logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
             //TODO Возврат по умолчанию
-            widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
+            widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
             //TODO return ERROR
             return widgetWatingCallBack;
           }
@@ -119,7 +118,7 @@ class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
         //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
         //TODO нет пришгли  данных
-        widgetWatingCallBack = WidgetCallBaks().  getWidgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);
+        widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);
         //TODO return ERROR
         return widgetWatingCallBack;
 

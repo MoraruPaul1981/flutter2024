@@ -10,9 +10,9 @@ import 'package:logger/src/logger.dart';
 
 
 import '../../../data/entities/Entities1CMap.dart';
-import '../WidgetWaiting/Intarface/IntafaceSuccessData.dart';
+import 'Intarface/IntafaceSuccessData.dart';
 
-class   WidgetSuccessData  extends StatelessWidget implements IntafaceTransformationSuccessData {
+class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTransformationSuccessData {
 
   @override
   late Logger logger;
@@ -271,7 +271,7 @@ class   WidgetSuccessData  extends StatelessWidget implements IntafaceTransforma
 
 
 //TODO: конструктор
-  WidgetSuccessData(Key? key,this.logger, this.snapshot, this.context,
+  ChildWidgetSuccessData(Key? key,this.logger, this.snapshot, this.context,
       this.receiveddatafromC1) :super (key:key);
 
 

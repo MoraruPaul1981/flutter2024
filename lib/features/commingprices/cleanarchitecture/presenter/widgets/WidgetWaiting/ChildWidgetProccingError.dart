@@ -10,22 +10,22 @@ import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
-import '../WidgetAllSuccess/WidgetSuccessData.dart';
-import '../WidgetCallBacks/WidgetCallBaks.dart';
+import 'ChildWidgetSuccessData.dart';
+import 'ChildWidgetCallBaks.dart';
 import 'Bl/BlForWidgetErrors.dart';
 import 'Bl/GetAntimations.dart';
-import 'StarStateStatefulWidgets.dart';
-import 'StarStateStatefulWidgets.dart';
+import 'ParentWidgetStateful.dart';
+import 'ParentWidgetStateful.dart';
 
 
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
+class ChildGetWidgetWaitingErrors  implements   IntarfaceWaiting {
 
   Logger logger;
 
-  GetWidgetWaitingErrors(this.logger);
+  ChildGetWidgetWaitingErrors(this.logger);
   //TODO Виджет ожидание пипнга от сервера 1С
   @override
   Widget getWidgetWaitingPing({required BuildContext context,

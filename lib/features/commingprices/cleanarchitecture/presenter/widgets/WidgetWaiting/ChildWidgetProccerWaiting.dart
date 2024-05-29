@@ -9,13 +9,14 @@ import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
-import 'Intarface/IntarfaceWaiting.dart';
+
+
 
 
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class GetWidgetWaiting  implements   IntarfaceWaiting {
+class ChildWidgetWaiting  implements   IntarfaceCallBaksWidgets {
 
   //TODO Виджет ожидание пипнга от сервера 1С
   @override
