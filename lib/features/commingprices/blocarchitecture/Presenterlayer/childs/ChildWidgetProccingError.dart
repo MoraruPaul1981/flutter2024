@@ -9,13 +9,13 @@ import 'package:flutter/src/scheduler/binding.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../data/entities/Entities1CMap.dart';
+import '../../../../data/entities/Entities1CMap.dart';
 import 'ChildWidgetSuccessData.dart';
-import '../../ChildWidgetCallBaks.dart';
-import 'Bl/BlForWidgetErrors.dart';
-import 'Bl/GetAntimations.dart';
-import 'ParentWidgetStateful.dart';
-import 'ParentWidgetStateful.dart';
+import '../../../ChildWidgetCallBaks.dart';
+import '../Bl/Bl_ChildWidgetProccingError.dart';
+import '../Bl/GetAntimations.dart';
+import '../ParentWidgetStateful.dart';
+import '../ParentWidgetStateful.dart';
 
 
 

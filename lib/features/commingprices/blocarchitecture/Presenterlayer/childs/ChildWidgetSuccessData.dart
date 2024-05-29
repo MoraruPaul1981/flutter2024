@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
 
-import '../../../data/entities/Entities1CMap.dart';
-import 'Intarface/IntafaceSuccessData.dart';
+
 
 class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTransformationSuccessData {
 

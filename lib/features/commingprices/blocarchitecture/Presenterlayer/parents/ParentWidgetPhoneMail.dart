@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
 
-class WidgetPhoneMail extends State<WidgetStateful>  {
+class ParentWidgetPhoneMail extends State<WidgetStateful>  {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,18 +1,15 @@
 
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-
-import '../../Presenterlayer/ParentWidgetStateful.dart';
 import '../Interfaces/IntarfaceBLWidgets.dart';
 
 
-
-class BlForWidgetErrors implements IntarfaceBLWidgets {
+class BI_ChildWidgetProccingError implements IntarfaceBLWidgets {
 
   BuildContext buildContext;
   Logger logger;
 
-  BlForWidgetErrors({required this.buildContext, required this.logger});
+  BI_ChildWidgetProccingError({required this.buildContext, required this.logger});
 
   @override
   void getRereceiptData( ) {
@@ -20,7 +17,7 @@ class BlForWidgetErrors implements IntarfaceBLWidgets {
     // TODO: implement getRereceiptData
       logger.i('context..  '+buildContext.toString()+'' );
 
-      ParentWidgetStateful( logger: logger);
+      //ParentWidgetStateful( logger: logger);
 
     //TODO error
   }   catch (e, stacktrace) {

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../data/entities/Entities1CMap.dart';
+import '../../../../data/entities/Entities1CMap.dart';
 
 
 
