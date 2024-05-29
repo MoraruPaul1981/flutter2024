@@ -1,9 +1,8 @@
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
 
-abstract  class IntarfaceBL {
+abstract  class IntarfaceBLWidgets {
   //TODO:
   void getRereceiptData( );
 

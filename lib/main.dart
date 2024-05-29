@@ -1,10 +1,11 @@
-import 'package:commintprices/features/commingprices/cleanarchitecture/presenter/widgets/WidgetWaiting/ParentWidgetStateful.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
+import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetErrors.dart';
+import 'features/commingprices/blocarchitecture/Presenterlayer/ParentWidgetStateful.dart';
 
-import 'features/commingprices/cleanarchitecture/domain/businesslogic/Loggers/GetErrors.dart';
+
 
 
 
@@ -181,17 +182,13 @@ class WidgetStateful extends StatefulWidget {
   Logger logger;
     WidgetStateful(this. logger,{super.key});
   @override
-
 /*  //TODO widget ROW
   State<StatefulWidgetCommingPrices> createState() => WidgetRow();*////TODO
-
 /*//TODO widget Mail Phone
   State<StatefulWidgetCommingPrices> createState() => WidgetPhoneMail();*/////
 
   //TODO Comming Prices
-  State<WidgetStateful> createState() => ParentWidgetStateful( logger: logger);//TODO//
-  //TODO
-
+  State<WidgetStateful> createState() => ParentWidgetStateful( logger: logger);
   //TODO ENDING widget
 }
 

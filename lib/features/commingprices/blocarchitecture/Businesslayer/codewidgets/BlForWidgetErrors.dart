@@ -1,7 +1,7 @@
 
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-import '../Intarface/IntarfaceBL.dart';
+import '../Intarface/IntarfaceBLWidgets.dart';
 import '../ParentWidgetStateful.dart';
 
 

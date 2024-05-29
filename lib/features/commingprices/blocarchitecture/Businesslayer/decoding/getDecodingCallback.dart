@@ -1,15 +1,10 @@
 
-
 import 'dart:convert';
-
 import 'dart:typed_data';
-
-import 'package:commintprices/features/commingprices/cleanarchitecture/data/entities/Entities1CMap.dart';
-
 import 'package:http/src/response.dart';
 import 'package:logger/logger.dart';
-
 import '../Interfaces/InterfaceDecoding.dart';
+
 
 class  getDecodingCallback implements InterfaceDecoding{
 

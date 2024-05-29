@@ -3,9 +3,6 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
-import '../../../data/entities/Entities1CMap.dart';
-
-
 
 
 abstract  class InterfaceDecoding {

@@ -46,7 +46,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           logger.i('napshot.connectionState$snapshot.connectionState');
           //TODO Возврат по умолчанию
-          widgetWatingCallBack =ChildWidgetCallBaks().   WidgetProccerWaiting(  context:context,   snapshot:snapshot,logger:logger);
+          widgetWatingCallBack =ChildWidgetCallBaks().   widgetProccerWaiting(  context:context,   snapshot:snapshot,logger:logger);
           //TODO return
           return widgetWatingCallBack;
 
@@ -69,7 +69,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
                   +'napshot.connectionState$snapshot.connectionState');
 
               //TODO ПРИШЛИ ДАННЫЕ
-              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingNasData(   context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingNasData(   context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
 
@@ -78,7 +78,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
             } else {
               logger.i('napshot.connectionState$snapshot.connectionState');
               //TODO нет пришгли  данных
-              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingDontData(   context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingDontData(   context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
 
@@ -94,7 +94,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
               //TODO когда ест данные
               logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
               //TODO Возврат по умолчанию
-              widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
+              widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingError( context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
           }
@@ -106,7 +106,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
             //TODO когда ест данные
             logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
             //TODO Возврат по умолчанию
-            widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingError( context:context,   snapshot:snapshot,logger:logger);
+            widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingError( context:context,   snapshot:snapshot,logger:logger);
             //TODO return ERROR
             return widgetWatingCallBack;
           }
@@ -118,7 +118,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
         //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
         //TODO нет пришгли  данных
-        widgetWatingCallBack = ChildWidgetCallBaks().  WidgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);
+        widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);
         //TODO return ERROR
         return widgetWatingCallBack;
 
