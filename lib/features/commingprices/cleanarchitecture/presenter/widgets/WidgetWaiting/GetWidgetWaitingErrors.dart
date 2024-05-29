@@ -67,7 +67,8 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
         padding: const EdgeInsets.all(2.0),
         child: FloatingActionButton (
           onPressed: () {
-            BlForWidgetErrors blwid=BlForWidgetErrors(context, logger);
+            //TODO: при нажатии перезапускаем Получение Данных
+            BlForWidgetErrors blwid=new BlForWidgetErrors(buildContext:context, logger:logger);
             blwid.getRereceiptData();
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
