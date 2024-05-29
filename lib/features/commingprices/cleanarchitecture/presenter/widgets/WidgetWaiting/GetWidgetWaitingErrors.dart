@@ -10,6 +10,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
 import 'Bl/BlForWidgetErrors.dart';
+import 'Bl/GetAntimations.dart';
 import 'Intarface/IntarfaceWaiting.dart';
 
 
@@ -61,11 +62,20 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
           ),
 
 
+
+
+
+
+
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButtonAnimator:  NoScalingAnimation(),
       floatingActionButton: Container(
         margin:  const EdgeInsets.only( left: 5,top:5,right: 5,bottom: 50),
         padding: const EdgeInsets.all(2.0),
         child: FloatingActionButton (
+          autofocus: true,
+          focusElevation: 5,
+          highlightElevation: 50,
           onPressed: () {
             //TODO: при нажатии перезапускаем Получение Данных
             BlForWidgetErrors blwid=new BlForWidgetErrors(buildContext:context, logger:logger);
@@ -95,3 +105,5 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
 
 
 }
+
+
