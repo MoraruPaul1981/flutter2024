@@ -33,14 +33,6 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-
-
-
-
-
-
-
-
            Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
@@ -64,14 +56,8 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
               ),
             ),
       //TODO END ROW1
-
-
-
-
-
           //TODO END ALL  ROWs
             ],
-
           ),
 
 
@@ -82,6 +68,7 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
         child: FloatingActionButton (
           onPressed: () {
             BlForWidgetErrors blwid=BlForWidgetErrors(context, logger);
+            blwid.getRereceiptData();
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
           backgroundColor: Colors.red,

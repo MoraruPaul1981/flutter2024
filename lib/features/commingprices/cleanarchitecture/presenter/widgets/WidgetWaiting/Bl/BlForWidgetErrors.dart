@@ -9,7 +9,7 @@ class BlForWidgetErrors implements IntarfaceBL {
   BuildContext buildContext;
   Logger logger;
 
-  BlForWidgetErrors(this.buildContext,this.logger);
+  BlForWidgetErrors({required this.buildContext, required this.logger});
 
   @override
   void getRereceiptData( ) {
