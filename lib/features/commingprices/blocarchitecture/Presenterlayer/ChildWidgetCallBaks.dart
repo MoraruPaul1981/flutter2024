@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../data/entities/Entities1CMap.dart';
-import 'ChildWidgetSuccessData.dart';
-import 'ChildWidgetProccingDefault.dart';
-import 'ChildWidgetProccerWaiting.dart';
-import 'ChildWidgetWaitingDontData.dart';
-import 'ChildWidgetProccingError.dart';
-import 'Intarface/IntarfaceCallBaksWidgets.dart';
+import '../data/entities/Entities1CMap.dart';
+import 'widgets/WidgetWaiting/ChildWidgetSuccessData.dart';
+import 'widgets/WidgetWaiting/ChildWidgetProccingDefault.dart';
+import 'widgets/WidgetWaiting/ChildWidgetProccerWaiting.dart';
+import 'widgets/WidgetWaiting/ChildWidgetWaitingDontData.dart';
+import 'widgets/WidgetWaiting/ChildWidgetProccingError.dart';
+import 'widgets/WidgetWaiting/Intarface/IntarfaceCallBaksWidgets.dart';
 
 
 

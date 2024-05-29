@@ -8,13 +8,13 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-import '../../../domain/businesslogic/Interfaces/InterfacePings.dart';
-import '../../../domain/businesslogic/adressJboss/getAdress.dart';
-import '../../../domain/businesslogic/converts/GetConverts.dart';
-import '../../../domain/businesslogic/decoding/getDecodingCallback.dart';
-import '../../entities/Entities1CMap.dart';
-import 'FuturesGetSelfData.dart';
-import 'InterfacesFuture/InterfaceFutures/InterfaceFuture.dart';
+import '../../domain/businesslogic/Interfaces/InterfacePings.dart';
+import '../../domain/businesslogic/adressJboss/getAdress.dart';
+import '../../domain/businesslogic/converts/GetConverts.dart';
+import '../../domain/businesslogic/decoding/getDecodingCallback.dart';
+import '../entities/Entities1CMap.dart';
+import 'Futures/FuturesGetSelfData.dart';
+import 'Futures/InterfacesFuture/InterfaceFutures/InterfaceFuture.dart';
 
 class FutureGetPing implements InterfacePings ,InterfaceFutureResponse,InterfaceCallBack {
   //TODO

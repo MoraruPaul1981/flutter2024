@@ -11,7 +11,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
 import 'ChildWidgetSuccessData.dart';
-import 'ChildWidgetCallBaks.dart';
+import '../../ChildWidgetCallBaks.dart';
 import 'Bl/BlForWidgetErrors.dart';
 import 'Bl/GetAntimations.dart';
 import 'ParentWidgetStateful.dart';

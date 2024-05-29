@@ -6,7 +6,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
 import '../../../data/remote/Futures/FutureGetPing.dart';
-import 'ChildWidgetCallBaks.dart';
+import '../../ChildWidgetCallBaks.dart';
 
 
 
