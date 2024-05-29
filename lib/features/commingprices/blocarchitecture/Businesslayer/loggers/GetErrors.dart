@@ -6,7 +6,7 @@
 import 'package:logger/logger.dart';
 
 import '../../../../../../main.dart';
-import 'InterfacegetError.dart';
+import '../Interfaces/InterfacegetError.dart';
 
 
 

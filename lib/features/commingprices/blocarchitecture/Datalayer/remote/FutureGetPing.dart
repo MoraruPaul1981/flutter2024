@@ -8,13 +8,15 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-import '../../domain/businesslogic/Interfaces/InterfacePings.dart';
-import '../../domain/businesslogic/adressJboss/getAdress.dart';
-import '../../domain/businesslogic/converts/GetConverts.dart';
-import '../../domain/businesslogic/decoding/getDecodingCallback.dart';
+import '../../Businesslayer/Interfaces/InterfaceFuture.dart';
+import '../../Businesslayer/Interfaces/InterfacePings.dart';
+import '../../Businesslayer/adressJboss/getAdress.dart';
+import '../../Businesslayer/converts/GetConverts.dart';
+import '../../Businesslayer/decoding/getDecodingCallback.dart';
 import '../entities/Entities1CMap.dart';
-import 'Futures/FuturesGetSelfData.dart';
-import 'Futures/InterfacesFuture/InterfaceFutures/InterfaceFuture.dart';
+import 'FuturesGetSelfData.dart';
+
+
 
 class FutureGetPing implements InterfacePings ,InterfaceFutureResponse,InterfaceCallBack {
   //TODO
@@ -23,7 +25,7 @@ late Logger logger;
 
 
   @override
-  Future<List<Map<String, List<Entities1CMap>>>>? getResponse1c({ required BuildContext context, required Logger logger})  async {
+  Future<List<Map<String, List<Entities1CMap>>>> getResponse1c({ required BuildContext context, required Logger logger})  async {
     // TODO: implement getJson1cPing
    late  Completer<List<Map<String, List<Entities1CMap>>>> completer=Completer.sync();
     try {
@@ -223,9 +225,9 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 //TODO PING
   @override
-   String?   getComplitingResponsePing(    Response backresponsejboss)   {
+   String  getComplitingResponsePing(    Response backresponsejboss)   {
     // TODO: implement getCompletePing
-    String?  getCallPing1c;
+    var  getCallPing1c;
     try{
       print('getComplete $backresponsejboss');
       //TODO
@@ -234,7 +236,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
         //TODO realy ping
         print(' then backresponsejboss. contentLength $backresponsejboss.contentLength');
         //TODO PING
-        getCallPing1c= getDecodingCallback().getResponseDecoderPing(response1C: backresponsejboss)    ;
+        getCallPing1c= getDecodingCallback().getResponseDecoderPing(response1C: backresponsejboss) as String    ;
 
         print('getCallPing1c $getCallPing1c');
     logger.i('start getCallPing1c ..  '+getCallPing1c.toString()+'' );
@@ -262,7 +264,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
       //TODO base64
-      final   String? basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
+        String? basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
 
       print(' basicAuth  $basicAuth');
 
@@ -306,7 +308,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 
   @override
-   Future<String?>  getCompetePing( Response backresponsejboss, Logger logger)  async   {
+   Future<String>  getCompetePing( Response backresponsejboss, Logger logger)  async   {
     // TODO: implement getCompetePing
 
     logger.i('start backresponsejboss ..  '+backresponsejboss.toString()+'' );

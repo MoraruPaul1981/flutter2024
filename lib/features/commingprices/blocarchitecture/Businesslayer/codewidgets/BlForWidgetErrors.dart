@@ -1,11 +1,13 @@
 
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-import '../Intarface/IntarfaceBLWidgets.dart';
-import '../ParentWidgetStateful.dart';
+
+import '../../Presenterlayer/ParentWidgetStateful.dart';
+import '../Interfaces/IntarfaceBLWidgets.dart';
 
 
-class BlForWidgetErrors implements IntarfaceBL {
+
+class BlForWidgetErrors implements IntarfaceBLWidgets {
 
   BuildContext buildContext;
   Logger logger;

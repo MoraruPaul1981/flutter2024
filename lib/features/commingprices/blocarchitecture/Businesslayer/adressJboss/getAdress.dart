@@ -2,7 +2,7 @@
 
 
 import '../const/Сonstants.dart';
-import 'InFuture.dart';
+import '../Interfaces/InAdressJboss.dart';
 
 ////TODO jboss  ////TODO jboss ////TODO jboss ////TODO jboss
 

@@ -1,12 +1,14 @@
 
+import 'package:dart_json_mapper/dart_json_mapper.dart';
+
+import '../../Businesslayer/Interfaces/InterfaceEntities1CMap.dart';
 
 
 
 
 
 
-import '../../domain/businesslogic/Interfaces/InterfaceEntities1CMap.dart';
-
+@JsonSerializable()
 class Entities1CMap implements InterfaceEntities1CMap{
   //TODO main varible
   String?   CFO    ;
@@ -59,7 +61,7 @@ Entities1CMap(
   }
 
   @override
-Map<String, List<Entities1CMap>> loopGeneratorMapPolo({required Map<String, dynamic> json}) {
+  Map<String, List<Entities1CMap>> loopGeneratorMapPolo({required Map<String, dynamic> json}) {
     // TODO: implement fromJsondynamic
    late  Map<String, List<Entities1CMap>> returnMap=   Map<String, List<Entities1CMap>>();
 

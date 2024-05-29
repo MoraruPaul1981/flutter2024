@@ -10,11 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
+import '../../Businesslayer/Interfaces/InterfaceFuture.dart';
+import '../../Businesslayer/converts/GetConverts.dart';
+import '../../Businesslayer/decoding/getDecodingCallback.dart';
+import '../entities/Entities1CMap.dart';
 
-import '../../../domain/businesslogic/converts/GetConverts.dart';
-import '../../../domain/businesslogic/decoding/getDecodingCallback.dart';
-import '../../entities/Entities1CMap.dart';
-import 'InterfacesFuture/InterfaceFutures/InterfaceFuture.dart';
 
 
 
@@ -29,7 +29,7 @@ class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelf
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
       //TODO base64
-      final   String? basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
+      final   String basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
 
       print(' basicAuth  $basicAuth');
 
