@@ -60,7 +60,7 @@ class WidgetCallBaks   implements IntarfaceCallBaks {
     required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,required  Logger logger}){
 //TODO
     logger.i("starting  getWidgetProccingError $snapshot.error.toString()");
-    IntarfaceWaiting  intarfaceWaiting  = GetWidgetWaitingErrors();
+    IntarfaceWaiting  intarfaceWaiting  = GetWidgetWaitingErrors(logger);
 
     return intarfaceWaiting.getWidgetWaitingPing(context: context,
         snapshot: snapshot,
