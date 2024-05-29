@@ -9,20 +9,30 @@ import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
-import 'Intarface/IntarfaceWaiting.dart';
+import 'Intarface/IntarfaceDefalut.dart';
+
 
 
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class GetWidgetDefault  implements   IntarfaceWaiting {
+class WidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
 
-  //TODO Виджет ожидание пипнга от сервера 1С
   @override
-  Widget getWidgetWaitingPing({required BuildContext context,
-    required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,
-    required Color alwaysStop,required String currentText}){
-    ////TODO сам виджет
+  Color alwaysStop;
+
+  @override
+  BuildContext context;
+
+  @override
+  String currentText;
+
+  @override
+  AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
     return new Scaffold(
       backgroundColor: Colors.grey[200],
       body: Column(
@@ -48,17 +58,17 @@ class GetWidgetDefault  implements   IntarfaceWaiting {
                   padding: EdgeInsets.all(2.0),
                   child:
 
-                    AnimatedTextKit(
-                        animatedTexts: [
-                          ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
-                              colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
-                            ,
-                      pause: Duration(microseconds: 1),
-                      isRepeatingAnimation: true,
-                      repeatForever: false,
-                    ),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
+                          colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
+                    ,
+                    pause: Duration(microseconds: 1),
+                    isRepeatingAnimation: true,
+                    repeatForever: false,
+                  ),
                 ),
               ),
 
@@ -69,32 +79,32 @@ class GetWidgetDefault  implements   IntarfaceWaiting {
 
           Visibility(
             visible: false,
-           child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    margin: new EdgeInsets.only(left: 5,top: 80,right: 5,bottom: 5),
-                    height: 40,
-                    width: 40,
-                    // color: Colors.red,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200], //assign either here or to the container
-                      borderRadius: BorderRadius.circular(24),),
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child:  Theme(
-                        data: Theme.of(context).copyWith(hintColor: Colors.white),
-                        child: CircularProgressIndicator(
-                            strokeWidth: 4.0,
-                            backgroundColor: Colors.grey,
-                            valueColor: AlwaysStoppedAnimation<Color>(alwaysStop)),
-                      ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: new EdgeInsets.only(left: 5,top: 80,right: 5,bottom: 5),
+                  height: 40,
+                  width: 40,
+                  // color: Colors.red,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200], //assign either here or to the container
+                    borderRadius: BorderRadius.circular(24),),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child:  Theme(
+                      data: Theme.of(context).copyWith(hintColor: Colors.white),
+                      child: CircularProgressIndicator(
+                          strokeWidth: 4.0,
+                          backgroundColor: Colors.grey,
+                          valueColor: AlwaysStoppedAnimation<Color>(alwaysStop)),
                     ),
                   ),
+                ),
 
-                ],
-              ),
-         ),
+              ],
+            ),
+          ),
 
 
 
@@ -142,6 +152,10 @@ class GetWidgetDefault  implements   IntarfaceWaiting {
     );
   }
 
+
+//TODO: конструктор
+  WidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop,
+      this.currentText) :super (key:key);
 
 
 

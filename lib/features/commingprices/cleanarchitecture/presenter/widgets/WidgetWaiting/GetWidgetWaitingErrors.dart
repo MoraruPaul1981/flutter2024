@@ -5,13 +5,17 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/scheduler/binding.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../data/entities/Entities1CMap.dart';
+import '../WidgetAllSuccess/WidgetSuccessData.dart';
+import '../WidgetCallBacks/WidgetCallBaks.dart';
 import 'Bl/BlForWidgetErrors.dart';
 import 'Bl/GetAntimations.dart';
-import 'Intarface/IntarfaceWaiting.dart';
+import 'StarStateStatefulWidgets.dart';
+import 'StarStateStatefulWidgets.dart';
 
 
 
@@ -78,9 +82,22 @@ class GetWidgetWaitingErrors  implements   IntarfaceWaiting {
           highlightElevation: 50,
           onPressed: () {
             //TODO: при нажатии перезапускаем Получение Данных
-            BlForWidgetErrors blwid=new BlForWidgetErrors(buildContext:context, logger:logger);
+            /*BlForWidgetErrors blwid=new BlForWidgetErrors(buildContext:context, logger:logger);
             blwid.getRereceiptData();
-            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
+            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
+
+/*
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetCallBaks( )));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetSuccessData( )));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => getWidgetWaitingPing(context: context, snapshot: snapshot, alwaysStop: null, currentText: '' )));
+
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => WidgetStarWaiting(logger: logger ),
+    ));
+    */
+
           },
           backgroundColor: Colors.red,
           tooltip: 'Повторное получение !!!',

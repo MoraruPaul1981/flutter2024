@@ -15,10 +15,10 @@ import '../WidgetCallBacks/WidgetCallBaks.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class WidgetStarWaiting extends State<StatefulWidgetCommingPrices> {
+class StarStateStatefulWidgets extends State<StatefulWidgetCommingPrices> {
   Logger logger;
   //TODO json data
-  WidgetStarWaiting({ required this.logger } );
+  StarStateStatefulWidgets({ required this.logger } );
 
   @override
   Widget build(BuildContext context) {

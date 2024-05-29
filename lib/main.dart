@@ -1,4 +1,4 @@
-import 'package:commintprices/features/commingprices/cleanarchitecture/presenter/widgets/WidgetWaiting/WidgetStarWaiting.dart';
+import 'package:commintprices/features/commingprices/cleanarchitecture/presenter/widgets/WidgetWaiting/StarStateStatefulWidgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -189,7 +189,7 @@ class StatefulWidgetCommingPrices extends StatefulWidget {
   State<StatefulWidgetCommingPrices> createState() => WidgetPhoneMail();*/////
 
   //TODO Comming Prices
-  State<StatefulWidgetCommingPrices> createState() => WidgetStarWaiting( logger: logger);//TODO//
+  State<StatefulWidgetCommingPrices> createState() => StarStateStatefulWidgets( logger: logger);//TODO//
   //TODO
 
   //TODO ENDING widget
