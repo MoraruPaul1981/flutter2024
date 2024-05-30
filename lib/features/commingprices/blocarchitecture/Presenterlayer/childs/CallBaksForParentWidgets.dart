@@ -5,13 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../data/entities/Entities1CMap.dart';
-import '../widgets/WidgetWaiting/ChildWidgetSuccessData.dart';
-import '../widgets/WidgetWaiting/ChildWidgetProccingDefault.dart';
-import '../widgets/WidgetWaiting/ChildWidgetProccerWaiting.dart';
-import '../widgets/WidgetWaiting/ChildWidgetWaitingDontData.dart';
-import '../widgets/WidgetWaiting/ChildWidgetProccingError.dart';
-import '../widgets/WidgetWaiting/Intarface/IntarfaceCallBaksWidgets.dart';
+
 
 
 
@@ -21,7 +15,7 @@ import '../widgets/WidgetWaiting/Intarface/IntarfaceCallBaksWidgets.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class ChildWidgetCallBaks   implements IntarfaceCallBaksWidgets {
+class CallBaksForParentWidgets   implements IntarfaceCallBaksWidgets {
 
 
   ///TODO  методы ожидания
