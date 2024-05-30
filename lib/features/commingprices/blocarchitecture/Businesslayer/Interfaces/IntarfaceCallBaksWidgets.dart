@@ -24,3 +24,13 @@ abstract  class IntarfaceChildGetWidgetWaitingErrors {
 
 
 }
+abstract  class IntarfaceChildWidgetSuccessData {
+
+  //TODO переменные
+  late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>>  snapshot;
+  late Logger   logger;
+  late   List<Map<String, List<Entities1CMap>>>   receiveddatafromC1;
+  late BuildContext context;
+
+
+}

@@ -7,11 +7,7 @@ import '../../Datalayer/entities/Entities1CMap.dart';
 
 
 abstract  class IntafaceTransformationSuccessData {
-  //TODO переменные
-    late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>>  snapshot;
-     late Logger   logger;
-    late   List<Map<String, List<Entities1CMap>>>   receiveddatafromC1;
-    late BuildContext context;
+
 //TODO
   List<Map<String, List<Entities1CMap>>> firstTransformationionofincomingData({required  AsyncSnapshot<List<Map<String,
       List<Entities1CMap>>>> snapshot, required Logger logger});

@@ -8,22 +8,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Businesslayer/Interfaces/IntafaceSuccessData.dart';
+import '../../Businesslayer/Interfaces/IntafaceTransformationSuccessData.dart';
+import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
 
 
 
 
-class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTransformationSuccessData {
+class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChildWidgetSuccessData  {
 
   @override
-  late Logger logger;
+  BuildContext context;
+
   @override
-  late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot;
+  Logger logger;
+
   @override
-  late BuildContext context;
+  List<Map<String, List<Entities1CMap>>> receiveddatafromC1;
+
   @override
-  late List<Map<String, List<Entities1CMap>>> receiveddatafromC1;
+  AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot;
 
 //TODO: конструктор
   ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
@@ -360,6 +364,8 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTrans
     }
     return getCfo ;
   }
+
+
 
 
 }
