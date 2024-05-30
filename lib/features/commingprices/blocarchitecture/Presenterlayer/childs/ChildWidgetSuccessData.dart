@@ -3,12 +3,10 @@
 
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Businesslayer/Interfaces/IntafaceTransformationSuccessData.dart';
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
 import '../../Businesslayer/codewidgets/Bl_ChildWidgetSuccessData.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
@@ -33,6 +31,8 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
 //TODO: конструктор
   ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
 
+
+  //TODO: бизнес-логика
  late Bl_ChildWidgetSuccessData bl_childWidgetSuccessData ;
 
 
@@ -40,12 +40,13 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
   Widget build(BuildContext context) {
     // TODO: implement build
     logger.i('snapshot ..  '+snapshot.toString()+'' );
+
 //TODO: ссылка на бизнес код для успешного создание
-    bl_childWidgetSuccessData=new Bl_ChildWidgetSuccessData(logger  );
+    bl_childWidgetSuccessData=new Bl_ChildWidgetSuccessData(logger:logger  );
 
     //TODO первая трансформацйия пришедших Данных
-    receiveddatafromC1= firstTransformationionofincomingData( snapshot: snapshot,logger: logger);
-    logger.i('receiveddatafromC1 ..  '+receiveddatafromC1!.length.toString() );
+    receiveddatafromC1=bl_childWidgetSuccessData. firstTransformationionofincomingData( snapshot: snapshot,logger: logger);
+    logger.i('receiveddatafromC1 ..  '+receiveddatafromC1.length.toString() );
 
     ////TODO сам виджет
     return Scaffold(
@@ -117,15 +118,15 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
                     //TODO get Получаем данные для Заполения LustView
 
                     //TODO вторая трасформайция пришедших данных
-                    Map<String, List<Entities1CMap>>   getsecondConversionData=secondConversionData(receiveddatafromC1:receiveddatafromC1,logger: logger,index:index);
+                    Map<String, List<Entities1CMap>>   getsecondConversionData=bl_childWidgetSuccessData.secondConversionData(receiveddatafromC1:receiveddatafromC1,logger: logger,index:index);
                     logger.i('getsecondConversionData ..  '+getsecondConversionData!.length.toString() );
 
                     //TODO третья  трасформайция пришедших данных
-                    List<Entities1CMap> getthirdtransformationData= thirdtransformationData( thirdtransformationData:getsecondConversionData, logger:logger ,index:index);
+                    List<Entities1CMap> getthirdtransformationData= bl_childWidgetSuccessData.thirdtransformationData( thirdtransformationData:getsecondConversionData, logger:logger ,index:index);
                     logger.i('getthirdtransformationData ..  '+getthirdtransformationData!.length.toString() );
 
                     //TODO четвертая  трасформайция пришедших данных
-                    String? getfourthtransformation= fourthtransformation(  getfourthtransformation:getthirdtransformationData,logger:logger);
+                    String? getfourthtransformation= bl_childWidgetSuccessData.fourthtransformation(  getfourthtransformation:getthirdtransformationData,logger:logger);
                     logger.i('getfourthtransformation ..  '+getfourthtransformation!.length.toString() );
 
 

@@ -21,7 +21,7 @@ class Bl_ChildWidgetSuccessData implements IntafaceTransformationSuccessData,Int
 
 
 //TODO: конструктор для бизнес логики усершного получение данных
-  Bl_ChildWidgetSuccessData(  this.logger);
+  Bl_ChildWidgetSuccessData({ required this.logger});
 
 
   @override
