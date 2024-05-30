@@ -40,7 +40,7 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWid
 
 
          //TODO starting UI
-         runApp(  startingwidgetCommingPrices(  logger: logger));
+         runApp(  CommingPricesStatelessWidget(  logger: logger));
 
          logger.i('start value ..  ');
          return logger;
@@ -54,11 +54,11 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWid
   }
 
 ///TODO UI
-class startingwidgetCommingPrices extends StatelessWidget {
+class CommingPricesStatelessWidget extends StatelessWidget {
 //TODO log
   Logger logger;
 //TODO cunstructor
-     startingwidgetCommingPrices( { required this.logger,super.key});
+     CommingPricesStatelessWidget( { required this.logger,super.key});
 
 
 
@@ -70,7 +70,7 @@ class startingwidgetCommingPrices extends StatelessWidget {
       ),
 
       debugShowCheckedModeBanner: false,
-      home:   WidgetStateful(logger),
+      home:   WidgetStateful(logger, key),
     );
   }
 
@@ -78,7 +78,8 @@ class startingwidgetCommingPrices extends StatelessWidget {
 
 class WidgetStateful extends StatefulWidget {
   Logger logger;
-    WidgetStateful(this. logger,{super.key});
+  Key? key;
+    WidgetStateful(this. logger,this.key);
   @override
 /*  //TODO widget ROW
   State<StatefulWidgetCommingPrices> createState() => WidgetRow();*////TODO

@@ -12,6 +12,8 @@ import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
 import '../../Businesslayer/animations/GetAntimations.dart';
+import '../parents/ParentWidgetStateful.dart';
+import 'ChildWidgetDefault.dart';
 
 
 
@@ -110,6 +112,21 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
             builder: (context) => WidgetStarWaiting(logger: logger ),
     ));
     */
+            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
+
+          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetStateful( logger,key )));
+          //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => CommingPricesStatelessWidget( key: key,  logger: logger )));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));
+
+  /*  Navigator.push(context,
+       MaterialPageRoute(builder: (context)=>WidgetStateful( );*/
+
+/*    Navigator.push(
+        context,
+        MaterialPageRoute(
+        builder: (context) => ChildWidgetDefault(super.key,logger: logger, context: null, snapshot: null, alwaysStop: null, currentText: '', )
+            ));*/
+
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
           backgroundColor: Colors.red,
