@@ -3,6 +3,7 @@
 
 import '../const/Сonstants.dart';
 import '../Interfaces/InAdressJboss.dart';
+import '../errors/Errors.dart';
 
 ////TODO jboss  ////TODO jboss ////TODO jboss ////TODO jboss
 

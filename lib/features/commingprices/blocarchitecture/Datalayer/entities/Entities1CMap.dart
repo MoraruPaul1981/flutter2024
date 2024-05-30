@@ -2,6 +2,7 @@
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 
 import '../../Businesslayer/Interfaces/InterfaceEntities1CMap.dart';
+import '../../Businesslayer/errors/Errors.dart';
 
 
 

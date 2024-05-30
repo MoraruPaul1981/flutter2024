@@ -13,6 +13,7 @@ import 'package:logger/logger.dart';
 import '../../Businesslayer/Interfaces/InterfaceFuture.dart';
 import '../../Businesslayer/converts/GetConverts.dart';
 import '../../Businesslayer/decoding/getDecodingCallback.dart';
+import '../../Businesslayer/errors/Errors.dart';
 import '../entities/Entities1CMap.dart';
 
 

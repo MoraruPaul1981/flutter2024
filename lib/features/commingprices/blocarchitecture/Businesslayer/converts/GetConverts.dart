@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 import '../Interfaces/InGetConverts.dart';
+import '../errors/Errors.dart';
 
 
 

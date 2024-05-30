@@ -14,6 +14,8 @@ abstract  class InterfaceError {
 //TODO: writerError
   void writerError( {required Exception e, required StackTrace stacktrace  } ) ;
 
+//TODO: writerError
+  void writerErrorBig(BuildContext  context,  Logger logger,  {required Exception e, required StackTrace stacktrace}      ) ;
 
 
 }

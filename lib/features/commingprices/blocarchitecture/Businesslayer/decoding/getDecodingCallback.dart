@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:http/src/response.dart';
 import 'package:logger/logger.dart';
 import '../Interfaces/InterfaceDecoding.dart';
+import '../errors/Errors.dart';
 
 
 class  getDecodingCallback implements InterfaceDecoding{

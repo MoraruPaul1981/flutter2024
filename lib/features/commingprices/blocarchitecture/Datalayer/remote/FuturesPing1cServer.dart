@@ -13,6 +13,7 @@ import '../../Businesslayer/Interfaces/InterfacePings.dart';
 import '../../Businesslayer/adressJboss/getAdress.dart';
 import '../../Businesslayer/converts/GetConverts.dart';
 import '../../Businesslayer/decoding/getDecodingCallback.dart';
+import '../../Businesslayer/errors/Errors.dart';
 import '../entities/Entities1CMap.dart';
 import 'FuturesDataFrom1cServer.dart';
 
