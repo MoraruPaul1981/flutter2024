@@ -6,19 +6,12 @@ import 'package:logger/logger.dart';
 import '../Interfaces/InterfaceError.dart';
 
 class Errors implements InterfaceError  {
-  @override
-  late BuildContext context;
 
-  @override
-  late Logger logger;
-
- 
   //TODO: конструктор для бизнес логики усершного получение данных
-  Errors({ required this.logger,required this.context});
-
+  Errors( );
 
   @override
-  void writerError({required String message, required Object ext}) {
+  void writerError({required String message, required Object ext, required BuildContext context, required Logger logger}) {
     // TODO: implement writerError
     try {
       Future.microtask(()=>logger.i( 'ERROR writerError .. $message  ext ....$ext '));
@@ -26,6 +19,17 @@ class Errors implements InterfaceError  {
       print(e);
     }
   }
+
+  @override
+  void writerErrorSimple({required String message, required Object ext}) {
+    // TODO: implement writerErrorSimple
+    try {
+      Future.microtask(()=>print( 'ERROR writerError .. $message  ext ....$ext '));
+    } catch (e) {
+      print(e);
+    }
+  }
+
 
 
 
