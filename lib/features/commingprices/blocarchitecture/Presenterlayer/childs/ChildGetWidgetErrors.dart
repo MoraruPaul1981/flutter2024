@@ -110,7 +110,7 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
             builder: (context) => WidgetStarWaiting(logger: logger ),
     ));
     */
-
+            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
           backgroundColor: Colors.red,
           tooltip: 'Повторное получение !!!',

@@ -2,28 +2,35 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 
+import '../Injections/InjectionDependency.dart';
 
 
-class BI_ChildWidgetProccingError  {
+
+class BI_ChildWidgetError  {
 
   BuildContext buildContext;
   Logger logger;
 
-  BI_ChildWidgetProccingError({required this.buildContext, required this.logger});
+  BI_ChildWidgetError({required this.buildContext, required this.logger});
 
-  @override
+
+  //TODO: metod1
   void getRereceiptData( ) {
     try{
-    // TODO: implement getRereceiptData
-      logger.i('context..  '+buildContext.toString()+'' );
-
       //ParentWidgetStateful( logger: logger);
+      print('getRereceiptData');
 
     //TODO error
   }   catch (e, stacktrace) {
   print(' get ERROR $e get stacktrace $stacktrace ');
 }
   }
+
+
+
+
+
+
 
 
 }

@@ -10,7 +10,7 @@ import '../Interfaces/InterfacegetError.dart';
 
 
 
-class GetErros  implements InterfaceGetError {
+class GetLogger  implements InterfaceLogger {
 
 
 

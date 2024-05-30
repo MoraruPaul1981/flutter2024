@@ -3,7 +3,7 @@
 //TODO  абстрантыный метод для Ошибок
 import 'package:logger/logger.dart';
 
-abstract class InterfaceGetError{
+abstract class InterfaceLogger{
 
  Logger  loggers();
 

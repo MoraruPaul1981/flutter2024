@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetErrors.dart';
+import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWidgetStateful.dart';
 
 
@@ -32,7 +32,7 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWid
     try {
 
        //TODO int LOGGER
-       GetErros().getFuturelogger()
+       GetLogger().getFuturelogger()
            .then((logger) {
          //TODO then
          logger as Logger;
