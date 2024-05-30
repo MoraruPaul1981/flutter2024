@@ -1,25 +1,14 @@
-
-
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:commintprices/features/commingprices/blocarchitecture/Datalayer/entities/Entities1CMap.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
-
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
 
 
-
-
-
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetDontData   extends   StatelessWidget  implements   IntarfaceChildWidgetDontData {
-
+class ChildWidgetNasData   extends   StatelessWidget  implements   IntarfaceChildWidgetNasData {
 
   //TODO: переменные
-  @override
-  Color alwaysStop;
-
   @override
   BuildContext context;
 
@@ -34,9 +23,8 @@ class ChildWidgetDontData   extends   StatelessWidget  implements   IntarfaceChi
 
 
   //TODO: конструктор
-  ChildWidgetDontData(Key? key,
-      {required this.alwaysStop,
-      required this.context,
+  ChildWidgetNasData(Key? key,
+      {required this.context,
       required this.currentText,
       required this.snapshot,
       required this.logger}) :super (key:key);

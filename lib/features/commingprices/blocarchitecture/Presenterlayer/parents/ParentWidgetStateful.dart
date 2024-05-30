@@ -6,6 +6,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../Datalayer/entities/Entities1CMap.dart';
 import '../../Datalayer/remote/FutureGetPing.dart';
+import '../childs/ChildWidgetNasData.dart';
 import '../childs/ChildWidgetWaiting.dart';
 
 
@@ -36,7 +37,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
     late Widget widgetWatingCallBack;
 
 
-   ///TODO возращаем call back
+   ///TODO FutureBuilder
     return FutureBuilder<List<Map<String, List<Entities1CMap>>>>(
       //TODO get JSON PING ot 1C
       future:   FutureGetPing(). getResponse1c(context:context, logger: logger),
@@ -45,7 +46,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
         ////TODO В  waiting
         if (snapshot.connectionState == ConnectionState.waiting) {
           //TODO Возврат по Ожидания
-          widgetWatingCallBack =   ChildWidgetWaiting(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger,);
+          widgetWatingCallBack =   ChildWidgetWaiting(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
           logger.i('napshot.connectionState$snapshot.connectionState');
           //TODO return
           return widgetWatingCallBack;
@@ -64,12 +65,10 @@ class ParentWidgetStateful extends State<WidgetStateful> {
 
             ///TODO пришол ПИНГ УСпешный
             if (   snapshot.hasData && isArray.length>0) {
-
+              //TODO Возврат Данные ПРИШЛИ
+              widgetWatingCallBack =   ChildWidgetNasData(key,context:context,currentText:"Данных нет !!!",snapshot:snapshot,logger:logger);
               logger.i('snapshot.hasData...$snapshot.hasData'+'isArray.length...$isArray.length'
                   +'napshot.connectionState$snapshot.connectionState');
-
-              //TODO ПРИШЛИ ДАННЫЕ
-              widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingNasData(   context:context,   snapshot:snapshot,logger:logger);
               //TODO return ERROR
               return widgetWatingCallBack;
 
