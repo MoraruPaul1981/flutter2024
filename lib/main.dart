@@ -1,11 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetErrors.dart';
-import 'features/commingprices/blocarchitecture/Presenterlayer/ParentWidgetStateful.dart';
-
-
+import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWidgetStateful.dart';
 
 
 
@@ -56,105 +53,6 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/ParentWidgetState
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///TODO UI
 class startingwidgetCommingPrices extends StatelessWidget {
 //TODO log
@@ -188,7 +86,7 @@ class WidgetStateful extends StatefulWidget {
   State<StatefulWidgetCommingPrices> createState() => WidgetPhoneMail();*/////
 
   //TODO Comming Prices
-  State<WidgetStateful> createState() => ParentWidgetStateful( logger: logger);
+  State<WidgetStateful> createState() => ParentWidgetStateful(key:key, logger: logger);
   //TODO ENDING widget
 }
 

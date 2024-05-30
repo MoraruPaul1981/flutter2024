@@ -22,9 +22,6 @@ import '../../Businesslayer/animations/GetAntimations.dart';
 class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChildWidgetErrors {
 
   @override
-  Color alwaysStop;
-
-  @override
   BuildContext context;
 
   @override
@@ -38,8 +35,7 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
 
   //TODO: конструктор
   ChildGetWidgetErrors( Key? key,
-      {required this.alwaysStop,
-      required this.context,
+      {required this.context,
       required this.currentText,
       required this.snapshot,
       required this.logger}) :super (key:key);

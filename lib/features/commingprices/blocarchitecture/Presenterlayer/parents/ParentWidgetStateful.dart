@@ -6,6 +6,8 @@ import 'package:logger/src/logger.dart';
 
 import '../../Datalayer/entities/Entities1CMap.dart';
 import '../../Datalayer/remote/FutureGetPing.dart';
+import '../childs/ChildGetWidgetErrors.dart';
+import '../childs/ChildWidgetDefault.dart';
 import '../childs/ChildWidgetNasData.dart';
 import '../childs/ChildWidgetSuccessData.dart';
 import '../childs/ChildWidgetWaiting.dart';
@@ -81,7 +83,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
               //TODO   Данных  нет
               widgetWatingCallBack =   ChildWidgetNasData(key,context:context,currentText:"Данных нет !!!",snapshot:snapshot,logger:logger);
 
-              logger.i('snapshot.hasData...$snapshot.hasData'+'isArray.length...$isArray.length'
+              logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length...$receiveddatafromC1.length'
                   +'napshot.connectionState$snapshot.connectionState');
               //TODO return ERROR
               return widgetWatingCallBack;
@@ -92,14 +94,11 @@ class ParentWidgetStateful extends State<WidgetStateful> {
 
 
 
-       //TODO: пришла ошибка и показываем её
+       //TODO: ERROR
           }else{
-            ///TODO сгенерировальсь Error
-              //TODO когда ест данные
-              logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
-              //TODO Возврат по умолчанию
-              widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingError( context:context,   snapshot:snapshot,logger:logger);
-              //TODO return ERROR
+            //TODO   ERROR
+            widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
+            logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length. $snapshot.connectionState');
               return widgetWatingCallBack;
           }
 
@@ -107,11 +106,9 @@ class ParentWidgetStateful extends State<WidgetStateful> {
         }else{
           ///TODO сгенерировальсь Error
           if (snapshot.hasError) {
-            //TODO когда ест данные
-            logger.e('napshot.connectionState$snapshot.connectionState'+'snapshot.error.toString()..'+snapshot.error.toString());
-            //TODO Возврат по умолчанию
-            widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingError( context:context,   snapshot:snapshot,logger:logger);
-            //TODO return ERROR
+            //TODO   ERROR
+            widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
+            logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length. $snapshot.connectionState');
             return widgetWatingCallBack;
           }
         }
@@ -121,8 +118,8 @@ class ParentWidgetStateful extends State<WidgetStateful> {
         
         //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
-        //TODO нет пришгли  данных
-        widgetWatingCallBack = ChildWidgetCallBaks().  widgetProccingDefault(   context:context,   snapshot:snapshot,logger:logger);
+        //TODO нет DEFALUT
+        widgetWatingCallBack = ChildWidgetDefault(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
         //TODO return ERROR
         return widgetWatingCallBack;
 
