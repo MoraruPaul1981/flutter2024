@@ -16,6 +16,7 @@ import '../../Datalayer/entities/Entities1CMap.dart';
 
 class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChildWidgetSuccessData  {
 
+  //TODO:  переменные
   @override
   BuildContext context;
 
@@ -28,12 +29,14 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
   @override
   AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot;
 
+  //TODO: бизнес-логика
+  late Bl_ChildWidgetSuccessData bl_childWidgetSuccessData ;
+
+
 //TODO: конструктор
   ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
 
 
-  //TODO: бизнес-логика
- late Bl_ChildWidgetSuccessData bl_childWidgetSuccessData ;
 
 
   @override
