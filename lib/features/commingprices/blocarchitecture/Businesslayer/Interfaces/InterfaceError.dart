@@ -12,10 +12,9 @@ import 'package:logger/logger.dart';
 abstract  class InterfaceError {
 
 //TODO: writerError
-  void writerError( {required String message, required Object ext,required BuildContext context ,required Logger logger  } ) ;
+  void writerError( {required Exception e, required StackTrace stacktrace  } ) ;
 
-  //TODO: writerErrorSimple
-  void writerErrorSimple( {required String message, required Object ext } ) ;
+
 
 }
 

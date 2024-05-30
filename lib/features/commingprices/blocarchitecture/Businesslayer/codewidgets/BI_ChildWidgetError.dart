@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 
 import '../../../../../main.dart';
 import '../Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
+import '../errors/Errors.dart';
 
 
 
@@ -31,6 +32,9 @@ class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
 

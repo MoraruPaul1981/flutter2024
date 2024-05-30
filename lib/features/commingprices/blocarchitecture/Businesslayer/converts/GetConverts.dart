@@ -26,8 +26,12 @@ import '../Interfaces/InGetConverts.dart';
       // TODO
       print('basicAuthbyte64 $basicAuthbyte64');
       //TODO error
+
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return basicAuthbyte64;
@@ -50,6 +54,9 @@ import '../Interfaces/InGetConverts.dart';
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return basicAuthbyte64URL;
   }

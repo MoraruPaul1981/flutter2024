@@ -65,6 +65,10 @@ late Logger logger;
       print(' get ERROR $e get stacktrace $stacktrace ');
       //TODO закрвваем Compete
       completer.completeError(stacktrace );
+      //TODO:
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return   completer.future;
   }
@@ -91,9 +95,14 @@ late Logger logger;
      getSelfDataCallBack=await  CallBackSelfData(IspingOtServer, logger,IdUser,Uuid) as  List<Map<String, List<Entities1CMap>>>;
 
           logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
-  }   catch (e, stacktrace) {
-    print(' get ERROR $e get stacktrace $stacktrace ');
-}
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+    }
+
     return getSelfDataCallBack;
   }
 
@@ -147,9 +156,14 @@ late Logger logger;
           logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
         }
 
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
+
 
     return getpingCallBack;
   }
@@ -201,9 +215,14 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
     logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
 
     //TODO
+    //TODO error
   }   catch (e, stacktrace) {
     print(' get ERROR $e get stacktrace $stacktrace ');
+    //TODO: Gradle Error
+    Errors errors=Errors();
+    errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
   }
+
 
   return  Future(() => getSelfDataCallBack) ;
 
@@ -247,9 +266,14 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       }
 
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
+
     return getCallPing1c;
   }
 
@@ -296,10 +320,15 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
       logger.i('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-    return getResponse;
+
+     return getResponse;
   }
 
 

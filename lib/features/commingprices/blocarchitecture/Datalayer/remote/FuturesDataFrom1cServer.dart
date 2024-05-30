@@ -57,8 +57,12 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
 
       logger.i('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return getResponse;
   }
@@ -109,8 +113,12 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
       //TODO
       logger.i(' response1C ..  '+response1C.toString() );
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  getJson1cSucces ; //TODO  Future.value('fg' as FutureOr<List<Map<String, List<Entities1CMap>>>>)

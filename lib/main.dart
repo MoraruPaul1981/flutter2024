@@ -16,9 +16,14 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWid
 
     print('END  void  main() ');
     //TODO error
+    //TODO error
   }   catch (e, stacktrace) {
     print(' get ERROR $e get stacktrace $stacktrace ');
+    //TODO: Gradle Error
+    Errors errors=Errors();
+    errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
   }
+
 }
 
 
@@ -46,12 +51,16 @@ import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWid
          return logger;
 
        });
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
 
-  }
+    }
 
 ///TODO UI
 class CommingPricesStatelessWidget extends StatelessWidget {

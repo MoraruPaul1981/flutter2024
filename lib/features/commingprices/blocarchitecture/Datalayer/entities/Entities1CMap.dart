@@ -190,14 +190,22 @@ Entities1CMap(
 
           //TODO    //TODO  КОНЕЦ сама СТРОЧКИ
         //TODO error
-      }   catch (e, stacktrace) {
-        print(' get ERROR $e get stacktrace $stacktrace ');
-      }
+          //TODO error
+        }   catch (e, stacktrace) {
+          print(' get ERROR $e get stacktrace $stacktrace ');
+          //TODO: Gradle Error
+          Errors errors=Errors();
+          errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+        }
       });
 
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  returnMap;
@@ -217,9 +225,13 @@ Entities1CMap(
       print('map $person1cMap'+' elementMap.key.toString()..$elementMap.key.toString()');
     }
     //TODO error
+    //TODO error
   }   catch (e, stacktrace) {
-  print(' get ERROR $e get stacktrace $stacktrace ');
-}
+    print(' get ERROR $e get stacktrace $stacktrace ');
+    //TODO: Gradle Error
+    Errors errors=Errors();
+    errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+  }
   }
 
 

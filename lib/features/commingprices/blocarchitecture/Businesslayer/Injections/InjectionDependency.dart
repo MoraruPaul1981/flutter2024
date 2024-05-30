@@ -16,8 +16,12 @@ class InjectionDependency  implements InterfaceDCI{
       print('setupSingleton');
      // locator.registerSingleton<BI_ChildWidgetError>(BI_ChildWidgetError(buildContext: null, logger: null));
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
   }

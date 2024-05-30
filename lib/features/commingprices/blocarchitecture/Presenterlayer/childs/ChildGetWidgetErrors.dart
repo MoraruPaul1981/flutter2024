@@ -97,14 +97,11 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
           focusElevation: 5,
           highlightElevation: 50,
           onPressed: () {
-
             //TODO: при нажатии перезапускаем Получение Данных
             BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
-
             //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
             biwidgeterrror.theServeristurnedRereceive();
 
-         /*   Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));*/
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
           backgroundColor: Colors.red,

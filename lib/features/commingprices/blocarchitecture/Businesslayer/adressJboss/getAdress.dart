@@ -32,8 +32,12 @@ class GetAdressJboss implements InAdressJboss{
       //TODO
       print('serverJboss .. $serverJboss');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  serverJboss;
@@ -68,8 +72,12 @@ class GetAdressJbossDebug implements InAdressJboss {
       //TODO
       print('serverJbossDebug .. $serverJbossDebug');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  serverJbossDebug;
@@ -127,8 +135,12 @@ class GetAdress1CPrices implements InAdress1C{
       //TODO
       print('serverPrices .. $serverPrices');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  serverPrices;
@@ -150,8 +162,12 @@ class GetAdress1CPricesDebug implements InAdress1C{
       //TODO
       print('serverPricesDebug .. $serverPricesDebug');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  serverPricesDebug;
@@ -184,8 +200,12 @@ class GetAdress1CPay implements InAdress1C{
       //TODO
       print('server1CPay .. $server1CPay');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  server1CPay;
@@ -206,8 +226,12 @@ class GetAdress1CPayDebug implements InAdress1C{
       //TODO
       print('serverfinalPayDebug .. $serverfinalPayDebug');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
 
     return  serverfinalPayDebug;

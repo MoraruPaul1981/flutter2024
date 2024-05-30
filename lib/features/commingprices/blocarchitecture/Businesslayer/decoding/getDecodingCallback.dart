@@ -23,8 +23,12 @@ class  getDecodingCallback implements InterfaceDecoding{
       //TODO
       print('getPing1C $getPing1C');
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return getPing1C;
   }
@@ -49,8 +53,12 @@ class  getDecodingCallback implements InterfaceDecoding{
       print('getList1cdynamic $getList1cdynamic');
       logger.i(' list ..  '+list.length.toString() );
       //TODO error
+      //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return getList1cdynamic;
 

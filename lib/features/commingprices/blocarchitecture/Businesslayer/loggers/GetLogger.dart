@@ -7,6 +7,7 @@ import 'package:logger/logger.dart';
 
 import '../../../../../../main.dart';
 import '../Interfaces/InterfacegetError.dart';
+import '../errors/Errors.dart';
 
 
 
@@ -34,6 +35,9 @@ class GetLogger  implements InterfaceLogger {
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return logger;
   }
@@ -55,6 +59,9 @@ class GetLogger  implements InterfaceLogger {
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
     return    loggerfuture ;
   }
