@@ -10,6 +10,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/IntafaceTransformationSuccessData.dart';
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
+import '../../Businesslayer/codewidgets/Bl_ChildWidgetSuccessData.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
 
 
@@ -32,12 +33,15 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
 //TODO: конструктор
   ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
 
+ late Bl_ChildWidgetSuccessData bl_childWidgetSuccessData ;
+
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     logger.i('snapshot ..  '+snapshot.toString()+'' );
-
+//TODO: ссылка на бизнес код для успешного создание
+    bl_childWidgetSuccessData=new Bl_ChildWidgetSuccessData(logger  );
 
     //TODO первая трансформацйия пришедших Данных
     receiveddatafromC1= firstTransformationionofincomingData( snapshot: snapshot,logger: logger);
@@ -281,89 +285,6 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
 
 
 
-
-
-//TODO  Первоя Трансформация ДАнных
-  @override
-  List<Map<String, List<Entities1CMap>>> firstTransformationionofincomingData(
-      {required  AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot,
-        required Logger logger}) {
-    //TODO
-    List<Map<String, List<Entities1CMap>>>   getfirstTransformationionofincomingData=[];
-    //TODO
-    if (!snapshot.hasError && snapshot.hasData) {
-      try{
-        //TODO первое получение Данных
-        getfirstTransformationionofincomingData=  snapshot.data!.cast<Map<String, List<Entities1CMap>>>().toList();
-
-        logger.i('get getfirstTransformationionofincomingData ..  '+getfirstTransformationionofincomingData.toString() );
-
-        //TODO error
-      } catch (e, stacktrace) {
-        print(' get ERROR $e get stacktrace $stacktrace ');
-      }
-    }
-    return getfirstTransformationionofincomingData;
-
-  }
-
-
-
-
-  //TODO  Вторая Трансформация ДАнных
-  @override
-  Map<String, List<Entities1CMap>> secondConversionData({
-    required List<Map<String, List<Entities1CMap>>> receiveddatafromC1,
-    required Logger logger,
-    required int index}) {
-    // TODO: implement secondConversionData
-    Map<String, List<Entities1CMap>>  getsecondConversionData={};
-    try{
-      //TODO первое получение Данных
-      getsecondConversionData=  receiveddatafromC1.elementAt(index) as     Map<String, List<Entities1CMap>>  ;
-      logger.i('get getsecondConversionData ..  '+getsecondConversionData.toString() );
-      //TODO error
-    } catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-    }
-    return getsecondConversionData;
-  }
-
-
-
-  //TODO  Третья  Трансформация ДАнных
-  @override
-  List<Entities1CMap> thirdtransformationData({required Map<String, List<Entities1CMap>> thirdtransformationData, required Logger logger, required int index}) {
-    // TODO: implement thirdtransformationData
-    List<Entities1CMap> childredRowCommintPrices=[];
-    try{
-      childredRowCommintPrices=   thirdtransformationData.values.single;
-      //TODO
-      String Key=   thirdtransformationData.keys.single;
-
-      logger.i('get childredRowCommintPrices ..  '+childredRowCommintPrices.toString()+ '' );
-    } catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-    }
-    return childredRowCommintPrices;
-  }
-
-
-
-
-  //TODO  Четвертый   Трансформация ДАнных
-  @override
-  String fourthtransformation({required List<Entities1CMap> getfourthtransformation, required Logger logger}) {
-    // TODO: implement fourthtransformation
-    var getCfo;
-    try{
-      getCfo=    getfourthtransformation.elementAt(0).CFO as String ;
-      logger.i('get getCfo ..  '+getCfo.toString() );
-    } catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-    }
-    return getCfo ;
-  }
 
 
 
