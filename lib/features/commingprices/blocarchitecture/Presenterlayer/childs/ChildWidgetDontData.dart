@@ -15,7 +15,7 @@ import '../widgets/WidgetWaiting/Intarface/IntarfaceWaiting.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetWaitingDontData  implements   IntarfaceWaiting {
+class ChildWidgetDontData  implements   IntarfaceWaiting {
 
   //TODO Виджет ожидание пипнга от сервера 1С
   @override

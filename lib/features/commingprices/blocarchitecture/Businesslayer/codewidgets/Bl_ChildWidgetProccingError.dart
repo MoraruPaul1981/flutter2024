@@ -1,10 +1,10 @@
 
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-import '../Interfaces/IntarfaceBLWidgets.dart';
 
 
-class BI_ChildWidgetProccingError implements IntarfaceBLWidgets {
+
+class BI_ChildWidgetProccingError  {
 
   BuildContext buildContext;
   Logger logger;

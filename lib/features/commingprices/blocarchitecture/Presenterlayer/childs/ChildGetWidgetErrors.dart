@@ -11,7 +11,7 @@ import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
-import '../../Businesslayer/codewidgets/GetAntimations.dart';
+import '../../Businesslayer/animations/GetAntimations.dart';
 
 
 
@@ -19,7 +19,7 @@ import '../../Businesslayer/codewidgets/GetAntimations.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildGetWidgetWaitingErrors  extends StatelessWidget    implements   IntarfaceChildGetWidgetWaitingErrors {
+class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChildGetWidgetWaitingErrors {
 
   @override
   Color alwaysStop;
@@ -36,7 +36,7 @@ class ChildGetWidgetWaitingErrors  extends StatelessWidget    implements   Intar
 
 
   //TODO: конструктор
-  ChildGetWidgetWaitingErrors( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot) :super (key:key);
+  ChildGetWidgetErrors( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot) :super (key:key);
 
 
   @override
