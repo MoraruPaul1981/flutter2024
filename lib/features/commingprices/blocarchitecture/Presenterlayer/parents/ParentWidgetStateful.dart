@@ -6,6 +6,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../Datalayer/entities/Entities1CMap.dart';
 import '../../Datalayer/remote/FutureGetPing.dart';
+import '../childs/ChildWidgetWaiting.dart';
 
 
 
@@ -18,7 +19,8 @@ import '../../Datalayer/remote/FutureGetPing.dart';
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
 class ParentWidgetStateful extends State<WidgetStateful> {
   Logger logger;
-  ParentWidgetStateful({Key? key, required this.logger } ) ;
+  Key? key;
+  ParentWidgetStateful({this.key, required this.logger } ) ;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
   FutureBuilder<List<Map<String, List<Entities1CMap>>>> getFutureBuilder() {
 
     ///TODO return Widget
-   late Widget widgetWatingCallBack;
-
-
+    late Widget widgetWatingCallBack;
 
 
    ///TODO возращаем call back
@@ -42,12 +42,11 @@ class ParentWidgetStateful extends State<WidgetStateful> {
       future:   FutureGetPing(). getResponse1c(context:context, logger: logger),
       builder: (BuildContext context, AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot) {
 
-   //TODO само обработка
         ////TODO В  waiting
         if (snapshot.connectionState == ConnectionState.waiting) {
+          //TODO Возврат по Ожидания
+          widgetWatingCallBack =   ChildWidgetWaiting(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger,);
           logger.i('napshot.connectionState$snapshot.connectionState');
-          //TODO Возврат по умолчанию
-          widgetWatingCallBack =ChildWidgetCallBaks().   widgetProccerWaiting(  context:context,   snapshot:snapshot,logger:logger);
           //TODO return
           return widgetWatingCallBack;
 

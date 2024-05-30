@@ -30,7 +30,12 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
 
 
   //TODO: конструктор
-  ChildWidgetWaiting( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot,this.logger) :super (key:key);
+  ChildWidgetWaiting( Key? key,
+      {required this.alwaysStop,
+      required this.context,
+      required this.currentText,
+      required this.snapshot,
+      required this.logger}) :super (key:key);
 
 
   @override

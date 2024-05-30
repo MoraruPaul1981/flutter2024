@@ -37,7 +37,12 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
   Logger logger;
 
   //TODO: конструктор
-  ChildGetWidgetErrors( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot,this.logger) :super (key:key);
+  ChildGetWidgetErrors( Key? key,
+      {required this.alwaysStop,
+      required this.context,
+      required this.currentText,
+      required this.snapshot,
+      required this.logger}) :super (key:key);
 
 
   @override

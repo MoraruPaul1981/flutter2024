@@ -34,7 +34,12 @@ class ChildWidgetDontData   extends   StatelessWidget  implements   IntarfaceChi
 
 
   //TODO: конструктор
-  ChildWidgetDontData(Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot,this.logger) :super (key:key);
+  ChildWidgetDontData(Key? key,
+      {required this.alwaysStop,
+      required this.context,
+      required this.currentText,
+      required this.snapshot,
+      required this.logger}) :super (key:key);
 
 
   @override

@@ -34,7 +34,12 @@ class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceChildWid
 
 
   //TODO: конструктор
-  ChildWidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop, this.currentText,this.logger) :super (key:key);
+  ChildWidgetDefault(Key? key,
+      {required this.context,
+      required this.snapshot,
+      required this.alwaysStop,
+      required this.currentText,
+      required this.logger}) :super (key:key);
 
 
 
