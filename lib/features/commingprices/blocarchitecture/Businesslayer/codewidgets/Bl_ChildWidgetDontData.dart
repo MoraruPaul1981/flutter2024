@@ -3,8 +3,8 @@ import 'package:commintprices/features/commingprices/blocarchitecture/Datalayer/
 import 'package:flutter/src/widgets/async.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-import '../Interfaces/IntafaceTransformationSuccessData.dart';
-import '../Interfaces/IntarfaceCallBaksWidgets.dart';
+import '../Interfaces/childinterface/IntafaceChildWidgetSuccessData.dart';
+import '../Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 
 //TODO: класс бизнес логика для успещного получение данных от 1С
 class Bl_ChildWidgetDontData   {

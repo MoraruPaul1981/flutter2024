@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
-import '../../Datalayer/entities/Entities1CMap.dart';
+import '../../../Datalayer/entities/Entities1CMap.dart';
 
 //TODO: интрефейсы для всех виджетов получение переменных
 

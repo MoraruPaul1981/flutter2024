@@ -10,8 +10,9 @@ import 'package:flutter/src/scheduler/binding.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
+import '../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../Businesslayer/animations/GetAntimations.dart';
+import '../../Businesslayer/codewidgets/BI_ChildWidgetError.dart';
 import '../parents/ParentWidgetStateful.dart';
 import 'ChildWidgetDefault.dart';
 
@@ -96,37 +97,14 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
           focusElevation: 5,
           highlightElevation: 50,
           onPressed: () {
+
             //TODO: при нажатии перезапускаем Получение Данных
-            /*BlForWidgetErrors blwid=new BlForWidgetErrors(buildContext:context, logger:logger);
-            blwid.getRereceiptData();
-            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
+            BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
 
-/*
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetCallBaks( )));
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetSuccessData( )));
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => getWidgetWaitingPing(context: context, snapshot: snapshot, alwaysStop: null, currentText: '' )));
+            //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
+            biwidgeterrror.theServeristurnedRereceive();
 
-            Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => WidgetStarWaiting(logger: logger ),
-    ));
-    */
-            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
-
-          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WidgetStateful( logger,key )));
-          //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => CommingPricesStatelessWidget( key: key,  logger: logger )));
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));
-
-  /*  Navigator.push(context,
-       MaterialPageRoute(builder: (context)=>WidgetStateful( );*/
-
-/*    Navigator.push(
-        context,
-        MaterialPageRoute(
-        builder: (context) => ChildWidgetDefault(super.key,logger: logger, context: null, snapshot: null, alwaysStop: null, currentText: '', )
-            ));*/
-
+         /*   Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));*/
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
           backgroundColor: Colors.red,

@@ -1,30 +1,44 @@
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 
-import '../Injections/InjectionDependency.dart';
+import '../../../../../main.dart';
+import '../Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
 
 
 
-class BI_ChildWidgetError  {
 
-  BuildContext buildContext;
+
+class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
+
+  BuildContext context;
   Logger logger;
+  Key? key;
 
-  BI_ChildWidgetError({required this.buildContext, required this.logger});
+  BI_ChildWidgetError({required this.context, required this.logger,required this.key});
 
-
-  //TODO: metod1
-  void getRereceiptData( ) {
+  @override
+  void theServeristurnedRereceive() {
+    // TODO: implement theServeristurnedRereceive
     try{
-      //ParentWidgetStateful( logger: logger);
-      print('getRereceiptData');
+      //TODO: при нажатии перезапускаем Получение Данных
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));
 
-    //TODO error
-  }   catch (e, stacktrace) {
-  print(' get ERROR $e get stacktrace $stacktrace ');
-}
+      logger.i(' CLick FloatingActionButtonLocation  onPressed  key .. $key logger ... $logger  ' );
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+    }
   }
+
+
+
+
+
+
 
 
 

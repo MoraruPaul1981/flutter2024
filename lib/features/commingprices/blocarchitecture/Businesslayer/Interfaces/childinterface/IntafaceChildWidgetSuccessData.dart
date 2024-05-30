@@ -2,11 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
 
-import '../../Datalayer/entities/Entities1CMap.dart';
+import '../../../Datalayer/entities/Entities1CMap.dart';
 
 
 
-abstract  class IntafaceTransformationSuccessData {
+abstract  class IntafaceChildWidgetSuccessData {
 
 //TODO
   List<Map<String, List<Entities1CMap>>> firstTransformationionofincomingData({required  AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot,
