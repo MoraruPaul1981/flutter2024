@@ -8,21 +8,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../../data/entities/Entities1CMap.dart';
-
-
-
-
+import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
+import '../../Datalayer/entities/Entities1CMap.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetWaiting  implements   IntarfaceCallBaksWidgets {
+class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWidgetWaiting   {
 
-  //TODO Виджет ожидание пипнга от сервера 1С
+
   @override
-  Widget getWidgetWaitingPing({required BuildContext context,
-    required AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot,
-    required Color alwaysStop,required String currentText}){
+  Color alwaysStop;
+
+  @override
+  BuildContext context;
+
+  @override
+  String currentText;
+
+  @override
+  AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
+
+  //TODO: конструктор
+  ChildWidgetWaiting( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot) :super (key:key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
     ////TODO сам виджет
     return new Scaffold(
       backgroundColor: Colors.grey[200],
@@ -49,17 +61,17 @@ class ChildWidgetWaiting  implements   IntarfaceCallBaksWidgets {
                   padding: EdgeInsets.all(2.0),
                   child:
 
-                    AnimatedTextKit(
-                        animatedTexts: [
-                          ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
-                              colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
-                            ,
-                      pause: Duration(microseconds: 1),
-                      isRepeatingAnimation: true,
-                      repeatForever: false,
-                    ),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
+                          colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
+                    ,
+                    pause: Duration(microseconds: 1),
+                    isRepeatingAnimation: true,
+                    repeatForever: false,
+                  ),
                 ),
               ),
 
@@ -68,31 +80,31 @@ class ChildWidgetWaiting  implements   IntarfaceCallBaksWidgets {
           ),
 
 
-         Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  margin: new EdgeInsets.only(left: 5,top: 80,right: 5,bottom: 5),
-                  height: 40,
-                  width: 40,
-                  // color: Colors.red,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200], //assign either here or to the container
-                    borderRadius: BorderRadius.circular(24),),
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child:  Theme(
-                      data: Theme.of(context).copyWith(hintColor: Colors.white),
-                      child: CircularProgressIndicator(
-                          strokeWidth: 4.0,
-                          backgroundColor: Colors.grey,
-                          valueColor: AlwaysStoppedAnimation<Color>(alwaysStop)),
-                    ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                margin: new EdgeInsets.only(left: 5,top: 80,right: 5,bottom: 5),
+                height: 40,
+                width: 40,
+                // color: Colors.red,
+                decoration: BoxDecoration(
+                  color: Colors.grey[200], //assign either here or to the container
+                  borderRadius: BorderRadius.circular(24),),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child:  Theme(
+                    data: Theme.of(context).copyWith(hintColor: Colors.white),
+                    child: CircularProgressIndicator(
+                        strokeWidth: 4.0,
+                        backgroundColor: Colors.grey,
+                        valueColor: AlwaysStoppedAnimation<Color>(alwaysStop)),
                   ),
                 ),
+              ),
 
-              ],
-            ),
+            ],
+          ),
 
 
 
@@ -138,11 +150,6 @@ class ChildWidgetWaiting  implements   IntarfaceCallBaksWidgets {
       ),
     );
   }
-
-
-
-
-
 
 
 

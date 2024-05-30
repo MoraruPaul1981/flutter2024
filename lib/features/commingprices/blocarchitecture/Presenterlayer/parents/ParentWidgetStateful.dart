@@ -4,10 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../Datalayer/entities/Entities1CMap.dart';
-
-import '../Datalayer/entities/Entities1CMap.dart';
-import 'CallBaksForParentWidgets.dart';
+import '../../Datalayer/entities/Entities1CMap.dart';
+import '../../Datalayer/remote/FutureGetPing.dart';
 
 
 

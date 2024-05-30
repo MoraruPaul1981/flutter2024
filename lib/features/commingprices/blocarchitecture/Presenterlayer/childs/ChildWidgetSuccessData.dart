@@ -8,6 +8,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
+import '../../Businesslayer/Interfaces/IntafaceSuccessData.dart';
+import '../../Datalayer/entities/Entities1CMap.dart';
+
 
 
 
@@ -21,6 +24,9 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTrans
   late BuildContext context;
   @override
   late List<Map<String, List<Entities1CMap>>> receiveddatafromC1;
+
+//TODO: конструктор
+  ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
 
 
   @override
@@ -269,9 +275,6 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTrans
   }
 
 
-//TODO: конструктор
-  ChildWidgetSuccessData(Key? key,this.logger, this.snapshot, this.context,
-      this.receiveddatafromC1) :super (key:key);
 
 
 
@@ -346,9 +349,9 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTrans
 
   //TODO  Четвертый   Трансформация ДАнных
   @override
-  String? fourthtransformation({required List<Entities1CMap> getfourthtransformation, required Logger logger}) {
+  String fourthtransformation({required List<Entities1CMap> getfourthtransformation, required Logger logger}) {
     // TODO: implement fourthtransformation
-    String? getCfo;
+    var getCfo;
     try{
       getCfo=    getfourthtransformation.elementAt(0).CFO as String ;
       logger.i('get getCfo ..  '+getCfo.toString() );
@@ -357,6 +360,7 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntafaceTrans
     }
     return getCfo ;
   }
+
 
 }
 
