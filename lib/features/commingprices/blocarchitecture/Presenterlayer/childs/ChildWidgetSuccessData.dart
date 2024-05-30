@@ -34,7 +34,7 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
 
 
 //TODO: конструктор
-  ChildWidgetSuccessData(this.logger, this.snapshot, this.context, this.receiveddatafromC1);
+  ChildWidgetSuccessData(Key? key,this.logger, this.snapshot, this.context, this.receiveddatafromC1):super (key:key);
 
 
 

@@ -8,16 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
-import '../data/entities/Entities1CMap.dart';
-import 'widgets/WidgetWaiting/Intarface/IntarfaceDefalut.dart';
+import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
+import '../../Datalayer/entities/Entities1CMap.dart';
 
 
 
+/////////TODO виджет по умолчанию
+class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceChildWidgetDefault  {
 
-
-/////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceDefalut  {
-
+  //TODO: переменные
   @override
   Color alwaysStop;
 
@@ -30,10 +29,12 @@ class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceDefalut 
   @override
   AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
 
+  @override
+  Logger logger;
+
 
   //TODO: конструктор
-  ChildWidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop,
-      this.currentText) :super (key:key);
+  ChildWidgetDefault(Key? key,this.context, this.snapshot, this.alwaysStop, this.currentText,this.logger) :super (key:key);
 
 
 
@@ -159,6 +160,7 @@ class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceDefalut 
       ),
     );
   }
+
 
 
 

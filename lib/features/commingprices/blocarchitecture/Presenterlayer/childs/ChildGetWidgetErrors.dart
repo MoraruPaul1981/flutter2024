@@ -19,7 +19,7 @@ import '../../Businesslayer/animations/GetAntimations.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChildGetWidgetWaitingErrors {
+class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChildWidgetErrors {
 
   @override
   Color alwaysStop;
@@ -33,10 +33,11 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
   @override
   AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
 
-
+  @override
+  Logger logger;
 
   //TODO: конструктор
-  ChildGetWidgetErrors( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot) :super (key:key);
+  ChildGetWidgetErrors( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot,this.logger) :super (key:key);
 
 
   @override
@@ -127,6 +128,8 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
 
     );
   }
+
+
 
 
 

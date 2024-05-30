@@ -2,10 +2,7 @@
 
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:commintprices/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/IntarfaceCallBaksWidgets.dart';
@@ -15,7 +12,7 @@ import '../../Datalayer/entities/Entities1CMap.dart';
 /////////TODO класс ожидание ответа пинга от 1с
 class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWidgetWaiting   {
 
-
+//TODO: переменные
   @override
   Color alwaysStop;
 
@@ -28,8 +25,12 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
   @override
   AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
 
+  @override
+  Logger logger;
+
+
   //TODO: конструктор
-  ChildWidgetWaiting( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot) :super (key:key);
+  ChildWidgetWaiting( Key? key,this.alwaysStop, this.context, this.currentText, this.snapshot,this.logger) :super (key:key);
 
 
   @override
@@ -150,6 +151,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
       ),
     );
   }
+
 
 
 
