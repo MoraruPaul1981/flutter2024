@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../Datalayer/entities/Entities1CMap.dart';
-import '../../Datalayer/remote/FutureGetPing.dart';
+import '../../Datalayer/remote/FuturesPing1cServer.dart';
 import '../childs/ChildGetWidgetErrors.dart';
 import '../childs/ChildWidgetDefault.dart';
 import '../childs/ChildWidgetNasData.dart';
@@ -43,7 +43,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
    ///TODO FutureBuilder
     return FutureBuilder<List<Map<String, List<Entities1CMap>>>>(
       //TODO get JSON PING ot 1C
-      future:   FutureGetPing(). getResponse1c(context:context, logger: logger),
+      future:   FuturesPing1cServer(). getResponse1c(context:context, logger: logger),
       builder: (BuildContext context, AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot) {
 
         ////TODO В  waiting

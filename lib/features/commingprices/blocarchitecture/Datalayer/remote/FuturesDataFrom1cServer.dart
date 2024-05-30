@@ -18,7 +18,7 @@ import '../entities/Entities1CMap.dart';
 
 
 
-class FuturesGetSelfData  implements InterfaceFutureResponse,InterfaceFutureSelfData  {
+class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutureSelfData  {
 
   //TODO получаем данные self-data
   @override

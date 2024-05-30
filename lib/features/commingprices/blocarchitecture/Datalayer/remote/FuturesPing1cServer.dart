@@ -14,11 +14,11 @@ import '../../Businesslayer/adressJboss/getAdress.dart';
 import '../../Businesslayer/converts/GetConverts.dart';
 import '../../Businesslayer/decoding/getDecodingCallback.dart';
 import '../entities/Entities1CMap.dart';
-import 'FuturesGetSelfData.dart';
+import 'FuturesDataFrom1cServer.dart';
 
 
 
-class FutureGetPing implements InterfacePings ,InterfaceFutureResponse,InterfaceCallBack {
+class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,InterfaceCallBack {
   //TODO
 late Logger logger;
 
@@ -171,7 +171,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
       logger.i('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
 
-      FuturesGetSelfData futuresGetSelfData=   new FuturesGetSelfData();
+      FuturesDataFrom1cServer futuresGetSelfData=   new FuturesDataFrom1cServer();
 
 
 //TODO получаем данные от 1с Севра
