@@ -6,7 +6,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
 
-abstract class InterfaceChildGetWidgetErrors  {
+abstract class InterfaceChildWidgetNasData  {
  late BuildContext context;
  late Logger logger;
  Key? key;

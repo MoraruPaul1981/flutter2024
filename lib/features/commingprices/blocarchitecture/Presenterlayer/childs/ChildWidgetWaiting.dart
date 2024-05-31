@@ -56,7 +56,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: new EdgeInsets.only(left: 5,top:350,right: 5,bottom: 5),
+                margin: new EdgeInsets.only(left: 5,top:350,right: 5,bottom: 200),
                 height: 80,
                 width: 300,
                 // color: Colors.red,
@@ -90,7 +90,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: new EdgeInsets.only(left: 5,top: 80,right: 5,bottom: 5),
+                margin: new EdgeInsets.only(left: 5,top: 5,right: 5,bottom: 5),
                 height: 40,
                 width: 40,
                 // color: Colors.red,

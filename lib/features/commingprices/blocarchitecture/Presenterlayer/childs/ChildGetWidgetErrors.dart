@@ -3,18 +3,12 @@
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:commintprices/features/commingprices/blocarchitecture/Datalayer/entities/Entities1CMap.dart';
-import 'package:commintprices/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/scheduler/binding.dart';
-import 'package:flutter/widgets.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../Businesslayer/animations/GetAntimations.dart';
 import '../../Businesslayer/codewidgets/BI_ChildWidgetError.dart';
-import '../parents/ParentWidgetStateful.dart';
-import 'ChildWidgetDefault.dart';
 
 
 
@@ -86,7 +80,7 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
 
 
 
-
+////TODO: Кнопка переполучение Данных Когда сервер выключин
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButtonAnimator:  NoScalingAnimation(),
       floatingActionButton: Container(
@@ -104,9 +98,9 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.red[300],
           tooltip: 'Повторное получение !!!',
-          elevation: 5,
+          elevation: 15,
           splashColor: Colors.grey,
           child:  const Icon(Icons.sync,color: Colors.white, size: 29,),
           shape: RoundedRectangleBorder(

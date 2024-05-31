@@ -97,7 +97,7 @@ class ParentWidgetStateful extends State<WidgetStateful> {
        //TODO: ERROR
           }else{
             //TODO   ERROR
-            widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
+           widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
             logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length. $snapshot.connectionState');
               return widgetWatingCallBack;
           }
