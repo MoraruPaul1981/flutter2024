@@ -144,9 +144,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       Card(
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                            side: BorderSide(width: 5, color: Colors.white10)),
-                        margin: const EdgeInsets.only(left: 50,top: 5,right:50,bottom: 5),
+                            side: BorderSide(width: 5, color: Colors.blue)),
+                        margin: const EdgeInsets.only(left: 20,top: 10,right:20,bottom: 5),
                         child: Container(
+                          color:Colors.blue ,
                           height:2,
                           width: double.maxFinite,
                         ),
