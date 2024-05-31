@@ -44,115 +44,72 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
     ////TODO сам виджет
     return new Scaffold(
       backgroundColor: Colors.grey[200],
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body:Card(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
-
-
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: new EdgeInsets.only(left: 5,top:350,right: 5,bottom: 200),
-                height: 80,
-                width: 300,
-                // color: Colors.red,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200], //assign either here or to the container
-                  borderRadius: BorderRadius.circular(24),),
-                child:  Padding(
-                  padding: EdgeInsets.all(2.0),
-                  child:
-
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      ColorizeAnimatedText(currentText, textStyle: TextStyle(color: Colors.grey,
-                        fontSize: 40,
-                        fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
-                          colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),]
-                    ,
-                    pause: Duration(microseconds: 1),
-                    isRepeatingAnimation: true,
-                    repeatForever: false,
-                  ),
-                ),
-              ),
-
-            ],
-
+          Container(
+            child: Text("Need Help ?",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 22)),
           ),
-
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: new EdgeInsets.only(left: 5,top: 5,right: 5,bottom: 5),
-                height: 40,
-                width: 40,
-                // color: Colors.red,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200], //assign either here or to the container
-                  borderRadius: BorderRadius.circular(24),),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child:  Theme(
-                    data: Theme.of(context).copyWith(hintColor: Colors.white),
-                    child: CircularProgressIndicator(
-                        strokeWidth: 4.0,
-                        backgroundColor: Colors.grey,
-                        valueColor: AlwaysStoppedAnimation<Color>(alwaysStop)),
-                  ),
-                ),
-              ),
-
-            ],
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            child: Text("Max MagiX,",
+                style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                    fontSize: 16)),
           ),
-
-
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: new EdgeInsets.only(left: 5,top: 5,right: 5,bottom: 5),
-                height: 20,
-                width: 200,
-                // color: Colors.red,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200], //assign either here or to the container
-                  borderRadius: BorderRadius.circular(24),),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child:  Theme(
-                    data: Theme.of(context).copyWith(hintColor: Colors.white),
-                    child:   Text(
-                      '2024 г.',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 10.0,
-                        fontFamily: 'Pacifico',
-                        color: Colors.grey,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-
-            ],
+          Container(
+            child: Text("San Francisco,",
+                style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                    fontSize: 16)),
           ),
-
-
-
-
-
-          //TODO END ROW
-
+          Container(
+            child: Text("CA, USA",
+                style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                    fontSize: 16)),
+          ),
+          Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Row(
+                children: <Widget>[
+                  Icon(Icons.phone),
+                  Container(
+                    margin: EdgeInsets.only(left: 2),
+                    child: Text("+1 8002 8002 82",
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 16)),
+                  )
+                ],
+              )),
+          Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Row(
+                children: <Widget>[
+                  Icon(Icons.email),
+                  Container(
+                    margin: EdgeInsets.only(left: 2),
+                    child: Text("hello@xyz.com",
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 16)),
+                  )
+                ],
+              ))
         ],
+      )
       ),
     );
   }
