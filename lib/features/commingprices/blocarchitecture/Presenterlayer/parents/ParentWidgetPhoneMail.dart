@@ -20,8 +20,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor:     Colors.blueAccent,
+
         body:Card(
           elevation: 5,
+          shadowColor: Colors.red,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
               side: BorderSide(width: 5, color: Colors.blueAccent)),
@@ -54,8 +56,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
                 Card(
                   elevation: 5,
+                  shadowColor: Colors.red,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -80,8 +84,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                   ),
                 ),
+
+
                 Card(
                   elevation: 5,
+                  shadowColor: Colors.red,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -106,8 +113,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                   ),
                 ),
+
+
                 Card(
                   elevation: 5,
+                  shadowColor: Colors.red,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -131,7 +141,9 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       )
 
                   ),
-                )
+                ),
+
+
               ],
             ),
           ),
