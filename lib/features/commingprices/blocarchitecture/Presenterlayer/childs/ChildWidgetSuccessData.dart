@@ -62,7 +62,7 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
         preferredSize: Size.fromHeight(40.0), // here the desired height
         child:
         AppBar(
-          leading: new Icon(Icons.live_tv),
+          leading: new Icon(CupertinoIcons.app_fill),
           backgroundColor: Colors.white,
           title: Padding(padding: EdgeInsets.all(1.0),
             child: AnimatedTextKit(
@@ -163,7 +163,7 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
                                   radius: 20,
                                   backgroundColor: Colors.grey,
                                   child:
-                                  Icon(CupertinoIcons.airplane),//TODO Icons.macro_off
+                                  Icon(CupertinoIcons.app_badge_fill),//TODO Icons.macro_off
                                 ),
                               ),
                               subtitle: Text(""),
