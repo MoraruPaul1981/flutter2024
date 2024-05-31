@@ -22,147 +22,168 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor:     Colors.blueAccent,
 
-      body:   Card(
-          margin: const EdgeInsets.only(left: 1,top: 30,right: 1,bottom: 1),
-          elevation: 5,
-          shadowColor: Colors.blueAccent,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              side: BorderSide(width: 5, color: Colors.blueAccent)),
-          color:     Colors.blue,
+    return   Scaffold(
+      backgroundColor:     Colors.red,
 
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children:<Widget> [
-                CircleAvatar(
-                  radius:50,
-                  backgroundImage:
-                  NetworkImage('https://valday.com/img/122841.jpg'),
-                  backgroundColor: Colors.transparent,
-                ),
-                Text(
-                  'Союз-Автодор',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40.0,
-                    fontFamily: 'Pacifico',
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'г.Иваново ул.Проездная 27/18',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: 'Source Sans Pro',
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+      body:   Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
 
-                Card(
-                  elevation: 5,
-                  shadowColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      side: BorderSide(width: 5, color: Colors.white10)),
-                  margin: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: ListTile(
-                      leading:
-                      Icon(
-                        Icons.phone,
-                        color: Colors.black,
-                        size: 20.0,
+        children: [
+          Container(
+            height:700,
+            width: double.maxFinite,
+
+
+            child: Card(
+                margin: const EdgeInsets.only(left: 1,top: 30,right: 1,bottom: 1),
+                elevation: 5,
+                shadowColor: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    side: BorderSide(width: 5, color: Colors.blueAccent)),
+                color:     Colors.blue,
+
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children:<Widget> [
+                      CircleAvatar(
+                        radius:50,
+                        backgroundImage:
+                        NetworkImage('https://valday.com/img/122841.jpg'),
+                        backgroundColor: Colors.transparent,
                       ),
-                      title:
                       Text(
-                        '+79158111806',
+                        'Союз-Автодор',
                         style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40.0,
                           fontFamily: 'Pacifico',
-                          fontSize: 20.0,
-                          color: Colors.black54,
+                          color: Colors.white,
                         ),
-                      )
-
-                  ),
-                ),
-
-
-                Card(
-                  elevation: 5,
-                  shadowColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      side: BorderSide(width: 5, color: Colors.white10)),
-                  margin: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: ListTile(
-                      leading:
-                      Icon(
-                        Icons.email,
-                        color: Colors.black,
-                        size: 20.0,
                       ),
-                      title:
                       Text(
-                        'SOUS@gmial.com',
+                        'г.Иваново ул.Проездная 27/18',
                         style: TextStyle(
-                          fontFamily: 'Pacifico',
                           fontSize: 20.0,
-                          color: Colors.black54,
+                          fontFamily: 'Source Sans Pro',
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
-                      )
-
-                  ),
-                ),
-
-
-                Card(
-                  elevation: 5,
-                  shadowColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      side: BorderSide(width: 5, color: Colors.white10)),
-                  margin: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: ListTile(
-                      leading:
-                      Icon(
-                        Icons.email,
-                        color: Colors.black,
-                        size: 20.0,
                       ),
-                      title:
-                      Text(
-                        'SOUS2@gmial.com',
-                        style: TextStyle(
-                          fontFamily: 'Pacifico',
-                          fontSize: 20.0,
-                          color: Colors.black54,
-                        ),
-                      )
 
+                      Card(
+                        elevation: 5,
+                        shadowColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            side: BorderSide(width: 5, color: Colors.white10)),
+                        margin: EdgeInsets.all(10.0),
+                        color: Colors.white,
+                        child: ListTile(
+                            leading:
+                            Icon(
+                              Icons.phone,
+                              color: Colors.black,
+                              size: 20.0,
+                            ),
+                            title:
+                            Text(
+                              '+79158111806',
+                              style: TextStyle(
+                                fontFamily: 'Pacifico',
+                                fontSize: 20.0,
+                                color: Colors.black54,
+                              ),
+                            )
+
+                        ),
+                      ),
+
+
+                      Card(
+                        elevation: 5,
+                        shadowColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            side: BorderSide(width: 5, color: Colors.white10)),
+                        margin: EdgeInsets.all(10.0),
+                        color: Colors.white,
+                        child: ListTile(
+                            leading:
+                            Icon(
+                              Icons.email,
+                              color: Colors.black,
+                              size: 20.0,
+                            ),
+                            title:
+                            Text(
+                              'SOUS@gmial.com',
+                              style: TextStyle(
+                                fontFamily: 'Pacifico',
+                                fontSize: 20.0,
+                                color: Colors.black54,
+                              ),
+                            )
+
+                        ),
+                      ),
+
+
+                      Card(
+                        elevation: 5,
+                        shadowColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            side: BorderSide(width: 5, color: Colors.white10)),
+                        margin: EdgeInsets.all(10.0),
+                        color: Colors.white,
+                        child: ListTile(
+                            leading:
+                            Icon(
+                              Icons.email,
+                              color: Colors.black,
+                              size: 20.0,
+                            ),
+                            title:
+                            Text(
+                              'SOUS2@gmial.com',
+                              style: TextStyle(
+                                fontFamily: 'Pacifico',
+                                fontSize: 20.0,
+                                color: Colors.black54,
+                              ),
+                            )
+
+                        ),
+                      ),
+
+                      //TODO END ROW ALL Auntifications
+                    ],
                   ),
                 ),
-
-                //TODO END ROW ALL Auntifications
-              ],
-            ),
           ),
+        ],
+      ),
+
+
+
 
 
       floatingActionButton: FloatingActionButton(
-        onPressed: dffdf(),
+        onPressed: () {},
         child: Icon(Icons.edit),
         tooltip: 'Edit',
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         hoverColor: Colors.red,
       ),
+
+
+
+
     );
 
 
