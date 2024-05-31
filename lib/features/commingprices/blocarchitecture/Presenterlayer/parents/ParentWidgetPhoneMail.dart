@@ -142,32 +142,20 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
                       Card(
-                        elevation: 5,
-                        shadowColor: Colors.blue,
-                        shape: RoundedRectangleBorder(
+                        shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white10)),
-                        margin: EdgeInsets.all(10.0),
-                        color: Colors.white,
-                        child: ListTile(
-                            leading:
-                            Icon(
-                              Icons.email,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            title:
-                            Text(
-                              'SOUS2@gmial.com',
-                              style: TextStyle(
-                                fontFamily: 'Pacifico',
-                                fontSize: 20.0,
-                                color: Colors.black54,
-                              ),
-                            )
-
+                        margin: const EdgeInsets.only(left: 50,top: 5,right:50,bottom: 5),
+                        child: Container(
+                          height:2,
+                          width: double.maxFinite,
                         ),
                       ),
+
+
+
+
+
 
                       //TODO END ROW ALL Auntifications
                     ],
@@ -176,10 +164,6 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
           ),
         ],
       ),
-
-
-
-
 
 
 
