@@ -1,7 +1,11 @@
 import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:logger/logger.dart';
+
+import '../../Businesslayer/animations/GetAntimations.dart';
 
 
 
@@ -21,7 +25,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
     return const Scaffold(
       backgroundColor:     Colors.blueAccent,
 
-        body:Card(
+      body:   Card(
           margin: const EdgeInsets.only(left: 1,top: 30,right: 1,bottom: 1),
           elevation: 5,
           shadowColor: Colors.blueAccent,
@@ -150,12 +154,22 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
             ),
           ),
 
-      //TODO: TEST
 
-
-
-
-
+      floatingActionButton: FloatingActionButton(
+        onPressed: dffdf(),
+        child: Icon(Icons.edit),
+        tooltip: 'Edit',
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        hoverColor: Colors.red,
+      ),
     );
+
+
+
   }
+
+
+
+
 }
