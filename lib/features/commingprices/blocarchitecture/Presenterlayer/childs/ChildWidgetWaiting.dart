@@ -50,6 +50,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
 
+
             //TODO: название союз-автодор 1
             Container(
                 height: 80,
@@ -151,7 +152,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
                 )),
 
             //TODO END ROW
-        
+
           ],
         ),
       ),

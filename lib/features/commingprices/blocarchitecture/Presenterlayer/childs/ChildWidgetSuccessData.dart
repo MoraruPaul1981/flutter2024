@@ -115,90 +115,92 @@ class   ChildWidgetSuccessData  extends StatelessWidget implements IntarfaceChil
                   maxHeight: 700.0,
                 ),
 
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  primary: false,
-                  scrollDirection:
-                  Axis.vertical, // Axis.horizontal for horizontal list view.
-                  itemCount: receiveddatafromC1!.length ,
-                  itemBuilder: (context, index) {
-                    //TODO get Получаем данные для Заполения LustView
-
-                    //TODO вторая трасформайция пришедших данных
-                    Map<String, List<Entities1CMap>>   getsecondConversionData=bl_childWidgetSuccessData.secondConversionData(receiveddatafromC1:receiveddatafromC1,logger: logger,index:index);
-                    logger.i('getsecondConversionData ..  '+getsecondConversionData!.length.toString() );
-
-                    //TODO третья  трасформайция пришедших данных
-                    List<Entities1CMap> getthirdtransformationData= bl_childWidgetSuccessData.thirdtransformationData( thirdtransformationData:getsecondConversionData, logger:logger ,index:index);
-                    logger.i('getthirdtransformationData ..  '+getthirdtransformationData!.length.toString() );
-
-                    //TODO четвертая  трасформайция пришедших данных
-                    String? getfourthtransformation= bl_childWidgetSuccessData.fourthtransformation(  getfourthtransformation:getthirdtransformationData,logger:logger);
-                    logger.i('getfourthtransformation ..  '+getfourthtransformation!.length.toString() );
-
-
-
-                    final user = '86';
-                    final UUID ='3333333';
-
-
-
-
-                    //TODO
-                    return Column(
-                      children: [
-                        Card(
-                          semanticContainer: true,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.grey[100],
-                          elevation: 3.0,
-                          margin: EdgeInsets.all(5),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                          child: ListTile(
-                            leading: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: const CircleAvatar(
-                                radius: 20,
-                                backgroundColor: Colors.grey,
-                                child:
-                                Icon(CupertinoIcons.airplane),//TODO Icons.macro_off
+                child: SingleChildScrollView(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    primary: false,
+                    scrollDirection:
+                    Axis.vertical, // Axis.horizontal for horizontal list view.
+                    itemCount: receiveddatafromC1!.length ,
+                    itemBuilder: (context, index) {
+                      //TODO get Получаем данные для Заполения LustView
+                  
+                      //TODO вторая трасформайция пришедших данных
+                      Map<String, List<Entities1CMap>>   getsecondConversionData=bl_childWidgetSuccessData.secondConversionData(receiveddatafromC1:receiveddatafromC1,logger: logger,index:index);
+                      logger.i('getsecondConversionData ..  '+getsecondConversionData!.length.toString() );
+                  
+                      //TODO третья  трасформайция пришедших данных
+                      List<Entities1CMap> getthirdtransformationData= bl_childWidgetSuccessData.thirdtransformationData( thirdtransformationData:getsecondConversionData, logger:logger ,index:index);
+                      logger.i('getthirdtransformationData ..  '+getthirdtransformationData!.length.toString() );
+                  
+                      //TODO четвертая  трасформайция пришедших данных
+                      String? getfourthtransformation= bl_childWidgetSuccessData.fourthtransformation(  getfourthtransformation:getthirdtransformationData,logger:logger);
+                      logger.i('getfourthtransformation ..  '+getfourthtransformation!.length.toString() );
+                  
+                  
+                  
+                      final user = '86';
+                      final UUID ='3333333';
+                  
+                  
+                  
+                  
+                      //TODO
+                      return Column(
+                        children: [
+                          Card(
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.grey[100],
+                            elevation: 3.0,
+                            margin: EdgeInsets.all(5),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            child: ListTile(
+                              leading: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: const CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: Colors.grey,
+                                  child:
+                                  Icon(CupertinoIcons.airplane),//TODO Icons.macro_off
+                                ),
                               ),
-                            ),
-                            subtitle: Text(""),
-                            trailing: Icon(Icons.more_vert),
-                            onTap: () {
-                              print('object');
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(user.trim().toLowerCase() +
-                                    "\n" +
-                                    "uuid-> " +
-                                    UUID),
-                              ));
-                            },
-                            title:
-                            SizedBox(
-                              height: 45,
-                              child: Center(
-                                child: Text(
-                                  getfourthtransformation, //TODO       list[index].CFO.toString().trim(),
-                                  style: TextStyle(
-                                    height: 2,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black.withOpacity(0.7),
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Colors.grey[300],
-                                    decorationStyle: TextDecorationStyle.wavy,
+                              subtitle: Text(""),
+                              trailing: Icon(Icons.more_vert),
+                              onTap: () {
+                                print('object');
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(user.trim().toLowerCase() +
+                                      "\n" +
+                                      "uuid-> " +
+                                      UUID),
+                                ));
+                              },
+                              title:
+                              SizedBox(
+                                height: 45,
+                                child: Center(
+                                  child: Text(
+                                    getfourthtransformation, //TODO       list[index].CFO.toString().trim(),
+                                    style: TextStyle(
+                                      height: 2,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black.withOpacity(0.7),
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: Colors.grey[300],
+                                      decorationStyle: TextDecorationStyle.wavy,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    );
-                  },
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
