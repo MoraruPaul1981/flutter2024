@@ -55,12 +55,14 @@ abstract  class IntarfaceChildWidgetWaiting {
 
 }
 
+
+
+
+
+
 abstract  class IntarfaceChildWidgetAuthorizationUsers {
   //TODO переменные
   late BuildContext context;
-  late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
-  late Color alwaysStop;
-  late String currentText;
   late Logger   logger;
 
 }

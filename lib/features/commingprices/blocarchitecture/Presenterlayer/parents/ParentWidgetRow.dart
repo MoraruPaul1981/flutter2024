@@ -1,6 +1,7 @@
 import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 
 
@@ -9,6 +10,11 @@ import 'package:flutter/material.dart';
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
 
 class ParentWidgetRow extends State<WidgetStateful>  {
+//TODO:  переменные
+  Logger logger;
+  Key? key;
+  ParentWidgetRow({this.key, required this.logger } ) ;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

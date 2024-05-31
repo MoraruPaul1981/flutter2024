@@ -42,7 +42,7 @@ class ChildWidgetWaiting  extends StatelessWidget   implements IntarfaceChildWid
   Widget build(BuildContext context) {
     // TODO: implement build
     ////TODO сам виджет
-    return new Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.grey[200],
       body:Card(
         child: Column(
