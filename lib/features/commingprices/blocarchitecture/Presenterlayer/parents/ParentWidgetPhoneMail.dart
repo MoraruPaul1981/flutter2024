@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,24 +65,41 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                           backgroundColor: Colors.transparent,
                         ),
                       ),
-                      Text(
-                        'Союз-Автодор',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40.0,
-                          fontFamily: 'Pacifico',
-                          color: Colors.white,
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.only(left: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),),
+                      child:  Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child:
+                        AnimatedTextKit(
+                          animatedTexts: [
+                            ColorizeAnimatedText('ООО «Союз Автодор»', textStyle: TextStyle(color: Colors.grey,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
+                                colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),],
+                          pause: Duration(microseconds: 1),
+                          isRepeatingAnimation: true,
+                          repeatForever: false,
                         ),
-                      ),
-                      Text(
-                        'г.Иваново ул.Проездная 27/18',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: 'Source Sans Pro',
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      )
+                  )
+                ],
+              ),
+
+
+
+
+
+
+
+
+
+
 
                       Card(
                         elevation: 5,
