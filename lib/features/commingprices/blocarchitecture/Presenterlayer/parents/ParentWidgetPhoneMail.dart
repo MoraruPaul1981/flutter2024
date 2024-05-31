@@ -22,12 +22,14 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
       backgroundColor:     Colors.blueAccent,
 
         body:Card(
+          margin: const EdgeInsets.only(left: 1,top: 30,right: 1,bottom: 1),
           elevation: 5,
-          shadowColor: Colors.red,
+          shadowColor: Colors.blueAccent,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
               side: BorderSide(width: 5, color: Colors.blueAccent)),
-          color:     Colors.blueAccent,
+          color:     Colors.blue,
+
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +61,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                 Card(
                   elevation: 5,
-                  shadowColor: Colors.red,
+                  shadowColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -88,7 +90,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                 Card(
                   elevation: 5,
-                  shadowColor: Colors.red,
+                  shadowColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -117,7 +119,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                 Card(
                   elevation: 5,
-                  shadowColor: Colors.red,
+                  shadowColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       side: BorderSide(width: 5, color: Colors.white10)),
@@ -143,10 +145,17 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                   ),
                 ),
 
-
+                //TODO END ROW ALL Auntifications
               ],
             ),
           ),
+
+      //TODO: TEST
+
+
+
+
+
     );
   }
 }
