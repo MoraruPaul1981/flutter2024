@@ -1,20 +1,20 @@
+
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:logger/logger.dart';
-
 import '../../Businesslayer/animations/GetAntimations.dart';
-
-
 
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
 
 class ParentWidgetPhoneMail extends State<WidgetStateful>  {
+
   //TODO: переменные
   Logger logger;
   Key? key;
@@ -23,6 +23,8 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
   @override
   Widget build(BuildContext context) {
+
+    Uint8List bytes =    geti () as  Uint8List ;
 
     return   Scaffold(
       backgroundColor:     Colors.blue,
@@ -53,19 +55,23 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children:<Widget> [
 
+
                       Container(
                         padding: new EdgeInsets.only(
                             top: 100,
                             left: 0,
                             right: 0),
                         child: CircleAvatar(
-                          radius:50,
-                          backgroundImage:
-                          NetworkImage('https://valday.com/img/122841.jpg'),
+                          radius: 50,
+
+
+                            backgroundImage: MemoryImage(bytes),
                           backgroundColor: Colors.transparent,
                         ),
                       ),
 
+
+              //TODO: Названние Союз-автодор
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -79,7 +85,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         AnimatedTextKit(
                           animatedTexts: [
                             ColorizeAnimatedText('ООО «Союз Автодор»', textStyle: TextStyle(color: Colors.grey,
-                              fontSize: 30,
+                              fontSize: 20,
                               fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
                                 colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),],
                           pause: Duration(microseconds: 1),
@@ -100,6 +106,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
 
+
+
+ //TODO: логин
+                      //TODO: логин    //TODO: логин
 
                       Card(
                         elevation: 5,
@@ -130,6 +140,15 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       ),
 
 
+
+
+
+
+
+
+
+
+                      //TODO: пароль           //TODO: пароль           //TODO: пароль
                       Card(
                         elevation: 5,
                         shadowColor: Colors.blue,
@@ -159,6 +178,12 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       ),
 
 
+
+
+
+
+
+                      //TODO: линия
                       Card(
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -185,7 +210,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
       ),
 
 
-
+      //TODO: КНОПКА
 ////TODO: Кнопка переполучение Данных Когда сервер выключин
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButtonAnimator:  NoScalingAnimation(),
@@ -222,7 +247,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
   }
 
-
-
+      Uint8List  geti ()   {
+    ByteData imageData =   rootBundle.load('assets/imageforpassword.jpg') as ByteData;
+    Uint8List bytes = imageData.buffer.asUint8List()    ;
+    return  bytes;
+  }
 
 }
