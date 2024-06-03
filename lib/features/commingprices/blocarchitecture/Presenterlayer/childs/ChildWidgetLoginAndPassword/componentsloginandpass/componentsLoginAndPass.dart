@@ -137,38 +137,51 @@ class widgetnameText extends StatelessWidget  {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin:       const EdgeInsets.only(left: 10,top: 10,right: 10,bottom: 10),
+      margin:       const EdgeInsets.only(left: 20,top: 1,right: 20,bottom: 10),
       color: Colors.white,
-      child: ListTile(
-          leading:
-          Icon(
-            Icons.account_circle,
-            color: Colors.black,
-            size: 20.0,
-          ),
-          title:
-          TextField(
-            textAlign: TextAlign.center,
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              hintText: 'логин',
-              hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
-              ),
-              filled: true,
-              contentPadding: EdgeInsets.all(16),
-              fillColor: Colors.grey.shade100,
+      child:
+      ListTile(
+        leading:
+        Container(
+          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          child: SizedBox(
+            height: 45,
+            child: Icon(
+              Icons.account_circle,
+              color: Colors.black,
+              size: 20.0,
             ),
-            onTap: (){
-
-              logger.i('IspingOtServer ..  ' );
-            },
           ),
+        ),
+        title:
+        Container(
+          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          child: SizedBox(
+            height: 45,
+            child: TextField(
+              textAlign: TextAlign.center,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                hintText: 'логин',
+                hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
+                ),
+                filled: true,
+                contentPadding: EdgeInsets.all(16),
+                fillColor: Colors.grey.shade100,
+              ),
+              onTap: (){
+
+                logger.i('IspingOtServer ..  ' );
+              },
+            ),
+          ),
+        ),
 
       ),
     );
@@ -187,30 +200,57 @@ class widgetPasswrord  extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return         Card(
+    return        Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin:       const EdgeInsets.only(left: 10,top: 5,right: 10,bottom: 5),
+      margin:       const EdgeInsets.only(left: 20,top: 1,right: 20,bottom: 10),
       color: Colors.white,
-      child: ListTile(
-          leading:
-          Icon(
-            Icons.password,
-            color: Colors.black,
-            size: 20.0,
-          ),
-          title:
-          Text(
-            'SOUS@gmial.com',
-            style: TextStyle(
-              fontFamily: 'Pacifico',
-              fontSize: 20.0,
-              color: Colors.black54,
+      child:
+      ListTile(
+        leading:
+        Container(
+          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          child: SizedBox(
+            height: 45,
+            child: Icon(
+              Icons.password,
+              color: Colors.black,
+              size: 20.0,
             ),
-          )
+          ),
+        ),
+        title:
+        Container(
+          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          child: SizedBox(
+            height: 45,
+            child: TextField(
+              textAlign: TextAlign.center,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                hintText: 'пароль',
+                hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
+                ),
+                filled: true,
+                contentPadding: EdgeInsets.all(16),
+                fillColor: Colors.grey.shade100,
+              ),
+              onTap: (){
+
+                logger.i('IspingOtServer ..  ' );
+              },
+            ),
+          ),
+        ),
 
       ),
     );
