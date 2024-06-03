@@ -30,19 +30,13 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
     return   Scaffold(
       backgroundColor:     Colors.blue,
-
-
       body:   Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-
-
-
         children: [
           Container(
             height:MediaQuery.of(context).size.height,
             width: double.maxFinite,
-
             child: Card(
                 margin: const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
                 elevation: 5,
@@ -51,26 +45,34 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     side: BorderSide(width: 5, color: Colors.blueAccent)),
                 color:     Colors.blue,
-
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children:<Widget> [
 
 
-                      Container(
-                        padding: new EdgeInsets.only(
-                            top: 100,
-                            left: 0,
-                            right: 0),
-                        child: CircleAvatar(
-                          radius:30,
-                          backgroundColor: Colors.red,
-                          foregroundImage: AssetImage(
-                            'images/imageandroid/imageforpassword.jpg',
+                      ///TODO: начинаем компоненты
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            padding: new EdgeInsets.only(
+                                top: 100,
+                                left: 0,
+                                right: 0),
+                            child: CircleAvatar(
+                              radius:40,
+                              backgroundColor: Colors.red,
+                              foregroundImage: AssetImage(
+                                'images/imageandroid/imageforpassword.jpg',
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
+
+
 
 
               //TODO: Названние Союз-автодор
@@ -78,7 +80,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      margin: EdgeInsets.only(left: 2),
+                      margin:     const EdgeInsets.only(left: 0,top: 10,right: 0,bottom: 0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),),
                       child:  Padding(
@@ -86,9 +88,9 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         child:
                         AnimatedTextKit(
                           animatedTexts: [
-                            ColorizeAnimatedText('ООО «Союз Автодор»', textStyle: TextStyle(color: Colors.grey,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w200,),textAlign:  TextAlign.center,
+                            ColorizeAnimatedText('ООО «Союз Автодор»', textStyle: TextStyle(color: Colors.black,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300,),textAlign:  TextAlign.center,
                                 colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),],
                           pause: Duration(microseconds: 1),
                           isRepeatingAnimation: true,
