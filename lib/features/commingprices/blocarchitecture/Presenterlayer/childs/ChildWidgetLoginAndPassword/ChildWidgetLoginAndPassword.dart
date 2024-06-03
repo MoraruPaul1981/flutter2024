@@ -32,11 +32,10 @@ class ChildWidgetLoginAndPassword  extends State<WidgetStateful>   implements In
     return   Scaffold(
       backgroundColor:     Colors.white,
       body:   Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height:MediaQuery.of(context).size.height,
             width: double.maxFinite,
             child: Card(
               margin: const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
@@ -73,15 +72,20 @@ class ChildWidgetLoginAndPassword  extends State<WidgetStateful>   implements In
                   //TODO: логин     //TODO: логин     //TODO: логин
                   widgetLogin(logger),
 
-                   const SizedBox(height: 2),
+                  const SizedBox(height: 2),
+
+
+
+
+
+
+ /*                  const SizedBox(height: 2),
 
                   //TODO: пароль           //TODO: пароль           //TODO: пароль
                   widgetPasswrord(logger)  ,
 
                   const SizedBox(height: 2),
-
-
-
+*/
 
                   //TODO END ROW ALL Auntifications
                 ],

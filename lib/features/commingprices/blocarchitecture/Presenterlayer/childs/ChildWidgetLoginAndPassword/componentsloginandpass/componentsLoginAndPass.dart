@@ -137,7 +137,7 @@ class widgetnameText extends StatelessWidget  {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin:       const EdgeInsets.only(left: 10,top: 30,right: 10,bottom: 10),
+      margin:       const EdgeInsets.only(left: 10,top: 10,right: 10,bottom: 10),
       color: Colors.white,
       child: ListTile(
           leading:
@@ -151,8 +151,8 @@ class widgetnameText extends StatelessWidget  {
             textAlign: TextAlign.center,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
-              hintText: 'Enter a product name eg. pension',
-              hintStyle: TextStyle(fontSize: 16),
+              hintText: 'логин',
+              hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide(
@@ -162,8 +162,12 @@ class widgetnameText extends StatelessWidget  {
               ),
               filled: true,
               contentPadding: EdgeInsets.all(16),
-              fillColor: Colors.grey.shade200,
+              fillColor: Colors.grey.shade100,
             ),
+            onTap: (){
+
+              logger.i('IspingOtServer ..  ' );
+            },
           ),
 
       ),
@@ -261,7 +265,7 @@ widgetFloatingActionButton(this.logger,{super.key});
     autofocus: true,
     focusElevation: 5,
     highlightElevation: 50,
-    onPressed: () async {
+    onPressed: ()  {
  //TODO: при нажатии перезапускаем Получение Данных
         /*    BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
             //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
