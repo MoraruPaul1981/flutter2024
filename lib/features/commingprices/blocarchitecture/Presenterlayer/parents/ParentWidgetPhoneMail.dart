@@ -24,7 +24,9 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
   @override
   Widget build(BuildContext context) {
 
-    Uint8List bytes =    geti () as  Uint8List ;
+/*    Uint8List bytes =    getDownloadImages ()   ;
+    logger.i('getDownloadImages ()..  '+bytes.toString()+'' );*/
+
 
     return   Scaffold(
       backgroundColor:     Colors.blue,
@@ -62,11 +64,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                             left: 0,
                             right: 0),
                         child: CircleAvatar(
-                          radius: 50,
-
-
-                            backgroundImage: MemoryImage(bytes),
-                          backgroundColor: Colors.transparent,
+                          radius:30,
+                          backgroundColor: Colors.red,
+                          foregroundImage: AssetImage(
+                            'images/imageforpassword.jpg',
+                          ),
                         ),
                       ),
 
@@ -247,10 +249,21 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
   }
 
-      Uint8List  geti ()   {
-    ByteData imageData =   rootBundle.load('assets/imageforpassword.jpg') as ByteData;
+
+  //TODO код загрузки фото
+  Future<Uint8List>  getDownloadImages1 ()   async {
+    ByteData imageData = await  rootBundle.load('assets/imageforpassword.jpg') as ByteData;
     Uint8List bytes = imageData.buffer.asUint8List()    ;
+    logger.i('getDownloadImages ()..  '+imageData.toString()+'' );
     return  bytes;
   }
+
+  Future<Uint8List>  getDownloadImages2 ()   async {
+    ByteData imageData = await  rootBundle.load('assets/imageforpassword.jpg') as ByteData;
+    Uint8List bytes = imageData.buffer.asUint8List()    ;
+    logger.i('getDownloadImages ()..  '+imageData.toString()+'' );
+    return  bytes;
+  }
+
 
 }
