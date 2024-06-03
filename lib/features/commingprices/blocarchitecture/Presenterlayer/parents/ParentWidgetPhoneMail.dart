@@ -186,20 +186,23 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
 
+
                       //TODO: линия
-                      Card(
-                        elevation: 3,
-                        shadowColor: Colors.grey[200],
-                        shape:RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                            side: BorderSide(width: 5, color: Colors.white)),
-                        margin:       const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 10),
-                        child: Container(
-                          color:Colors.white ,
-                          height:1,
-                          width: double.maxFinite,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(child:
+                          Container(
+                            margin:     const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 0),
+                            child: Divider(
+                              thickness: 1,
+                              color: Colors.grey[200],
+                            ),
+                          )
+                          )
+                        ],
                       ),
+
 
 
 
