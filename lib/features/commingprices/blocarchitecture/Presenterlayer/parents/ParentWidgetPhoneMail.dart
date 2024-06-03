@@ -67,7 +67,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                           radius:30,
                           backgroundColor: Colors.red,
                           foregroundImage: AssetImage(
-                            'images/imageforpassword.jpg',
+                            'images/imageandroid/imageforpassword.jpg',
                           ),
                         ),
                       ),
