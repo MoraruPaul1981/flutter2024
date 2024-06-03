@@ -57,30 +57,22 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
                       //TODO: логин
-                      //TODO: логин    //TODO: логин
-                      Card(
-                        elevation: 5,
-                        shadowColor: Colors.grey[400],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                            side: BorderSide(width: 1, color: Colors.white)),
-                        margin:   const EdgeInsets.only(left: 0,top: 100,right: 0,bottom: 0),
-                        color: Colors.white12,
-                          child: Container(
-                            margin:     const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
-                            child: const CircleAvatar(
-                              radius:40,
-                              backgroundColor: Colors.red,
-                              foregroundImage: AssetImage(
-                                'images/imageandroid/imageforpassword.jpg',
-                              ),
-                            ),
+                          Card(
+                            elevation: 10,
+                            shadowColor: Colors.grey[400],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                side: BorderSide(width: 1, color: Colors.white12 )),
+                            margin:   const EdgeInsets.only(left: 0,top: 100,right: 0,bottom: 0),
+                            color: Colors.white12,
+                                child: const CircleAvatar(
+                                  radius:40,
+                                  backgroundColor: Colors.white,
+                                  foregroundImage: AssetImage(
+                                    'images/imageandroid/imageforpassword.jpg',
+                                  ),
+                                ),
                           ),
-                      ),
-
-
-
-
 
 
               //TODO: Названние Союз-автодор
@@ -119,7 +111,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white10)),
-                        margin: EdgeInsets.all(10.0),
+                        margin:       const EdgeInsets.only(left: 10,top: 30,right: 10,bottom: 10),
                         color: Colors.white,
                         child: ListTile(
                             leading:
@@ -157,7 +149,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white10)),
-                        margin: EdgeInsets.all(10.0),
+                        margin:       const EdgeInsets.only(left: 10,top: 5,right: 10,bottom: 5),
                         color: Colors.white,
                         child: ListTile(
                             leading:
@@ -190,7 +182,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white)),
-                        margin: const EdgeInsets.only(left: 20,top: 10,right:20,bottom: 5),
+                        margin:       const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 10),
                         child: Container(
                           color:Colors.white30 ,
                           height:2,
@@ -250,20 +242,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
   }
 
 
-  //TODO код загрузки фото
-  Future<Uint8List>  getDownloadImages1 ()   async {
-    ByteData imageData = await  rootBundle.load('assets/imageforpassword.jpg') as ByteData;
-    Uint8List bytes = imageData.buffer.asUint8List()    ;
-    logger.i('getDownloadImages ()..  '+imageData.toString()+'' );
-    return  bytes;
-  }
 
-  Future<Uint8List>  getDownloadImages2 ()   async {
-    ByteData imageData = await  rootBundle.load('assets/imageforpassword.jpg') as ByteData;
-    Uint8List bytes = imageData.buffer.asUint8List()    ;
-    logger.i('getDownloadImages ()..  '+imageData.toString()+'' );
-    return  bytes;
-  }
 
 
 }
