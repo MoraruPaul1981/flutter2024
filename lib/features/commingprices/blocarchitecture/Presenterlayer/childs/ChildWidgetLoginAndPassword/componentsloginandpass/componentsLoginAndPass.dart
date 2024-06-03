@@ -147,14 +147,24 @@ class widgetnameText extends StatelessWidget  {
             size: 20.0,
           ),
           title:
-          Text(
-            '+79158111806',
-            style: TextStyle(
-              fontFamily: 'Pacifico',
-              fontSize: 20.0,
-              color: Colors.black54,
+          TextField(
+            textAlign: TextAlign.center,
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              hintText: 'Enter a product name eg. pension',
+              hintStyle: TextStyle(fontSize: 16),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+              filled: true,
+              contentPadding: EdgeInsets.all(16),
+              fillColor: Colors.grey.shade200,
             ),
-          )
+          ),
 
       ),
     );
@@ -217,7 +227,7 @@ class widgetLine  extends StatelessWidget  {
       children: <Widget>[
         Expanded(child:
         Container(
-          margin:     const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 0),
+          margin:     const EdgeInsets.only(left: 15,top: 10,right: 15,bottom: 0),
           child: Divider(
             thickness: 1,
             color: Colors.grey[200],

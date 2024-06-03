@@ -65,6 +65,11 @@ class ChildWidgetLoginAndPassword  extends State<WidgetStateful>   implements In
 
                   const SizedBox(height: 2),
 
+                  //TODO: линия
+                  widgetLine(logger)    ,
+
+                  const SizedBox(height: 2),
+
                   //TODO: логин     //TODO: логин     //TODO: логин
                   widgetLogin(logger),
 
@@ -75,10 +80,7 @@ class ChildWidgetLoginAndPassword  extends State<WidgetStateful>   implements In
 
                   const SizedBox(height: 2),
 
-                  //TODO: линия
-                  widgetLine(logger)    ,
 
-                  const SizedBox(height: 2),
 
 
                   //TODO END ROW ALL Auntifications
