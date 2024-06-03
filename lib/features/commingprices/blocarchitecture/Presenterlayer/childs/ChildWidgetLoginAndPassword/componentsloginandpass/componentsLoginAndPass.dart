@@ -68,7 +68,7 @@ class widgetnameText extends StatelessWidget  {
               child:
               Text(
                 'ООО «Союз Автодор»',
-                style: TextStyle(color: Colors.grey[800],
+                style: TextStyle(color: Colors.black,
                   fontSize: 25,
                   fontWeight: FontWeight.w300,),textAlign:  TextAlign.center,
               ),
@@ -148,7 +148,7 @@ class widgetnameText extends StatelessWidget  {
             height: 45,
             child: Icon(
               Icons.account_circle,
-              color: Colors.black,
+              color: Colors.blue[300],
               size: 20.0,
             ),
           ),
@@ -217,7 +217,7 @@ class widgetPasswrord  extends StatelessWidget  {
             height: 45,
             child: Icon(
               Icons.password,
-              color: Colors.black,
+              color: Colors.blue[300],
               size: 20.0,
             ),
           ),
