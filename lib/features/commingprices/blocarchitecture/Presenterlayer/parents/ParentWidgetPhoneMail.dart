@@ -59,18 +59,28 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       //TODO: логин
                           Card(
                             elevation: 10,
-                            shadowColor: Colors.grey[400],
+                            shadowColor: Colors.white12,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
                                 side: BorderSide(width: 1, color: Colors.white12 )),
                             margin:   const EdgeInsets.only(left: 0,top: 100,right: 0,bottom: 0),
                             color: Colors.white12,
                                 child: const CircleAvatar(
-                                  radius:40,
-                                  backgroundColor: Colors.white,
-                                  foregroundImage: AssetImage(
-                                    'images/imageandroid/imageforpassword.jpg',
-                                  ),
+                                    radius: 48,
+                                    backgroundColor: Colors.white,
+                                    backgroundImage: AssetImage('images/imageandroid/imageforpassword.jpg'),
+                                    child: Stack(
+                                        children: [
+                                          Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: CircleAvatar(
+                                                  radius: 18,
+                                                  backgroundColor: Colors.white,
+                                                  child: Icon(Icons.lock,color: Colors.black) // change this children
+                                              )
+                                          )
+                                        ]
+                                    )
                                 ),
                           ),
 
@@ -182,11 +192,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         elevation: 3,
                         shadowColor: Colors.grey[200],
                         shape:RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
                             side: BorderSide(width: 5, color: Colors.white)),
                         margin:       const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 10),
                         child: Container(
-                          color:Colors.white30 ,
+                          color:Colors.white ,
                           height:1,
                           width: double.maxFinite,
                         ),
