@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -256,6 +258,9 @@ widgetFloatingActionButton(this.logger,{super.key});
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
 
+      Bl bl=new Bl();
+      bl.getComdddthread(logger,context);
+
       logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
 
 
@@ -277,4 +282,40 @@ widgetFloatingActionButton(this.logger,{super.key});
 
 
 
+///*****************************************************************13.47
+class  Bl {
 
+
+    int computationallyExpensiveTask(int value) {
+    var sum = 0;
+    for (var i = 0; i <= value; i++) {
+      sum += i;
+      print('sum::$sum');
+// Find the ScaffoldMessenger in the widget tree
+// and use it to show a SnackBar.
+    }
+
+    print(' getComdddthread()..  sum $sum  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+    return sum;
+  }
+
+
+
+     Future<void> getComdddthread(Logger logger,BuildContext context) async {
+    //final sum = await compute(computationallyExpensiveTask, 100);
+    final int sum = await Isolate.run(()=> computationallyExpensiveTask(10000)) ;
+    logger.i(' getComdddthread()..  sum $sum  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+
+    const snackBar = SnackBar(
+      content: Text(' getComdddthread()..  sum   ' ),
+    );
+
+    // Find the ScaffoldMessenger in the widget tree
+// and use it to show a SnackBar.
+       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+
+  }
+
+
+}
