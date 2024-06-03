@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
@@ -231,12 +232,15 @@ class widgetLine  extends StatelessWidget  {
 
 class widgetFloatingActionButton  extends StatelessWidget  {
   Logger logger;
+ late BuildContext context;
+  var  sum;
 //TODO: Конструктор кнопки Fload  Крглой
 widgetFloatingActionButton(this.logger,{super.key});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+   this.context= context;
     return      Container(
         margin:  const EdgeInsets.only( left: 5,top:5,right: 5,bottom: 50),
     padding: const EdgeInsets.all(2.0),
@@ -254,8 +258,6 @@ widgetFloatingActionButton(this.logger,{super.key});
 
       logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
 
-      bl b=new bl();
-      bl.getComdddthread(logger);
 
           },
           backgroundColor: Colors.blue[300],
@@ -273,14 +275,6 @@ widgetFloatingActionButton(this.logger,{super.key});
 }
 
 
- class  bl {
-
-   static   void getComdddthread(Logger logger){
-
-    logger.i(' getComdddthread..   ' );
-
-  }
-}
 
 
 
