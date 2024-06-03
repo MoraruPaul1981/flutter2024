@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../Businesslayer/animations/GetAntimations.dart';
+import '../../../../Businesslayer/errors/Errors.dart';
 
 
 
@@ -250,7 +251,7 @@ widgetFloatingActionButton(this.logger,{super.key});
     autofocus: true,
     focusElevation: 5,
     highlightElevation: 50,
-    onPressed: () {
+    onPressed: () async {
  //TODO: при нажатии перезапускаем Получение Данных
         /*    BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
             //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
@@ -258,11 +259,7 @@ widgetFloatingActionButton(this.logger,{super.key});
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
 
-      Bl bl=new Bl();
-      bl.getComdddthread(logger,context);
-
-      logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
-
+      logger.i('widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed..   ' );
 
           },
           backgroundColor: Colors.blue[300],
@@ -282,40 +279,3 @@ widgetFloatingActionButton(this.logger,{super.key});
 
 
 
-///*****************************************************************13.47
-class  Bl {
-
-
-    int computationallyExpensiveTask(int value) {
-    var sum = 0;
-    for (var i = 0; i <= value; i++) {
-      sum += i;
-      print('sum::$sum');
-// Find the ScaffoldMessenger in the widget tree
-// and use it to show a SnackBar.
-    }
-
-    print(' getComdddthread()..  sum $sum  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
-    return sum;
-  }
-
-
-
-     Future<void> getComdddthread(Logger logger,BuildContext context) async {
-    //final sum = await compute(computationallyExpensiveTask, 100);
-    final int sum = await Isolate.run(()=> computationallyExpensiveTask(10000)) ;
-    logger.i(' getComdddthread()..  sum $sum  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
-
-    const snackBar = SnackBar(
-      content: Text(' getComdddthread()..  sum   ' ),
-    );
-
-    // Find the ScaffoldMessenger in the widget tree
-// and use it to show a SnackBar.
-       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-
-  }
-
-
-}
