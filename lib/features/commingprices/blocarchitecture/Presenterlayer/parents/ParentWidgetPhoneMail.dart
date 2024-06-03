@@ -75,7 +75,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                                               alignment: Alignment.bottomRight,
                                               child: CircleAvatar(
                                                   radius: 18,
-                                                  backgroundColor: Colors.white,
+                                                  backgroundColor: Colors.white60,
                                                   child: Icon(Icons.lock,color: Colors.black) // change this children
                                               )
                                           )
@@ -113,8 +113,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
 
-             //TODO: логин
-                      //TODO: логин    //TODO: логин
+             //TODO: логин     //TODO: логин     //TODO: логин
                       Card(
                         elevation: 5,
                         shadowColor: Colors.grey[200],
@@ -126,7 +125,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         child: ListTile(
                             leading:
                             Icon(
-                              Icons.phone,
+                              Icons.account_circle,
                               color: Colors.black,
                               size: 20.0,
                             ),
@@ -164,7 +163,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                         child: ListTile(
                             leading:
                             Icon(
-                              Icons.email,
+                              Icons.password,
                               color: Colors.black,
                               size: 20.0,
                             ),
