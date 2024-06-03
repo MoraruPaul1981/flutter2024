@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
+import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetAuthorizations.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWidgetPhoneMail.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWidgetRow.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/parents/ParentWidgetStateful.dart';
@@ -96,7 +97,9 @@ class WidgetStateful extends StatefulWidget {
   //TODO Comming Prices main code
   //State<WidgetStateful> createState() => ParentWidgetStateful(key:key, logger: logger);
   //TODO тест код  антификация пользователя
-  State<WidgetStateful> createState() => ParentWidgetPhoneMail(key:key, logger: logger);
+  //State<WidgetStateful> createState() => ParentWidgetPhoneMail(key:key, logger: logger);
+
+  State<WidgetStateful> createState() => ChildWidgetAuthorizations(key:key, logger: logger);
 
 //TODO тест код  ROW
  // State<WidgetStateful> createState() => ParentWidgetRow(key:key, logger: logger);

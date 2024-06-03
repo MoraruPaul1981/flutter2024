@@ -62,7 +62,6 @@ abstract  class IntarfaceChildWidgetWaiting {
 
 abstract  class IntarfaceChildWidgetAuthorizationUsers {
   //TODO переменные
-  late BuildContext context;
   late Logger   logger;
 
 }
