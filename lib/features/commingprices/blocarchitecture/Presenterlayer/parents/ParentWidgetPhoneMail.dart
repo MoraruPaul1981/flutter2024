@@ -29,7 +29,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
     return   Scaffold(
-      backgroundColor:     Colors.blue,
+      backgroundColor:     Colors.white12,
       body:   Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,11 +40,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
             child: Card(
                 margin: const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
                 elevation: 5,
-                shadowColor: Colors.blue,
+                shadowColor: Colors.white70,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    side: BorderSide(width: 5, color: Colors.blueAccent)),
-                color:     Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    side: BorderSide(width: 3, color: Colors.white)),
+                color:     Colors.white,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,15 +86,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       child:  Padding(
                         padding: EdgeInsets.all(2.0),
                         child:
-                        AnimatedTextKit(
-                          animatedTexts: [
-                            ColorizeAnimatedText('ООО «Союз Автодор»', textStyle: TextStyle(color: Colors.black,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300,),textAlign:  TextAlign.center,
-                                colors:[Colors.black,Colors.white,Colors.grey,Colors.black] ),],
-                          pause: Duration(microseconds: 1),
-                          isRepeatingAnimation: true,
-                          repeatForever: false,
+                        Text(
+                          'ООО «Союз Автодор»',
+                          style: TextStyle(color: Colors.grey[800],
+                          fontSize: 25,
+                          fontWeight: FontWeight.w300,),textAlign:  TextAlign.center,
                         ),
                       )
                   )
@@ -111,7 +107,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       //TODO: логин    //TODO: логин
                       Card(
                         elevation: 5,
-                        shadowColor: Colors.blue,
+                        shadowColor: Colors.grey[200],
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white10)),
@@ -149,7 +145,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       //TODO: пароль           //TODO: пароль           //TODO: пароль
                       Card(
                         elevation: 5,
-                        shadowColor: Colors.blue,
+                        shadowColor: Colors.grey[200],
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white10)),
@@ -185,10 +181,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       Card(
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                            side: BorderSide(width: 5, color: Colors.blue)),
+                            side: BorderSide(width: 5, color: Colors.greenAccent)),
                         margin: const EdgeInsets.only(left: 20,top: 10,right:20,bottom: 5),
                         child: Container(
-                          color:Colors.blue ,
+                          color:Colors.grey[200] ,
                           height:2,
                           width: double.maxFinite,
                         ),
