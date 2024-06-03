@@ -29,7 +29,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
     return   Scaffold(
-      backgroundColor:     Colors.white12,
+      backgroundColor:     Colors.white,
       body:   Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,7 +40,7 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
             child: Card(
                 margin: const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
                 elevation: 5,
-                shadowColor: Colors.white70,
+                shadowColor: Colors.white12,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     side: BorderSide(width: 3, color: Colors.white)),
@@ -51,17 +51,24 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                     children:<Widget> [
 
 
-                      ///TODO: начинаем компоненты
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            padding: new EdgeInsets.only(
-                                top: 100,
-                                left: 0,
-                                right: 0),
-                            child: CircleAvatar(
+
+
+
+
+                      //TODO: логин
+                      //TODO: логин    //TODO: логин
+                      Card(
+                        elevation: 5,
+                        shadowColor: Colors.grey[400],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            side: BorderSide(width: 1, color: Colors.white)),
+                        margin:   const EdgeInsets.only(left: 0,top: 100,right: 0,bottom: 0),
+                        color: Colors.white12,
+                          child: Container(
+                            margin:     const EdgeInsets.only(left: 0,top: 0,right: 0,bottom: 0),
+                            child: const CircleAvatar(
                               radius:40,
                               backgroundColor: Colors.red,
                               foregroundImage: AssetImage(
@@ -69,8 +76,9 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                               ),
                             ),
                           ),
-                        ],
                       ),
+
+
 
 
 
@@ -181,10 +189,10 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
                       Card(
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                            side: BorderSide(width: 5, color: Colors.greenAccent)),
+                            side: BorderSide(width: 5, color: Colors.white)),
                         margin: const EdgeInsets.only(left: 20,top: 10,right:20,bottom: 5),
                         child: Container(
-                          color:Colors.grey[200] ,
+                          color:Colors.white30 ,
                           height:2,
                           width: double.maxFinite,
                         ),
