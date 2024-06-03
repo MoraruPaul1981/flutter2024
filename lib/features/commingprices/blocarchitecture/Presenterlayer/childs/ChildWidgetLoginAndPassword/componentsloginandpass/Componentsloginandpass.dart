@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 
+  class widgetLogin  extends StatelessWidget  {
+    const widgetLogin({super.key});
 
-class Componentsloginandpass {
-
-
-
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 
 
 }
