@@ -1,28 +1,32 @@
 
 
+
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:logger/logger.dart';
-import '../../Businesslayer/animations/GetAntimations.dart';
+import 'package:logger/src/logger.dart';
+
+import '../../../../../../main.dart';
+import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../../../Businesslayer/animations/GetAntimations.dart';
+import '../../../Datalayer/entities/Entities1CMap.dart';
 
 
+/////////TODO класс ожидание ответа пинга от 1с
+class ChildWidgetLoginAndPassword  extends State<WidgetStateful>   implements IntarfaceChildWidgetAuthorizationUsers   {
 
-//TODO Виджет сотоящий из трех строк Телефон и Две Почты
-
-class ParentWidgetPhoneMail extends State<WidgetStateful>  {
-
-  //TODO: переменные
-  Logger logger;
+//TODO: переменные
+  @override
+    Logger logger;
+  @override
   Key? key;
-  ParentWidgetPhoneMail({this.key, required this.logger } ) ;
+  //TODO консруктор
+  ChildWidgetLoginAndPassword({this.key, required this.logger } ) ;
 
   @override
-
   Widget build(BuildContext context) {
+    // TODO: implement build
+
     //TODO: login and password
     return   Scaffold(
       backgroundColor:     Colors.white,
@@ -249,7 +253,11 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
 
 
+
   }
+
+
+
 
 
 
