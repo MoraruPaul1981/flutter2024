@@ -179,13 +179,15 @@ class ParentWidgetPhoneMail extends State<WidgetStateful>  {
 
                       //TODO: линия
                       Card(
+                        elevation: 3,
+                        shadowColor: Colors.grey[200],
                         shape:RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                             side: BorderSide(width: 5, color: Colors.white)),
                         margin:       const EdgeInsets.only(left: 20,top: 10,right: 20,bottom: 10),
                         child: Container(
                           color:Colors.white30 ,
-                          height:2,
+                          height:1,
                           width: double.maxFinite,
                         ),
                       ),
