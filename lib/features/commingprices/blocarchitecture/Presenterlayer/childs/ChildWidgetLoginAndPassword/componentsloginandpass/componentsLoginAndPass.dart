@@ -3,8 +3,10 @@ import 'dart:isolate';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
+import '../../../../Businesslayer/Bloc/BlocChildWidgetLoginAndPassword.dart';
 import '../../../../Businesslayer/animations/GetAntimations.dart';
 import '../../../../Businesslayer/errors/Errors.dart';
 
@@ -18,7 +20,11 @@ class widgetcircleAvatar  extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return                     Card(
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+    //TODO:widgetcircleAvatar
+    return  Card(
       elevation: 10,
       shadowColor: Colors.white12,
       shape: RoundedRectangleBorder(
@@ -56,7 +62,11 @@ class widgetnameText extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return                     Row(
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+    //TODO: widgetnameText
+    return     Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
@@ -130,7 +140,11 @@ class widgetnameText extends StatelessWidget  {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+
+    // TODO: widgetLogin
     return        Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
@@ -200,6 +214,10 @@ class widgetPasswrord  extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+    //TODO: widgetPasswrord
     return        Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
@@ -266,6 +284,10 @@ class widgetLine  extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+    //TODO: widgetLine
     return     Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -289,15 +311,17 @@ class widgetLine  extends StatelessWidget  {
 
 class widgetFloatingActionButton  extends StatelessWidget  {
   Logger logger;
- late BuildContext context;
-  var  sum;
 //TODO: Конструктор кнопки Fload  Крглой
 widgetFloatingActionButton(this.logger,{super.key});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-   this.context= context;
+    //TODO: BLOCProvider
+    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
+    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
+
+    //TODO: widgetFloatingActionButton
     return      Container(
         margin:  const EdgeInsets.only( left: 5,top:5,right: 5,bottom: 50),
     padding: const EdgeInsets.all(2.0),
