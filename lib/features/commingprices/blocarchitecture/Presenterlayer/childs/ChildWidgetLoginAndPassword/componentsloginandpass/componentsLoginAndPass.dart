@@ -278,7 +278,7 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              BlocProvider.of<CounterCubitTwo>(context).incrementTwo();
+              BlocProvider.of<CounterCubitState>(context).add(CounterIncEvent());
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],

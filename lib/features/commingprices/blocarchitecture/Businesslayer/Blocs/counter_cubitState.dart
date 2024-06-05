@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 
 
-
+/*
+TODO: Bloc класс
+ */
 class CounterCubitState extends Bloc<CounterEvents,int> {
   CounterCubitState():super(10){
  on<CounterIncEvent>(_onIncremet);
