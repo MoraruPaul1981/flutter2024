@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 
 import '../../../../Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
 import '../../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
+import '../../../../Businesslayer/Blocs/bloccubit/blocStream.dart';
 
 
 class widgetcircleAvatar extends StatelessWidget {
@@ -100,8 +101,7 @@ class widgetLogin extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin: const EdgeInsets.only(
-          left: 20, top: 1, right: 20, bottom: 10),
+      margin: const EdgeInsets.only(left: 30, top: 1, right: 30, bottom: 10),
       color: Colors.white,
       child: ListTile(
         leading:
@@ -160,72 +160,74 @@ class widgetPasswrord extends StatelessWidget {
   //TODO:
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     //TODO: widgetPasswrord
-    return BlocBuilder<BlocCreatecounter, int>(
-      buildWhen:(previous, current) =>  previous != current ,
-  builder: (context, state) {
-    return Card(
-      elevation: 5,
-      shadowColor: Colors.grey[200],
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-          side: BorderSide(width: 5, color: Colors.white10)),
-      margin: const EdgeInsets.only(left: 20, top: 1, right: 20, bottom: 10),
-      color: Colors.white,
-      child:
-      ListTile(
-        leading:
-        Container(
-          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
-          child: SizedBox(
-            height: 45,
-            child: Icon(
-              Icons.password,
-              color: Colors.blue[300],
-              size: 20.0,
-            ),
-          ),
-        ),
-        title: Container(
-          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
-          child: SizedBox(
-            height: 45,
-            child: TextField(
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                hintText: state.toString(),///TODO: 'пароль'
-                hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade600),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(
-                    width: 0,
-                    style: BorderStyle.none,
-                  ),
-                ),
-                filled: true,
-                contentPadding: EdgeInsets.all(5),
-                fillColor: Colors.grey.shade50,
+    return BlocBuilder<BlocStream, int>(
+        builder: (context, state) {
+      return Card(
+        elevation: 5,
+        shadowColor: Colors.grey[200],
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+            side: BorderSide(width: 5, color: Colors.white10)),
+        margin: const EdgeInsets.only(left: 30, top: 1, right: 30, bottom: 10),
+        color: Colors.white,
+        child:
+        ListTile(
+          leading:
+          Container(
+            padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
+            child: SizedBox(
+              height: 45,
+              child: Icon(
+                Icons.password,
+                color: Colors.blue[300],
+                size: 20.0,
               ),
-              obscureText: true,
-              obscuringCharacter: "*",
-              onTap: () {
-                logger.i('   onTap: ..  ');
-              },
-              onChanged: (content) {
-                logger.i(' onChanged: ..  ');
-              },
             ),
           ),
-        ),
+          title: Container(
+            padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
+            child: SizedBox(
+              height: 45,
+              child: TextField(
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.visiblePassword,
+                decoration: InputDecoration(
+                  hintText: state.toString(),//TODO:  'пароль'
 
-      ),
+                  ///TODO: 'пароль'
+                  hintStyle: TextStyle(
+                      fontSize: 16, color: Colors.grey.shade600),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                  ),
+                  filled: true,
+                  contentPadding: EdgeInsets.all(5),
+                  fillColor: Colors.grey.shade50,
+                ),
+                obscureText: true,
+                obscuringCharacter: "*",
+                onTap: () {
+                  logger.i('   onTap: ..  ');
+                },
+                onChanged: (content) {
+                  logger.i(' onChanged: ..  ');
+                },
+              ),
+            ),
+          ),
+
+        ),
+      );
+    },
     );
-  },
-);
   }
 }
+
 
 
 class widgetLine extends StatelessWidget {
@@ -277,7 +279,7 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              BlocProvider.of<BlocCreatecounter>(context).add(CounterIncEventcounter());
+              BlocProvider.of<BlocStream>(context).add(CounterIncEventcounter());
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
