@@ -41,7 +41,7 @@ void startingCommintPrices() {
       //TODO starting UI
       runApp(CommingPricesStatelessWidget(logger: logger));
 
-      logger.i('start value ..  ');
+      logger.i('end startingCommintPrices()  ..  ');
       return logger;
     });
     //TODO error

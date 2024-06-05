@@ -205,8 +205,13 @@ class widgetPasswrord extends StatelessWidget {
                 contentPadding: EdgeInsets.all(5),
                 fillColor: Colors.grey.shade50,
               ),
+              obscureText: true,
+              obscuringCharacter: "*",
               onTap: () {
-                logger.i('IspingOtServer ..  ');
+                logger.i('   onTap: ..  ');
+              },
+              onChanged: (content) {
+                logger.i(' onChanged: ..  ');
               },
             ),
           ),
