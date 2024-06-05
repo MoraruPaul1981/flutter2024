@@ -163,6 +163,7 @@ class widgetPasswrord extends StatelessWidget {
     // TODO: implement build
     //TODO: widgetPasswrord
     return BlocBuilder<BlocCreatecounter, int>(
+      buildWhen:(previous, current) =>  previous != current ,
   builder: (context, state) {
     return Card(
       elevation: 5,

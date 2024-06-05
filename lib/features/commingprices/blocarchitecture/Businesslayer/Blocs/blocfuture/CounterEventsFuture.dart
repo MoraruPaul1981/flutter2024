@@ -4,6 +4,6 @@
 
 abstract class CounterEventsFuture{}
 
-class CounterIncEvent extends  CounterEventsFuture{}
+class CounterIncEventFuture extends  CounterEventsFuture{}
 
-class CounterDecEvent extends  CounterEventsFuture{}
+class CounterDecEventFuture extends  CounterEventsFuture{}
