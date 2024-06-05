@@ -260,11 +260,10 @@ class widgetFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: widgetFloatingActionButton
     //TODO: bloc
-    final counterBloc = BlocProvider.of<CounterCubit>(context);
     return BlocConsumer<CounterCubit, int>(
       listener: (context, state) {
         // TODO: implement listener
-        if(state==0){
+  /*      if(state==0){
           Scaffold.of(context).showBottomSheet(
             (context)=>Container(
               color: Colors.blue,
@@ -284,7 +283,7 @@ class widgetFloatingActionButton extends StatelessWidget {
 
                   ),
           );
-        }
+        }*/
 
       },
       builder: (context, state) {
@@ -302,7 +301,8 @@ class widgetFloatingActionButton extends StatelessWidget {
             biwidgeterrror.theServeristurnedRereceive();
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
-
+              logger.i(
+                  ' BeforevwidgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed.. state  $state  ');
 
               Scaffold.of(context).showBottomSheet(
                     (context)=>Container(
@@ -313,10 +313,10 @@ class widgetFloatingActionButton extends StatelessWidget {
 
                 ),
               );
-              counterBloc.increment();
+              BlocProvider.of<CounterCubit>(context).increment();
 
               logger.i(
-                  'widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed..   ');
+                  ' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed.. state  $state  ');
             },
             backgroundColor: Colors.blue[300],
             tooltip: 'Повторное получение !!!',
