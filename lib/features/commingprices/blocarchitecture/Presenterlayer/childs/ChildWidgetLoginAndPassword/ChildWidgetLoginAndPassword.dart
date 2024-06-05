@@ -1,14 +1,10 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../../../../main.dart';
-import '../../../Businesslayer/Bloc/BlocChildWidgetLoginAndPassword.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
-import '../../../Datalayer/entities/Entities1CMap.dart';
 import 'componentsloginandpass/componentsLoginAndPass.dart';
 
 
@@ -29,15 +25,12 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful>
   Widget build(BuildContext context) {
     //TODO: login and password
     //TODO:начало компонентов
-    return BlocProvider(
-      create: (context) => BlocChildWidgetLoginAndPassword(0),
-      child: Scaffold(
+    return   Scaffold(
         backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
+          children: [Container(
               width: double.maxFinite,
               child: Card(
                 margin: const EdgeInsets.only(
@@ -101,7 +94,6 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful>
 
 
         /////TODO: END конец всех компоннтов
-      ),
     );
   }
 

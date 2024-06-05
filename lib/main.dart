@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-
-import 'features/commingprices/blocarchitecture/Businesslayer/Bloc/BlocChildWidgetLoginAndPassword.dart';
+import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -40,7 +39,7 @@ void startingCommintPrices() {
 
 
       //TODO starting UI
-      runApp(  CommingPricesStatelessWidget(logger: logger));
+      runApp(CommingPricesStatelessWidget(logger: logger));
 
       logger.i('start value ..  ');
       return logger;
@@ -62,16 +61,17 @@ class CommingPricesStatelessWidget extends StatelessWidget {
 //TODO cunstructor
   CommingPricesStatelessWidget({ required this.logger, super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-
       debugShowCheckedModeBanner: false,
-      home: WidgetStateful(logger, key),
+      home: BlocProvider(
+        create: (context) => CounterCubit(),
+        child: WidgetStateful(logger, key),
+      ),
     );
   }
 
@@ -89,7 +89,8 @@ class WidgetStateful extends StatefulWidget {
   //TODO тест код  антификация пользователя
   //State<WidgetStateful> createState() => ParentWidgetPhoneMail(key:key, logger: logger);
 
-  State<WidgetStateful> createState() => ChildWidgetLoginAndPassword(key: key, logger: logger);
+  State<WidgetStateful> createState() =>
+      ChildWidgetLoginAndPassword(key: key, logger: logger);
 
 //TODO тест код  ROW
 // State<WidgetStateful> createState() => ParentWidgetRow(key:key, logger: logger);

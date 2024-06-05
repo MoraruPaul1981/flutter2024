@@ -1,41 +1,33 @@
-import 'dart:isolate';
-
+import 'package:commintprices/features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../../../../Businesslayer/Bloc/BlocChildWidgetLoginAndPassword.dart';
-import '../../../../Businesslayer/animations/GetAntimations.dart';
-import '../../../../Businesslayer/errors/Errors.dart';
 
-
-
-
-class widgetcircleAvatar  extends StatelessWidget  {
+class widgetcircleAvatar extends StatelessWidget {
   Logger logger;
-  widgetcircleAvatar(this.logger,{super.key});
 
+  widgetcircleAvatar(this.logger, {super.key});
+
+  //TODO:
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
     //TODO:widgetcircleAvatar
-    return  Card(
+    return Card(
       elevation: 10,
       shadowColor: Colors.white12,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
-          side: BorderSide(width: 1, color: Colors.white12 )),
-      margin:   const EdgeInsets.only(left: 0,top: 100,right: 0,bottom: 0),
+          side: BorderSide(width: 1, color: Colors.white12)),
+      margin: const EdgeInsets.only(left: 0, top: 100, right: 0, bottom: 0),
       color: Colors.white12,
       child: const CircleAvatar(
           radius: 48,
           backgroundColor: Colors.white,
-          backgroundImage: AssetImage('images/imageandroid/imageforpassword.jpg'),
+          backgroundImage: AssetImage(
+              'images/imageandroid/imageforpassword.jpg'),
           child: Stack(
               children: [
                 Align(
@@ -43,121 +35,77 @@ class widgetcircleAvatar  extends StatelessWidget  {
                     child: CircleAvatar(
                         radius: 18,
                         backgroundColor: Colors.white60,
-                        child: Icon(Icons.lock,color: Colors.black) // change this children
+                        child: Icon(Icons.lock,
+                            color: Colors.black) // change this children
                     )
                 )
               ]
           )
       ),
     );
-
   }
 }
 
 
-class widgetnameText extends StatelessWidget  {
+class widgetnameText extends StatelessWidget {
   Logger logger;
-  widgetnameText(this.logger,{super.key});
 
+  widgetnameText(this.logger, {super.key});
+
+//TODO:
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
     //TODO: widgetnameText
-    return     Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-            margin:     const EdgeInsets.only(left: 0,top: 10,right: 0,bottom: 0),
+            margin: const EdgeInsets.only(
+                left: 0, top: 10, right: 0, bottom: 0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),),
-            child:  Padding(
+            child: Padding(
               padding: EdgeInsets.all(2.0),
               child:
               Text(
                 'ООО «Союз Автодор»',
                 style: TextStyle(color: Colors.black,
                   fontSize: 25,
-                  fontWeight: FontWeight.w300,),textAlign:  TextAlign.center,
+                  fontWeight: FontWeight.w300,), textAlign: TextAlign.center,
               ),
             )
         )
       ],
     );
-
   }
 }
 
 
+class widgetLogin extends StatelessWidget {
+  Logger logger;
 
+  widgetLogin(this.logger, {super.key});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  class widgetLogin  extends StatelessWidget  {
-    Logger logger;
-    widgetLogin(this.logger,{super.key});
-
+//TODO:
   @override
   Widget build(BuildContext context) {
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
-
     // TODO: widgetLogin
-    return        Card(
+    //TODO: bloc
+    final counterBloc = BlocProvider.of<CounterCubit>(context);
+    return Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin:       const EdgeInsets.only(left: 20,top: 1,right: 20,bottom: 10),
+      margin: const EdgeInsets.only(
+          left: 20, top: 1, right: 20, bottom: 10),
       color: Colors.white,
-      child:
-      ListTile(
+      child: ListTile(
         leading:
         Container(
-          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
           child: SizedBox(
             height: 45,
             child: Icon(
@@ -167,9 +115,8 @@ class widgetnameText extends StatelessWidget  {
             ),
           ),
         ),
-        title:
-        Container(
-          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+        title: Container(
+          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
           child: SizedBox(
             height: 45,
             child: TextField(
@@ -177,7 +124,10 @@ class widgetnameText extends StatelessWidget  {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: 'логин',
-                hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
+                //'логин',
+                //'логин'
+                hintStyle: TextStyle(
+                    fontSize: 16, color: Colors.grey.shade600),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: BorderSide(
@@ -186,51 +136,44 @@ class widgetnameText extends StatelessWidget  {
                   ),
                 ),
                 filled: true,
-                contentPadding: EdgeInsets.all(16),
-                fillColor: Colors.grey.shade100,
+                contentPadding: EdgeInsets.all(5),
+                fillColor: Colors.grey.shade50,
               ),
-              onTap: (){
-
-                logger.i('IspingOtServer ..  ' );
+              onTap: () {
+                logger.i('IspingOtServer ..  ');
               },
             ),
           ),
         ),
-
       ),
     );
-
   }
 }
 
 
-
-
-
-class widgetPasswrord  extends StatelessWidget  {
+class widgetPasswrord extends StatelessWidget {
   Logger logger;
-  widgetPasswrord(this.logger,{super.key});
 
+  widgetPasswrord(this.logger, {super.key});
+
+  //TODO:
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
     //TODO: widgetPasswrord
-    return        Card(
+    return Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 5, color: Colors.white10)),
-      margin:       const EdgeInsets.only(left: 20,top: 1,right: 20,bottom: 10),
+      margin: const EdgeInsets.only(left: 20, top: 1, right: 20, bottom: 10),
       color: Colors.white,
       child:
       ListTile(
         leading:
         Container(
-          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
           child: SizedBox(
             height: 45,
             child: Icon(
@@ -242,7 +185,7 @@ class widgetPasswrord  extends StatelessWidget  {
         ),
         title:
         Container(
-          padding:EdgeInsets.only( left: 1,top:1,right:1,bottom: 1) ,
+          padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
           child: SizedBox(
             height: 45,
             child: TextField(
@@ -250,7 +193,7 @@ class widgetPasswrord  extends StatelessWidget  {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: 'пароль',
-                hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade600),
+                hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade600),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: BorderSide(
@@ -259,12 +202,11 @@ class widgetPasswrord  extends StatelessWidget  {
                   ),
                 ),
                 filled: true,
-                contentPadding: EdgeInsets.all(16),
-                fillColor: Colors.grey.shade100,
+                contentPadding: EdgeInsets.all(5),
+                fillColor: Colors.grey.shade50,
               ),
-              onTap: (){
-
-                logger.i('IspingOtServer ..  ' );
+              onTap: () {
+                logger.i('IspingOtServer ..  ');
               },
             ),
           ),
@@ -272,28 +214,27 @@ class widgetPasswrord  extends StatelessWidget  {
 
       ),
     );
-
   }
 }
 
 
-class widgetLine  extends StatelessWidget  {
+class widgetLine extends StatelessWidget {
   Logger logger;
-  widgetLine(this.logger,{super.key});
 
+  widgetLine(this.logger, {super.key});
+
+//TODO:
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
     //TODO: widgetLine
-    return     Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Expanded(child:
         Container(
-          margin:     const EdgeInsets.only(left: 15,top: 10,right: 15,bottom: 0),
+          margin: const EdgeInsets.only(
+              left: 15, top: 10, right: 15, bottom: 0),
           child: Divider(
             thickness: 1,
             color: Colors.grey[200],
@@ -302,55 +243,94 @@ class widgetLine  extends StatelessWidget  {
         )
       ],
     );
-
   }
 }
 
 
 //TODO : круглая пнопка снизу ОК
 
-class widgetFloatingActionButton  extends StatelessWidget  {
+class widgetFloatingActionButton extends StatelessWidget {
   Logger logger;
-//TODO: Конструктор кнопки Fload  Крглой
-widgetFloatingActionButton(this.logger,{super.key});
 
+//TODO: Конструктор кнопки Fload  Крглой
+  widgetFloatingActionButton(this.logger, {super.key});
+
+  //TODO : кнопка Floadt Круглая большая
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    //TODO: BLOCProvider
-    final  BlocChildWidgetLoginAndPassword  getLoginAndPassword
-    = BlocProvider.of<BlocChildWidgetLoginAndPassword>(context);
-
     //TODO: widgetFloatingActionButton
-    return      Container(
-        margin:  const EdgeInsets.only( left: 5,top:5,right: 5,bottom: 50),
-    padding: const EdgeInsets.all(2.0),
-    child: FloatingActionButton (
-    autofocus: true,
-    focusElevation: 5,
-    highlightElevation: 50,
-    onPressed: ()  {
- //TODO: при нажатии перезапускаем Получение Данных
-        /*    BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
+    //TODO: bloc
+    final counterBloc = BlocProvider.of<CounterCubit>(context);
+    return BlocConsumer<CounterCubit, int>(
+      listener: (context, state) {
+        // TODO: implement listener
+        if(state==0){
+          Scaffold.of(context).showBottomSheet(
+            (context)=>Container(
+              color: Colors.blue,
+              width: double.infinity,
+              height: 30,
+              child: Text('BlocConsumer State is 0'),
+
+            ),
+        );
+        }else{
+          Scaffold.of(context).showBottomSheet(
+                  (context)=>Container(
+                color: Colors.blue.shade200,
+                width: double.infinity,
+                height: 30,
+                child: Text('BlocConsumer State is $state'),
+
+                  ),
+          );
+        }
+
+      },
+      builder: (context, state) {
+        return Container(
+          margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
+          padding: const EdgeInsets.all(2.0),
+          child: FloatingActionButton(
+            autofocus: true,
+            focusElevation: 5,
+            highlightElevation: 50,
+            onPressed: () {
+              //TODO: при нажатии перезапускаем Получение Данных
+              /*    BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
             //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
             biwidgeterrror.theServeristurnedRereceive();
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
 
-      logger.i('widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed..   ' );
 
-          },
-          backgroundColor: Colors.blue[300],
-          tooltip: 'Повторное получение !!!',
-          elevation: 15,
-          splashColor: Colors.grey,
-          child:  const Icon(CupertinoIcons.arrow_right,color: Colors.white, size: 29,),
-          shape: RoundedRectangleBorder(
-              borderRadius:  BorderRadius.all(Radius.circular(50.0))
+              Scaffold.of(context).showBottomSheet(
+                    (context)=>Container(
+                  color: Colors.redAccent,
+                  width: double.infinity,
+                  height: 30,
+                  child: Text('builder State is   $state'),
+
+                ),
+              );
+              counterBloc.increment();
+
+              logger.i(
+                  'widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed..   ');
+            },
+            backgroundColor: Colors.blue[300],
+            tooltip: 'Повторное получение !!!',
+            elevation: 15,
+            splashColor: Colors.grey,
+            child: const Icon(
+              CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(50.0))
+            ),
           ),
-        ),
-      );
-
+        );
+      },
+    );
   }
 }
 
