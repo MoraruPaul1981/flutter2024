@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
+import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubitState.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -39,7 +40,10 @@ void startingCommintPrices() {
 
 
       //TODO starting UI
-      runApp(CommingPricesStatelessWidget(logger: logger));
+      runApp(BlocProvider(
+        create: (context) => CounterCubitState(),
+        child: CommingPricesStatelessWidget(logger: logger),
+      ));
 
       logger.i('end startingCommintPrices()  ..  ');
       return logger;

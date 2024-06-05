@@ -1,8 +1,11 @@
 import 'package:commintprices/features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
+import 'package:commintprices/features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubittwo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
+
+import '../../../../Businesslayer/Blocs/counter_cubitState.dart';
 
 
 class widgetcircleAvatar extends StatelessWidget {
@@ -161,6 +164,8 @@ class widgetPasswrord extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     //TODO: widgetPasswrord
+    return BlocBuilder<CounterCubitState, int>(
+  builder: (context, state) {
     return Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
@@ -183,8 +188,7 @@ class widgetPasswrord extends StatelessWidget {
             ),
           ),
         ),
-        title:
-        Container(
+        title: Container(
           padding: EdgeInsets.only(left: 1, top: 1, right: 1, bottom: 1),
           child: SizedBox(
             height: 45,
@@ -192,7 +196,7 @@ class widgetPasswrord extends StatelessWidget {
               textAlign: TextAlign.center,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                hintText: 'пароль',
+                hintText: state.toString(),///TODO: 'пароль'
                 hintStyle: TextStyle(fontSize: 16, color: Colors.grey.shade600),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -219,6 +223,8 @@ class widgetPasswrord extends StatelessWidget {
 
       ),
     );
+  },
+);
   }
 }
 
@@ -256,43 +262,14 @@ class widgetLine extends StatelessWidget {
 
 class widgetFloatingActionButton extends StatelessWidget {
   Logger logger;
-
 //TODO: Конструктор кнопки Fload  Крглой
   widgetFloatingActionButton(this.logger, {super.key});
-
   //TODO : кнопка Floadt Круглая большая
   @override
   Widget build(BuildContext context) {
     //TODO: widgetFloatingActionButton
     //TODO: bloc
-    return BlocConsumer<CounterCubit, int>(
-      listener: (context, state) {
-        // TODO: implement listener
-  /*      if(state==0){
-          Scaffold.of(context).showBottomSheet(
-            (context)=>Container(
-              color: Colors.blue,
-              width: double.infinity,
-              height: 30,
-              child: Text('BlocConsumer State is 0'),
-
-            ),
-        );
-        }else{
-          Scaffold.of(context).showBottomSheet(
-                  (context)=>Container(
-                color: Colors.blue.shade200,
-                width: double.infinity,
-                height: 30,
-                child: Text('BlocConsumer State is $state'),
-
-                  ),
-          );
-        }*/
-
-      },
-      builder: (context, state) {
-        return Container(
+    return Container(
           margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
           padding: const EdgeInsets.all(2.0),
           child: FloatingActionButton(
@@ -300,28 +277,9 @@ class widgetFloatingActionButton extends StatelessWidget {
             focusElevation: 5,
             highlightElevation: 50,
             onPressed: () {
-              //TODO: при нажатии перезапускаем Получение Данных
-              /*    BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
-            //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
-            biwidgeterrror.theServeristurnedRereceive();
-
-            logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );*/
-              logger.i(
-                  ' BeforevwidgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed.. state  $state  ');
-
-              Scaffold.of(context).showBottomSheet(
-                    (context)=>Container(
-                  color: Colors.redAccent,
-                  width: double.infinity,
-                  height: 30,
-                  child: Text('builder State is   $state'),
-
-                ),
-              );
-              BlocProvider.of<CounterCubit>(context).increment();
-
-              logger.i(
-                  ' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed.. state  $state  ');
+              //TODO: Нажатие на Круглую кнопку Float
+              BlocProvider.of<CounterCubitTwo>(context).incrementTwo();
+              logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
             tooltip: 'Повторное получение !!!',
@@ -334,8 +292,6 @@ class widgetFloatingActionButton extends StatelessWidget {
             ),
           ),
         );
-      },
-    );
   }
 }
 
