@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../../../../Businesslayer/Blocs/blocCounter/BlocCreate.dart';
+import '../../../../Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
+import '../../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
 
 
 class widgetcircleAvatar extends StatelessWidget {
@@ -161,7 +162,7 @@ class widgetPasswrord extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     //TODO: widgetPasswrord
-    return BlocBuilder<BlocCreate, int>(
+    return BlocBuilder<BlocCreatecounter, int>(
   builder: (context, state) {
     return Card(
       elevation: 5,
@@ -275,7 +276,7 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              BlocProvider.of<BlocCreate>(context).add(CounterIncEvent());
+              BlocProvider.of<BlocCreatecounter>(context).add(CounterIncEventcounter());
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],

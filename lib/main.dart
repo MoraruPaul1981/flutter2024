@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/blocCounter/BlocCreate.dart';
+import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -40,7 +40,7 @@ void startingCommintPrices() {
 
       //TODO starting UI
       runApp(BlocProvider(
-        create: (context) => BlocCreate(),
+        create: (context) => BlocCreatecounter(),
         child: CommingPricesStatelessWidget(logger: logger),
       ));
 
@@ -72,7 +72,7 @@ class CommingPricesStatelessWidget extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
-        create: (context) => BlocCreate(),
+        create: (context) => BlocCreatecounter(),
         child: WidgetStateful(logger, key),
       ),
     );
