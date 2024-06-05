@@ -1,11 +1,10 @@
-import 'package:commintprices/features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
-import 'package:commintprices/features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubittwo.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../../../../Businesslayer/Blocs/counter_cubitState.dart';
+import '../../../../Businesslayer/Blocs/blocCounter/BlocCreate.dart';
 
 
 class widgetcircleAvatar extends StatelessWidget {
@@ -94,8 +93,6 @@ class widgetLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: widgetLogin
-    //TODO: bloc
-    final counterBloc = BlocProvider.of<CounterCubit>(context);
     return Card(
       elevation: 5,
       shadowColor: Colors.grey[200],
@@ -164,7 +161,7 @@ class widgetPasswrord extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     //TODO: widgetPasswrord
-    return BlocBuilder<CounterCubitState, int>(
+    return BlocBuilder<BlocCreate, int>(
   builder: (context, state) {
     return Card(
       elevation: 5,
@@ -278,7 +275,7 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              BlocProvider.of<CounterCubitState>(context).add(CounterIncEvent());
+              BlocProvider.of<BlocCreate>(context).add(CounterIncEvent());
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],

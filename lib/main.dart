@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubit.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/counter_cubitState.dart';
+import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/blocCounter/BlocCreate.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -41,7 +40,7 @@ void startingCommintPrices() {
 
       //TODO starting UI
       runApp(BlocProvider(
-        create: (context) => CounterCubitState(),
+        create: (context) => BlocCreate(),
         child: CommingPricesStatelessWidget(logger: logger),
       ));
 
@@ -68,27 +67,13 @@ class CommingPricesStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
-                Tab(icon: Icon(Icons.directions_bike)),
-              ],
-            ),
-            title: Text('Tabs Demo'),
-          ),
-          body: TabBarView(
-            children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-            ],
-          ),
-        ),
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: BlocProvider(
+        create: (context) => BlocCreate(),
+        child: WidgetStateful(logger, key),
       ),
     );
   }

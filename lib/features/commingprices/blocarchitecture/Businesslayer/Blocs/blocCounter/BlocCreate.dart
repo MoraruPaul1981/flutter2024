@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 
+import 'BlocState.dart';
+
 
 /*
 TODO: Bloc класс
  */
-class CounterCubitState extends Bloc<CounterEvents,int> {
-  CounterCubitState():super(10){
+class BlocCreate extends Bloc<CounterEvents,int> {
+  BlocCreate():super(10){
  on<CounterIncEvent>(_onIncremet);
  on<CounterDecEvent>(_onDeincremet);
 
@@ -21,8 +23,4 @@ class CounterCubitState extends Bloc<CounterEvents,int> {
 
 }
 
-abstract class CounterEvents{}
 
-class CounterIncEvent extends  CounterEvents{}
-
-class CounterDecEvent extends  CounterEvents{}
