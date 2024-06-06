@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 import '../../Interfaces/Interfacebloc/Interfacebloc.dart';
+import '../../errors/Errors.dart';
 
 int getInt=0;
 
@@ -23,6 +24,7 @@ class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
   @override
   Future<void> getbasedonloginandpasswordPublicID({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
+    try{
     Future<int> futureValuePublicID =    Future<int>
         .value(valuePublicID(parametrgetPublicId:parametrgetPublicId)
         .catchError(
@@ -35,6 +37,13 @@ class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
    /* //TODO:
    *     главная команда всегда кода eьше Ответ */
     emit(PublicID);
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+}
   }
 
   @override

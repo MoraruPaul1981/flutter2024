@@ -26,11 +26,17 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   BI_ChildWidgetLoginAndPassword({required this.context, required this.logger,required this.key});
 
 
+
+
+
+
+
+  //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
   @override
-  int getCallWidgetFrom1cServerPublicID({required Map<String, dynamic> parametrgetPublicId }) {
-    // TODO: implement getCallWidgetFrom1cServerPublicID
+  void afterSuccessfullaunchthemainprogram({required int state}) {
+    // TODO: implement afterSuccessfullaunchthemainprogram
     try{
-      logger.i(' getCallWidgetFrom1cServerPublicID  parametrgetPublicId .. $parametrgetPublicId ' );
+      logger.i(' afterSuccessfullaunchthemainprogram  state .. $state ' );
 
       //TODO error
     }   catch (e, stacktrace) {
@@ -39,26 +45,13 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
-    return 0;
   }
 
-  @override
-  Future<int> getFutureCallWidgetFrom1cServerPublicID({required Map<String, dynamic> parametrgetPublicId }) {
-    // TODO: implement getFutureCallWidgetFrom1cServerPublicID
-    try{
 
-      logger.i(' getFutureCallWidgetFrom1cServerPublicID  parametrgetPublicId .. $parametrgetPublicId ' );
 
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-    }
-    return Future<int>.value(0);
-  }
 
+
+  //TODO: метод  Получение статуса от сервера state
   @override
   void callbAckreactiontosomeonewhocameStatus({ required int state}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
@@ -100,8 +93,11 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
      /* //TODO: погда пришел Публинчый ID
      *     */
     }else{
-      /* //TODO: погда пришел Публинчый ID
+      /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
      *     */
+//TODO метод запускаем Саму программу после успешно аунтификации
+      afterSuccessfullaunchthemainprogram(state: state);
+
       logger.i(' state .. $state ' );
     }
 
@@ -113,6 +109,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
 }
   }
+
 
 
 

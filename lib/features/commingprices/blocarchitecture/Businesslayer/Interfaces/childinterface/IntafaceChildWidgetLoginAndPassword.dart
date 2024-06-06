@@ -17,12 +17,9 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
 
   /* //TODO:
  * Get Pulic ID ot Serer widgert       */
-  int getCallWidgetFrom1cServerPublicID({required    Map<String, dynamic> parametrgetPublicId,  });
+  void afterSuccessfullaunchthemainprogram({required     int state });
 
 
-  /* //TODO:
- * Get Pulic  Future ID ot Serer    widget   */
-  Future<int> getFutureCallWidgetFrom1cServerPublicID({required    Map<String, dynamic> parametrgetPublicId });
 
 
  /* //TODO:
