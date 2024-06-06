@@ -5,6 +5,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../../../../main.dart';
 import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
+import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
 import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
@@ -28,7 +29,7 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful>
   Widget build(BuildContext context) {
     //TODO: login and password
     return  BlocProvider(
-      create: (context) => CountterCubitFuture(logger ),
+      create: (context) => CountterCubitInt(logger ),
       child:Scaffold(
             backgroundColor: Colors.white,
             body: Column(
