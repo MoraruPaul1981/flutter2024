@@ -1,11 +1,15 @@
 
+import 'dart:isolate';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 
 Map<String, dynamic> myMap = {};
 //TODO: CountterCubitFuture
 class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
+  Logger logger;
   //CountterCubitFuture(super.initialState);
-  CountterCubitFuture():super(myMap);
+  CountterCubitFuture(this.logger ):super(myMap);
 
 /*//TODO:
 *    FUTURE  map  result
@@ -18,15 +22,20 @@ class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
           print(' get ERROR $error  ');
         });
     Map<String, dynamic> myMap =await futureMap;
+    logger.i(' Finifh()..  myMapTwo $myMap  ');
     emit(myMap);
   }
 
   //TODO: value for
-  Map<String, dynamic> getfutureMap(){
-    final Map<String, dynamic> myMap = {
-      'id': 123,
-      'name': 'John Doe',
-    };
+  Future<Map<String, dynamic>> getfutureMap() async {
+    final myMap = await Isolate.run(() async {
+      Map<String, dynamic> map = {
+        'id': 23,
+        'name': 'Jdo Jdo2',
+      };
+      print(' Finifh()..  sum $map  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return map;
+    });
     return myMap;
   }
 
@@ -43,15 +52,20 @@ class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
           print(' get ERROR $error  ');
         });
     Map<String, dynamic> myMapTwo =await futureMapTwo;
+    logger.i(' Finifh()..  myMapTwo $myMapTwo  ');
     emit(myMapTwo);
   }
 
   //TODO: value for
-  Map<String, dynamic> getfutureMapTwo(){
-    final Map<String, dynamic> myMap = {
-      'id': 5698444,
-      'name': 'Moraru Paul -Future',
-    };
+  Future<Map<String, dynamic>> getfutureMapTwo() async {
+    final myMap = await Isolate.run(() async {
+      Map<String, dynamic> map = {
+        'id': 5698444,
+        'name': 'Moraru Paul -Future',
+      };
+      print(' Finifh()..  map $map  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return map;
+    });
     return myMap;
   }
 //TODO: END class CountterCubitFuture
