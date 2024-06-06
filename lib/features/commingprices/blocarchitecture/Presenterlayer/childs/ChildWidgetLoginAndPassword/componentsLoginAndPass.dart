@@ -160,9 +160,9 @@ class widgetPasswrord extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: widgetPasswrord
 
-    return BlocBuilder<CountterCubitFuture, Future<Map<String, dynamic>>>(
+    return BlocBuilder<CountterCubitFuture, Map<String, dynamic>>(
       builder: (context, state) {
-        logger.i(' state...$future');
+        logger.i(' state...$state');
 
       return Card(
         elevation: 5,
