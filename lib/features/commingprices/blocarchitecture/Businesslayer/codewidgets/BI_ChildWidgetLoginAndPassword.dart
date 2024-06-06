@@ -63,101 +63,46 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   void callbAckreactiontosomeonewhocameStatus({ required int state}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
     try{
-    if(state>0){
-
-
+    if(state==0){
+      logger.i(' state .. $state ' );
       Scaffold.of(context).showBottomSheet(
               (BuildContext context) {
-
+             /*   //TODO:
+             *     GestureDetector   */
               return  GestureDetector(
                     onTap: (){
                       print("Container clicked");
+                      Navigator.pop(context);
                     },
-                    child: new Container(  height: 100,
-                      color: Colors.amber,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const Text('BottomSheet'),
-                            ElevatedButton(
-                              child: const Text('Close BottomSheet'),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
+                    child:    Container(
+                      color: Colors.blue[300],
+                      width: double.infinity,
+                      height: 50,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child:
+                        Text(
+                          'Логин/Пароль не правильные !!!',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13.0,
+                            fontFamily: 'Raleway',
+                            color: Colors.grey.shade600,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                      ),)
-                );
-
-/*
-
-
-            return Container(
-              height: 100,
-              color: Colors.amber,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text('BottomSheet'),
-                    ElevatedButton(
-                      child: const Text('Close BottomSheet'),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      ),
                     ),
-                  ],
-                ),
-              ),
-            );
-*/
-
+                );
               },
       );
 
-
-
-
-/*      Scaffold.of(context).showBottomSheet(
-        enableDrag: false,
-            (context)=>Container(
-          color: Colors.blue[300],
-          width: double.infinity,
-          height: 50,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child:
-            Text(
-              'Логин и/или пароль не правильные !!!',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 13.0,
-                fontFamily: 'Raleway',
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-
-          ),
-
-        ),
-      ).close;*/
-
-
+     /* //TODO: погда пришел Публинчый ID
+     *     */
     }else{
-      Scaffold.of(context).showBottomSheet(
-            (context)=>Container(
-          color: Colors.red,
-          width: double.infinity,
-          height: 50,
-          child: Text('BlocConsumer State is $state'),
-
-        ),
-      );
+      /* //TODO: погда пришел Публинчый ID
+     *     */
+      logger.i(' state .. $state ' );
     }
 
     //TODO error
