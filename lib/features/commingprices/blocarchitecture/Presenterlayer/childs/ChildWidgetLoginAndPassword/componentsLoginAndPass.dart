@@ -286,7 +286,8 @@ class widgetFloatingActionButton extends StatelessWidget {
                        logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
          *         */
               //context.read<CountterCubit>().increment();
-              context.read<CountterCubitFuture>().incrementTwo();
+              //context.read<CountterCubitFuture>().incrementTwo();
+              context.read<CountterCubitFuture>().increment();
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],

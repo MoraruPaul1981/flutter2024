@@ -1,11 +1,13 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 
  Map<String, dynamic> myMap={};
 //TODO: CountterCubit
 class CountterCubit extends Cubit<Map<String, dynamic>>{
+  Logger logger;
   //CountterCubit(super.initialState);
-   CountterCubit():super(myMap);
+   CountterCubit(this.logger ):super(myMap);
 
 
 
@@ -17,6 +19,7 @@ void increment(){
     'id': 123,
     'name': 'John Doe',
   };
+  logger.i(' Finifh()..  myMap $myMap  ');
   emit(myMap);
 
 }
@@ -26,6 +29,7 @@ void increment(){
       'id': 856,
       'name': 'Moraru Paul ',
     };
+   logger.i(' Finifh()..  myMap2 $myMap2  ');
     emit(myMap2);
 
   }
