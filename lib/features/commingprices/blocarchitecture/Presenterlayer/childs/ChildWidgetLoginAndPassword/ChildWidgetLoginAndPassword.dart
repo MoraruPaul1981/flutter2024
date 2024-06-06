@@ -28,7 +28,6 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful>
   Widget build(BuildContext context) {
     //TODO: login and password
     return  BlocProvider(
-     // create: (context) => CountterCubit(myMap),
       create: (context) => CountterCubitFuture( ),
       child:Scaffold(
             backgroundColor: Colors.white,

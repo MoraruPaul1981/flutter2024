@@ -162,22 +162,7 @@ class widgetPasswrord extends StatelessWidget {
 
     return BlocBuilder<CountterCubitFuture, Future<Map<String, dynamic>>>(
       builder: (context, state) {
-
-        var future =  state as Future<Map<String, dynamic>>;
-
-        future..then((value) {
-          //TODO then
-          logger.i('start value .. ');
-
-          return value;
-
-        }).catchError(
-                (Object error) {
-              logger.i(' get ERROR $error  ');
-            }
-        );
-
-        logger.i(' future...$future');
+        logger.i(' state...$future');
 
       return Card(
         elevation: 5,

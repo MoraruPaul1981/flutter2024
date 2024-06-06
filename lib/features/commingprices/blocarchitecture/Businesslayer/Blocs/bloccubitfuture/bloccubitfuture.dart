@@ -2,24 +2,23 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Map<String, dynamic> myMap = {};
- Future<Map<String, dynamic>> future=Future.value(myMap);
-
 //TODO: CountterCubitFuture
-class CountterCubitFuture extends Cubit<Future<Map<String, dynamic>>>{
+class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
   //CountterCubitFuture(super.initialState);
-  CountterCubitFuture():super(future);
+  CountterCubitFuture():super(myMap);
 
 /*//TODO:
 *    FUTURE  map  result
 * */
-  void increment(){
+  Future<void> increment() async {
     Future<Map<String,dynamic>> futureMap =    Future<Map<String,dynamic>>
         .value(getfutureMap())
         .catchError(
             (Object error) {
           print(' get ERROR $error  ');
         });
-    emit(futureMap);
+    Map<String, dynamic> myMap =await futureMap;
+    emit(myMap);
   }
 
   //TODO: value for
@@ -36,14 +35,15 @@ class CountterCubitFuture extends Cubit<Future<Map<String, dynamic>>>{
 /*//TODO:
 *    FUTURE  mapTwo  result
 * */
-  void incrementTwo(){
-    Future<Map<String,dynamic>> futureMap =    Future<Map<String,dynamic>>
+  Future<void> incrementTwo() async {
+    Future<Map<String,dynamic>> futureMapTwo =    Future<Map<String,dynamic>>
         .value(getfutureMapTwo())
         .catchError(
             (Object error) {
           print(' get ERROR $error  ');
         });
-    emit(futureMap);
+    Map<String, dynamic> myMapTwo =await futureMapTwo;
+    emit(myMapTwo);
   }
 
   //TODO: value for
