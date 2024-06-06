@@ -5,6 +5,7 @@ import 'package:logger/src/logger.dart';
 
 import '../../../../../../main.dart';
 import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
+import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
 import 'componentsLoginAndPass.dart';
@@ -26,10 +27,9 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful>
   @override
   Widget build(BuildContext context) {
     //TODO: login and password
-    Map<String, dynamic> myMap={};
-    //TODO:начало компонентов
     return  BlocProvider(
-      create: (context) => CountterCubit(myMap),
+     // create: (context) => CountterCubit(myMap),
+      create: (context) => CountterCubitFuture( ),
       child:Scaffold(
             backgroundColor: Colors.white,
             body: Column(

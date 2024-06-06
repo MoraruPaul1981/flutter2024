@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import '../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
 import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
+import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
 
 
 
@@ -87,9 +88,7 @@ class widgetnameText extends StatelessWidget {
 
 class widgetLogin extends StatelessWidget {
   Logger logger;
-
   widgetLogin(this.logger, {super.key});
-
 //TODO:
   @override
   Widget build(BuildContext context) {
@@ -161,8 +160,12 @@ class widgetPasswrord extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: widgetPasswrord
 
-    return BlocBuilder<CountterCubit, Map<String, dynamic>>(
+    return BlocBuilder<CountterCubitFuture, Future<Map<String, dynamic>>>(
       builder: (context, state) {
+
+        var s =  state as Future<Map<String, dynamic>>;
+        logger.i(' s...$s');
+
       return Card(
         elevation: 5,
         shadowColor: Colors.grey[200],
@@ -285,7 +288,7 @@ class widgetFloatingActionButton extends StatelessWidget {
                        logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
          *         */
               //context.read<CountterCubit>().increment();
-              context.read<CountterCubit>().incrementTwo();
+              context.read<CountterCubitFuture>().incrementTwo();
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],

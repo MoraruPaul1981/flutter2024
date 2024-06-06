@@ -1,14 +1,17 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-
+ Map<String, dynamic> myMap={};
+//TODO: CountterCubit
 class CountterCubit extends Cubit<Map<String, dynamic>>{
-  CountterCubit(super.initialState);
- // CountterCubit():super(myMap);
+  //CountterCubit(super.initialState);
+   CountterCubit():super(myMap);
 
 
 
+/*//TODO:
+*    MAP result
+* */
 void increment(){
   final Map<String, dynamic> myMap = {
     'id': 123,
@@ -26,8 +29,6 @@ void increment(){
     emit(myMap2);
 
   }
-
-
 
 
 /*//TODO:КОНЕЦ КЛАСС  cuBIT
