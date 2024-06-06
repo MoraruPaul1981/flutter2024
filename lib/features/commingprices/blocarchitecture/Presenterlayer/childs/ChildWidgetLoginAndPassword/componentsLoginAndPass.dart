@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
+import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
 
 
 
@@ -257,39 +258,24 @@ class widgetLine extends StatelessWidget {
 //TODO : круглая пнопка снизу ОК
 
 final class widgetFloatingActionButton extends StatelessWidget {
-  Logger  logger;
+/*  //TODO:
+       переменные */
+  late Logger  logger;
+  late BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword;
 //TODO: Конструктор кнопки Fload  Крглой
   widgetFloatingActionButton(this.logger, {super.key});
   //TODO : кнопка Floadt Круглая большая
   @override
   Widget build(BuildContext context) {
     //TODO: widgetFloatingActionButton
+     bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
     //TODO: bloc
     return   BlocConsumer<CountterCubitInt,int>(
       listener: (context, state) {
         // do stuff here based on BlocA's state
-        // TODO: implement listener
-        if(state==0){
-          Scaffold.of(context).showBottomSheet(
-                (context)=>Container(
-              color: Colors.blue,
-              width: double.infinity,
-              height: 50,
-              child: Text('BlocConsumer State is $state'),
-
-            ),
-          );
-        }else{
-          Scaffold.of(context).showBottomSheet(
-                (context)=>Container(
-              color: Colors.red,
-              width: double.infinity,
-              height: 50,
-              child: Text('BlocConsumer State is $state'),
-
-            ),
-          );
-        }
+        // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
+        bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state);
+        logger.i('state...$state');
       },
       builder: (context, state) {
         // return widget here based on BlocA's state
@@ -303,11 +289,9 @@ final class widgetFloatingActionButton extends StatelessWidget {
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
               logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
-
               //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
                Map<String, dynamic> parametrgetPublicId={};
               context.read<CountterCubitInt>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
-              logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
             tooltip: 'Вход !!!',

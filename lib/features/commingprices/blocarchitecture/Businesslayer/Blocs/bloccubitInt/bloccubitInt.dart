@@ -38,13 +38,14 @@ class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
   @override
   Future<int> valuePublicID({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement valuePublicID
-    final myMap = await Isolate.run(() async {
-      Random random = new Random();
-      int getint =random.nextInt(10000);
-      print(' Finifh()..  getint $getint  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
-      return getint;
+    final PublicID = await Isolate.run(() async {
+      int PublicID=0;
+    /*  Random random = new Random();
+      int PublicID =random.nextInt(10000);*/
+      print(' Finifh()..  PublicID $PublicID  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return PublicID;
     });
-    return myMap;
+    return PublicID;
   }
 
 
