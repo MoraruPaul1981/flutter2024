@@ -159,11 +159,6 @@ class widgetPasswrord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO: widgetPasswrord
-
-    return BlocBuilder<CountterCubitFuture, Map<String, dynamic>>(
-      builder: (context, state) {
-        logger.i(' state...$state');
-
       return Card(
         elevation: 5,
         shadowColor: Colors.grey[200],
@@ -194,7 +189,7 @@ class widgetPasswrord extends StatelessWidget {
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
-                  hintText:  state.toString(),//TODO:  'пароль'
+                  hintText:  'пароль',//TODO:  'пароль'
 
                   ///TODO: 'пароль'
                   hintStyle: TextStyle(
@@ -224,8 +219,6 @@ class widgetPasswrord extends StatelessWidget {
 
         ),
       );
-      }
-    );
 
   }
 }
@@ -287,7 +280,7 @@ class widgetFloatingActionButton extends StatelessWidget {
          *         */
               //context.read<CountterCubit>().increment();
               //context.read<CountterCubitFuture>().incrementTwo();
-              context.read<CountterCubitFuture>().increment();
+              //context.read<CountterCubitFuture>().increment();
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
