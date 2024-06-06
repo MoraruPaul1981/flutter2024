@@ -32,6 +32,8 @@ class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
     );
     int PublicID =await futureValuePublicID;
     logger.i(' Finifh()..  PublicID $PublicID  ');
+   /* //TODO:
+   *     главная команда всегда кода eьше Ответ */
     emit(PublicID);
   }
 
@@ -40,8 +42,8 @@ class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
     // TODO: implement valuePublicID
     final PublicID = await Isolate.run(() async {
       int PublicID=0;
-    /*  Random random = new Random();
-      int PublicID =random.nextInt(10000);*/
+      Random random = new Random();
+      PublicID =random.nextInt(10000);
       print(' Finifh()..  PublicID $PublicID  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
       return PublicID;
     });

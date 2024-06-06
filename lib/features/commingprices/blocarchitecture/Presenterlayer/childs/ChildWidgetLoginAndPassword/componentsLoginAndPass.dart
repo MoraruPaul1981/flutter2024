@@ -275,6 +275,7 @@ final class widgetFloatingActionButton extends StatelessWidget {
         // do stuff here based on BlocA's state
         // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
         bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state);
+
         logger.i('state...$state');
       },
       builder: (context, state) {

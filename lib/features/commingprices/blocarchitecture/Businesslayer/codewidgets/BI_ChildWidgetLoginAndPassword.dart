@@ -63,20 +63,95 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   void callbAckreactiontosomeonewhocameStatus({ required int state}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
     try{
-    if(state==0){
+    if(state>0){
+
+
       Scaffold.of(context).showBottomSheet(
+              (BuildContext context) {
+
+              return  GestureDetector(
+                    onTap: (){
+                      print("Container clicked");
+                    },
+                    child: new Container(  height: 100,
+                      color: Colors.amber,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const Text('BottomSheet'),
+                            ElevatedButton(
+                              child: const Text('Close BottomSheet'),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),)
+                );
+
+/*
+
+
+            return Container(
+              height: 100,
+              color: Colors.amber,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Text('BottomSheet'),
+                    ElevatedButton(
+                      child: const Text('Close BottomSheet'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            );
+*/
+
+              },
+      );
+
+
+
+
+/*      Scaffold.of(context).showBottomSheet(
+        enableDrag: false,
             (context)=>Container(
-          color: Colors.red,
+          color: Colors.blue[300],
           width: double.infinity,
           height: 50,
-          child: Text('Логин и/или пароль не правильные !!!'),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child:
+            Text(
+              'Логин и/или пароль не правильные !!!',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 13.0,
+                fontFamily: 'Raleway',
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+
+          ),
 
         ),
-      );
+      ).close;*/
+
+
     }else{
       Scaffold.of(context).showBottomSheet(
             (context)=>Container(
-          color: Colors.grey,
+          color: Colors.red,
           width: double.infinity,
           height: 50,
           child: Text('BlocConsumer State is $state'),
@@ -84,6 +159,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
         ),
       );
     }
+
     //TODO error
   }   catch (e, stacktrace) {
   print(' get ERROR $e get stacktrace $stacktrace ');
