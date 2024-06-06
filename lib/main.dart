@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/bloccubit/blocStream.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -38,10 +37,7 @@ void startingCommintPrices() {
       logger as Logger;
       logger.i('start startingCommintPrices()  .. ');
       //TODO starting UI
-      runApp(BlocProvider(
-        create: (context) => BlocStream(),
-        child: CommingPricesStatelessWidget(logger: logger),
-      ));
+      runApp( CommingPricesStatelessWidget(logger: logger));
 
       logger.i('end startingCommintPrices()  ..  ');
       return logger;

@@ -3,10 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
+import '../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
+import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
 
-import '../../../../Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
-import '../../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
-import '../../../../Businesslayer/Blocs/bloccubit/blocStream.dart';
 
 
 class widgetcircleAvatar extends StatelessWidget {
@@ -161,8 +160,9 @@ class widgetPasswrord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO: widgetPasswrord
-    return BlocBuilder<BlocStream, int>(
-        builder: (context, state) {
+
+    return BlocBuilder<CountterCubit, Map<String, dynamic>>(
+      builder: (context, state) {
       return Card(
         elevation: 5,
         shadowColor: Colors.grey[200],
@@ -193,7 +193,7 @@ class widgetPasswrord extends StatelessWidget {
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
-                  hintText: state.toString(),//TODO:  'пароль'
+                  hintText:  state.toString(),//TODO:  'пароль'
 
                   ///TODO: 'пароль'
                   hintStyle: TextStyle(
@@ -223,8 +223,9 @@ class widgetPasswrord extends StatelessWidget {
 
         ),
       );
-    },
+      }
     );
+
   }
 }
 
@@ -279,7 +280,11 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              BlocProvider.of<BlocStream>(context).add(CounterIncEventcounter());
+              logger.i(' Before  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
+         /*     //TODO:
+                       logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
+         *         */
+              context.read<CountterCubit>().increment();
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
