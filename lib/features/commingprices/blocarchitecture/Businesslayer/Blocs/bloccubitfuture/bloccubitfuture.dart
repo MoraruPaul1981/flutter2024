@@ -1,12 +1,15 @@
 
 import 'dart:isolate';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 Map<String, dynamic> myMap = {};
+
+
 //TODO: CountterCubitFuture
-class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
+final class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
   Logger logger;
   //CountterCubitFuture(super.initialState);
   CountterCubitFuture(this.logger ):super(myMap);

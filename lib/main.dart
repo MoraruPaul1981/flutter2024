@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/Blocs/blocCounter/BlocCreatecounter.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
 import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
 import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
@@ -66,10 +64,7 @@ class CommingPricesStatelessWidget extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: BlocProvider(
-        create: (context) => BlocCreatecounter(),
-        child: WidgetStateful(logger, key),
-      ),
+      home: WidgetStateful(logger, key),
     );
   }
 

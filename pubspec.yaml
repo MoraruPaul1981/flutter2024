@@ -31,7 +31,7 @@ dependencies:
 #TODO пользовательсие Плагины
   cupertino_icons: ^1.0.2
   http: any
-  injectable: ^2.3.5
+  injectable: ^2.4.2
   material: ^1.0.0+2
   logger: ^2.0.2+1
   dart_json_mapper: ^2.2.12+1

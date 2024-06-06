@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import '../../../Businesslayer/Blocs/blocCounter/BlocStatecounter.dart';
-import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
-import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
+
+import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
+
 
 
 
@@ -256,8 +256,8 @@ class widgetLine extends StatelessWidget {
 
 //TODO : круглая пнопка снизу ОК
 
-class widgetFloatingActionButton extends StatelessWidget {
-  Logger logger;
+final class widgetFloatingActionButton extends StatelessWidget {
+  Logger  logger;
 //TODO: Конструктор кнопки Fload  Крглой
   widgetFloatingActionButton(this.logger, {super.key});
   //TODO : кнопка Floadt Круглая большая
@@ -265,6 +265,34 @@ class widgetFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: widgetFloatingActionButton
     //TODO: bloc
+    return   BlocConsumer<CountterCubitInt,int>(
+      listener: (context, state) {
+        // do stuff here based on BlocA's state
+        // TODO: implement listener
+        if(state==0){
+          Scaffold.of(context).showBottomSheet(
+                (context)=>Container(
+              color: Colors.blue,
+              width: double.infinity,
+              height: 50,
+              child: Text('BlocConsumer State is $state'),
+
+            ),
+          );
+        }else{
+          Scaffold.of(context).showBottomSheet(
+                (context)=>Container(
+              color: Colors.red,
+              width: double.infinity,
+              height: 50,
+              child: Text('BlocConsumer State is $state'),
+
+            ),
+          );
+        }
+      },
+      builder: (context, state) {
+        // return widget here based on BlocA's state
     return Container(
           margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
           padding: const EdgeInsets.all(2.0),
@@ -274,17 +302,15 @@ class widgetFloatingActionButton extends StatelessWidget {
             highlightElevation: 50,
             onPressed: () {
               //TODO: Нажатие на Круглую кнопку Float
-              logger.i(' Before  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
-         /*     //TODO:
-                       logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
-         *         */
-              //context.read<CountterCubit>().increment();
-              //context.read<CountterCubitFuture>().incrementTwo();
-              //context.read<CountterCubitFuture>().increment();
+              logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
+
+              //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
+               Map<String, dynamic> parametrgetPublicId={};
+              context.read<CountterCubitInt>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
               logger.i(' After  widgetFloatingActionButton  CLick FloatingActionButtonLocation  onPressed ');
             },
             backgroundColor: Colors.blue[300],
-            tooltip: 'Повторное получение !!!',
+            tooltip: 'Вход !!!',
             elevation: 15,
             splashColor: Colors.grey,
             child: const Icon(
@@ -294,6 +320,11 @@ class widgetFloatingActionButton extends StatelessWidget {
             ),
           ),
         );
+    ////TODO: END  Container
+
+      },
+    );
+    ////TODO: END  Container
   }
 }
 
