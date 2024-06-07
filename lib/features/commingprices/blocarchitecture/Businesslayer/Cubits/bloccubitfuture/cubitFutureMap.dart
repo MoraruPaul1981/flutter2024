@@ -9,10 +9,10 @@ Map<String, dynamic> myMap = {};
 
 
 //TODO: CountterCubitFuture
-final class CountterCubitFuture extends Cubit<Map<String, dynamic>>{
+final class CubitFutureMap extends Cubit<Map<String, dynamic>>{
   Logger logger;
   //CountterCubitFuture(super.initialState);
-  CountterCubitFuture(this.logger ):super(myMap);
+  CubitFutureMap(this.logger ):super(myMap);
 
 /*//TODO:
 *    FUTURE  map  result

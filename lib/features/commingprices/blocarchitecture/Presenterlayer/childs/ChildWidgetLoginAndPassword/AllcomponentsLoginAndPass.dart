@@ -3,8 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-
-import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
+import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
 import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
 
 
@@ -233,7 +232,7 @@ class AllcomponentsLoginAndPass {
    //TODO: widgetFloatingActionButton
    BI_ChildWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
    //TODO: bloc
-   return   BlocConsumer<CountterCubitInt,int>(
+   return   BlocConsumer<CubitLoginPassword,int>(
      listener: (context, state) {
        // do stuff here based on BlocA's state
        // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
@@ -255,7 +254,7 @@ class AllcomponentsLoginAndPass {
              logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
              //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
              Map<String, dynamic> parametrgetPublicId={};
-             context.read<CountterCubitInt>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+             context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
            },
            backgroundColor: Colors.blue[300],
            tooltip: 'Вход !!!',

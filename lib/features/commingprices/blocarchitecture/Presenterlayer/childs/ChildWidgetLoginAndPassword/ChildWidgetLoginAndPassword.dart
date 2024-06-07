@@ -5,12 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../../../../main.dart';
-import '../../../Businesslayer/Blocs/bloccubit/bloccubit.dart';
-import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
-import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
+import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
-import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
 import 'AllcomponentsLoginAndPass.dart';
 
 
@@ -33,7 +30,7 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
     AllcomponentsLoginAndPass getcomponentsLoginAndPass=new AllcomponentsLoginAndPass( logger:logger, context:context, key:key);
 
     return  BlocProvider(
-      create: (context) => CountterCubitInt(logger ),
+      create: (context) => CubitLoginPassword(logger ),
       child:Scaffold(
             backgroundColor: Colors.white,
             body: Column(
@@ -101,47 +98,6 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
             floatingActionButtonAnimator: NoScalingAnimation(),
             floatingActionButton:getcomponentsLoginAndPass. widgetFloatingActionButton( ),
 
-
-/*            BlocConsumer<CountterCubitInt,int>(
-      listener: (context, state) {
-        // do stuff here based on BlocA's state
-          BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword=new BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
-        // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
-        bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state);
-
-        logger.i('state...$state');
-      },
-      builder: (context, state) {
-    // return widget here based on BlocA's state
-    return Container(
-    margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
-    padding: const EdgeInsets.all(2.0),
-    child: FloatingActionButton(
-    autofocus: true,
-    focusElevation: 5,
-    highlightElevation: 50,
-    onPressed: () {
-    //TODO: Нажатие на Круглую кнопку Float
-    logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
-    //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
-    Map<String, dynamic> parametrgetPublicId={};
-    context.read<CountterCubitInt>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
-    },
-    backgroundColor: Colors.blue[300],
-    tooltip: 'Вход !!!',
-    elevation: 15,
-    splashColor: Colors.grey,
-    child: const Icon(
-    CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
-    shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(50.0))
-    ),
-    ),
-    );
-    ////TODO: END  Container
-
-    }
-    )*/
 
 
 

@@ -12,10 +12,10 @@ import '../../errors/Errors.dart';
 int getInt=0;
 
 //TODO: CountterCubitFuture
-class CountterCubitInt extends Cubit<int>   implements InterfaceBlocPublicID {
+class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
   Logger logger;
   //CountterCubitFuture(super.initialState);
-  CountterCubitInt(this.logger ):super(getInt);
+  CubitLoginPassword(this.logger ):super(getInt);
 
 /*//TODO: RUN
 *    FUTURE  map  result

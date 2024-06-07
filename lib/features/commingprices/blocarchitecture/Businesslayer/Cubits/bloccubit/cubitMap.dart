@@ -7,11 +7,11 @@ import 'package:logger/logger.dart';
 
 
 //TODO: CountterCubit
-final class CountterCubit extends Cubit<Map<String, dynamic>>{
+final class CubitMap extends Cubit<Map<String, dynamic>>{
   Logger logger;
 
   //CountterCubit(super.initialState);
-   CountterCubit(this.logger ):super(myMap);
+   CubitMap(this.logger ):super(myMap);
 
 
 
