@@ -26,7 +26,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     // TODO: implement afterSuccessfullaunchthemainprogram
     try{
       logger.i(' afterSuccessfullaunchthemainprogram  state .. $state ' );
-
+    var dd=0/12;
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -45,7 +45,6 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   void callbAckreactiontosomeonewhocameStatus({ required int state,required BuildContext context}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
     try{
-    if(state>0){
       logger.i(' state .. $state ' );
       Scaffold.of(context).showBottomSheet(
               (BuildContext context) {
@@ -81,14 +80,11 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
      /* //TODO: погда пришел Публинчый ID
      *     */
-    }else{
+
       /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
      *     */
-//TODO метод запускаем Саму программу после успешно аунтификации
-      afterSuccessfullaunchthemainprogram(state: state,context: context);
-
       logger.i(' state .. $state ' );
-    }
+
 
     //TODO error
   }   catch (e, stacktrace) {

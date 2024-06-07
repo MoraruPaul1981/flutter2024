@@ -235,10 +235,17 @@ class AllcomponentsLoginAndPass {
    return   BlocConsumer<CubitLoginPassword,int>(
      listener: (context, state) {
        // do stuff here based on BlocA's state
-       // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
-       bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state,context: context);
 
-       logger.i('state...$state');
+     // TODO: Реакйция на смегу state Login and Password
+       if (state==0) {
+         //TODO: дизайн обработка смены статуса
+         bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state,context: context);
+         logger.i('state...$state');
+       }else{
+         //TODO: переход На реально работающее приложение
+         bi_childWidgetLoginAndPassword.   afterSuccessfullaunchthemainprogram(state: state,context: context);
+         logger.i('state...$state');
+       }
      },
      builder: (context, state) {
        // return widget here based on BlocA's state
