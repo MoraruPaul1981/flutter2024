@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
@@ -9,7 +10,9 @@ import '../../../Businesslayer/Blocs/bloccubitInt/bloccubitInt.dart';
 import '../../../Businesslayer/Blocs/bloccubitfuture/bloccubitfuture.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
-import 'componentsLoginAndPass.dart';
+import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
+import 'AllcomponentsLoginAndPass.dart';
+
 
 
 /////////TODO класс ожидание ответа пинга от 1с
@@ -27,6 +30,8 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
   @override
   Widget build(BuildContext context) {
     //TODO: login and password
+    AllcomponentsLoginAndPass getcomponentsLoginAndPass=new AllcomponentsLoginAndPass( logger:logger, context:context, key:key);
+
     return  BlocProvider(
       create: (context) => CountterCubitInt(logger ),
       child:Scaffold(
@@ -55,29 +60,29 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
                         const SizedBox(height: 2),
         
                         //TODO: Значек
-                        widgetcircleAvatar(logger),
+                        getcomponentsLoginAndPass.   widgetcircleAvatar(),
         
                         const SizedBox(height: 2),
         
         
                         //TODO: Названние Союз-автодор
-                        widgetnameText(logger),
+                        getcomponentsLoginAndPass.   widgetnameText(),
         
                         const SizedBox(height: 2),
         
                         //TODO: линия
-                        widgetLine(logger),
+                        getcomponentsLoginAndPass.  widgetLine(),
         
         
                         const SizedBox(height: 2),
         
                         //TODO: логин     //TODO: логин     //TODO: логин
-                        widgetLogin(logger),
+                        getcomponentsLoginAndPass.  widgetLogin(),
         
                         const SizedBox(height: 2),
         
                         //TODO: пароль           //TODO: пароль           //TODO: пароль
-                        widgetPasswrord(logger),
+                        getcomponentsLoginAndPass.  widgetPasswrord(),
         
         
                         //TODO END ROW ALL Auntifications
@@ -94,13 +99,58 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
             floatingActionButtonLocation: FloatingActionButtonLocation
                 .miniCenterFloat,
             floatingActionButtonAnimator: NoScalingAnimation(),
-            floatingActionButton: widgetFloatingActionButton(logger),
+            floatingActionButton:getcomponentsLoginAndPass. widgetFloatingActionButton( ),
 
 
+/*            BlocConsumer<CountterCubitInt,int>(
+      listener: (context, state) {
+        // do stuff here based on BlocA's state
+          BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword=new BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
+        // TODO: implement listener Реакция на  смену статус точнне получение ПубличногоID
+        bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state);
 
-            /////TODO: END конец всех компоннтов
-        ),
+        logger.i('state...$state');
+      },
+      builder: (context, state) {
+    // return widget here based on BlocA's state
+    return Container(
+    margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
+    padding: const EdgeInsets.all(2.0),
+    child: FloatingActionButton(
+    autofocus: true,
+    focusElevation: 5,
+    highlightElevation: 50,
+    onPressed: () {
+    //TODO: Нажатие на Круглую кнопку Float
+    logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
+    //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
+    Map<String, dynamic> parametrgetPublicId={};
+    context.read<CountterCubitInt>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+    },
+    backgroundColor: Colors.blue[300],
+    tooltip: 'Вход !!!',
+    elevation: 15,
+    splashColor: Colors.grey,
+    child: const Icon(
+    CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(50.0))
+    ),
+    ),
     );
+    ////TODO: END  Container
+
+    }
+    )*/
+
+
+
+        ////TODO:END MAin Widgets Scaffold
+      ),
+    );
+
+
+
 
       }
 
