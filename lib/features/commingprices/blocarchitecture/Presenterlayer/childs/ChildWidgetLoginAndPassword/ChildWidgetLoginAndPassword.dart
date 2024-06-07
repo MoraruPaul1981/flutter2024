@@ -13,8 +13,7 @@ import 'componentsLoginAndPass.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetLoginAndPassword extends State<WidgetStateful>
-    implements IntarfaceChildWidgetAuthorizationUsers {
+class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements IntarfaceChildWidgetAuthorizationUsers {
 
 //TODO: переменные
   @override
