@@ -310,7 +310,7 @@ class AllcomponentsLoginAndPass {
            highlightElevation: 50,
            onPressed: () {
              //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( state:state,context:context, getlogin:getlogin, getpassword: getpassword);
+             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( getlogin,  getpassword, state:state,context:context);
              logger.i('state .....$state');
            },
            backgroundColor: Colors.blue[300],

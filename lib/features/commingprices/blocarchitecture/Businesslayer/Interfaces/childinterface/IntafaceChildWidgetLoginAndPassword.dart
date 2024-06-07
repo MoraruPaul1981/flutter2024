@@ -43,7 +43,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  /* //TODO:
  * Get dont     Reaction Cycle Float
  status   widget   */
- void  actionFloatingActionButtonPressed ({ required int state,required BuildContext context,required String getlogin,required String getpassword });
+ void  actionFloatingActionButtonPressed (String? getlogin,  String? getpassword ,{required int state, required BuildContext context});
 
 
 

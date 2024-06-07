@@ -151,26 +151,44 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   }
 
   @override
-  void actionFloatingActionButtonPressed({required int state, required BuildContext context, required String getlogin, required String getpassword}) {
+  void actionFloatingActionButtonPressed(String? getlogin,  String? getpassword ,{required int state, required BuildContext context}) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
-      if (getlogin.length>3 && getpassword.length>3) {
-        //TODO: параметры запроса
-        Map<String, dynamic> parametrgetPublicId={};
-        parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
-        parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
-        //TODO:сам запрос
-        context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+      if (getlogin!=null && getpassword!=null) {
+        //TODO: login and password Not NULL
+        if (getlogin.length>3 && getpassword.length>3) {
+                //TODO: параметры запроса
+                Map<String, dynamic> parametrgetPublicId={};
+                parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
+                parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
+                //TODO:сам запрос
+                context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
 
-        logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-            '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+                logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+                    '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+
+
+          /*//TODO:
+              where leght login and pasword */
+              } else {
+
+                //TODO: дизайн обработка смены статуса
+                calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
+
+                logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+                    '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+              }
+
+        /*//TODO:
+              where login and pasword */
       } else {
 
+        /*//TODO:
+              where null login and pasword */
         //TODO: дизайн обработка смены статуса
         calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
-
         logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-            '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+            '  getlogin.null..$getlogin    getpassword.null....$getpassword ');
       }
 
 
