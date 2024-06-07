@@ -68,19 +68,19 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
                       Navigator.pop(context);
                     },
                     child:    Container(
-                        color: Colors.redAccent,//Colors.blue[300]
+                        color: Colors.blue[300],//Colors.blue[300] //,redAccent
                       width: double.infinity,
                       height: 50,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                         child:
                         Text(
                           'Логин/Пароль не правильные !!!',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
-                            fontSize: 15.0,
+                            fontSize: 14.0,
                             fontFamily: 'Raleway',
-                            color: Colors.white,//TODO Colors.grey.shade600
+                            color: Colors.black,//TODO Colors.grey.shade600
                           ),
                           textAlign: TextAlign.center,
                         ),
