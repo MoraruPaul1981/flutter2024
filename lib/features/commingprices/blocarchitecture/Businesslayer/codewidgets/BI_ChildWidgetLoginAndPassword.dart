@@ -94,6 +94,60 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 }
   }
 
+  @override
+  void calldoesnottriggerActionNoPoginandPassword({required int state, required BuildContext context}) {
+    // TODO: implement calldoesnottriggerActionNoPoginandPassword
+    try{
+      logger.i(' state .. $state ' );
+      Scaffold.of(context).showBottomSheet(
+            (BuildContext context) {
+          /*   //TODO:
+             *     GestureDetector   */
+          return  GestureDetector(
+            onTap: (){
+              print("Container clicked");
+              Navigator.pop(context);
+            },
+            child:    Container(
+              color: Colors.blue[300],//Colors.blue[300] //,redAccent
+              width: double.infinity,
+              height: 50,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child:
+                Text(
+                  'Логин/Пароль не заполнен !!!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14.0,
+                    fontFamily: 'Raleway',
+                    color: Colors.black,//TODO Colors.grey.shade600
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          );
+        },
+      );
+
+      /* //TODO: погда пришел Публинчый ID
+     *     */
+
+      /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
+     *     */
+      logger.i(' state .. $state ' );
+
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
 
 
 

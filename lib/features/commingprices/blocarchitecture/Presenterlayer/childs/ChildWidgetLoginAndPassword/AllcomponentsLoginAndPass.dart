@@ -309,11 +309,25 @@ class AllcomponentsLoginAndPass {
            focusElevation: 5,
            highlightElevation: 50,
            onPressed: () {
-             //TODO: Нажатие на Круглую кнопку Float
-             logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Пароль ');
-             //TODO: Bloc change add in Cubit Запускаем Получение Пабличного ID на базе ЛОгина и Пароля
-             Map<String, dynamic> parametrgetPublicId={};
-             context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+             //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
+             if (getlogin.length>3 && getpassword.length>3) {
+               //TODO: параметры запроса
+               Map<String, dynamic> parametrgetPublicId={};
+               parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
+               parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
+               //TODO:сам запрос
+               context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+
+               logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+                   '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+             } else {
+
+               //TODO: дизайн обработка смены статуса
+               bi_childWidgetLoginAndPassword.calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
+
+               logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+                   '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+             }
            },
            backgroundColor: Colors.blue[300],
            tooltip: 'Вход !!!',
