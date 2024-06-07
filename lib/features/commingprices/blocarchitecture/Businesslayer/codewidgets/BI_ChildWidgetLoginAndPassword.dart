@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
+import '../Cubits/bloccubitInt/cubitLoginPassword.dart';
 import '../Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
 import '../errors/Errors.dart';
 
@@ -148,6 +150,42 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     }
   }
 
+  @override
+  void actionFloatingActionButtonPressed({required int state, required BuildContext context, required String getlogin, required String getpassword}) {
+    // TODO: implement actionFloatingActionButtonPressed
+    try{
+      if (getlogin.length>3 && getpassword.length>3) {
+        //TODO: параметры запроса
+        Map<String, dynamic> parametrgetPublicId={};
+        parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
+        parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
+        //TODO:сам запрос
+        context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+
+        logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+            '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+      } else {
+
+        //TODO: дизайн обработка смены статуса
+        calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
+
+        logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+            '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+      }
+
+
+
+      logger.i(' state .. $state ' );
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+
+  }
 
 
 

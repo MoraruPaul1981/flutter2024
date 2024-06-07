@@ -39,6 +39,18 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  void  calldoesnottriggerActionNoPoginandPassword ({ required int state,required BuildContext context});
 
 
+
+ /* //TODO:
+ * Get dont     Reaction Cycle Float
+ status   widget   */
+ void  actionFloatingActionButtonPressed ({ required int state,required BuildContext context,required String getlogin,required String getpassword });
+
+
+
+
+
+
+
 }
 
 

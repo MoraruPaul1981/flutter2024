@@ -310,24 +310,8 @@ class AllcomponentsLoginAndPass {
            highlightElevation: 50,
            onPressed: () {
              //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-             if (getlogin.length>3 && getpassword.length>3) {
-               //TODO: параметры запроса
-               Map<String, dynamic> parametrgetPublicId={};
-               parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
-               parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
-               //TODO:сам запрос
-               context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
-
-               logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-                   '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
-             } else {
-
-               //TODO: дизайн обработка смены статуса
-               bi_childWidgetLoginAndPassword.calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
-
-               logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-                   '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
-             }
+             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( state:state,context:context, getlogin:getlogin, getpassword: getpassword);
+             logger.i('state .....$state');
            },
            backgroundColor: Colors.blue[300],
            tooltip: 'Вход !!!',
@@ -346,6 +330,46 @@ class AllcomponentsLoginAndPass {
    );
    ////TODO: END  Container
  }
+
+
+/*
+ ///TODO: Метод Клика Круглой Кнопки Подьтвердить
+ void actiononFloatingActionButtonPressed(BuildContext context, BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state) {
+
+
+   try{
+           if (getlogin.length>3 && getpassword.length>3) {
+     //TODO: параметры запроса
+     Map<String, dynamic> parametrgetPublicId={};
+     parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
+     parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
+     //TODO:сам запрос
+     context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+
+     logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+         '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+   } else {
+
+     //TODO: дизайн обработка смены статуса
+     bi_childWidgetLoginAndPassword.calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
+
+     logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+         '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+   }
+
+
+
+             logger.i(' state .. $state ' );
+
+             //TODO error
+           }   catch (e, stacktrace) {
+             print(' get ERROR $e get stacktrace $stacktrace ');
+             //TODO: Gradle Error
+             Errors errors=Errors();
+             errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+           }
+ }
+*/
 
 
 
