@@ -26,7 +26,6 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     // TODO: implement afterSuccessfullaunchthemainprogram
     try{
       logger.i(' afterSuccessfullaunchthemainprogram  state .. $state ' );
-    var dd=0/12;
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
