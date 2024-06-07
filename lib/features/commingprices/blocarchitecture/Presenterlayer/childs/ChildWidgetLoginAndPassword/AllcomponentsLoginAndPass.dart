@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
 import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
+import '../../../Businesslayer/errors/Errors.dart';
 
 
 class AllcomponentsLoginAndPass {
@@ -12,20 +13,47 @@ class AllcomponentsLoginAndPass {
  late  BuildContext context;
  late Key? key;
 /*
- //TODO:logon GET*/
+ //TODO:login GET*/
  late String login;
  String  get getlogin=>login;
+
+  /*
+ //TODO:password GET*/
+  late String password;
+  String  get getpassword=>password;
 
  AllcomponentsLoginAndPass({ required this.logger,  required this.context,  required this.key});
 
 /*
  //TODO:logon SET */
- void  setyourParam(String name ){
-   login=name;
-   print('yourParam....$login......name...$name');
+ void  setLogin(String setlogin ){
+   try {
+     login=setlogin;
+     print('login....$login......setlogin...$setlogin  getlogin...$getlogin');
+   } catch (e, stacktrace) {
+     print(e);
+     //TODO: Gradle Error
+     Errors errors=Errors();
+     errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+   }
  }
 
- ////TODO:Компонеты Виджета
+  /*
+ //TODO:password  SET */
+  void  setPassword(String setpassword ){
+    try {
+      password=setpassword;
+      print('password....$password......setpassword...$setpassword  getpassword...$getpassword');
+    } catch (e, stacktrace) {
+      print(e);
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+ ////TODO:Компонеты Виджета  КОД
 
  Widget widgetcircleAvatar() {
    // TODO: implement build
@@ -142,12 +170,10 @@ class AllcomponentsLoginAndPass {
              },
                onChanged: (setlogin) {
 
-               setyourParam(setlogin);
-               print('text: $login');
-               print('getyourParam: $getlogin');
-
-
-
+                 /*     //TODO"
+                    set  setlogin*/
+               setLogin(setlogin);
+               logger.i('setlogin..$setlogin');
 
              },
            ),
@@ -211,8 +237,12 @@ class AllcomponentsLoginAndPass {
              onTap: () {
                logger.i('   onTap: ..  ');
              },
-             onChanged: (content) {
-               logger.i(' onChanged: ..  ');
+             onChanged: (setpassword) {
+          /*     //TODO"
+                    set  setpassword*/
+               setPassword(setpassword);
+               logger.i('setpassword..$setpassword');
+
              },
            ),
          ),
@@ -261,12 +291,13 @@ class AllcomponentsLoginAndPass {
        if (state==0) {
          //TODO: дизайн обработка смены статуса
          bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state,context: context);
-         logger.i('state...$state');
+         logger.i('state...$state getlogin ..$getlogin');
        }else{
          //TODO: переход На реально работающее приложение
          bi_childWidgetLoginAndPassword.   afterSuccessfullaunchthemainprogram(state: state,context: context);
-         logger.i('state...$state');
+         logger.i('state...$state getlogin ..$getlogin');
        }
+       //TODO END proccesting state
      },
      builder: (context, state) {
        // return widget here based on BlocA's state
