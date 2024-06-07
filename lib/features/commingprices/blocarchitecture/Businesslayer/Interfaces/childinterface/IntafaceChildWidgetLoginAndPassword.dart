@@ -1,5 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import '../../../Datalayer/entities/Entities1CMap.dart';
@@ -17,7 +18,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
 
   /* //TODO:
  * Get Pulic ID ot Serer widgert       */
-  void afterSuccessfullaunchthemainprogram({required     int state });
+  void afterSuccessfullaunchthemainprogram({required     int state,required BuildContext context });
 
 
 
@@ -25,7 +26,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  /* //TODO:
  * Get Pulic   Reaction to someone who came
  status   widget   */
-  void  callbAckreactiontosomeonewhocameStatus ({ required int state});
+  void  callbAckreactiontosomeonewhocameStatus ({ required int state,required BuildContext context});
 
 }
 

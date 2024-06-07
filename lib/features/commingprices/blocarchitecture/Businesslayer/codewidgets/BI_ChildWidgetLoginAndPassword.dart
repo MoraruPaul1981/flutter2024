@@ -33,7 +33,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
   @override
-  void afterSuccessfullaunchthemainprogram({required int state}) {
+  void afterSuccessfullaunchthemainprogram({required int state,required BuildContext context}) {
     // TODO: implement afterSuccessfullaunchthemainprogram
     try{
       logger.i(' afterSuccessfullaunchthemainprogram  state .. $state ' );
@@ -53,10 +53,10 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
   //TODO: метод  Получение статуса от сервера state
   @override
-  void callbAckreactiontosomeonewhocameStatus({ required int state}) {
+  void callbAckreactiontosomeonewhocameStatus({ required int state,required BuildContext context}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
     try{
-    if(state==0){
+    if(state>0){
       logger.i(' state .. $state ' );
       Scaffold.of(context).showBottomSheet(
               (BuildContext context) {
@@ -68,7 +68,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
                       Navigator.pop(context);
                     },
                     child:    Container(
-                      color: Colors.blue[300],
+                        color: Colors.redAccent,//Colors.blue[300]
                       width: double.infinity,
                       height: 50,
                       child: Padding(
@@ -77,10 +77,10 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
                         Text(
                           'Логин/Пароль не правильные !!!',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13.0,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 15.0,
                             fontFamily: 'Raleway',
-                            color: Colors.grey.shade600,
+                            color: Colors.white,//TODO Colors.grey.shade600
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -96,7 +96,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
       /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
      *     */
 //TODO метод запускаем Саму программу после успешно аунтификации
-      afterSuccessfullaunchthemainprogram(state: state);
+      afterSuccessfullaunchthemainprogram(state: state,context: context);
 
       logger.i(' state .. $state ' );
     }
