@@ -11,10 +11,21 @@ class AllcomponentsLoginAndPass {
  late  Logger logger;
  late  BuildContext context;
  late Key? key;
+/*
+ //TODO:logon GET*/
+ late String login;
+ String  get getlogin=>login;
 
  AllcomponentsLoginAndPass({ required this.logger,  required this.context,  required this.key});
 
+/*
+ //TODO:logon SET */
+ void  setyourParam(String name ){
+   login=name;
+   print('yourParam....$login......name...$name');
+ }
 
+ ////TODO:Компонеты Виджета
 
  Widget widgetcircleAvatar() {
    // TODO: implement build
@@ -128,6 +139,16 @@ class AllcomponentsLoginAndPass {
              ),
              onTap: () {
                logger.i('IspingOtServer ..  ');
+             },
+               onChanged: (setlogin) {
+
+               setyourParam(setlogin);
+               print('text: $login');
+               print('getyourParam: $getlogin');
+
+
+
+
              },
            ),
          ),
@@ -282,11 +303,16 @@ class AllcomponentsLoginAndPass {
  }
 
 
+
+
+
+
+
+
 /* //TODO:
 *  END  class AllcomponentsLoginAndPass {
 * */
 }
-
 
 
 
