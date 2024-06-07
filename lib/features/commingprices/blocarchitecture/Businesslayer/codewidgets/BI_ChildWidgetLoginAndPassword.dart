@@ -1,13 +1,8 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 
-import '../../../../../main.dart';
-import '../Interfaces/Interfacebloc/Interfacebloc.dart';
 import '../Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
-import '../Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
 import '../errors/Errors.dart';
 
 
@@ -24,12 +19,6 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   Logger logger;
 
   BI_ChildWidgetLoginAndPassword({required this.context, required this.logger,required this.key});
-
-
-
-
-
-
 
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
   @override
