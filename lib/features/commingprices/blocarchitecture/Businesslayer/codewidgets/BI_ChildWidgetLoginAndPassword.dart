@@ -216,6 +216,54 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
 
 
+      //TODO Oбработка логина
+      String  progressgLogin (   { required  TextEditingController loginicController }){
+     try{
+
+        logger.i(' loginicController .. $loginicController ' );
+
+        //TODO error
+      }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+    return
+    }
+
+
+
+      //TODO Oбработка  пароля
+      String  progressPassword (   { required  TextEditingController passwordController }){
+        try{
+          logger.i(' passwordController .. $passwordController ' );
+          //TODO error
+        }   catch (e, stacktrace) {
+          print(' get ERROR $e get stacktrace $stacktrace ');
+          //TODO: Gradle Error
+          Errors errors=Errors();
+          errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+        }
+       return
+      }
+
+
+
+
+
+
+
+  //TODO
+  String  login=  _loginicController.text ;
+
+  //TODO
+  String  password=    _passwordController.text;
+
+
+
+
+
 
 
 

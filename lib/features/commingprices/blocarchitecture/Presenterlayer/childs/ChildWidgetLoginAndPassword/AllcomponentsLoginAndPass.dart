@@ -12,45 +12,17 @@ class AllcomponentsLoginAndPass {
  late  Logger logger;
  late  BuildContext context;
  late Key? key;
+
 /*
  //TODO:login GET*/
- late String login;
- String  get getlogin=>login;
-
+  final _loginicController = TextEditingController();
   /*
  //TODO:password GET*/
-  late String password;
-  String  get getpassword=>password;
+  final _passwordController = TextEditingController();
 
+
+///TODO  аунтификация
  AllcomponentsLoginAndPass({ required this.logger,  required this.context,  required this.key});
-
-/*
- //TODO:logon SET */
- void  setLogin(String setlogin ){
-   try {
-     login=setlogin;
-     print('login....$login......setlogin...$setlogin  getlogin...$getlogin');
-   } catch (e, stacktrace) {
-     print(e);
-     //TODO: Gradle Error
-     Errors errors=Errors();
-     errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-   }
- }
-
-  /*
- //TODO:password  SET */
-  void  setPassword(String setpassword ){
-    try {
-      password=setpassword;
-      print('password....$password......setpassword...$setpassword  getpassword...$getpassword');
-    } catch (e, stacktrace) {
-      print(e);
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-    }
-  }
 
 
  ////TODO:Компонеты Виджета  КОД
@@ -146,6 +118,7 @@ class AllcomponentsLoginAndPass {
          child: SizedBox(
            height: 45,
            child: TextField(
+             controller: _loginicController,
              textAlign: TextAlign.center,
              keyboardType: TextInputType.text,
              decoration: InputDecoration(
@@ -169,10 +142,8 @@ class AllcomponentsLoginAndPass {
                logger.i('IspingOtServer ..  ');
              },
                onChanged: (setlogin) {
-
                  /*     //TODO"
                     set  setlogin*/
-               setLogin(setlogin);
                logger.i('setlogin..$setlogin');
 
              },
@@ -213,6 +184,7 @@ class AllcomponentsLoginAndPass {
          child: SizedBox(
            height: 45,
            child: TextField(
+             controller: _passwordController,
              textAlign: TextAlign.center,
              keyboardType: TextInputType.visiblePassword,
              decoration: InputDecoration(
@@ -240,7 +212,6 @@ class AllcomponentsLoginAndPass {
              onChanged: (setpassword) {
           /*     //TODO"
                     set  setpassword*/
-               setPassword(setpassword);
                logger.i('setpassword..$setpassword');
 
              },
@@ -291,11 +262,11 @@ class AllcomponentsLoginAndPass {
        if (state==0) {
          //TODO: дизайн обработка смены статуса
          bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state,context: context);
-         logger.i('state...$state getlogin ..$getlogin');
+         logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
        }else{
          //TODO: переход На реально работающее приложение
          bi_childWidgetLoginAndPassword.   afterSuccessfullaunchthemainprogram(state: state,context: context);
-         logger.i('state...$state getlogin ..$getlogin');
+         logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
        }
        //TODO END proccesting state
      },
@@ -309,8 +280,12 @@ class AllcomponentsLoginAndPass {
            focusElevation: 5,
            highlightElevation: 50,
            onPressed: () {
+             //TODO
+         String  login=  _loginicController.text ;
+         String  password=    _passwordController.text;
+
              //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( getlogin,  getpassword, state:state,context:context);
+             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( login,  password, state:state,context:context);
              logger.i('state .....$state');
            },
            backgroundColor: Colors.blue[300],
