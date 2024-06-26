@@ -255,6 +255,9 @@ class AllcomponentsLoginAndPass {
    BI_ChildWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
    //TODO: bloc
    return   BlocConsumer<CubitLoginPassword,int>(
+
+     ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
+     ///*/
      listener: (context, state) {
        // do stuff here based on BlocA's state
 
@@ -270,6 +273,8 @@ class AllcomponentsLoginAndPass {
        }
        //TODO END proccesting state
      },
+     ///* TODO: ДЕЙСТВИЕ  ->  BlocConsumer
+     ///*/
      builder: (context, state) {
        // return widget here based on BlocA's state
        return Container(
@@ -280,7 +285,9 @@ class AllcomponentsLoginAndPass {
            focusElevation: 5,
            highlightElevation: 50,
            onPressed: () {
-             //TODO
+
+
+             //TODO Нажимаем Кнопку Для Отправки данных на сервер
          String  login=     bi_childWidgetLoginAndPassword.progressgLogin(loginicController: _loginicController);
          String  password=     bi_childWidgetLoginAndPassword.progressgPassword(passwordController: _passwordController);
          logger.i('login .....$login  password .....$password ');

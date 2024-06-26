@@ -33,9 +33,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
 
 
 
- /* //TODO:
- * Get dont login and passwod    Reaction to someone who came
- status   widget   */
+
  void  calldoesnottriggerActionNoPoginandPassword ({ required int state,required BuildContext context});
 
 

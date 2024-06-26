@@ -17,16 +17,23 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
   //CountterCubitFuture(super.initialState);
   CubitLoginPassword(this.logger ):super(getInt);
 
+
+
+
+
+
+
+
 /*//TODO: RUN
-*    FUTURE  map  result
+*    FUTURE  ServerStatus
 * */
 
   @override
-  Future<void> getbasedonloginandpasswordPublicID({required Map<String, dynamic> parametrgetPublicId}) async {
+  Future<void> startGettingServerStatus({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
     Future<int> futureValuePublicID =    Future<int>
-        .value(valuePublicID(parametrgetPublicId:parametrgetPublicId)
+        .value(futurePublicID(parametrgetPublicId:parametrgetPublicId)
         .catchError(
             (Object error) {
           print(' get ERROR $error  ');
@@ -45,9 +52,8 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
 }
   }
-
   @override
-  Future<int> valuePublicID({required Map<String, dynamic> parametrgetPublicId}) async {
+  Future<int> futureServerStatus({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement valuePublicID
     final PublicID = await Isolate.run(() async {
       int PublicID=0;
@@ -58,6 +64,64 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     });
     return PublicID;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  /*//TODO: RUN
+*    FUTURE  Public ID
+* */
+
+  @override
+  Future<void> startGettingServerPublicId({required Map<String, dynamic> parametrgetPublicId}) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+      Future<int> futureValuePublicID =    Future<int>
+          .value(futurePublicID(parametrgetPublicId:parametrgetPublicId)
+          .catchError(
+              (Object error) {
+            print(' get ERROR $error  ');
+          })
+      );
+      int PublicID =await futureValuePublicID;
+      logger.i(' Finifh()..  PublicID $PublicID  ');
+      /* //TODO:
+   *     главная команда всегда кода eьше Ответ */
+      emit(PublicID);
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+  @override
+  Future<int> futurePublicId({required Map<String, dynamic> parametrgetPublicId}) async {
+    // TODO: implement valuePublicID
+    final PublicID = await Isolate.run(() async {
+      int PublicID=0;
+      Random random = new Random();
+      PublicID =random.nextInt(10000);
+      print(' Finifh()..  PublicID $PublicID  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return PublicID;
+    });
+    return PublicID;
+  }
+
+
+
+
+
 
 
 

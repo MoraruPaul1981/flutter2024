@@ -67,7 +67,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
             height: 30,
             child: Center(
               child: Text(
-                'Сервер ноправильный ответ !!!',
+                'Сервер выкл !!!',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 13.0,
@@ -99,7 +99,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 }
   }
 
-  @override
+
   void calldoesnottriggerActionNoPoginandPassword({required int state, required BuildContext context}) {
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
@@ -184,26 +184,38 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   @override
   void actionFloatingActionButtonPressed(String? getlogin,  String? getpassword ,{required int state, required BuildContext context}) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
-      if (getlogin!=null && getpassword!=null) {
+      logger.i('  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
+
         //TODO: login and password Not NULL
-        if (getlogin.length>3 && getpassword.length>3) {
+        if (getlogin!.length>3 && getpassword!.length>3) {
                 //TODO: параметры запроса
                 Map<String, dynamic> parametrgetPublicId={};
                 parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
                 parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
-                //TODO:сам запрос
-                context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+
+                //TODO:сам запрос на получение PublicID И Получение Данных
+                context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
 
                 logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
 
-
-          /*//TODO:
-              where leght login and pasword */
               } else {
 
                 //TODO: дизайн обработка смены статуса
@@ -212,20 +224,6 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
                 logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
               }
-
-        /*//TODO:
-              where login and pasword */
-      } else {
-
-        /*//TODO:
-              where null login and pasword */
-        //TODO: дизайн обработка смены статуса
-        calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
-        logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-            '  getlogin.null..$getlogin    getpassword.null....$getpassword ');
-      }
-
-
 
       logger.i(' state .. $state ' );
 
