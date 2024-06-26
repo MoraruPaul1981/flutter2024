@@ -169,7 +169,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
       /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
      *     */
-      logger.i(' state .. $state ' );
+      logger.i('   void calldoesnottriggerActionNoPoginandPassword()  state .. $state ' );
 
 
       //TODO error
