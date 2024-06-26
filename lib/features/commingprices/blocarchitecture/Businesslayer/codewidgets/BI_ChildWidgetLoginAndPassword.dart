@@ -101,6 +101,33 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
       logger.i(' state .. $state ' );
+
+
+/*
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          margin: EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: MediaQuery.of(context).size.width * 0.27,
+          ),
+          elevation: 5.0,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35.0),
+          ),
+          content: Wrap(
+            children: const [
+              Center(
+                child: Text(
+                  'Please enter valid email',
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+*/
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
         elevation: 10,
@@ -133,7 +160,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
             ),
 
         ),
-        duration: const Duration(milliseconds: 700),
+        duration: const Duration(milliseconds: 1300),
       ),);
 
 
