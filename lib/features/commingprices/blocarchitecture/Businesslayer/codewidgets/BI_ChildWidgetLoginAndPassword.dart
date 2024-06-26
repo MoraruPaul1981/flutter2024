@@ -112,18 +112,14 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
               topLeft: Radius.circular(20),
             ),
           ),
-        margin:EdgeInsets.symmetric(
-          vertical: 20.0,
-          horizontal: MediaQuery.of(context).size.width * 0.27,
-        ) ,
         backgroundColor:Colors.blue[300] ,
         content: Container(
           margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 2),
           color: Colors.blue[300],//Colors.blue[300] //,redAccent
           width: double.infinity,
           height: 30,
-            child:
-            Center(
+            child: Center(
               child: Text(
                 'Логин/Пароль не заполнен !!!',
                 style: TextStyle(
