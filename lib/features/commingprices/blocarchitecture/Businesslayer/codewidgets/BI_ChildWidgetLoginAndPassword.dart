@@ -101,37 +101,45 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
       logger.i(' state .. $state ' );
-      Scaffold.of(context).showBottomSheet(
-            (BuildContext context) {
-          /*   //TODO:
-             *     GestureDetector   */
-          return  GestureDetector(
-            onTap: (){
-              print("Container clicked");
-              Navigator.pop(context);
-            },
-            child:    Container(
-              color: Colors.blue[300],//Colors.blue[300] //,redAccent
-              width: double.infinity,
-              height: 50,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child:
-                Text(
-                  'Логин/Пароль не заполнен !!!',
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14.0,
-                    fontFamily: 'Raleway',
-                    color: Colors.black,//TODO Colors.grey.shade600
-                  ),
-                  textAlign: TextAlign.center,
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+        elevation: 10,
+        behavior: SnackBarBehavior.fixed,
+          shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white12, width: 1),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
+          ),
+        margin:EdgeInsets.symmetric(
+          vertical: 20.0,
+          horizontal: MediaQuery.of(context).size.width * 0.27,
+        ) ,
+        backgroundColor:Colors.blue[300] ,
+        content: Container(
+          margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+          color: Colors.blue[300],//Colors.blue[300] //,redAccent
+          width: double.infinity,
+          height: 30,
+            child:
+            Center(
+              child: Text(
+                'Логин/Пароль не заполнен !!!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0,
+                  fontFamily: 'Raleway',
+                  color: Colors.grey[200],//TODO Colors.grey.shade600
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
-          );
-        },
-      );
+
+        ),
+        duration: const Duration(milliseconds: 700),
+      ),);
+
 
       /* //TODO: погда пришел Публинчый ID
      *     */
@@ -211,16 +219,15 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
 
 
-
-
-
-
-
       //TODO Oбработка логина
+      @override
       String  progressgLogin (   { required  TextEditingController loginicController }){
-     try{
+      late String  _login  ;
+        try{
+          //TODO
+             _login=  loginicController.text ;
 
-        logger.i(' loginicController .. $loginicController ' );
+          logger.i(' _login .. $_login ' );
 
         //TODO error
       }   catch (e, stacktrace) {
@@ -229,36 +236,34 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
-    return
+    return _login;
     }
 
 
 
-      //TODO Oбработка  пароля
-      String  progressPassword (   { required  TextEditingController passwordController }){
-        try{
-          logger.i(' passwordController .. $passwordController ' );
-          //TODO error
-        }   catch (e, stacktrace) {
-          print(' get ERROR $e get stacktrace $stacktrace ');
-          //TODO: Gradle Error
-          Errors errors=Errors();
-          errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-        }
-       return
-      }
 
 
 
+  //TODO Oбработка логина
+  @override
+  String  progressgPassword (   { required  TextEditingController passwordController }){
+    late String  _password  ;
+    try{
+      //TODO
+      _password=  passwordController.text ;
+      logger.i(' _password .. $_password ' );
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+    return _password;
+  }
 
 
 
-
-  //TODO
-  String  login=  _loginicController.text ;
-
-  //TODO
-  String  password=    _passwordController.text;
 
 
 

@@ -281,8 +281,9 @@ class AllcomponentsLoginAndPass {
            highlightElevation: 50,
            onPressed: () {
              //TODO
-         String  login=  _loginicController.text ;
-         String  password=    _passwordController.text;
+         String  login=     bi_childWidgetLoginAndPassword.progressgLogin(loginicController: _loginicController);
+         String  password=     bi_childWidgetLoginAndPassword.progressgPassword(passwordController: _passwordController);
+         logger.i('login .....$login  password .....$password ');
 
              //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
              bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( login,  password, state:state,context:context);

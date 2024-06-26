@@ -46,6 +46,16 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  void  actionFloatingActionButtonPressed (String? getlogin,  String? getpassword ,{required int state, required BuildContext context});
 
 
+ /* //TODO:
+ * получение логина
+ status   widget   */
+ String  progressgLogin (   { required  TextEditingController loginicController });
+
+ /* //TODO:
+ * получение пароля
+ status   widget   */
+ String  progressgPassword (   { required  TextEditingController passwordController });
+
 
 
 
