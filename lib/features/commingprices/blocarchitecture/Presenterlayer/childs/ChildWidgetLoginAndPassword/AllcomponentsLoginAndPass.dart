@@ -227,6 +227,23 @@ class AllcomponentsLoginAndPass {
 
 
 
+
+  Widget widgetcircularProgress() {
+    // TODO: implement build
+    //TODO:widgetcircleAvatar
+    return Container(
+      child: CircularProgressIndicator(),
+    );
+
+  }
+
+
+
+
+
+
+
+
  Widget widgetLine( ) {
    // TODO: implement build
    //TODO: widgetLine

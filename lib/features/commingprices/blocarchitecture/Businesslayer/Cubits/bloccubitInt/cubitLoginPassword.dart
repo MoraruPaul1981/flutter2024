@@ -105,8 +105,11 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     }
   }
 
+
+
   @override
-  Future<int> futurePublicId({required Map<String, dynamic> parametrgetPublicId}) async {
+  Future<int> futurePublicID({required Map<String, dynamic> parametrgetPublicId}) async {
+    // TODO: implement futurePublicID
     // TODO: implement valuePublicID
     final PublicID = await Isolate.run(() async {
       int PublicID=0;

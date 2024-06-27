@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,51 +41,65 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
               children: [Container(
                   width: double.maxFinite,
                   child: Card(
-                    margin: const EdgeInsets.only(
-                        left: 0, top: 0, right: 0, bottom: 0),
                     elevation: 5,
                     shadowColor: Colors.white12,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         side: BorderSide(width: 3, color: Colors.white)),
                     color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-        
-        
-                        //TODO:Все Компонеты логирование Виджежета
-                        const SizedBox(height: 2),
-        
-                        //TODO: Значек
-                        getcomponentsLoginAndPass.   widgetcircleAvatar(),
-        
-                        const SizedBox(height: 2),
-        
-        
-                        //TODO: Названние Союз-автодор
-                        getcomponentsLoginAndPass.   widgetnameText(),
-        
-                        const SizedBox(height: 2),
-        
-                        //TODO: линия
-                        getcomponentsLoginAndPass.  widgetLine(),
-        
-        
-                        const SizedBox(height: 2),
-        
-                        //TODO: логин     //TODO: логин     //TODO: логин
-                        getcomponentsLoginAndPass.  widgetLogin(),
-        
-                        const SizedBox(height: 2),
-        
-                        //TODO: пароль           //TODO: пароль           //TODO: пароль
-                        getcomponentsLoginAndPass.  widgetPasswrord(),
-        
-        
-                        //TODO END ROW ALL Auntifications
-                      ],
+                    child: SizedBox(
+                      height: 700,
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+
+
+                          //TODO:Все Компонеты логирование Виджежета
+                          const SizedBox(height: 2),
+
+                          //TODO: Значек
+                          getcomponentsLoginAndPass.   widgetcircleAvatar(),
+
+                          const SizedBox(height: 2),
+
+
+                          //TODO: Названние Союз-автодор
+                          getcomponentsLoginAndPass.   widgetnameText(),
+
+
+
+                          const SizedBox(height: 2),
+
+                          //TODO: линия
+                          getcomponentsLoginAndPass.  widgetLine(),
+
+
+
+                          const SizedBox(height: 2),
+
+                          //TODO: логин     //TODO: логин     //TODO: логин
+                          getcomponentsLoginAndPass.  widgetLogin(),
+
+                          const SizedBox(height: 2),
+
+                          //TODO: пароль           //TODO: пароль           //TODO: пароль
+                          getcomponentsLoginAndPass.  widgetPasswrord(),
+
+
+
+
+                       /*
+                        TODO: програссбар
+                         */
+                          getcomponentsLoginAndPass.  widgetcircularProgress(),
+
+
+
+                          //TODO END ROW ALL Auntifications
+                        ],
+                      ),
                     ),
                   ),
                 ),
