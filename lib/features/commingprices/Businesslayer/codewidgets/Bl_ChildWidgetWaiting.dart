@@ -1,13 +1,15 @@
 
-import 'package:commintprices/features/commingprices/blocarchitecture/Datalayer/entities/Entities1CMap.dart';
+
 import 'package:flutter/src/widgets/async.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
-import '../Interfaces/childinterface/IntafaceChildWidgetSuccessData.dart';
-import '../Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+
+import '../../Datalayer/entities/Entities1CMap.dart';
+
+
 
 //TODO: класс бизнес логика для успещного получение данных от 1С
-class Bl_ChildWidgetDefault   {
+class Bl_ChildWidgetWaiting   {
 
 
   @override
@@ -21,7 +23,7 @@ class Bl_ChildWidgetDefault   {
 
 
 //TODO: конструктор для бизнес логики усершного получение данных
-  Bl_ChildWidgetDefault({ required this.logger});
+  Bl_ChildWidgetWaiting({ required this.logger});
 
 
 

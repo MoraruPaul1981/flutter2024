@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/errors/Errors.dart';
-import 'features/commingprices/blocarchitecture/Businesslayer/loggers/GetLogger.dart';
-import 'features/commingprices/blocarchitecture/Presenterlayer/childs/ChildWidgetLoginAndPassword/widget/ChildWidgetLoginAndPassword.dart';
+
+import 'features/commingprices/Businesslayer/errors/Errors.dart';
+import 'features/commingprices/Businesslayer/loggers/GetLogger.dart';
+import 'features/commingprices/Presenterlayer/childs/ChildWidgetLoginAndPassword/widget/ChildWidgetLoginAndPassword.dart';
 
 
 //TODO: Главный метод запуска Flutter проекта -----       Запускалка

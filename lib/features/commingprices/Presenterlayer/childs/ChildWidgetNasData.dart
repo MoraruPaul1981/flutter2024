@@ -1,23 +1,17 @@
-
-
-
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:commintprices/features/commingprices/blocarchitecture/Datalayer/entities/Entities1CMap.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../Businesslayer/animations/GetAntimations.dart';
-import '../../Businesslayer/codewidgets/BI_ChildWidgetError.dart';
-
-
-
-
+import '../../Businesslayer/codewidgets/Bl_ChildWidgetNasData.dart';
+import '../../Datalayer/entities/Entities1CMap.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChildWidgetErrors {
+class ChildWidgetNasData   extends   StatelessWidget  implements   IntarfaceChildWidgetNasData {
 
+  //TODO: переменные
   @override
   BuildContext context;
 
@@ -30,8 +24,9 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
   @override
   Logger logger;
 
+
   //TODO: конструктор
-  ChildGetWidgetErrors( Key? key,
+  ChildWidgetNasData(Key? key,
       {required this.context,
       required this.currentText,
       required this.snapshot,
@@ -92,9 +87,9 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
           highlightElevation: 50,
           onPressed: () {
             //TODO: при нажатии перезапускаем Получение Данных
-            BI_ChildWidgetError biwidgeterrror=new BI_ChildWidgetError(context: context,logger: logger,key: key);
+            Bl_ChildWidgetNasData blwidwednasdata=new Bl_ChildWidgetNasData(context: context,logger: logger,key: key);
             //TODO: метод зарускам когда данных нет но мы запускаем переполучить данные
-            biwidgeterrror.theServeristurnedRereceive();
+            blwidwednasdata.theServeristurnedRereceive();
 
             logger.i(' CLick FloatingActionButtonLocation  onPressed..   ' );
           },
@@ -125,6 +120,6 @@ class ChildGetWidgetErrors  extends StatelessWidget    implements   IntarfaceChi
 
 
 
+
+
 }
-
-
