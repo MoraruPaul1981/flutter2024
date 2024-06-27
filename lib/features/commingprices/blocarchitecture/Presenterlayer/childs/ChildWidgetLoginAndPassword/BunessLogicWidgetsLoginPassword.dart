@@ -288,22 +288,12 @@ class BunessLogicWidgetsLoginPassword {
    BI_ChildWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
    //TODO: bloc
    return   BlocConsumer<CubitLoginPassword,int>(
-
      ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
      ///*/
      listener: (context, state) {
-       // do stuff here based on BlocA's state
-
      // TODO: Реакйция на смегу state Login and Password
-       if (state==0) {
-         //TODO: дизайн обработка смены статуса
-         bi_childWidgetLoginAndPassword.callBackServerRunAndStop(state: state,context: context);
-         logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
-       }else{
-         //TODO: переход На реально работающее приложение
-         bi_childWidgetLoginAndPassword.   callBackSuccessPublicID(state: state,context: context);
-         logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
-       }
+       changeofStatus(state, bi_childWidgetLoginAndPassword, context);
+       logger.i('triggerStatusChange .....$state');
        //TODO END proccesting state
      },
      ///* TODO: ДЕЙСТВИЕ  ->  BlocConsumer
@@ -318,16 +308,10 @@ class BunessLogicWidgetsLoginPassword {
            focusElevation: 5,
            highlightElevation: 50,
            onPressed: () {
-
-
              //TODO Нажимаем Кнопку Для Отправки данных на сервер
-         String  login=     bi_childWidgetLoginAndPassword.processingLogin(loginicController: _loginicController);
-         String  password=     bi_childWidgetLoginAndPassword.processingPassword(passwordController: _passwordController);
-         logger.i('login .....$login  password .....$password ');
+         triggerStatusChange(bi_childWidgetLoginAndPassword, state, context);
+         logger.i('triggerStatusChange .....$state');
 
-             //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-             bi_childWidgetLoginAndPassword.    clickFloatingButtonForGetLoginAndPassword( login,  password, state:state,context:context);
-             logger.i('state .....$state');
            },
            backgroundColor: Colors.blue[300],
            tooltip: 'Вход !!!',
@@ -348,44 +332,49 @@ class BunessLogicWidgetsLoginPassword {
  }
 
 
-/*
- ///TODO: Метод Клика Круглой Кнопки Подьтвердить
- void actiononFloatingActionButtonPressed(BuildContext context, BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state) {
 
 
+
+  void triggerStatusChange(BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state, BuildContext context) {
    try{
-           if (getlogin.length>3 && getpassword.length>3) {
-     //TODO: параметры запроса
-     Map<String, dynamic> parametrgetPublicId={};
-     parametrgetPublicId.putIfAbsent('getlogin', getlogin as Function());
-     parametrgetPublicId.putIfAbsent('getpassword', getpassword as Function());
-     //TODO:сам запрос
-     context.read<CubitLoginPassword>().getbasedonloginandpasswordPublicID(parametrgetPublicId:parametrgetPublicId);
+       String  login=     bi_childWidgetLoginAndPassword.processingLogin(loginicController: _loginicController);
+    String  password=     bi_childWidgetLoginAndPassword.processingPassword(passwordController: _passwordController);
+    logger.i('login .....$login  password .....$password ');
 
-     logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-         '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
-   } else {
-
-     //TODO: дизайн обработка смены статуса
-     bi_childWidgetLoginAndPassword.calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
-
-     logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
-         '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
-   }
+        //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
+        bi_childWidgetLoginAndPassword.    clickFloatingButtonForGetLoginAndPassword( login,  password, state:state,context:context);
+        logger.i('state .....$state');
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+}
+  }
 
 
 
-             logger.i(' state .. $state ' );
-
-             //TODO error
-           }   catch (e, stacktrace) {
-             print(' get ERROR $e get stacktrace $stacktrace ');
-             //TODO: Gradle Error
-             Errors errors=Errors();
-             errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-           }
- }
-*/
+  void changeofStatus(int state, BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, BuildContext context) {
+   try{
+        if (state==0) {
+      //TODO: дизайн обработка смены статуса
+      bi_childWidgetLoginAndPassword.callBackServerRunAndStop(state: state,context: context);
+      logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
+    }else{
+      //TODO: переход На реально работающее приложение
+      bi_childWidgetLoginAndPassword.   callBackSuccessPublicID(state: state,context: context);
+      logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
+    }
+        logger.i('state .....$state');
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+}
+  }
 
 
 
