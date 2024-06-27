@@ -265,13 +265,15 @@ class BunessLogicWidgetsLoginPassword {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           side: BorderSide(width: 1, color: Colors.white12)),
-      margin: const EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
+      margin: const EdgeInsets.only(left: 0, top: 15, right: 0, bottom: 5),
       color: Colors.white12,
-      child: const Stack(
-          children: [
-            CircularProgressIndicator()
-          ]
+
+      child: const CircularProgressIndicator(
+        backgroundColor: Colors.white12,
+        strokeWidth: 4.0,color: Colors.blue,
       ),
+
+
     );
   }
 

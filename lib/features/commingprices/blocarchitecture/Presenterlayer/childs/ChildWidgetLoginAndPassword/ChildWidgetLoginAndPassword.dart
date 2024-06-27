@@ -43,7 +43,8 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [Container(
-                  width: double.maxFinite,
+                  width: double.infinity,
+                  height: double.infinity,
                   child: Card(
                     elevation: 5,
                     shadowColor: Colors.white12,
@@ -51,15 +52,10 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         side: BorderSide(width: 3, color: Colors.white)),
                     color: Colors.white,
-                    child: SizedBox(
-                      height: 700,
-                      width: double.infinity,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-
-
                           //TODO:Все Компонеты логирование Виджежета
                           const SizedBox(height: 2),
 
@@ -92,9 +88,11 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
                           bunessLogicWidgetsLoginPassword.  widgetPasswrord(),
 
 
+
                        /*
                         TODO: програссбар
                          */
+                          const SizedBox(height: 2),
                           bunessLogicWidgetsLoginPassword.  widgetcircularProgress(),
 
 
@@ -102,7 +100,6 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
                           //TODO END ROW ALL Auntifications
                         ],
                       ),
-                    ),
                   ),
                 ),
               ],
