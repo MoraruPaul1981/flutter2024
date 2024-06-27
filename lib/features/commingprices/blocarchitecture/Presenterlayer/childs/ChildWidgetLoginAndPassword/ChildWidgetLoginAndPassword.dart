@@ -39,70 +39,66 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
  *    */
       child:Scaffold(
             backgroundColor: Colors.white,
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Card(
-                    elevation: 5,
-                    shadowColor: Colors.white12,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        side: BorderSide(width: 3, color: Colors.white)),
-                    color: Colors.white,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          //TODO:Все Компонеты логирование Виджежета
-                          const SizedBox(height: 2),
+            body:  Container(
+              margin: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(2.0),
+              child: Card(
+                      elevation: 5,
+                      shadowColor: Colors.white12,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          side: BorderSide(width: 3, color: Colors.white)),
+                      color: Colors.white,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            //TODO:Все Компонеты логирование Виджежета
+                            const SizedBox(height: 2),
 
-                          //TODO: Значек
-                          bunessLogicWidgetsLoginPassword.   widgetcircleAvatar(),
+                            //TODO: Значек
+                            bunessLogicWidgetsLoginPassword.   widgetcircleAvatar(),
 
-                          const SizedBox(height: 2),
+                            const SizedBox(height: 2),
 
 
-                          //TODO: Названние Союз-автодор
-                          bunessLogicWidgetsLoginPassword.   widgetnameText(),
+                            //TODO: Названние Союз-автодор
+                            bunessLogicWidgetsLoginPassword.   widgetnameText(),
 
 
 
-                          const SizedBox(height: 2),
+                            const SizedBox(height: 2),
 
-                          //TODO: линия
-                          bunessLogicWidgetsLoginPassword.  widgetLine(),
-
-
-
-                          const SizedBox(height: 2),
-
-                          //TODO: логин     //TODO: логин     //TODO: логин
-                          bunessLogicWidgetsLoginPassword.  widgetLogin(),
-
-                          const SizedBox(height: 2),
-
-                          //TODO: пароль           //TODO: пароль           //TODO: пароль
-                          bunessLogicWidgetsLoginPassword.  widgetPasswrord(),
+                            //TODO: линия
+                            bunessLogicWidgetsLoginPassword.  widgetLine(),
 
 
 
-                       /*
-                        TODO: програссбар
-                         */
-                          const SizedBox(height: 2),
-                          bunessLogicWidgetsLoginPassword.  widgetcircularProgress(),
+                            const SizedBox(height: 2),
+
+                            //TODO: логин     //TODO: логин     //TODO: логин
+                            bunessLogicWidgetsLoginPassword.  widgetLogin(),
+
+                            const SizedBox(height: 2),
+
+                            //TODO: пароль           //TODO: пароль           //TODO: пароль
+                            bunessLogicWidgetsLoginPassword.  widgetPasswrord(),
 
 
 
-                          //TODO END ROW ALL Auntifications
-                        ],
-                      ),
-                  ),
-                ),
-              ],
+                         /*
+                          TODO: програссбар
+                           */
+                            const SizedBox(height: 2),
+                            bunessLogicWidgetsLoginPassword.  widgetcircularProgress(),
+
+
+
+                            //TODO END ROW ALL Auntifications
+                          ],
+                        ),
+
+              ),
             ),
         
         
