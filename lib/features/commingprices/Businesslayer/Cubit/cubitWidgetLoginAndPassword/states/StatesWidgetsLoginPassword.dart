@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import '../../../../Businesslayer/BI/errors/Errors.dart';
-import '../cubit/CubitLoginPassword.dart';
+
+import '../CubitLoginPassword.dart';
 import '../Functions/FunctionsWidgetLoginAndPassword.dart';
 
 

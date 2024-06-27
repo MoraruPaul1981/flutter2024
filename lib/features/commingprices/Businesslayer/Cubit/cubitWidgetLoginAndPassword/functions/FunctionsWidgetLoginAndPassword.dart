@@ -5,7 +5,8 @@ import 'package:logger/logger.dart';
 
 import '../../../../Businesslayer/BI/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
 import '../../../../Businesslayer/BI/errors/Errors.dart';
-import '../cubit/CubitLoginPassword.dart';
+import '../CubitLoginPassword.dart';
+
 
 
 

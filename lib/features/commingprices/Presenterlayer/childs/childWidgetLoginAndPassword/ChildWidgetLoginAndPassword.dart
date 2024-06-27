@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../../../../../main.dart';
-import '../../../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
-import '../../../../Businesslayer/BI/animations/GetAntimations.dart';
-import '../cubit/CubitLoginPassword.dart';
+import '../../../../../../main.dart';
+import '../../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../../../Businesslayer/BI/animations/GetAntimations.dart';
 
-import '../States/StatesWidgetsLoginPassword.dart';
+
+import '../../../Businesslayer/Cubit/cubitWidgetLoginAndPassword/CubitLoginPassword.dart';
+import '../../../Businesslayer/Cubit/cubitWidgetLoginAndPassword/states/StatesWidgetsLoginPassword.dart';
+
 
 
 

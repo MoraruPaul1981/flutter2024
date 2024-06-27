@@ -49,7 +49,8 @@ class ParentWidgetCommitingPrices extends State<WidgetStateful> {
         ////TODO В  waiting
         if (snapshot.connectionState == ConnectionState.waiting) {
           //TODO Возврат по Ожидания
-          widgetWatingCallBack =   ChildWidgetWaiting(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
+          widgetWatingCallBack =   ChildWidgetWaiting(key,context:context, snapshot:snapshot,
+              alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
           logger.i('napshot.connectionState$snapshot.connectionState');
           //TODO return
           return widgetWatingCallBack;
@@ -70,7 +71,8 @@ class ParentWidgetCommitingPrices extends State<WidgetStateful> {
             ///TODO пришол ПИНГ УСпешный
             if (   snapshot.hasData && receiveddatafromC1.length>0) {
               //TODO Возврат Данные ПРИШЛИ
-              widgetWatingCallBack =    ChildWidgetSuccessData(key,logger:logger,snapshot:snapshot,context:context,receiveddatafromC1:receiveddatafromC1);
+              widgetWatingCallBack =    ChildWidgetSuccessData(key,logger:logger,snapshot:snapshot,context:context,
+                  receiveddatafromC1:receiveddatafromC1);
 
               logger.i('snapshot.hasData...$snapshot.hasData'+'isArray.length...$receiveddatafromC1.length'
                   +'napshot.connectionState$snapshot.connectionState');
@@ -119,7 +121,8 @@ class ParentWidgetCommitingPrices extends State<WidgetStateful> {
         //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
         //TODO нет DEFALUT
-        widgetWatingCallBack = ChildWidgetDefault(key,context:context, snapshot:snapshot, alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
+        widgetWatingCallBack = ChildWidgetDefault(key,context:context, snapshot:snapshot,
+            alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
         //TODO return ERROR
         return widgetWatingCallBack;
 
