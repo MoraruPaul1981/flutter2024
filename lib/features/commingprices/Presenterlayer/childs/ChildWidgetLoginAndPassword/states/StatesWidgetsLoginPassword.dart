@@ -3,9 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import '../cubit/cubitLoginPassword.dart';
+import '../../../../Businesslayer/BI/errors/Errors.dart';
+import '../cubit/CubitLoginPassword.dart';
 import '../Functions/FunctionsWidgetLoginAndPassword.dart';
-import '../../../../Businesslayer/errors/Errors.dart';
+
 
 
 class StatesWidgetsLoginPassword {

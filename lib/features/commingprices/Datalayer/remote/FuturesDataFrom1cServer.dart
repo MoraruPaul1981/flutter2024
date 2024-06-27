@@ -10,10 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-import '../../Businesslayer/Interfaces/InterfaceFuture.dart';
-import '../../Businesslayer/converts/GetConverts.dart';
-import '../../Businesslayer/decoding/getDecodingCallback.dart';
-import '../../Businesslayer/errors/Errors.dart';
+
+import '../../Businesslayer/BI/Interfaces/InterfaceFuture.dart';
+import '../../Businesslayer/BI/converts/GetConverts.dart';
+import '../../Businesslayer/BI/decoding/getDecodingCallback.dart';
+import '../../Businesslayer/BI/errors/Errors.dart';
 import '../entities/Entities1CMap.dart';
 
 

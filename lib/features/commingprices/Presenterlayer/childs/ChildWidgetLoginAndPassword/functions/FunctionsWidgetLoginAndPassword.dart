@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../cubit/cubitLoginPassword.dart';
-import '../../../../Businesslayer/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
-import '../../../../Businesslayer/errors/Errors.dart';
+import '../../../../Businesslayer/BI/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
+import '../../../../Businesslayer/BI/errors/Errors.dart';
+import '../cubit/CubitLoginPassword.dart';
+
 
 
 class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPassword {

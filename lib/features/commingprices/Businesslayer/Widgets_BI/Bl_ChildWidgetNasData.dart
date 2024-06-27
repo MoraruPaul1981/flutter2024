@@ -1,18 +1,16 @@
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../../main.dart';
-import '../Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
-import '../errors/Errors.dart';
+import '../BI/Interfaces/childinterface/InterfaceChildWidgetNasData.dart';
+import '../BI/errors/Errors.dart';
 
 
+//TODO: класс бизнес логика для успещного получение данных от 1С
+class Bl_ChildWidgetNasData implements InterfaceChildWidgetNasData   {
 
-
-
-class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
 
 
   @override
@@ -25,8 +23,8 @@ class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
   Logger logger;
 
 
-
-  BI_ChildWidgetError({required this.context, required this.logger,required this.key});
+//TODO: конструктор для бизнес логики усершного получение данных
+  Bl_ChildWidgetNasData({required this.context, required this.logger,required this.key});
 
   @override
   void theServeristurnedRereceive() {
@@ -45,13 +43,6 @@ class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
-
-
-
-
-
-
-
 
 
 

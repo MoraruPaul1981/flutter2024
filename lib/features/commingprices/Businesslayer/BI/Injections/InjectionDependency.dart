@@ -2,7 +2,6 @@
 import 'package:get_it/get_it.dart';
 
 import '../Interfaces/InterfaceDCI.dart';
-import '../codewidgets/BI_ChildWidgetError.dart';
 import '../errors/Errors.dart';
 
 

@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-import '../../Datalayer/entities/Entities1CMap.dart';
-import '../Paramets/getParaments.dart';
+import '../../../Datalayer/entities/Entities1CMap.dart';
+
 
 
 abstract  class InterfacePings {

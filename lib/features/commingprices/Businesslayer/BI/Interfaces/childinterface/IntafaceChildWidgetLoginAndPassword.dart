@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import '../../../Datalayer/entities/Entities1CMap.dart';
-
 
 @immutable
 abstract  class IntafaceChildWidgetLoginAndPassword {

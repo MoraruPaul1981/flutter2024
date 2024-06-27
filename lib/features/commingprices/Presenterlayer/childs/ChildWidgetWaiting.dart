@@ -5,7 +5,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+
+import '../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
 
 

@@ -1,8 +1,9 @@
 
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 
-import '../../Businesslayer/Interfaces/InterfaceEntities1CMap.dart';
-import '../../Businesslayer/errors/Errors.dart';
+import '../../Businesslayer/BI/Interfaces/InterfaceEntities1CMap.dart';
+import '../../Businesslayer/BI/errors/Errors.dart';
+
 
 
 

@@ -1,5 +1,5 @@
 
-import 'dart:ffi';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
 
 import '../../../../../../../main.dart';
-import '../cubit/cubitLoginPassword.dart';
-import '../../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
-import '../../../../Businesslayer/animations/GetAntimations.dart';
+import '../../../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../../../../Businesslayer/BI/animations/GetAntimations.dart';
+import '../cubit/CubitLoginPassword.dart';
+
 import '../States/StatesWidgetsLoginPassword.dart';
 
 

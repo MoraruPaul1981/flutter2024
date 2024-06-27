@@ -21,10 +21,10 @@ import '../childs/ChildWidgetWaiting.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class ParentWidgetStateful extends State<WidgetStateful> {
+class ParentWidgetCommitingPrices extends State<WidgetStateful> {
   Logger logger;
   Key? key;
-  ParentWidgetStateful({this.key, required this.logger } ) ;
+  ParentWidgetCommitingPrices({this.key, required this.logger } ) ;
 
   @override
   Widget build(BuildContext context) {
