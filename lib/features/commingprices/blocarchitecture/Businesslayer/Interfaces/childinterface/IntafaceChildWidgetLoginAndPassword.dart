@@ -18,7 +18,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
 
   /* //TODO:
  * Get Pulic ID ot Serer widgert       */
-  void afterSuccessfullaunchthemainprogram({required     int state,required BuildContext context });
+  void callBackSuccessPublicID({required     int state,required BuildContext context });
 
 
 
@@ -26,7 +26,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  /* //TODO:
  * Get Pulic   Reaction to someone who came
  status   widget   */
-  void  callbAckreactiontosomeonewhocameStatus ({ required int state,required BuildContext context});
+  void  callBackServerRunAndStop ({ required int state,required BuildContext context});
 
 
 
@@ -34,25 +34,25 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
 
 
 
- void  calldoesnottriggerActionNoPoginandPassword ({ required int state,required BuildContext context});
+ void  callBackDontLoginAndPassword ({ required int state,required BuildContext context});
 
 
 
  /* //TODO:
  * Get dont     Reaction Cycle Float
  status   widget   */
- void  actionFloatingActionButtonPressed (String? getlogin,  String? getpassword ,{required int state, required BuildContext context});
+ void  clickFloatingButtonForGetLoginAndPassword (String? getlogin,  String? getpassword ,{required int state, required BuildContext context});
 
 
  /* //TODO:
  * получение логина
  status   widget   */
- String  progressgLogin (   { required  TextEditingController loginicController });
+ String  processingLogin (   { required  TextEditingController loginicController });
 
  /* //TODO:
  * получение пароля
  status   widget   */
- String  progressgPassword (   { required  TextEditingController passwordController });
+ String  processingPassword (   { required  TextEditingController passwordController });
 
 
 

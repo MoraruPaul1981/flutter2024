@@ -24,7 +24,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
   @override
-  void afterSuccessfullaunchthemainprogram({required int state,required BuildContext context}) {
+  void callBackSuccessPublicID({required int state,required BuildContext context}) {
     // TODO: implement afterSuccessfullaunchthemainprogram
     try{
       logger.i(' afterSuccessfullaunchthemainprogram  state .. $state ' );
@@ -43,7 +43,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
   //TODO: метод  Получение статуса от сервера state
   @override
-  void callbAckreactiontosomeonewhocameStatus({ required int state,required BuildContext context}) {
+  void callBackServerRunAndStop({ required int state,required BuildContext context}) {
     // TODO: implement callbAckreactiontosomeonewhocameStatus
     try{
       logger.i(' state .. $state ' );
@@ -100,7 +100,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   }
 
 
-  void calldoesnottriggerActionNoPoginandPassword({required int state, required BuildContext context}) {
+  void callBackDontLoginAndPassword({required int state, required BuildContext context}) {
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
       logger.i(' state .. $state ' );
@@ -198,7 +198,8 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
 
   @override
-  void actionFloatingActionButtonPressed(String? getlogin,  String? getpassword ,{required int state, required BuildContext context}) {
+  void clickFloatingButtonForGetLoginAndPassword(String? getlogin,  String? getpassword ,
+      {required int state, required BuildContext context}) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
       logger.i('  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
@@ -219,7 +220,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
               } else {
 
                 //TODO: дизайн обработка смены статуса
-                calldoesnottriggerActionNoPoginandPassword(state: state,context: context);
+                callBackDontLoginAndPassword(state: state,context: context);
 
                 logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  getlogin.length..$getlogin.length   getpassword.length.....$getpassword.length');
@@ -243,9 +244,13 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
 
 
+
+
+
+
       //TODO Oбработка логина
       @override
-      String  progressgLogin (   { required  TextEditingController loginicController }){
+      String  processingLogin (   { required  TextEditingController loginicController }){
       late String  _login  ;
         try{
           //TODO
@@ -270,7 +275,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
 
   //TODO Oбработка логина
   @override
-  String  progressgPassword (   { required  TextEditingController passwordController }){
+  String  processingPassword (   { required  TextEditingController passwordController }){
     late String  _password  ;
     try{
       //TODO

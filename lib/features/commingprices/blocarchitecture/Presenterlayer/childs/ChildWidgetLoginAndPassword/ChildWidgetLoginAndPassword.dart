@@ -10,7 +10,7 @@ import '../../../../../../main.dart';
 import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
 import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/animations/GetAntimations.dart';
-import 'AllcomponentsLoginAndPass.dart';
+import 'BunessLogicWidgetsLoginPassword.dart';
 
 
 
@@ -28,11 +28,15 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
 
   @override
   Widget build(BuildContext context) {
-    //TODO: login and password
-    AllcomponentsLoginAndPass getcomponentsLoginAndPass=new AllcomponentsLoginAndPass( logger:logger, context:context, key:key);
+   /* //TODO: ССылка
+          Бизнес логика  login and password*/
+    BunessLogicWidgetsLoginPassword bunessLogicWidgetsLoginPassword=
+    new BunessLogicWidgetsLoginPassword( logger:logger, context:context, key:key);
 
     return  BlocProvider(
       create: (context) => CubitLoginPassword(logger ),
+ /*  TODO:Главный Scaffold Экрана ЛОгин и Пароль внутри его все компоненты
+ *    */
       child:Scaffold(
             backgroundColor: Colors.white,
             body: Column(
@@ -60,40 +64,38 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
                           const SizedBox(height: 2),
 
                           //TODO: Значек
-                          getcomponentsLoginAndPass.   widgetcircleAvatar(),
+                          bunessLogicWidgetsLoginPassword.   widgetcircleAvatar(),
 
                           const SizedBox(height: 2),
 
 
                           //TODO: Названние Союз-автодор
-                          getcomponentsLoginAndPass.   widgetnameText(),
+                          bunessLogicWidgetsLoginPassword.   widgetnameText(),
 
 
 
                           const SizedBox(height: 2),
 
                           //TODO: линия
-                          getcomponentsLoginAndPass.  widgetLine(),
+                          bunessLogicWidgetsLoginPassword.  widgetLine(),
 
 
 
                           const SizedBox(height: 2),
 
                           //TODO: логин     //TODO: логин     //TODO: логин
-                          getcomponentsLoginAndPass.  widgetLogin(),
+                          bunessLogicWidgetsLoginPassword.  widgetLogin(),
 
                           const SizedBox(height: 2),
 
                           //TODO: пароль           //TODO: пароль           //TODO: пароль
-                          getcomponentsLoginAndPass.  widgetPasswrord(),
-
-
+                          bunessLogicWidgetsLoginPassword.  widgetPasswrord(),
 
 
                        /*
                         TODO: програссбар
                          */
-                          getcomponentsLoginAndPass.  widgetcircularProgress(),
+                          bunessLogicWidgetsLoginPassword.  widgetcircularProgress(),
 
 
 
@@ -107,12 +109,12 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
             ),
         
         
-            //TODO: Fload КНОПКА
+            //TODO: Fload КНОПКА  Самый нижний компонент
         ////TODO: Кнопка переполучение Данных Когда сервер выключин
             floatingActionButtonLocation: FloatingActionButtonLocation
                 .miniCenterFloat,
             floatingActionButtonAnimator: NoScalingAnimation(),
-            floatingActionButton:getcomponentsLoginAndPass. widgetFloatingActionButton( ),
+            floatingActionButton:bunessLogicWidgetsLoginPassword. widgetFloatingActionButton( ),
 
 
 

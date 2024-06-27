@@ -8,7 +8,7 @@ import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
 import '../../../Businesslayer/errors/Errors.dart';
 
 
-class AllcomponentsLoginAndPass {
+class BunessLogicWidgetsLoginPassword {
  late  Logger logger;
  late  BuildContext context;
  late Key? key;
@@ -22,7 +22,7 @@ class AllcomponentsLoginAndPass {
 
 
 ///TODO  аунтификация
- AllcomponentsLoginAndPass({ required this.logger,  required this.context,  required this.key});
+ BunessLogicWidgetsLoginPassword({ required this.logger,  required this.context,  required this.key});
 
 
  ////TODO:Компонеты Виджета  КОД
@@ -62,7 +62,34 @@ class AllcomponentsLoginAndPass {
 
 
 
- Widget widgetnameText( ) {
+
+  Widget widgetLine( ) {
+    // TODO: implement build
+    //TODO: widgetLine
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(child:
+        Container(
+          margin: const EdgeInsets.only(
+              left: 15, top: 10, right: 15, bottom: 0),
+          child: Divider(
+            thickness: 1,
+            color: Colors.grey[200],
+          ),
+        )
+        )
+      ],
+    );
+  }
+
+
+
+
+
+
+
+  Widget widgetnameText( ) {
    // TODO: implement build
    //TODO: widgetnameText
    return Row(
@@ -228,13 +255,24 @@ class AllcomponentsLoginAndPass {
 
 
 
+
+
   Widget widgetcircularProgress() {
     // TODO: implement build
-    //TODO:widgetcircleAvatar
-    return Container(
-      child: CircularProgressIndicator(),
+    return Card(
+      elevation: 10,
+      shadowColor: Colors.white12,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+          side: BorderSide(width: 1, color: Colors.white12)),
+      margin: const EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 5),
+      color: Colors.white12,
+      child: const Stack(
+          children: [
+            CircularProgressIndicator()
+          ]
+      ),
     );
-
   }
 
 
@@ -243,31 +281,7 @@ class AllcomponentsLoginAndPass {
 
 
 
-
- Widget widgetLine( ) {
-   // TODO: implement build
-   //TODO: widgetLine
-   return Row(
-     mainAxisAlignment: MainAxisAlignment.center,
-     children: <Widget>[
-       Expanded(child:
-       Container(
-         margin: const EdgeInsets.only(
-             left: 15, top: 10, right: 15, bottom: 0),
-         child: Divider(
-           thickness: 1,
-           color: Colors.grey[200],
-         ),
-       )
-       )
-     ],
-   );
- }
-
-
-
-
- Widget widgetFloatingActionButton( ) {
+  Widget widgetFloatingActionButton( ) {
    //TODO: widgetFloatingActionButton
    BI_ChildWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
    //TODO: bloc
@@ -281,11 +295,11 @@ class AllcomponentsLoginAndPass {
      // TODO: Реакйция на смегу state Login and Password
        if (state==0) {
          //TODO: дизайн обработка смены статуса
-         bi_childWidgetLoginAndPassword.callbAckreactiontosomeonewhocameStatus(state: state,context: context);
+         bi_childWidgetLoginAndPassword.callBackServerRunAndStop(state: state,context: context);
          logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
        }else{
          //TODO: переход На реально работающее приложение
-         bi_childWidgetLoginAndPassword.   afterSuccessfullaunchthemainprogram(state: state,context: context);
+         bi_childWidgetLoginAndPassword.   callBackSuccessPublicID(state: state,context: context);
          logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
        }
        //TODO END proccesting state
@@ -305,12 +319,12 @@ class AllcomponentsLoginAndPass {
 
 
              //TODO Нажимаем Кнопку Для Отправки данных на сервер
-         String  login=     bi_childWidgetLoginAndPassword.progressgLogin(loginicController: _loginicController);
-         String  password=     bi_childWidgetLoginAndPassword.progressgPassword(passwordController: _passwordController);
+         String  login=     bi_childWidgetLoginAndPassword.processingLogin(loginicController: _loginicController);
+         String  password=     bi_childWidgetLoginAndPassword.processingPassword(passwordController: _passwordController);
          logger.i('login .....$login  password .....$password ');
 
              //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-             bi_childWidgetLoginAndPassword.    actionFloatingActionButtonPressed( login,  password, state:state,context:context);
+             bi_childWidgetLoginAndPassword.    clickFloatingButtonForGetLoginAndPassword( login,  password, state:state,context:context);
              logger.i('state .....$state');
            },
            backgroundColor: Colors.blue[300],

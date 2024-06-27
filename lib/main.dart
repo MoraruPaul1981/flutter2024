@@ -35,7 +35,7 @@ void startingCommintPrices() {
       logger as Logger;
       logger.i('start startingCommintPrices()  .. ');
       //TODO starting UI
-      runApp( CommingPricesStatelessWidget(logger: logger));
+      runApp( CommingPricesWidget(logger: logger));
 
       logger.i('end startingCommintPrices()  ..  ');
       return logger;
@@ -49,13 +49,16 @@ void startingCommintPrices() {
   }
 }
 
+
+
 ///TODO UI
-class CommingPricesStatelessWidget extends StatelessWidget {
+class CommingPricesWidget extends StatelessWidget {
 //TODO log
   Logger logger;
 
 //TODO cunstructor
-  CommingPricesStatelessWidget({ required this.logger, super.key});
+  CommingPricesWidget({Key? key,required this.logger}):super(key: key);
+  //CommingPricesStatelessWidget({ required this.logger, super.key});
 
   @override
   Widget build(BuildContext context) {

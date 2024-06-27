@@ -34,7 +34,7 @@ class Bl_ChildWidgetNasData implements InterfaceChildWidgetNasData   {
     // TODO: implement theServeristurnedRereceive
     try{
       //TODO: при нажатии перезапускаем Получение Данных
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesStatelessWidget(  logger: logger,key: key )));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => CommingPricesWidget(  logger: logger,key: key )));
 
       logger.i(' CLick FloatingActionButtonLocation  onPressed  key .. $key logger ... $logger  ' );
 
