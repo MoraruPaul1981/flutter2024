@@ -6,8 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../../Interfaces/Interfacebloc/Interfacebloc.dart';
-import '../../errors/Errors.dart';
+import '../../../../Businesslayer/Interfaces/Interfacebloc/Interfacebloc.dart';
+import '../../../../Businesslayer/errors/Errors.dart';
 
 int getInt=0;
 

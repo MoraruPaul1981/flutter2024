@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../../../../../main.dart';
-import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
-import '../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
-import '../../../Businesslayer/animations/GetAntimations.dart';
-import 'BunessLogicWidgetsLoginPassword.dart';
+import '../../../../../../../main.dart';
+import '../cubit/cubitLoginPassword.dart';
+import '../../../../Businesslayer/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../../../../Businesslayer/animations/GetAntimations.dart';
+import '../States/StatesWidgetsLoginPassword.dart';
 
 
 
@@ -30,8 +30,8 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
   Widget build(BuildContext context) {
    /* //TODO: ССылка
           Бизнес логика  login and password*/
-    BunessLogicWidgetsLoginPassword bunessLogicWidgetsLoginPassword=
-    new BunessLogicWidgetsLoginPassword( logger:logger, context:context, key:key);
+    StatesWidgetsLoginPassword bunessLogicWidgetsLoginPassword=
+    new StatesWidgetsLoginPassword( logger:logger, context:context, key:key);
 
     return  BlocProvider(
       create: (context) => CubitLoginPassword(logger ),

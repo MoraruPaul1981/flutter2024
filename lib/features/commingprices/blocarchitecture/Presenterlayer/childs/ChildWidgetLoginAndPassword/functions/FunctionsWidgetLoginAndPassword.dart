@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../Cubits/bloccubitInt/cubitLoginPassword.dart';
-import '../Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
-import '../errors/Errors.dart';
+import '../cubit/cubitLoginPassword.dart';
+import '../../../../Businesslayer/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
+import '../../../../Businesslayer/errors/Errors.dart';
 
 
-class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPassword {
+class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPassword {
 
 
   @override
@@ -20,7 +20,7 @@ class BI_ChildWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPa
   @override
   Logger logger;
 
-  BI_ChildWidgetLoginAndPassword({required this.context, required this.logger,required this.key});
+  FunctionsWidgetLoginAndPassword({required this.context, required this.logger,required this.key});
 
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
   @override

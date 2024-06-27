@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import '../../../Businesslayer/Cubits/bloccubitInt/cubitLoginPassword.dart';
-import '../../../Businesslayer/codewidgets/BI_ChildWidgetLoginAndPassword.dart';
-import '../../../Businesslayer/errors/Errors.dart';
+import '../cubit/cubitLoginPassword.dart';
+import '../Functions/FunctionsWidgetLoginAndPassword.dart';
+import '../../../../Businesslayer/errors/Errors.dart';
 
 
-class BunessLogicWidgetsLoginPassword {
+class StatesWidgetsLoginPassword {
  late  Logger logger;
  late  BuildContext context;
  late Key? key;
@@ -22,7 +22,7 @@ class BunessLogicWidgetsLoginPassword {
 
 
 ///TODO  аунтификация
- BunessLogicWidgetsLoginPassword({ required this.logger,  required this.context,  required this.key});
+ StatesWidgetsLoginPassword({ required this.logger,  required this.context,  required this.key});
 
 
  ////TODO:Компонеты Виджета  КОД
@@ -285,9 +285,12 @@ class BunessLogicWidgetsLoginPassword {
 
   Widget widgetFloatingActionButton( ) {
    //TODO: widgetFloatingActionButton
-   BI_ChildWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=BI_ChildWidgetLoginAndPassword(context: context,logger: logger,key: key);
-   //TODO: bloc
+   FunctionsWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=FunctionsWidgetLoginAndPassword(context: context,logger: logger,key: key);
+
+
+   //TODO: CUbit
    return   BlocConsumer<CubitLoginPassword,int>(
+
      ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
      ///*/
      listener: (context, state) {
@@ -296,6 +299,10 @@ class BunessLogicWidgetsLoginPassword {
        logger.i('triggerStatusChange .....$state');
        //TODO END proccesting state
      },
+
+
+
+
      ///* TODO: ДЕЙСТВИЕ  ->  BlocConsumer
      ///*/
      builder: (context, state) {
@@ -308,6 +315,7 @@ class BunessLogicWidgetsLoginPassword {
            focusElevation: 5,
            highlightElevation: 50,
            onPressed: () {
+
              //TODO Нажимаем Кнопку Для Отправки данных на сервер
          triggerStatusChange(bi_childWidgetLoginAndPassword, state, context);
          logger.i('triggerStatusChange .....$state');
@@ -335,7 +343,7 @@ class BunessLogicWidgetsLoginPassword {
 
 
 
-  void triggerStatusChange(BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state, BuildContext context) {
+  void triggerStatusChange(FunctionsWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state, BuildContext context) {
    try{
        String  login=     bi_childWidgetLoginAndPassword.processingLogin(loginicController: _loginicController);
     String  password=     bi_childWidgetLoginAndPassword.processingPassword(passwordController: _passwordController);
@@ -355,7 +363,7 @@ class BunessLogicWidgetsLoginPassword {
 
 
 
-  void changeofStatus(int state, BI_ChildWidgetLoginAndPassword bi_childWidgetLoginAndPassword, BuildContext context) {
+  void changeofStatus(int state, FunctionsWidgetLoginAndPassword bi_childWidgetLoginAndPassword, BuildContext context) {
    try{
         if (state==0) {
       //TODO: дизайн обработка смены статуса
