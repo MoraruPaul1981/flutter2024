@@ -14,32 +14,12 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
  late Logger logger;
 
 
-  /* //TODO:
- * Get Pulic ID ot Serer widgert       */
-  void callBackSuccessPublicID({required     int state,required BuildContext context });
-
-
-
-
- /* //TODO:
- * Get Pulic   Reaction to someone who came
- status   widget   */
-  void  callBackServerRunAndStop ({ required int state,required BuildContext context});
-
-
-
-
-
-
-
- void  callBackDontLoginAndPassword ({ required int state,required BuildContext context});
-
-
-
  /* //TODO:
  * Get dont     Reaction Cycle Float
  status   widget   */
- void  clickFloatingButtonForGetLoginAndPassword (String? getlogin,  String? getpassword ,{required int state, required BuildContext context});
+ void  clickFloatingButtonForGetLoginAndPassword (int state,
+     TextEditingController _loginicController,
+     TextEditingController _passwordController);
 
 
  /* //TODO:

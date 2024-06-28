@@ -3,10 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import '../../../../Businesslayer/BI/errors/Errors.dart';
-
 import '../CubitLoginPassword.dart';
-import '../Functions/FunctionsWidgetLoginAndPassword.dart';
+import '../functions/FunctionsWidgetLoginAndPassword.dart';
+
 
 
 
@@ -287,9 +286,10 @@ class StatesWidgetsLoginPassword {
 
   Widget widgetFloatingActionButton( ) {
    //TODO: widgetFloatingActionButton
-   FunctionsWidgetLoginAndPassword  bi_childWidgetLoginAndPassword=FunctionsWidgetLoginAndPassword(context: context,logger: logger,key: key);
-
-
+   /* TODO:
+   Ссылка на на Functions
+   *   */
+    FunctionsWidgetLoginAndPassword functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(context: context,logger: logger,key:key);
    //TODO: CUbit
    return   BlocConsumer<CubitLoginPassword,int>(
 
@@ -297,7 +297,7 @@ class StatesWidgetsLoginPassword {
      ///*/
      listener: (context, state) {
      // TODO: Реакйция на смегу state Login and Password
-       changeofStatus(state, bi_childWidgetLoginAndPassword, context);
+      // changeofStatus(state, context);
        logger.i('triggerStatusChange .....$state');
        //TODO END proccesting state
      },
@@ -318,8 +318,12 @@ class StatesWidgetsLoginPassword {
            highlightElevation: 50,
            onPressed: () {
 
-             //TODO Нажимаем Кнопку Для Отправки данных на сервер
-         triggerStatusChange(bi_childWidgetLoginAndPassword, state, context);
+
+
+             functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController);
+
+
+
          logger.i('triggerStatusChange .....$state');
 
            },
@@ -345,35 +349,16 @@ class StatesWidgetsLoginPassword {
 
 
 
-  void triggerStatusChange(FunctionsWidgetLoginAndPassword bi_childWidgetLoginAndPassword, int state, BuildContext context) {
-   try{
-       String  login=     bi_childWidgetLoginAndPassword.processingLogin(loginicController: _loginicController);
-    String  password=     bi_childWidgetLoginAndPassword.processingPassword(passwordController: _passwordController);
-    logger.i('login .....$login  password .....$password ');
 
-        //TODO: Bloc change   Отправляем запрос а получения PublicID на основе логина и  пароля
-        bi_childWidgetLoginAndPassword.    clickFloatingButtonForGetLoginAndPassword( login,  password, state:state,context:context);
-        logger.i('state .....$state');
-    //TODO error
-  }   catch (e, stacktrace) {
-  print(' get ERROR $e get stacktrace $stacktrace ');
-  //TODO: Gradle Error
-  Errors errors=Errors();
-  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
-}
-  }
-
-
-
-  void changeofStatus(int state, FunctionsWidgetLoginAndPassword bi_childWidgetLoginAndPassword, BuildContext context) {
+/*  void changeofStatus(int state,  BuildContext context) {
    try{
         if (state==0) {
       //TODO: дизайн обработка смены статуса
-      bi_childWidgetLoginAndPassword.callBackServerRunAndStop(state: state,context: context);
+   callBackServerRunAndStop(state: state,context: context);
       logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
     }else{
       //TODO: переход На реально работающее приложение
-      bi_childWidgetLoginAndPassword.   callBackSuccessPublicID(state: state,context: context);
+       callBackSuccessPublicID(state: state,context: context);
       logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
     }
         logger.i('state .....$state');
@@ -384,18 +369,10 @@ class StatesWidgetsLoginPassword {
   Errors errors=Errors();
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
 }
-  }
+  }*/
 
 
 
-
-
-
-
-
-/* //TODO:
-*  END  class AllcomponentsLoginAndPass {
-* */
 }
 
 

@@ -3,6 +3,7 @@ import 'dart:isolate';
 import 'dart:math';
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
@@ -124,14 +125,6 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     });
     return PublicID;
   }
-
-
-
-
-
-
-
-
 
 
 //TODO: END class CountterCubitFuture
