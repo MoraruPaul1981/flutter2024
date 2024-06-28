@@ -13,9 +13,9 @@ import '../../BI/errors/Errors.dart';
 
 
 //TODO: CountterCubitFuture
-class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
+class CubitLoginPassword extends Cubit<int>  {
   CubitLoginPassword( initialState):super( initialState);
-  //CountterCubitFuture(super.initialState);
+
 
 /*//TODO: RUN
 *    FUTURE  ServerStatus
@@ -115,13 +115,6 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     return PublicID;
   }
 
-
-
-
-
-
-
-
  /* TODO: когда логин и пароль нет
  *   */
   Future<void> callBackDontLoginAndPassword({required   String login, required String password}) async {
@@ -144,6 +137,10 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
 
 //TODO: END class CountterCubitFuture
 }
+
+
+
+
 
 
 

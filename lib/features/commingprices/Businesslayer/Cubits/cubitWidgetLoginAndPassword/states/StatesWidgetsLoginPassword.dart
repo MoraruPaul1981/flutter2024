@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 import '../../../BI/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
 import '../functions/FunctionsWidgetLoginAndPassword.dart';
+import 'BL_statesWidgetsLoginPassword.dart';
 
 
 
@@ -17,9 +18,8 @@ class StatesWidgetsLoginPassword {
   late  Logger logger;
   late  BuildContext context;
   late Key? key;
-  late FunctionsWidgetLoginAndPassword   functionsWidgetLoginAndPassword ;
 
-/*
+
  //TODO:login GET*/
   final _loginicController = TextEditingController();
   /*
@@ -290,7 +290,15 @@ class StatesWidgetsLoginPassword {
 
   Widget widgetFloatingActionButton( ) {
     //TODO: widgetFloatingActionButton
+
+/*    TODO: init Cubit
+*      */
      CubitLoginPassword   cubitLoginPassword = CubitLoginPassword(0);
+     /*    TODO: init ссылка бизнес логика для States
+*      */
+     BL_statesWidgetsLoginPassword bl_statesWidgetsLoginPassword=BL_statesWidgetsLoginPassword(  logger: logger,context:context);
+
+
     //TODO: CUbit
     return   BlocListener<CubitLoginPassword,int>(
       bloc:cubitLoginPassword ,
@@ -299,7 +307,16 @@ class StatesWidgetsLoginPassword {
         return previous<=current;
         },
         listener: (context,state){
-          cubitLoginPassword.emit(0);
+       /*
+        TODO: Возвращение из Cubit стате
+         */
+          bl_statesWidgetsLoginPassword.   completeBlocConsumerLoginandPassword(state);
+
+          /*
+        TODO: Резет значение Emit Cubit Login and Password
+         */
+          bl_statesWidgetsLoginPassword.  resetEmitCubitLoginPassword(cubitLoginPassword,state);
+
           logger.i('triggerStatusChange .....$state');
         },
       child: BlocBuilder<CubitLoginPassword,int> (
@@ -319,18 +336,12 @@ class StatesWidgetsLoginPassword {
               highlightElevation: 50,
               onPressed: () {
 
-               // cubitLoginPassword = CubitLoginPassword(0);
 
 
-                functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
-                /*//TODO:  метод запуск аунтификации логин и пароль
-          *    */
-                startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
+
+                bl_statesWidgetsLoginPassword.    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
 
                 logger.i('triggerStatusChange .....$state');
-
-               // cubitLoginPassword.close();
-
 
 
               },
@@ -351,55 +362,6 @@ class StatesWidgetsLoginPassword {
     ////TODO: END  Container
   }
 
-
-
-
-
-/*//TODO:  метод запуск аунтификации логин и пароль
-*    */
-  void startingAyntificationLogingAdnPassword(int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword) {
-    try{
-      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword);
-      logger.i('state .....${state}  _loginicController .....${_loginicController} _passwordController .....${_passwordController} ');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
-    }
-  }
-
-
-
-
-
-
-
-  void completeBlocConsumerLoginandPassword(int state,  BuildContext context) {
-    try{
-      switch (state){
-      /* TODO: какой статус пришел от Cubit login and password
-      *   */
-        case 0:
-          logger.i('state .....$state');
-
-        case 10:
-          logger.i('state .....$state');
-
-        default:
-          logger.i('state .....$state');
-      }
-
-      logger.i('state .....$state');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
-    }
-  }
 
 
 
