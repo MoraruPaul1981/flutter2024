@@ -299,11 +299,15 @@ class StatesWidgetsLoginPassword {
         return previous<=current;
         },
         listener: (context,state){
-          cubitLoginPassword.close();
-          cubitLoginPassword = CubitLoginPassword(0);
+          cubitLoginPassword.emit(0);
           logger.i('triggerStatusChange .....$state');
         },
       child: BlocBuilder<CubitLoginPassword,int> (
+        bloc:cubitLoginPassword ,
+        buildWhen:  (previous, current) {
+
+          return previous<=current;
+        },
         builder: (context,state){
           // return widget here based on BlocA's state
           return Container(
@@ -314,12 +318,20 @@ class StatesWidgetsLoginPassword {
               focusElevation: 5,
               highlightElevation: 50,
               onPressed: () {
+
+               // cubitLoginPassword = CubitLoginPassword(0);
+
+
                 functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
                 /*//TODO:  метод запуск аунтификации логин и пароль
           *    */
                 startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
 
                 logger.i('triggerStatusChange .....$state');
+
+               // cubitLoginPassword.close();
+
+
 
               },
               backgroundColor: Colors.blue[300],

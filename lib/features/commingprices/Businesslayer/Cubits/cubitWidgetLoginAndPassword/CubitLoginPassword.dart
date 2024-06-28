@@ -21,6 +21,7 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
 *    FUTURE  ServerStatus
 * */
 
+
   @override
   Future<void> startGettingServerStatus({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
@@ -138,8 +139,6 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
-
-
 
 
 
