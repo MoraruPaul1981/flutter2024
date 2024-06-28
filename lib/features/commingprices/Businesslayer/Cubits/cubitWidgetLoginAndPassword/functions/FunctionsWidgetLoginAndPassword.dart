@@ -23,7 +23,8 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
       int state,
       TextEditingController _loginicController,
       TextEditingController _passwordController,
-      BuildContext context) {
+      BuildContext context,
+      CubitLoginPassword   cubitLoginPassword) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
       String  login=      processingLogin(loginicController: _loginicController);
@@ -38,7 +39,8 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
                 parametrgetPublicId.putIfAbsent('getpassword', password as Function());
 
                 //TODO:сам запрос на получение PublicID И Получение Данных
-                context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
+               // context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
+                cubitLoginPassword.startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
 
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
@@ -46,7 +48,8 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
               } else {
 
           //TODO:сам запрос на получение PublicID И Получение Данных
-          context.read<CubitLoginPassword>().callBackDontLoginAndPassword(login:login,password:password);
+         // context.read<CubitLoginPassword>().callBackDontLoginAndPassword(login:login,password:password);
+          cubitLoginPassword.callBackDontLoginAndPassword(login:login,password:password);
 
              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');

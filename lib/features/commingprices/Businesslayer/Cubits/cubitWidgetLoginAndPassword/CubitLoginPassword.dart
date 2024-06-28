@@ -14,7 +14,7 @@ import '../../BI/errors/Errors.dart';
 
 //TODO: CountterCubitFuture
 class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
-  CubitLoginPassword(super.initialState);
+  CubitLoginPassword( initialState):super( initialState);
   //CountterCubitFuture(super.initialState);
 
 /*//TODO: RUN

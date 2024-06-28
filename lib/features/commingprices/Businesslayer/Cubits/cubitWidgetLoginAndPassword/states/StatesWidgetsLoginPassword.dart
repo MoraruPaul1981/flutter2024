@@ -290,21 +290,20 @@ class StatesWidgetsLoginPassword {
 
   Widget widgetFloatingActionButton( ) {
     //TODO: widgetFloatingActionButton
+     CubitLoginPassword   cubitLoginPassword = CubitLoginPassword(0);
     //TODO: CUbit
     return   BlocListener<CubitLoginPassword,int>(
+      bloc:cubitLoginPassword ,
       listenWhen:  (previous, current) {
 
         return previous<=current;
         },
         listener: (context,state){
-
+          cubitLoginPassword.close();
+          cubitLoginPassword = CubitLoginPassword(0);
           logger.i('triggerStatusChange .....$state');
         },
       child: BlocBuilder<CubitLoginPassword,int> (
-        buildWhen:   (previous, current) {
-
-          return previous<=current;
-        },
         builder: (context,state){
           // return widget here based on BlocA's state
           return Container(
@@ -315,11 +314,10 @@ class StatesWidgetsLoginPassword {
               focusElevation: 5,
               highlightElevation: 50,
               onPressed: () {
-
                 functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
                 /*//TODO:  метод запуск аунтификации логин и пароль
           *    */
-                startingAyntificationLogingAdnPassword(state,context);
+                startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
 
                 logger.i('triggerStatusChange .....$state');
 
@@ -347,9 +345,9 @@ class StatesWidgetsLoginPassword {
 
 /*//TODO:  метод запуск аунтификации логин и пароль
 *    */
-  void startingAyntificationLogingAdnPassword(int state ,BuildContext context ) {
+  void startingAyntificationLogingAdnPassword(int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword) {
     try{
-      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context);
+      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword);
       logger.i('state .....${state}  _loginicController .....${_loginicController} _passwordController .....${_passwordController} ');
       //TODO error
     }   catch (e, stacktrace) {
