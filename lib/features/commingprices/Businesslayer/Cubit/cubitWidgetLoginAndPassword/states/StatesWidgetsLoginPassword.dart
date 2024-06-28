@@ -296,10 +296,8 @@ class StatesWidgetsLoginPassword {
      ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
      ///*/
      listener: (context, state) {
-
-       functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(context: context,logger: logger,key:key);
      // TODO: Реакйция на смегу state Login and Password
-      // changeofStatus(state, context);
+       completeBlocConsumerLoginandPassword(state,context);
        logger.i('BlocConsumer .....$state');
        //TODO END proccesting state
      },
@@ -355,7 +353,7 @@ class StatesWidgetsLoginPassword {
   void startingAyntificationLogingAdnPassword(int state  ) {
    try{
      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController);
-        logger.i('state .....$state');
+        logger.i('state .....${state}  _loginicController .....${_loginicController} _passwordController .....${_passwordController} ');
     //TODO error
   }   catch (e, stacktrace) {
   print(' get ERROR $e get stacktrace $stacktrace ');
@@ -371,17 +369,21 @@ class StatesWidgetsLoginPassword {
 
 
 
-/*  void changeofStatus(int state,  BuildContext context) {
+  void completeBlocConsumerLoginandPassword(int state,  BuildContext context) {
    try{
-        if (state==0) {
-      //TODO: дизайн обработка смены статуса
-   callBackServerRunAndStop(state: state,context: context);
-      logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
-    }else{
-      //TODO: переход На реально работающее приложение
-       callBackSuccessPublicID(state: state,context: context);
-      logger.i('state...$state _loginicController ..$_loginicController  _passwordController ..$_passwordController  ');
-    }
+     switch (state){
+      /* TODO: какой статус пришел от Cubit login and password
+      *   */
+       case 0:
+         logger.i('state .....$state');
+
+       case 10:
+       logger.i('state .....$state');
+
+       default:
+       logger.i('state .....$state');
+     }
+
         logger.i('state .....$state');
     //TODO error
   }   catch (e, stacktrace) {
@@ -390,22 +392,11 @@ class StatesWidgetsLoginPassword {
   Errors errors=Errors();
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
 }
-  }*/
+  }
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 //TODO : круглая пнопка снизу ОК
 
