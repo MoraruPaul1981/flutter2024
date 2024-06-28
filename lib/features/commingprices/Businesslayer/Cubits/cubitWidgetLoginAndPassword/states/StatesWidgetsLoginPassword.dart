@@ -291,62 +291,46 @@ class StatesWidgetsLoginPassword {
   Widget widgetFloatingActionButton( ) {
     //TODO: widgetFloatingActionButton
     //TODO: CUbit
-    return   BlocConsumer<CubitLoginPassword,int>(
+    return   BlocListener<CubitLoginPassword,int>(
+      listenWhen:  (previous, current) =>  previous==current || previous!=current,
+        listener: (context,state){
 
-      ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
-      ///*/
-      listenWhen:  (prev, curr) {
-        print('curr $curr');
-        print('prev $prev');
-        return curr  is int ;
-      },
-      listener: (context, state) {
-        // TODO: Реакйция на смегу state Login and Password
-        completeBlocConsumerLoginandPassword(state,context);
-        logger.i('BlocConsumer .....$state');
-        //TODO END proccesting state
-      },
+          logger.i('triggerStatusChange .....$state');
+        },
+      child: BlocBuilder<CubitLoginPassword,int> (
+        buildWhen: (previous, current) =>  previous==current || previous!=current ,
+        builder: (context,state){
+          // return widget here based on BlocA's state
+          return Container(
+            margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
+            padding: const EdgeInsets.all(2.0),
+            child: FloatingActionButton(
+              autofocus: true,
+              focusElevation: 5,
+              highlightElevation: 50,
+              onPressed: () {
 
-
-
-
-      ///* TODO: ДЕЙСТВИЕ  ->  BlocConsumer
-      ///*/
-      buildWhen:(prev, curr) => prev==curr ,
-      builder: (context, state) {
-
-        // return widget here based on BlocA's state
-        return Container(
-          margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
-          padding: const EdgeInsets.all(2.0),
-          child: FloatingActionButton(
-            autofocus: true,
-            focusElevation: 5,
-            highlightElevation: 50,
-            onPressed: () {
-
-              functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
-              /*//TODO:  метод запуск аунтификации логин и пароль
+                functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
+                /*//TODO:  метод запуск аунтификации логин и пароль
           *    */
-              startingAyntificationLogingAdnPassword(state,context);
+                startingAyntificationLogingAdnPassword(state,context);
 
-              logger.i('triggerStatusChange .....$state');
+                logger.i('triggerStatusChange .....$state');
 
-            },
-            backgroundColor: Colors.blue[300],
-            tooltip: 'Вход !!!',
-            elevation: 15,
-            splashColor: Colors.grey,
-            child: const Icon(
-              CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(50.0))
+              },
+              backgroundColor: Colors.blue[300],
+              tooltip: 'Вход !!!',
+              elevation: 15,
+              splashColor: Colors.grey,
+              child: const Icon(
+                CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(50.0))
+              ),
             ),
-          ),
-        );
-        ////TODO: END  Container
-
-      },
+          );
+        },
+      ),
     );
     ////TODO: END  Container
   }
