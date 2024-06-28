@@ -126,11 +126,10 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
   Future<void> callBackDontLoginAndPassword({required   String login, required String password}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-
      print(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-       emit(-10);
+       emit(10);
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

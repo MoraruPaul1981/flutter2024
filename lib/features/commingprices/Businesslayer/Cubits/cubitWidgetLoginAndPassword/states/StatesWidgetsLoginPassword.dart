@@ -292,13 +292,19 @@ class StatesWidgetsLoginPassword {
     //TODO: widgetFloatingActionButton
     //TODO: CUbit
     return   BlocListener<CubitLoginPassword,int>(
-      listenWhen:  (previous, current) =>  previous==current || previous!=current,
+      listenWhen:  (previous, current) {
+
+        return previous<=current;
+        },
         listener: (context,state){
 
           logger.i('triggerStatusChange .....$state');
         },
       child: BlocBuilder<CubitLoginPassword,int> (
-        buildWhen: (previous, current) =>  previous==current || previous!=current ,
+        buildWhen:   (previous, current) {
+
+          return previous<=current;
+        },
         builder: (context,state){
           // return widget here based on BlocA's state
           return Container(
