@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
+import '../../../BI/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
 import '../functions/FunctionsWidgetLoginAndPassword.dart';
 
@@ -10,9 +11,13 @@ import '../functions/FunctionsWidgetLoginAndPassword.dart';
 
 
 class StatesWidgetsLoginPassword {
+
+ /* //TODO:переменные
+ *     */
  late  Logger logger;
  late  BuildContext context;
  late Key? key;
+ late FunctionsWidgetLoginAndPassword   functionsWidgetLoginAndPassword ;
 
 /*
  //TODO:login GET*/
@@ -20,7 +25,6 @@ class StatesWidgetsLoginPassword {
   /*
  //TODO:password GET*/
   final _passwordController = TextEditingController();
-
 
 ///TODO  аунтификация
  StatesWidgetsLoginPassword({ required this.logger,  required this.context,  required this.key});
@@ -286,19 +290,17 @@ class StatesWidgetsLoginPassword {
 
   Widget widgetFloatingActionButton( ) {
    //TODO: widgetFloatingActionButton
-   /* TODO:
-   Ссылка на на Functions
-   *   */
-    FunctionsWidgetLoginAndPassword functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(context: context,logger: logger,key:key);
    //TODO: CUbit
    return   BlocConsumer<CubitLoginPassword,int>(
 
      ///* TODO: CALLBACK ВОЗВРАТ ОБРАТНО   ->  BlocConsumer
      ///*/
      listener: (context, state) {
+
+       functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(context: context,logger: logger,key:key);
      // TODO: Реакйция на смегу state Login and Password
       // changeofStatus(state, context);
-       logger.i('triggerStatusChange .....$state');
+       logger.i('BlocConsumer .....$state');
        //TODO END proccesting state
      },
 
@@ -318,11 +320,10 @@ class StatesWidgetsLoginPassword {
            highlightElevation: 50,
            onPressed: () {
 
-
-
-             functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController);
-
-
+             functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(context: context,logger: logger,key:key);
+          /*//TODO:  метод запуск аунтификации логин и пароль
+          *    */
+             startingAyntificationLogingAdnPassword(state);
 
          logger.i('triggerStatusChange .....$state');
 
@@ -344,6 +345,26 @@ class StatesWidgetsLoginPassword {
    );
    ////TODO: END  Container
  }
+
+
+
+
+
+/*//TODO:  метод запуск аунтификации логин и пароль
+*    */
+  void startingAyntificationLogingAdnPassword(int state  ) {
+   try{
+     functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController);
+        logger.i('state .....$state');
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+}
+  }
+
 
 
 

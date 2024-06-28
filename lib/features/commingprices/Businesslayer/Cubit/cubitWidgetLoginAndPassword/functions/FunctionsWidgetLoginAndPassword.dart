@@ -57,7 +57,7 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
               } else {
 
           //TODO:сам запрос на получение PublicID И Получение Данных
-          context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
+          context.read<CubitLoginPassword>().callBackDontLoginAndPassword(login:login,password:password);
 
                 logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');

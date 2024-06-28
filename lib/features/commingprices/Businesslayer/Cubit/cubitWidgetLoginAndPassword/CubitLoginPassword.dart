@@ -12,15 +12,11 @@ import '../../BI/errors/Errors.dart';
 
 
 
-
-
-int getInt=0;
-
 //TODO: CountterCubitFuture
 class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
   Logger logger;
   //CountterCubitFuture(super.initialState);
-  CubitLoginPassword(this.logger ):super(getInt);
+  CubitLoginPassword(this.logger ) : super(0) ;
 
 
 
@@ -125,6 +121,35 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     });
     return PublicID;
   }
+
+
+
+
+
+
+
+
+ /* TODO: когда логин и пароль нет
+ *   */
+  Future<void> callBackDontLoginAndPassword({required   String login, required String password}) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+
+      logger.i(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
+      /* //TODO:
+   *     главная команда всегда кода eьше Ответ */
+       emit(10);
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
 
 
 //TODO: END class CountterCubitFuture
