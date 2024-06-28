@@ -14,16 +14,8 @@ import '../../BI/errors/Errors.dart';
 
 //TODO: CountterCubitFuture
 class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
-  Logger logger;
+  CubitLoginPassword(super.initialState);
   //CountterCubitFuture(super.initialState);
-  CubitLoginPassword(this.logger ) : super(0) ;
-
-
-
-
-
-
-
 
 /*//TODO: RUN
 *    FUTURE  ServerStatus
@@ -41,7 +33,7 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
         })
     );
     int PublicID =await futureValuePublicID;
-    logger.i(' Finifh()..  PublicID $PublicID  ');
+   print(' Finifh()..  PublicID $PublicID  ');
    /* //TODO:
    *     главная команда всегда кода eьше Ответ */
     emit(PublicID);
@@ -93,7 +85,7 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
           })
       );
       int PublicID =await futureValuePublicID;
-      logger.i(' Finifh()..  PublicID $PublicID  ');
+      print(' Finifh()..  PublicID $PublicID  ');
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
       emit(PublicID);
@@ -135,10 +127,10 @@ class CubitLoginPassword extends Cubit<int>   implements InterfaceBlocPublicID {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
 
-      logger.i(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
+     print(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-       emit(10);
+       emit(-10);
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

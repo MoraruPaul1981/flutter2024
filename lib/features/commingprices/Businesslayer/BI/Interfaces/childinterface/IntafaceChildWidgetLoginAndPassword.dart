@@ -3,23 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
+import '../../../Cubits/cubitWidgetLoginAndPassword/CubitLoginPassword.dart';
+
 
 @immutable
 abstract  class IntafaceChildWidgetLoginAndPassword {
 
 
 
- late BuildContext context;
- late Key? key;
- late Logger logger;
-
 
  /* //TODO:
  * Get dont     Reaction Cycle Float
  status   widget   */
- void  clickFloatingButtonForGetLoginAndPassword (int state,
+ void  clickFloatingButtonForGetLoginAndPassword (
+     int state,
      TextEditingController _loginicController,
-     TextEditingController _passwordController);
+     TextEditingController _passwordController,
+     BuildContext context );
 
 
  /* //TODO:

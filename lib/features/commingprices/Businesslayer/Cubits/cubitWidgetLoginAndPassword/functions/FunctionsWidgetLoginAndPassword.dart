@@ -12,17 +12,7 @@ import '../CubitLoginPassword.dart';
 
 class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPassword {
 
-
-  @override
-  BuildContext context;
-
-  @override
-  Key? key;
-
-  @override
-  Logger logger;
-
-  FunctionsWidgetLoginAndPassword({required this.context, required this.logger,required this.key});
+  FunctionsWidgetLoginAndPassword( );
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
 
 
@@ -32,14 +22,13 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
   void clickFloatingButtonForGetLoginAndPassword(
       int state,
       TextEditingController _loginicController,
-      TextEditingController _passwordController) {
+      TextEditingController _passwordController,
+      BuildContext context) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
       String  login=      processingLogin(loginicController: _loginicController);
       String  password=      processingPassword(passwordController: _passwordController);
-      logger.i('login .....$login  password .....$password ');
-      logger.i('  login..$login.length   password.....$password.length');
-
+      print('login .....$login  password .....$password ');
 
         //TODO: login and password Not NULL
         if (login!.length>3 && password!.length>3) {
@@ -51,7 +40,7 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
                 //TODO:сам запрос на получение PublicID И Получение Данных
                 context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
 
-                logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
 
               } else {
@@ -59,11 +48,11 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
           //TODO:сам запрос на получение PublicID И Получение Данных
           context.read<CubitLoginPassword>().callBackDontLoginAndPassword(login:login,password:password);
 
-                logger.i('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
+             print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');
               }
 
-      logger.i(' state .. $state ' );
+
 
       //TODO error
     }   catch (e, stacktrace) {
@@ -86,7 +75,7 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
       //TODO
       _login=  loginicController.text ?? "" ;
 
-      logger.i(' _login .. $_login ' );
+      print(' _login .. $_login ' );
 
       //TODO error
     }   catch (e, stacktrace) {
@@ -110,7 +99,7 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
     try{
       //TODO
       _password=  passwordController.text ?? "" ;
-      logger.i(' _password .. $_password ' );
+      print(' _password .. $_password ' );
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

@@ -9,10 +9,11 @@ import 'package:logger/src/logger.dart';
 import '../../../../../../main.dart';
 import '../../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../../Businesslayer/BI/animations/GetAntimations.dart';
+import '../../../Businesslayer/Cubits/cubitWidgetLoginAndPassword/CubitLoginPassword.dart';
+import '../../../Businesslayer/Cubits/cubitWidgetLoginAndPassword/states/StatesWidgetsLoginPassword.dart';
 
 
-import '../../../Businesslayer/Cubit/cubitWidgetLoginAndPassword/CubitLoginPassword.dart';
-import '../../../Businesslayer/Cubit/cubitWidgetLoginAndPassword/states/StatesWidgetsLoginPassword.dart';
+
 
 
 
@@ -37,7 +38,7 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
     new StatesWidgetsLoginPassword( logger:logger, context:context, key:key);
 
     return  BlocProvider(
-      create: (context) => CubitLoginPassword(logger ),
+      create: (context) => CubitLoginPassword(0),
  /*  TODO:Главный Scaffold Экрана ЛОгин и Пароль внутри его все компоненты
  *    */
       child:Scaffold(
