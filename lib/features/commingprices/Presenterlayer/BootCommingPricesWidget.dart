@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Datalayer/entities/Entities1CMap.dart';
-import '../../Datalayer/remote/FuturesPing1cServer.dart';
-import '../childs/ChildGetWidgetErrors.dart';
-import '../childs/ChildWidgetDefault.dart';
-import '../childs/ChildWidgetNasData.dart';
-import '../childs/ChildWidgetSuccessData.dart';
-import '../childs/ChildWidgetWaiting.dart';
+import '../Datalayer/entities/Entities1CMap.dart';
+import '../Datalayer/remote/FuturesPing1cServer.dart';
+import 'childs/ChildGetWidgetErrors.dart';
+import 'childs/ChildWidgetDefault.dart';
+import 'childs/ChildWidgetNasData.dart';
+import 'childs/ChildWidgetSuccessData.dart';
+import 'childs/ChildWidgetWaiting.dart';
 
 
 
@@ -21,10 +21,10 @@ import '../childs/ChildWidgetWaiting.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class ParentWidgetCommitingPrices extends State<WidgetStateful> {
+class BootCommingPricesWidget extends State<WidgetStateful> {
   Logger logger;
   Key? key;
-  ParentWidgetCommitingPrices({this.key, required this.logger } ) ;
+  BootCommingPricesWidget({this.key, required this.logger } ) ;
 
   @override
   Widget build(BuildContext context) {

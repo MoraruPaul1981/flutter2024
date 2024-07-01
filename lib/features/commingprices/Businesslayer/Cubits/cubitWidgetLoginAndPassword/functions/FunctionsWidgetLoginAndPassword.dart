@@ -24,7 +24,8 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
       TextEditingController _loginicController,
       TextEditingController _passwordController,
       BuildContext context,
-      CubitLoginPassword   cubitLoginPassword) {
+      CubitLoginPassword   cubitLoginPassword,
+      Logger logger) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
       String  login=      processingLogin(loginicController: _loginicController);
@@ -35,8 +36,10 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
         if (login!.length>3 && password!.length>3) {
                 //TODO: параметры запроса
                 Map<String, dynamic> parametrgetPublicId={};
-                parametrgetPublicId.putIfAbsent('getlogin', login as Function());
-                parametrgetPublicId.putIfAbsent('getpassword', password as Function());
+                parametrgetPublicId.putIfAbsent('login', login as Function());
+                parametrgetPublicId.putIfAbsent('password', password as Function());
+                parametrgetPublicId.putIfAbsent('context', context as Function());
+                parametrgetPublicId.putIfAbsent('logger', logger as Function());
 
                 //TODO:сам запрос на получение PublicID И Получение Данных
                // context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);

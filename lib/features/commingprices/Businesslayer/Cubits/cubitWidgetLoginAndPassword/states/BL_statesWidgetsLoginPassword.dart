@@ -34,7 +34,7 @@ class BL_statesWidgetsLoginPassword {
   void startingAyntificationLogingAdnPassword(int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword) {
     try{
 
-      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword);
+      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword,logger);
 
       logger.i('state .....${state}  _loginicController .....${_loginicController} _passwordController .....${_passwordController} ');
       //TODO error
@@ -358,13 +358,9 @@ class BL_statesWidgetsLoginPassword {
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
       logger.i(' state .. $state ' );
-
-
-
-
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor: Colors.blue[300],
           margin: EdgeInsets.symmetric(
             vertical: 20.0,
             horizontal: 40.0,
@@ -375,11 +371,16 @@ class BL_statesWidgetsLoginPassword {
             borderRadius: BorderRadius.circular(35.0),
           ),
           content:
-              Center(
-                child: Text(
-                  ' Успешная аунтификация !!! ',
-                ),
-              ),
+          Text(
+            'Успешная аунтификация !!!',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 13.0,
+              fontFamily: 'Raleway',
+              color: Colors.grey[200],//TODO Colors.grey.shade600
+            ),
+            textAlign: TextAlign.center,
+          ),
         ),
       );
       logger.i('   callBackSuccessfuLoginAndPasswordAuthentication .. $state ' );

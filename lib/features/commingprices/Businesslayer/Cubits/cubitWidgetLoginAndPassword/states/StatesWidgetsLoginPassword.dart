@@ -264,21 +264,24 @@ class StatesWidgetsLoginPassword {
 
   Widget widgetcircularProgress() {
     // TODO: implement build
-    return Card(
-      elevation: 10,
-      shadowColor: Colors.white12,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-          side: BorderSide(width: 1, color: Colors.white12)),
-      margin: const EdgeInsets.only(left: 0, top: 15, right: 0, bottom: 5),
-      color: Colors.white12,
+    return Visibility(
+      visible: false,
+      child: Card(
+        elevation: 10,
+        shadowColor: Colors.white12,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+            side: BorderSide(width: 1, color: Colors.white12)),
+        margin: const EdgeInsets.only(left: 0, top: 15, right: 0, bottom: 5),
+        color: Colors.white12,
 
-      child: const CircularProgressIndicator(
-        backgroundColor: Colors.white12,
-        strokeWidth: 4.0,color: Colors.blue,
+        child: const CircularProgressIndicator(
+          backgroundColor: Colors.white12,
+          strokeWidth: 4.0,color: Colors.blue,
+        ),
+
+
       ),
-
-
     );
   }
 
@@ -336,8 +339,8 @@ class StatesWidgetsLoginPassword {
               highlightElevation: 50,
               onPressed: () {
 
-
-
+               /* //TODO: НАжимсаем на кнопку Кругдую запустить аунтифтикайция пользователя
+               *     */
 
                 bl_statesWidgetsLoginPassword.    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
 
