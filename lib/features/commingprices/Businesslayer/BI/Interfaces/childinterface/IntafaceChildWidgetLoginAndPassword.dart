@@ -20,8 +20,7 @@ abstract  class IntafaceChildWidgetLoginAndPassword {
      TextEditingController _loginicController,
      TextEditingController _passwordController,
      BuildContext context,
-     CubitLoginPassword   cubitLoginPassword,
-     Logger logger);
+     CubitLoginPassword   cubitLoginPassword);
 
 
  /* //TODO:

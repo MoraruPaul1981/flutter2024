@@ -3,6 +3,7 @@ import 'dart:isolate';
 import 'dart:math';
 
 
+import 'package:commintprices/features/commingprices/Businesslayer/Cubits/cubitWidgetLoginAndPassword/paramets/ParametsLoginPassword.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
@@ -25,8 +26,8 @@ class CubitLoginPassword extends Cubit<int>  {
 * */
 
 
-  @override
-  Future<void> startGettingServerStatus({required Map<String, dynamic> parametrgetPublicId}) async {
+
+  Future<void> startGettingServerStatus({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try {
       String login = parametrgetPublicId.values.elementAt(0);
@@ -79,7 +80,7 @@ class CubitLoginPassword extends Cubit<int>  {
 *    FUTURE  Public ID
 * */
 
-  @override
+
   Future<void> startGettingServerPublicId({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
@@ -106,7 +107,7 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
-  @override
+
   Future<int> futurePublicID({required Map<String, dynamic> parametrgetPublicId}) async {
     // TODO: implement futurePublicID
     // TODO: implement valuePublicID

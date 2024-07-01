@@ -24,8 +24,6 @@ class BL_statesWidgetsLoginPassword {
  //TODO:password GET*/
   final _passwordController = TextEditingController();
   ///
-  final FunctionsWidgetLoginAndPassword  functionsWidgetLoginAndPassword=new FunctionsWidgetLoginAndPassword(  );
-
   ///TODO  аунтификация
   BL_statesWidgetsLoginPassword({ required this.logger,  required this.context});
 
@@ -36,7 +34,7 @@ class BL_statesWidgetsLoginPassword {
     try{
 /*TODO: запускаем начало Аунтификации нажатие на кнопку
 *  */
-      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, loginicController, passwordController,context,    cubitLoginPassword,logger);
+      FunctionsWidgetLoginAndPassword( logger ).clickFloatingButtonForGetLoginAndPassword(state, loginicController, passwordController,context,    cubitLoginPassword);
 
       logger.i('state .....${state}  loginicController .....${loginicController} passwordController .....${passwordController} ');
       //TODO error

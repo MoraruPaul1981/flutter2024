@@ -6,13 +6,14 @@ import 'package:logger/logger.dart';
 import '../../../../Businesslayer/BI/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
 import '../../../../Businesslayer/BI/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
+import '../paramets/ParametsLoginPassword.dart';
 
 
 
 
 class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndPassword {
-
-  FunctionsWidgetLoginAndPassword( );
+late Logger logger;
+  FunctionsWidgetLoginAndPassword( this. logger);
   //TODO:  после успешного полученияя статуса или нет Запускаем Основнуб программу MAIN
 
 
@@ -24,8 +25,7 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
       TextEditingController loginicController,
       TextEditingController passwordController,
       BuildContext context,
-      CubitLoginPassword   cubitLoginPassword,
-      Logger logger) {
+      CubitLoginPassword   cubitLoginPassword) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
 
@@ -38,15 +38,23 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
         //TODO: login and password Not NULL
         if (login!.length>3 && password!.length>3) {
                 //TODO: параметры запроса
-                Map<String, dynamic> parametrgetPublicId={};
-                parametrgetPublicId.putIfAbsent('login', login as Function());
+
+
+          ParametsServerStatus parametsServerStatus=ParametsServerStatus();
+
+          parametsServerStatus.getlogin;
+          parametsServerStatus.setlogin('sfsfsf');
+
+
+               //TODO then
+              /*  parametrgetPublicId.putIfAbsent('login', login as Function());
                 parametrgetPublicId.putIfAbsent('password', password as Function());
                 parametrgetPublicId.putIfAbsent('context', context as Function());
-                parametrgetPublicId.putIfAbsent('logger', logger as Function());
+                parametrgetPublicId.putIfAbsent('logger', logger as Function());*/
 
                 //TODO:сам запрос на получение PublicID И Получение Данных
                // context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
-                cubitLoginPassword.startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
+                cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus);
 
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
