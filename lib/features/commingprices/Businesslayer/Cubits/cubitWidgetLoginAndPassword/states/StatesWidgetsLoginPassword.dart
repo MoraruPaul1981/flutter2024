@@ -303,7 +303,7 @@ class StatesWidgetsLoginPassword {
     return   BlocListener<CubitLoginPassword,int>(
       bloc:cubitLoginPassword ,
       listenWhen:  (previous, current) {
-
+        logger.i('current .....${current}  previous .....${previous} ');
         return previous<=current;
         },
         listener: (context,state){
@@ -322,8 +322,8 @@ class StatesWidgetsLoginPassword {
       child: BlocBuilder<CubitLoginPassword,int> (
         bloc:cubitLoginPassword ,
         buildWhen:  (previous, current) {
-
-          return previous<=current;
+          logger.i('current .....${current}  previous .....${previous} ');
+          return previous==0;
         },
         builder: (context,state){
           // return widget here based on BlocA's state

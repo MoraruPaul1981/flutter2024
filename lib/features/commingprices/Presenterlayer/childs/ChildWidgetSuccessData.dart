@@ -10,6 +10,7 @@ import 'package:logger/src/logger.dart';
 
 
 import '../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+
 import '../../Businesslayer/Widgets_BI/Bl_ChildWidgetSuccessData.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
 

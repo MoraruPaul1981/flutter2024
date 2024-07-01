@@ -57,11 +57,34 @@ class BL_statesWidgetsLoginPassword {
       switch (state){
       /* TODO: какой статус пришел от Cubit login and password
       *   */
-        case 0:
+        case 10:
+        /*  //TODO:логин и пароль не заполенн
+        *      */
+          callBackLoginAndPasswordEmpty(state:state,context: context);
           logger.i('state .....$state');
 
-        case 10:
+        case 20:
+        /*  //TODO:сервер выключени
+        *      */
+          callBackServerRunAndStop(state:state,context: context);
           logger.i('state .....$state');
+
+
+        case 30:
+        /*  //TODO:логин и пароль не правильный
+        *      */
+          callBackLoginAndPasswordNotCorrect(state:state,context: context);
+          logger.i('state .....$state');
+
+
+
+        case 200:
+        /*  //TODO:Успешная Аунтификация логин и пароль заходим в приложение
+        *      */
+          callBackSuccessfuLoginAndPasswordAuthentication(state:state,context: context);
+          logger.i('state .....$state');
+
+
 
         default:
           logger.i('state .....$state');
@@ -92,6 +115,297 @@ class BL_statesWidgetsLoginPassword {
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
   }
+
+
+
+  //TODO: метод  Получение статуса от сервера state
+  @override
+  void callBackServerRunAndStop({ required int state,required BuildContext context}) {
+    // TODO: implement callbAckreactiontosomeonewhocameStatus
+    try{
+      logger.i(' state .. $state ' );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          elevation: 10,
+          behavior: SnackBarBehavior.fixed,
+          shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white12, width: 1),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
+          ),
+          backgroundColor:Colors.blue[300] ,
+          content: Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            color: Colors.blue[300],//Colors.blue[300] //,redAccent
+            width: double.infinity,
+            height: 30,
+            child: Center(
+              child: Text(
+                'Сервер выкл !!!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0,
+                  fontFamily: 'Raleway',
+                  color: Colors.grey[200],//TODO Colors.grey.shade600
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+          ),
+          duration: const Duration(milliseconds: 1300),
+        ),);
+
+      /* //TODO: погда пришел Публинчый ID
+     *     */
+
+      /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
+     *     */
+      logger.i(' state .. $state ' );
+
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+  void callBackLoginAndPasswordEmpty({required int state, required BuildContext context}) {
+    // TODO: implement calldoesnottriggerActionNoPoginandPassword
+    try{
+      logger.i(' state .. $state ' );
+
+
+/*
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          margin: EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: MediaQuery.of(context).size.width * 0.27,
+          ),
+          elevation: 5.0,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35.0),
+          ),
+          content: Wrap(
+            children: const [
+              Center(
+                child: Text(
+                  'Please enter valid email',
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+*/
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          elevation: 10,
+          behavior: SnackBarBehavior.fixed,
+          shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white12, width: 1),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
+          ),
+          backgroundColor:Colors.blue[300] ,
+          content: Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            color: Colors.blue[300],//Colors.blue[300] //,redAccent
+            width: double.infinity,
+            height: 30,
+            child: Center(
+              child: Text(
+                'Логин/Пароль не заполнен !!!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0,
+                  fontFamily: 'Raleway',
+                  color: Colors.grey[200],//TODO Colors.grey.shade600
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+          ),
+          duration: const Duration(milliseconds: 1300),
+        ),);
+
+
+      /* //TODO: погда пришел Публинчый ID
+     *     */
+
+      /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
+     *     */
+      logger.i('   void calldoesnottriggerActionNoPoginandPassword()  state .. $state ' );
+
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+
+
+
+
+
+  void callBackLoginAndPasswordNotCorrect({required int state, required BuildContext context}) {
+    // TODO: implement calldoesnottriggerActionNoPoginandPassword
+    try{
+      logger.i(' state .. $state ' );
+
+
+/*
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          margin: EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: MediaQuery.of(context).size.width * 0.27,
+          ),
+          elevation: 5.0,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35.0),
+          ),
+          content: Wrap(
+            children: const [
+              Center(
+                child: Text(
+                  'Please enter valid email',
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+*/
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          elevation: 10,
+          behavior: SnackBarBehavior.fixed,
+          shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white12, width: 1),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
+          ),
+          backgroundColor:Colors.blue[300] ,
+          content: Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            color: Colors.blue[300],//Colors.blue[300] //,redAccent
+            width: double.infinity,
+            height: 30,
+            child: Center(
+              child: Text(
+                'Логин/Пароль не правильный  !!!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0,
+                  fontFamily: 'Raleway',
+                  color: Colors.grey[200],//TODO Colors.grey.shade600
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+          ),
+          duration: const Duration(milliseconds: 1300),
+        ),);
+
+
+      /* //TODO: погда пришел Публинчый ID
+     *     */
+
+      /* //TODO: погда пришел Публинчый ID  с этого места мы запускаеем саму программу так как приешел публичный ID SUCCESS
+     *     */
+      logger.i('   void calldoesnottriggerActionNoPoginandPassword()  state .. $state ' );
+
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+  void callBackSuccessfuLoginAndPasswordAuthentication({required int state, required BuildContext context}) {
+    // TODO: implement calldoesnottriggerActionNoPoginandPassword
+    try{
+      logger.i(' state .. $state ' );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          margin: EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: MediaQuery.of(context).size.width * 0.27,
+          ),
+          elevation: 5.0,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35.0),
+          ),
+          content: Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            color: Colors.white,//Colors.blue[300] //,redAccent
+            width: double.infinity,
+            height: 30,
+            child: Center(
+              child: Text(
+                'Успешная аунтификация !!! ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0,
+                  fontFamily: 'Raleway',
+                  color: Colors.grey[200],//TODO Colors.grey.shade600
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+          ),
+        ),
+      );
+      logger.i('   callBackSuccessfuLoginAndPasswordAuthentication .. $state ' );
+
+
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+
 
 
 
