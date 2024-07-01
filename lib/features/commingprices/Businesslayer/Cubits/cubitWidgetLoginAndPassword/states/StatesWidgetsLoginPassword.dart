@@ -341,8 +341,8 @@ class StatesWidgetsLoginPassword {
 
                /* //TODO: НАжимсаем на кнопку Кругдую запустить аунтифтикайция пользователя
                *     */
-
-                bl_statesWidgetsLoginPassword.    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword);
+                bl_statesWidgetsLoginPassword.    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword,
+                    loginicController:_loginicController ,  passwordController:_passwordController );
 
                 logger.i('triggerStatusChange .....$state');
 

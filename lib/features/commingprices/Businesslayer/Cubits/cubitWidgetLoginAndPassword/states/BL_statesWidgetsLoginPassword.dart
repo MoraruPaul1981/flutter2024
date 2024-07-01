@@ -31,7 +31,8 @@ class BL_statesWidgetsLoginPassword {
 
 /*//TODO:  метод запуск аунтификации логин и пароль
 *    */
-  void startingAyntificationLogingAdnPassword(int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword) {
+  void startingAyntificationLogingAdnPassword(         int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword,
+      { required  TextEditingController loginicController  ,  required TextEditingController passwordController }) {
     try{
 
       functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword,logger);

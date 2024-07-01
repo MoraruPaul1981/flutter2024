@@ -33,10 +33,11 @@ class CubitLoginPassword extends Cubit<int>  {
       BuildContext context = parametrgetPublicId.values.elementAt(2);
       Logger logger = parametrgetPublicId.values.elementAt(3);
 
-      logger.i(
-          'login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
+      logger.i('login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
 
 
+      String ServerStatus =await futureServerStatus() ;
+      print(' Finifh()..  ServerStatus $ServerStatus  ') ;
 
       //TODO error
     }   catch (e, stacktrace) {
@@ -47,6 +48,16 @@ class CubitLoginPassword extends Cubit<int>  {
     }
     }
 
+  Future<String> futureServerStatus() async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+    // TODO: implement futurePublicID
+    final ServerStatus = await Isolate.run(() async {
+      late String ServerStatus ;
+      ServerStatus="";
+      print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return ServerStatus;
+    });
+    return ServerStatus;
+  }
 
 
 
@@ -136,7 +147,21 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
- /* TODO: когда логин и пароль нет
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* TODO:  EMIT()
+      когда логин и пароль нет
  *   */
   Future<void> callBackDontLoginAndPassword({required   String login, required String password}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
