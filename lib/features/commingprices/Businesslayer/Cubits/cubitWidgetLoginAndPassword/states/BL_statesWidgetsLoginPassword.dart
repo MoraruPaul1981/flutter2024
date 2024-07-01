@@ -34,10 +34,11 @@ class BL_statesWidgetsLoginPassword {
   void startingAyntificationLogingAdnPassword(         int state ,BuildContext context ,CubitLoginPassword   cubitLoginPassword,
       { required  TextEditingController loginicController  ,  required TextEditingController passwordController }) {
     try{
+/*TODO: запускаем начало Аунтификации нажатие на кнопку
+*  */
+      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, loginicController, passwordController,context,    cubitLoginPassword,logger);
 
-      functionsWidgetLoginAndPassword.clickFloatingButtonForGetLoginAndPassword(state, _loginicController, _passwordController,context,    cubitLoginPassword,logger);
-
-      logger.i('state .....${state}  _loginicController .....${_loginicController} _passwordController .....${_passwordController} ');
+      logger.i('state .....${state}  loginicController .....${loginicController} passwordController .....${passwordController} ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

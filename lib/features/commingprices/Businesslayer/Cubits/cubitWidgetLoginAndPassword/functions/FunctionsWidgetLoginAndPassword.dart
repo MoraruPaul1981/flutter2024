@@ -21,15 +21,18 @@ class FunctionsWidgetLoginAndPassword   implements  IntafaceChildWidgetLoginAndP
   @override
   void clickFloatingButtonForGetLoginAndPassword(
       int state,
-      TextEditingController _loginicController,
-      TextEditingController _passwordController,
+      TextEditingController loginicController,
+      TextEditingController passwordController,
       BuildContext context,
       CubitLoginPassword   cubitLoginPassword,
       Logger logger) {
     // TODO: implement actionFloatingActionButtonPressed
     try{
-      String  login=      processingLogin(loginicController: _loginicController);
-      String  password=      processingPassword(passwordController: _passwordController);
+
+      print( '  loginicController..$loginicController   passwordController.....$passwordController');
+
+      String  login=      processingLogin(loginicController: loginicController);
+      String  password=      processingPassword(passwordController: passwordController);
       print('login .....$login  password .....$password ');
 
         //TODO: login and password Not NULL

@@ -10,6 +10,7 @@ import 'package:logger/logger.dart';
 import '../../../Datalayer/entities/Entities1CMap.dart';
 import '../../../Datalayer/remote/FuturesPing1cServer.dart';
 import '../../BI/Interfaces/Interfacebloc/Interfacebloc.dart';
+import '../../BI/adressJboss/getAdress.dart';
 import '../../BI/errors/Errors.dart';
 
 
@@ -36,7 +37,11 @@ class CubitLoginPassword extends Cubit<int>  {
       logger.i('login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
 
 
-      String ServerStatus =await futureServerStatus() ;
+
+      var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
+      final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
+
+      String ServerStatus =await futureServerStatus(parsedUrl,logger) ;
       print(' Finifh()..  ServerStatus $ServerStatus  ') ;
 
       //TODO error
@@ -48,11 +53,13 @@ class CubitLoginPassword extends Cubit<int>  {
     }
     }
 
-  Future<String> futureServerStatus() async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+  Future<String> futureServerStatus(     Uri parsedUrl,  Logger logger ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
     // TODO: implement futurePublicID
     final ServerStatus = await Isolate.run(() async {
-      late String ServerStatus ;
-      ServerStatus="";
+
+      FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
+
+      String ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl,logger);
       print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
       return ServerStatus;
     });
