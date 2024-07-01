@@ -358,37 +358,28 @@ class BL_statesWidgetsLoginPassword {
     // TODO: implement calldoesnottriggerActionNoPoginandPassword
     try{
       logger.i(' state .. $state ' );
+
+
+
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.grey.shade300,
           margin: EdgeInsets.symmetric(
             vertical: 20.0,
-            horizontal: MediaQuery.of(context).size.width * 0.27,
+            horizontal: 40.0,
           ),
           elevation: 5.0,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35.0),
           ),
-          content: Container(
-            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            color: Colors.white,//Colors.blue[300] //,redAccent
-            width: double.infinity,
-            height: 30,
-            child: Center(
-              child: Text(
-                'Успешная аунтификация !!! ',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13.0,
-                  fontFamily: 'Raleway',
-                  color: Colors.grey[200],//TODO Colors.grey.shade600
+          content:
+              Center(
+                child: Text(
+                  ' Успешная аунтификация !!! ',
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-
-          ),
         ),
       );
       logger.i('   callBackSuccessfuLoginAndPasswordAuthentication .. $state ' );

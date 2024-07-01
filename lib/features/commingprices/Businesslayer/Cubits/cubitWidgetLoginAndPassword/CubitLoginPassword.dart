@@ -123,8 +123,8 @@ class CubitLoginPassword extends Cubit<int>  {
      print(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-       emit(200);
-    //   emit(10);
+       //emit(200);
+    emit(10);
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
