@@ -27,8 +27,9 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
-  Future<void> startGettingServerStatus({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> startGettingServerStatus({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
+   late String ServerStatus;
     try {
       String login = parametsServerStatus.getlogin;
       String password = parametsServerStatus.getpassword;
@@ -37,12 +38,10 @@ class CubitLoginPassword extends Cubit<int>  {
 
       logger.i('login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
 
-
-
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      String ServerStatus =await futureServerStatus(parsedUrl)  ??   "0";
+      ServerStatus =await futureServerStatus(parsedUrl)  ??   "0";
       print('ServerStatus ${ServerStatus}  ServerStatus.length ${ServerStatus.length} ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
@@ -54,6 +53,7 @@ class CubitLoginPassword extends Cubit<int>  {
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
+    return  ServerStatus.length ?? 0;
     }
 
   Future<String> futureServerStatus(     Uri parsedUrl ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}

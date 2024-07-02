@@ -42,16 +42,36 @@ late Logger logger;
        *       */
                ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
 
-                //TODO:сам запрос на получение PublicID И Получение Данных
-                cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus);
+                //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен
+                cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus)
+                    .then(( ServerStatus) {
+                  //TODO then
+                  logger.i('ServerStatus..${ServerStatus} ');
+
+
+
+
+                  return  ServerStatus;
+                }).catchError(
+                        (Object error) {
+                      logger.i(' get ERROR $error  ');
+                    }
+                );
 
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
 
-              } else {
 
-          //TODO:сам запрос на получение PublicID И Получение Данных
-         // context.read<CubitLoginPassword>().callBackDontLoginAndPassword(login:login,password:password);
+
+
+
+
+
+       /*       //TODO:  Когда  логин и пароль не заполнент Вообще
+       *           */
+              } else {
+          /*       //TODO:  Когда  логин и пароль не заполнент Вообще
+       *           */
           cubitLoginPassword.callBackDontLoginAndPassword(login:login,password:password);
 
              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
@@ -115,6 +135,13 @@ late Logger logger;
     }
     return _password;
   }
+
+
+
+
+
+
+
 
 
 
