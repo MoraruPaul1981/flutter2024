@@ -24,7 +24,7 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
 
   //TODO получаем данные self-data
   @override
-  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID,required Logger logger}) async {
+  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
       var getResponse;
     try{
@@ -57,7 +57,7 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
             print(' get ERROR $error  ');
           })  as Response;
 
-      logger.i('start getResponse ..  '+getResponse.toString()+'' );
+     print('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
       //TODO error
     }   catch (e, stacktrace) {
@@ -75,14 +75,13 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
  TODO  of processing the
  TODO  incoming stream */
   @override
-  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response response1C,
-    required Logger logger}) {
+  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response response1C}) {
     // TODO: implement getGeneratorMapCallBack
    late  Future<List<Map<String, List<Entities1CMap>>>> getJson1cSucces ;
     try{
       print('response1C.statusCode $response1C.statusCode');
 
-      logger.i('Result esponse1C.statusCode ..  '+response1C.statusCode.toString()+
+     print('Result esponse1C.statusCode ..  '+response1C.statusCode.toString()+
           '');
 
       if (response1C.statusCode==200) {
@@ -90,30 +89,30 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
         print('response1C.statusCode....$response1C.statusCode');
 
       //TODO  первая операция ДИнамик
-        final  List<dynamic>  getListSeflData=       getDecodingCallback().   getResponseDecoderSelfData(response1C:response1C,logger: logger);
-        logger.i(' getListSeflData ..  '+getListSeflData.toString() );
+        final  List<dynamic>  getListSeflData=       getDecodingCallback().   getResponseDecoderSelfData(response1C:response1C );
+       print(' getListSeflData ..  '+getListSeflData.toString() );
 
 
 
         if (getListSeflData.isNotEmpty ) {
           //TODO получаем данные JSON
-          logger.i('getListSeflData.isNotEmpty ..$getListSeflData.isNotEmpty');
+         print('getListSeflData.isNotEmpty ..$getListSeflData.isNotEmpty');
 
           ///TODO
           getJson1cSucces=Future(() => getListSeflData.map((model) => Entities1CMap().loopGeneratorMapPolo(  json:  model  )) .toList() );
           // TODO as List<Map<String, List<Entities1CMap>>> as List<Map<String, List<Entities1CMap>>>
 
-          logger.i(' getJson1cSucces ..  '+getJson1cSucces.toString() );
+         print(' getJson1cSucces ..  '+getJson1cSucces.toString() );
         }
-        logger.i('getListSeflData.isNotEmpty ..$getListSeflData.isNotEmpty' );
+       print('getListSeflData.isNotEmpty ..$getListSeflData.isNotEmpty' );
         
       } else {
         //TODO
-        logger.i(' response1C ..  '+response1C.toString() );
+       print(' response1C ..  '+response1C.toString() );
       }
 
       //TODO
-      logger.i(' response1C ..  '+response1C.toString() );
+     print(' response1C ..  '+response1C.toString() );
       //TODO error
       //TODO error
     }   catch (e, stacktrace) {

@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:logger/logger.dart';
+
 
 
 import '../../Businesslayer/BI/Interfaces/InterfaceFuture.dart';
@@ -22,17 +22,16 @@ import 'FuturesDataFrom1cServer.dart';
 
 class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,InterfaceCallBack {
   //TODO
-late Logger logger;
+ 
 
 
 
   @override
-  Future<List<Map<String, List<Entities1CMap>>>> getResponse1c({ required BuildContext context, required Logger logger})  async {
+  Future<List<Map<String, List<Entities1CMap>>>> getResponse1c({ required BuildContext context})  async {
     // TODO: implement getJson1cPing
    late  Completer<List<Map<String, List<Entities1CMap>>>> completer=Completer.sync();
     try {
       //TODO init LOGER
-      this.logger=logger;
       //TODO адрес пинга к серверу
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
@@ -40,25 +39,25 @@ late Logger logger;
       print('adressCurrent1C .. $adressCurrent1C'+'parsedUrl .. $parsedUrl');
 
       //TODO главный запрос PING #1
-        oneStepPing(parsedUrl, logger)
+        oneStepPing(parsedUrl)
             .then((IspingOtServer) async {
           //TODO then
-          logger.i('IspingOtServer ..  '+IspingOtServer.toString()+'' );
+       print('IspingOtServer ..  '+IspingOtServer.toString()+'' );
 
           //TODO когад пришли данные #2
-          List<Map<String, List<Entities1CMap>>> getSelfDataCallBack = await twoStepJsonOt1c(IspingOtServer, logger);
+          List<Map<String, List<Entities1CMap>>> getSelfDataCallBack = await twoStepJsonOt1c(IspingOtServer);
 
-          logger.i('getSelfDataCallBack..  '+getSelfDataCallBack.toString()+'' );
+       print('getSelfDataCallBack..  '+getSelfDataCallBack.toString()+'' );
 
           //TODO закрвваем Compete после все отработынных операций  #3
           completer.complete(getSelfDataCallBack    );
-          logger.i('Result completer.isCompleted ..  '+completer.isCompleted.toString()+'' );
+       print('Result completer.isCompleted ..  '+completer.isCompleted.toString()+'' );
 
 
           return getSelfDataCallBack;
 
         }).catchError((Object error) {
-          logger.i(' catchError  ERROR $error  ');
+       print(' catchError  ERROR $error  ');
           completer.completeError(error );
           //TODO оБРАБОТКА пинга
         });
@@ -87,16 +86,16 @@ late Logger logger;
 
 //TODO главный запрос PING #1
   @override
-  Future<List<Map<String, List<Entities1CMap>>>> twoStepJsonOt1c(String IspingOtServer, Logger logger) async {
+  Future<List<Map<String, List<Entities1CMap>>>> twoStepJsonOt1c(String IspingOtServer ) async {
    var getSelfDataCallBack;
     try{
          //TODO когад пришли данные #2
     BigInt Uuid=BigInt.parse('0')  ;
            int IdUser=8;
 
-     getSelfDataCallBack=await  CallBackSelfData(IspingOtServer, logger,IdUser,Uuid) as  List<Map<String, List<Entities1CMap>>>;
+     getSelfDataCallBack=await  CallBackSelfData(IspingOtServer,IdUser,Uuid) as  List<Map<String, List<Entities1CMap>>>;
 
-          logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
+       print('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -113,9 +112,9 @@ late Logger logger;
 
   //TODO когад пришли данные #2
   @override
-  Future<String> oneStepPing(Uri parsedUrl, Logger logger) async {
-    logger.i('Result parsedUrl ..  '+parsedUrl.toString()+'' );
-    return CallBackPing(parsedUrl,  logger) ;
+  Future<String> oneStepPing(Uri parsedUrl ) async {
+ print('Result parsedUrl ..  '+parsedUrl.toString()+'' );
+    return CallBackPing(parsedUrl) ;
   }
 
 
@@ -125,7 +124,7 @@ late Logger logger;
 
   //TODO ping
   @override
-  Future<String> CallBackPing(Uri parsedUrl,   Logger logger ) async {
+  Future<String> CallBackPing(Uri parsedUrl) async {
     var getpingCallBack ;
     try {
       //TODO только для пинга
@@ -133,29 +132,29 @@ late Logger logger;
        int IdUser=0;
 
       //TODO: первая часть пинга
-      Future<Response>responsePingFirstPart =     getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
+      Future<Response>responsePingFirstPart =     getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
       responsePingFirstPart.catchError(
                   (Object error) {
-                logger.i(' catchError  ERROR $error  ');
+             print(' catchError  ERROR $error  ');
                 //TODO оБРАБОТКА пинга
               });
       //TODO:
        var  getpingCallBackResponseFirstPart  = await  responsePingFirstPart as  Response;
-        logger.i('Result  getpingCallBackResponseFirstPart ..  '+getpingCallBackResponseFirstPart.toString()+'' );
+        print('Result  getpingCallBackResponseFirstPart ..  '+getpingCallBackResponseFirstPart.toString()+'' );
 
       //TODO: вторая часть пинга
         if (getpingCallBackResponseFirstPart.statusCode == 200) {
-          Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart, logger);
+          Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart);
           getProcessingPingTwoPart.catchError(
                   (Object error) {
-                logger.i(' catchError  ERROR $error  ');
+                    print(' catchError  ERROR $error  ');
                 //TODO оБРАБОТКА пинга
               });
           //TODO:
           getpingCallBack   = await  getProcessingPingTwoPart as  String;
-          logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
+          print('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
         }else{
-          logger.i('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
+          print('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
         }
 
       //TODO error
@@ -165,8 +164,6 @@ late Logger logger;
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-
-
     return getpingCallBack;
   }
 
@@ -175,7 +172,7 @@ late Logger logger;
 
 //TODO self-data
   @override
-Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOtServer, Logger logger,int IdUser,BigInt Uuid) async {
+Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOtServer ,int IdUser,BigInt Uuid) async {
   //TODO
   late List<Map<String, List<Entities1CMap>>>      getSelfDataCallBack=[];
   try {
@@ -185,36 +182,36 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      logger.i('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
+   print('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
 
       FuturesDataFrom1cServer futuresGetSelfData=   new FuturesDataFrom1cServer();
 
 
 //TODO получаем данные от 1с Севра
-         Future<Response> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() ,logger: logger);
+         Future<Response> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
 
       responseSelfDataFuture.catchError(
               (Object error) {
-            logger.i(' catchError  ERROR $error  ');
+         print(' catchError  ERROR $error  ');
             //TODO оБРАБОТКА пинга
           });
       //TODO получаем Responce Self-Data
       final   Response CallBackresponseSelfData=await  responseSelfDataFuture;
       //TODO then
-      logger.i(' CallBackresponseSelfData .. $CallBackresponseSelfData');
+   print(' CallBackresponseSelfData .. $CallBackresponseSelfData');
 
       //TODO производим обработку пришедшего с  данными Response
-         getSelfDataCallBack=  await futuresGetSelfData.getGeneratorProcessSelfData(  response1C:CallBackresponseSelfData, logger:logger);
+         getSelfDataCallBack=  await futuresGetSelfData.getGeneratorProcessSelfData(  response1C:CallBackresponseSelfData );
 
-      logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
+   print('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
 
 
 
     }else{
-      logger.i('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
+   print('Result IspingOtServer ..  '+IspingOtServer.toString()+'' );
     }
     //TODO end Call bACK
-    logger.i('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
+ print('Result getSelfDataCallBack ..  '+getSelfDataCallBack.toString()+'' );
 
     //TODO
     //TODO error
@@ -260,11 +257,11 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
         getCallPing1c= getDecodingCallback().getResponseDecoderPing(response1C: backresponsejboss) as String    ;
 
         print('getCallPing1c $getCallPing1c');
-    logger.i('start getCallPing1c ..  '+getCallPing1c.toString()+'' );
+ print('start getCallPing1c ..  '+getCallPing1c.toString()+'' );
       } else {
         //TODO
         print('response1C.statusCode $backresponsejboss.statusCode');
-    logger.i('response1C.statusCode $backresponsejboss.statusCode'+'' );
+ print('response1C.statusCode $backresponsejboss.statusCode'+'' );
       }
 
       //TODO error
@@ -282,7 +279,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 //TODO sendResponce
   @override
-  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID, required Logger logger}) async {
+  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
     // TODO: implement getDownloadJsonMaps
      var  getResponse;
@@ -320,7 +317,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
             print(' get ERROR $error  ');
           })  as Response ;
 
-      logger.i('start getResponse ..  '+getResponse.toString()+'' );
+   print('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
       //TODO error
     }   catch (e, stacktrace) {
@@ -339,10 +336,10 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 
   @override
-   Future<String>  getCompetePing( Response backresponsejboss, Logger logger)  async   {
+   Future<String>  getCompetePing( Response backresponsejboss )  async   {
     // TODO: implement getCompetePing
 
-    logger.i('start backresponsejboss ..  '+backresponsejboss.toString()+'' );
+ print('start backresponsejboss ..  '+backresponsejboss.toString()+'' );
 
       return await getComplitingResponsePing(     backresponsejboss) ;///TODO    return compute(getComplitingResponse ,backresponsejboss  );
     //return     compute(getComplitingResponsePing,backresponsejboss)  ;///TODO    return compute(getComplitingResponse ,backresponsejboss  );

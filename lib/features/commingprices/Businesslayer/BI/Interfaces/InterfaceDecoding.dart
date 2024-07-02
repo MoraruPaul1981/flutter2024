@@ -11,7 +11,7 @@ abstract  class InterfaceDecoding {
   String getResponseDecoderPing({required  Response response1C});
 
   //todo  dynamic Sekf DatA
-  List  getResponseDecoderSelfData({required  Response response1C,required Logger logger});
+  List  getResponseDecoderSelfData({required  Response response1C});
 
 
 }

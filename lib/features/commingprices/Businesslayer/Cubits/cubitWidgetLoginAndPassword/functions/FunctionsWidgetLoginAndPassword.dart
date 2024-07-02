@@ -38,22 +38,11 @@ late Logger logger;
         //TODO: login and password Not NULL
         if (login!.length>3 && password!.length>3) {
                 //TODO: параметры запроса
-
-
-          ParametsServerStatus parametsServerStatus=ParametsServerStatus();
-
-          parametsServerStatus.getlogin;
-          parametsServerStatus.setlogin('sfsfsf');
-
-
-               //TODO then
-              /*  parametrgetPublicId.putIfAbsent('login', login as Function());
-                parametrgetPublicId.putIfAbsent('password', password as Function());
-                parametrgetPublicId.putIfAbsent('context', context as Function());
-                parametrgetPublicId.putIfAbsent('logger', logger as Function());*/
+       /*   //TODO: Класс с Парметрами для передачив кдласс логин и пароль
+       *       */
+               ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
 
                 //TODO:сам запрос на получение PublicID И Получение Данных
-               // context.read<CubitLoginPassword>().startGettingServerStatus(parametrgetPublicId:parametrgetPublicId);
                 cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus);
 
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'

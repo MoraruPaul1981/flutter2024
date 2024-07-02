@@ -10,11 +10,16 @@ import 'package:logger/logger.dart';
    late String _password;
    late BuildContext _context;
    late Logger _logger;
+
+   ParametsLoginPassword(
+      this._login, this._password, this._context, this._logger);
 }
 
 
 
  class ParametsServerStatus  extends ParametsLoginPassword {
+  ParametsServerStatus(super.login, super.password, super.context, super.logger);
+
 
    String get getlogin => _login;
 
@@ -39,7 +44,9 @@ import 'package:logger/logger.dart';
    set setpassword(String value) {
      _password = value;
    }
- }
+
+
+}
 
 
 

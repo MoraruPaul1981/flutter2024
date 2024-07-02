@@ -41,7 +41,7 @@ class  getDecodingCallback implements InterfaceDecoding{
 
 //TODO  decoce Self Data
   @override
-  List getResponseDecoderSelfData({required Response response1C, required Logger logger }) {
+  List getResponseDecoderSelfData({required Response response1C }) {
     // TODO: implement getResponseDecoderYoursData
     late var   getList1cdynamic;
     try{
@@ -52,7 +52,7 @@ class  getDecodingCallback implements InterfaceDecoding{
       getList1cdynamic=json.decode(utf8.decode(list))  as List<dynamic> ;
       //TODO
       print('getList1cdynamic $getList1cdynamic');
-      logger.i(' list ..  '+list.length.toString() );
+    print(' list ..  '+list.length.toString() );
       //TODO error
       //TODO error
     }   catch (e, stacktrace) {

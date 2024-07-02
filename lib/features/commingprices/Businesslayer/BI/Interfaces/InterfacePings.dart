@@ -12,13 +12,13 @@ abstract  class InterfacePings {
 
 
   //TODO main metod
-  Future<List<Map<String, List<Entities1CMap>>>> getResponse1c({ required BuildContext context, required Logger logger});
+  Future<List<Map<String, List<Entities1CMap>>>> getResponse1c({ required BuildContext context });
 
 
   //TODO  ping
    String   getComplitingResponsePing( Response backresponsejboss);
 
   //TODO
-   Future<String>   getCompetePing(  Response backresponsejboss, Logger logger);
+   Future<String>   getCompetePing(  Response backresponsejboss );
 
 }

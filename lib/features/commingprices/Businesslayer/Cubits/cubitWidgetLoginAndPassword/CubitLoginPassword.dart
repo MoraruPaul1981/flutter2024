@@ -30,10 +30,10 @@ class CubitLoginPassword extends Cubit<int>  {
   Future<void> startGettingServerStatus({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try {
-      String login = parametrgetPublicId.values.elementAt(0);
-      String password = parametrgetPublicId.values.elementAt(1);
-      BuildContext context = parametrgetPublicId.values.elementAt(2);
-      Logger logger = parametrgetPublicId.values.elementAt(3);
+      String login = parametsServerStatus.getlogin;
+      String password = parametsServerStatus.getpassword;
+      BuildContext context = parametsServerStatus.getcontext;
+      Logger logger = parametsServerStatus.getlogger;
 
       logger.i('login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
 
@@ -42,7 +42,7 @@ class CubitLoginPassword extends Cubit<int>  {
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      String ServerStatus =await futureServerStatus(parsedUrl,logger) ;
+      String ServerStatus =await futureServerStatus(parsedUrl) ;
       print(' Finifh()..  ServerStatus $ServerStatus  ') ;
 
       //TODO error
@@ -54,13 +54,11 @@ class CubitLoginPassword extends Cubit<int>  {
     }
     }
 
-  Future<String> futureServerStatus(     Uri parsedUrl,  Logger logger ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+  Future<String> futureServerStatus(     Uri parsedUrl ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
     // TODO: implement futurePublicID
     final ServerStatus = await Isolate.run(() async {
-
       FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
-
-      String ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl,logger);
+     String ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl );
       print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
       return ServerStatus;
     });

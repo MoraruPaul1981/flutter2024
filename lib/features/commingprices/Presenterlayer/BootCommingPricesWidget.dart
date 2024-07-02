@@ -43,7 +43,7 @@ class BootCommingPricesWidget extends State<WidgetStateful> {
    ///TODO FutureBuilder
     return FutureBuilder<List<Map<String, List<Entities1CMap>>>>(
       //TODO get JSON PING ot 1C
-      future:   FuturesPing1cServer(). getResponse1c(context:context, logger: logger),
+      future:   FuturesPing1cServer(). getResponse1c(context:context ),
       builder: (BuildContext context, AsyncSnapshot<List<Map<String, List<Entities1CMap>>>> snapshot) {
 
         ////TODO В  waiting
