@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import '../../../BI/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
+import '../EmitsLoginPassword.dart';
 import '../functions/FunctionsWidgetLoginAndPassword.dart';
 import 'BL_statesWidgetsLoginPassword.dart';
 
@@ -294,13 +295,11 @@ class StatesWidgetsLoginPassword {
   Widget widgetFloatingActionButton( ) {
     //TODO: widgetFloatingActionButton
 
-/*    TODO: init Cubit
+/*    TODO: init Cubit  Главня ссылка на класс Кубит
 *      */
      CubitLoginPassword   cubitLoginPassword = CubitLoginPassword(0);
      /*    TODO: init ссылка бизнес логика для States
 *      */
-     BL_statesWidgetsLoginPassword bl_statesWidgetsLoginPassword=BL_statesWidgetsLoginPassword(  logger: logger,context:context);
-
 
     //TODO: CUbit
     return   BlocListener<CubitLoginPassword,int>(
@@ -310,15 +309,12 @@ class StatesWidgetsLoginPassword {
         return previous<=current;
         },
         listener: (context,state){
-       /*
-        TODO: Возвращение из Cubit стате
-         */
-          bl_statesWidgetsLoginPassword.   completeBlocConsumerLoginandPassword(state);
 
-          /*
-        TODO: Резет значение Emit Cubit Login and Password
-         */
-          bl_statesWidgetsLoginPassword.  resetEmitCubitLoginPassword(cubitLoginPassword,state);
+      /*  TODO: Возвращение из Cubit стате*/
+          BL_statesWidgetsLoginPassword(  logger: logger,context:context).   completeBlocConsumerLoginandPassword(state);
+
+        /*TODO: RESET статус */
+          EmitsLoginPassword(cubitLoginPassword).  resetEmitCubitLoginPassword(cubitLoginPassword);
 
           logger.i('triggerStatusChange .....$state');
         },
@@ -341,7 +337,7 @@ class StatesWidgetsLoginPassword {
 
                /* //TODO: НАжимсаем на кнопку Кругдую запустить аунтифтикайция пользователя
                *     */
-                bl_statesWidgetsLoginPassword.    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword,
+                BL_statesWidgetsLoginPassword(  logger: logger,context:context).    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword,
                     loginicController:_loginicController ,  passwordController:_passwordController );
 
                 logger.i('triggerStatusChange .....$state');

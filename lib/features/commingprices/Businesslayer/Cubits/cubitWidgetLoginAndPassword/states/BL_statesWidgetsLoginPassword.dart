@@ -118,20 +118,6 @@ class BL_statesWidgetsLoginPassword {
 
 
 
-  void resetEmitCubitLoginPassword( CubitLoginPassword   cubitLoginPassword ,int state ) {
-    try{
-      cubitLoginPassword.emit(0);
-
-      logger.i('resetEmitCubitLoginPassword .....${cubitLoginPassword} ... state ${state}');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
-    }
-  }
-
 
 
   //TODO: метод  Получение статуса от сервера state

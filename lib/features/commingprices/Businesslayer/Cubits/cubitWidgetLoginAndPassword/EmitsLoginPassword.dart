@@ -24,6 +24,25 @@ class EmitsLoginPassword  {
 
 
 
+  void resetEmitCubitLoginPassword( CubitLoginPassword   cubitLoginPassword  ) {
+    try{
+    /*  //TODO:*/
+      cubitLoginPassword.emit(0);
+      print('resetEmitCubitLoginPassword .....${cubitLoginPassword} ...         cubitLoginPassword.isClosed ,,....      ${cubitLoginPassword.isClosed} ');
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+    }
+  }
+
+
+
+
+
+
   Future<void> emitBackUIEmptyLoginAndPassword( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
