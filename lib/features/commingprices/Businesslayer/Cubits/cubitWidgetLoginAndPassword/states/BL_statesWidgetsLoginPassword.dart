@@ -76,7 +76,6 @@ class BL_statesWidgetsLoginPassword {
           callBackLoginAndPasswordNotCorrect(state:state,context: context);
           logger.i('state .....$state');
 
-
         case 21:
         /*  //TODO:логин и пароль не правильный
         *      */

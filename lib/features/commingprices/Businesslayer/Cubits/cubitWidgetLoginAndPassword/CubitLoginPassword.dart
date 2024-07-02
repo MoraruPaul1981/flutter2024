@@ -45,7 +45,11 @@ class CubitLoginPassword extends Cubit<int>  {
       print('ServerStatus ${ServerStatus}  ServerStatus.length ${ServerStatus.length} ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-      emit(ServerStatus.length);
+      if (ServerStatus.length>=21) {
+        callBackUISuccessServerStatus();
+      } else {
+        callBackUIDontServerStatus();
+      }
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -85,17 +89,15 @@ class CubitLoginPassword extends Cubit<int>  {
     late int PublicID;
     try{
      Future<int> futureValuePublicID =    Future<int>.value(futurePublicID(parametsServerStatus: parametsServerStatus))
-     ..then((futureValuePublicID) {
+     .then((futureValuePublicID) {
        //TODO then
       print('start futureValuePublicID .. ');
        return futureValuePublicID;
-
      }).catchError(
              (Object error) {
                print(' get ERROR $error  ');
          }
      );
-
       PublicID =await futureValuePublicID;
       print(' Finifh()..  PublicID $PublicID  ') ;
       /* //TODO:
@@ -178,17 +180,124 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
- /* TODO:  EMIT()
-      когда логин и пароль нет
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
+ /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
  *   */
-  Future<void> callBackDontLoginAndPassword({required   String login, required String password}) async {
+ *   */
+  /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
+ /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
+ *   */
+ *   */
+
+
+
+  Future<void> callBackUIEmptyLoginAndPassword( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-     print(' callBackDontLoginAndPassword()..  login ${login} ..  password ${password}   ');
-      /* //TODO:
-   *     главная команда всегда кода eьше Ответ */
-     /*  emit(200);*/
-     emit(10);
+     emit(1);
+     print('  callBackUIEmptyLoginAndPassword  emit ${emit}  ');
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+
+
+  Future<void> callBackUIDontServerStatus( ) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+      emit(2);
+      print('  callBackUIDontServerStatus  emit ${emit}  ');
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+  Future<void> callBackUISuccessServerStatus( ) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+      emit(21);
+      print('  callBackUISuccessServerStatus  emit ${emit}  ');
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+  Future<void> callBackUISuccessAuntifcation( ) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+      emit(200);
+      print('  callBackUISuccessAuntifcation  emit ${emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

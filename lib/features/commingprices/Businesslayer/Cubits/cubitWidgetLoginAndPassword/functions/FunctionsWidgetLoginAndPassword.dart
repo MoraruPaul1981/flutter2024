@@ -48,8 +48,9 @@ late Logger logger;
                   //TODO then
                   logger.i('ServerStatus..${ServerStatus} ');
 
-                  //TODO:сам запрос на получения PublicID  шаг Второй
-                  callBackPublicIDJboss(cubitLoginPassword, parametsServerStatus);
+                  //TODO:сам запрос на получения PublicID  шаг Второй  статус пришел 21 не пустой
+                    callBackPublicIDJboss(cubitLoginPassword, parametsServerStatus,ServerStatus);
+
                   logger.i('ServerStatus..${ServerStatus} ');
                   return  ServerStatus;
                 }).catchError(
@@ -57,22 +58,15 @@ late Logger logger;
                       logger.i(' get ERROR $error  ');
                     }
                 );
-
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
-
-
-
-
-
-
 
        /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
               } else {
           /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
-          cubitLoginPassword.callBackDontLoginAndPassword(login:login,password:password);
+          cubitLoginPassword.callBackUIEmptyLoginAndPassword(login:login,password:password);
 
              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');
@@ -93,20 +87,25 @@ late Logger logger;
 
 /*  //TODO: Получаем после Аунтификации Публичный АДИ, на базе логина и пароля
 *      */
- Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword, ParametsServerStatus parametsServerStatus) async {
+ Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword, ParametsServerStatus parametsServerStatus,int ServerStatus) async {
             //TODO:сам запрос на получения PublicID  шаг Второй
     try{
-    cubitLoginPassword. startGettingServerPublicId(parametsServerStatus:parametsServerStatus)
-        .then(( getJbossPublicId) {
-      //TODO then
-      logger.i('PublicId..${getJbossPublicId} ');
-      return getJbossPublicId;
-    }).catchError(
-            (Object error) {
-          logger.i(' get ERROR $error  ');
-        }
-    );
-
+   /*   //TODO:  если статус ПРИЩШЕЛ 21 то тогда запускаем получение Public ID
+   *        */
+      logger.i('ServerStatus..${ServerStatus} ');
+      if (ServerStatus>=21) {
+        cubitLoginPassword.startGettingServerPublicId(
+            parametsServerStatus: parametsServerStatus)
+            .then((getJbossPublicId) {
+          //TODO then
+          logger.i('PublicId..${getJbossPublicId} ');
+          return getJbossPublicId;
+        }).catchError(
+                (Object error) {
+              logger.i(' get ERROR $error  ');
+            }
+        );
+      }
     //TODO error
   }   catch (e, stacktrace) {
 print(' get ERROR $e get stacktrace $stacktrace ');
