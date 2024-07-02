@@ -16,9 +16,14 @@ import '../../BI/errors/Errors.dart';
 import 'CubitLoginPassword.dart';
 
 
-class EmitsLoginPassword extends CubitLoginPassword{
-  EmitsLoginPassword(super.initialState);
 
+
+class EmitsLoginPassword  {
+
+
+  late CubitLoginPassword cubitLoginPassword;
+
+  EmitsLoginPassword(this.cubitLoginPassword);
 
 
   /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
@@ -35,8 +40,8 @@ class EmitsLoginPassword extends CubitLoginPassword{
   Future<void> emitBackUIEmptyLoginAndPassword( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-      emit(1);
-      print('  callBackUIEmptyLoginAndPassword  emit ${emit}  ');
+      cubitLoginPassword. emit(1);
+      print('  callBackUIEmptyLoginAndPassword  emit ${cubitLoginPassword.emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -53,8 +58,8 @@ class EmitsLoginPassword extends CubitLoginPassword{
   Future<void> emitBackUIDontServerStatus( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-      emit(2);
-      print('  callBackUIDontServerStatus  emit ${emit}  ');
+      cubitLoginPassword. emit(2);
+      print('  callBackUIDontServerStatus  emit ${cubitLoginPassword.emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -69,8 +74,8 @@ class EmitsLoginPassword extends CubitLoginPassword{
   Future<void> emitBackUIErrorPublicId( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-      emit(3);
-      print('  callBackUISuccessAuntifcation  emit ${emit}  ');
+      cubitLoginPassword. emit(3);
+      print('  callBackUISuccessAuntifcation  emit ${cubitLoginPassword.emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -97,8 +102,8 @@ class EmitsLoginPassword extends CubitLoginPassword{
   Future<void> emitBackUISuccessServerStatus( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-      emit(21);
-      print('  callBackUISuccessServerStatus  emit ${emit}  ');
+      cubitLoginPassword.emit(21);
+      print('  callBackUISuccessServerStatus  emit ${cubitLoginPassword.emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -113,8 +118,8 @@ class EmitsLoginPassword extends CubitLoginPassword{
   Future<void> emitBackUISuccessPublicId( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
-      emit(200);
-      print('  callBackUISuccessAuntifcation  emit ${emit}  ');
+      cubitLoginPassword. emit(200);
+      print('  callBackUISuccessAuntifcation  emit ${cubitLoginPassword.emit}  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -123,6 +128,7 @@ class EmitsLoginPassword extends CubitLoginPassword{
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
+
 
 }
 

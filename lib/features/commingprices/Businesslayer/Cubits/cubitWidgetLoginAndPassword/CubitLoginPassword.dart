@@ -44,9 +44,9 @@ class CubitLoginPassword extends Cubit<int>  {
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
       if (ServerStatus.length>=21) {
-        EmitsLoginPassword(0). emitBackUISuccessServerStatus();
+        EmitsLoginPassword(this). emitBackUISuccessServerStatus();
       } else {
-        EmitsLoginPassword(0).   emitBackUIDontServerStatus();
+        EmitsLoginPassword(this).   emitBackUIDontServerStatus();
       }
       //TODO error
     }   catch (e, stacktrace) {
@@ -103,9 +103,9 @@ class CubitLoginPassword extends Cubit<int>  {
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
      if (PublicID>0) {
-       EmitsLoginPassword(0). emitBackUISuccessPublicId();
+       EmitsLoginPassword(this). emitBackUISuccessPublicId();
      } else {
-       EmitsLoginPassword(0).     emitBackUIErrorPublicId( );
+       EmitsLoginPassword(this).     emitBackUIErrorPublicId( );
      }
       //TODO error
     }   catch (e, stacktrace) {
@@ -141,8 +141,7 @@ class CubitLoginPassword extends Cubit<int>  {
     try{
       print('login ... ${login}  password ... ${password} ');
 
-      EmitsLoginPassword(0).   emitBackUIEmptyLoginAndPassword();
-
+      EmitsLoginPassword(this).   emitBackUIEmptyLoginAndPassword();
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
