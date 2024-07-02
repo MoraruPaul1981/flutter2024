@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-
-import 'features/commingprices/Businesslayer/BI/errors/Errors.dart';
-import 'features/commingprices/Businesslayer/BI/loggers/GetLogger.dart';
+import 'features/commingprices/Businesslayer/Use case/errors/Errors.dart';
+import 'features/commingprices/Businesslayer/Use case/loggers/GetLogger.dart';
 import 'features/commingprices/Presenterlayer/childs/ChildWidgetLoginAndPassword/ChildWidgetLoginAndPassword.dart';
 
 

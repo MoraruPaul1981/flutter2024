@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../../main.dart';
-import '../BI/Interfaces/childinterface/InterfaceChildWidgetNasData.dart';
-import '../BI/errors/Errors.dart';
+import '../Use case/Interfaces/childinterface/InterfaceChildWidgetNasData.dart';
+import '../Use case/errors/Errors.dart';
+
 
 
 //TODO: класс бизнес логика для успещного получение данных от 1С

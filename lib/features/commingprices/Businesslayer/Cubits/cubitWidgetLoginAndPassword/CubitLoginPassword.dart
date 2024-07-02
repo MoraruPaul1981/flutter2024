@@ -8,8 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 import '../../../Datalayer/remote/FuturesPing1cServer.dart';
-import '../../BI/adressJboss/getAdress.dart';
-import '../../BI/errors/Errors.dart';
+
+import '../../Use case/adressJboss/getAdress.dart';
+import '../../Use case/errors/Errors.dart';
 import 'EmitsLoginPassword.dart';
 
 

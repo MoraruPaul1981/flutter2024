@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import '../../../../Businesslayer/BI/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
-import '../../../../Businesslayer/BI/errors/Errors.dart';
+
+import '../../../Use case/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
+import '../../../Use case/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
 import '../paramets/ParametsLoginServerPassword.dart';
 

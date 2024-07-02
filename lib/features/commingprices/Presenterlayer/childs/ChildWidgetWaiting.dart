@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
 
-import '../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+
+import '../../Businesslayer/Use case/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
 
 

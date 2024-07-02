@@ -2,9 +2,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
 
-import '../../Businesslayer/BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
-import '../../Businesslayer/BI/animations/GetAntimations.dart';
 
+
+import '../../Businesslayer/Use case/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../../Businesslayer/Use case/animations/GetAntimations.dart';
 import '../../Businesslayer/Widgets_BI/Bl_ChildWidgetNasData.dart';
 
 

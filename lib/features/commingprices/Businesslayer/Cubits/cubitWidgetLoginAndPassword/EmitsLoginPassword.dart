@@ -1,5 +1,6 @@
 
-import '../../BI/errors/Errors.dart';
+
+import '../../Use case/errors/Errors.dart';
 import 'CubitLoginPassword.dart';
 
 

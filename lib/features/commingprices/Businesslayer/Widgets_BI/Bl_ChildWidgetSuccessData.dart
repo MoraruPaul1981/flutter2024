@@ -4,8 +4,9 @@ import 'package:flutter/src/widgets/async.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 import '../../Datalayer/entities/Entities1CMap.dart';
-import '../BI/Interfaces/childinterface/IntafaceChildWidgetSuccessData.dart';
-import '../BI/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+import '../Use case/Interfaces/childinterface/IntafaceChildWidgetSuccessData.dart';
+import '../Use case/Interfaces/childinterface/IntarfaceVariablesWidgets.dart';
+
 
 
 //TODO: класс бизнес логика для успещного получение данных от 1С

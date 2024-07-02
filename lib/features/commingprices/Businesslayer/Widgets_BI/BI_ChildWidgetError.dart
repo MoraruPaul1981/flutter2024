@@ -5,8 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../../main.dart';
-import '../BI/Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
-import '../BI/errors/Errors.dart';
+import '../Use case/Interfaces/childinterface/InterfaceChildGetWidgetErrors.dart';
+import '../Use case/errors/Errors.dart';
+
 
 
 
