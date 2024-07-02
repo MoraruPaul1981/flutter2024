@@ -43,7 +43,7 @@ late Logger logger;
                ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
 
                 //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен  шаг первый
-                cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus)
+                cubitLoginPassword.startCubitServerStatus(  parametsServerStatus:parametsServerStatus)
                     .then(( ServerStatus) {
                   //TODO then
                   logger.i('ServerStatus..${ServerStatus} ');
@@ -66,7 +66,7 @@ late Logger logger;
               } else {
           /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
-          cubitLoginPassword.callBackUIEmptyLoginAndPassword(login:login,password:password);
+          cubitLoginPassword.startCubitLoginAndPasswordEmtyDont( login,password);
 
              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');
@@ -94,7 +94,7 @@ late Logger logger;
    *        */
       logger.i('ServerStatus..${ServerStatus} ');
       if (ServerStatus>=21) {
-        cubitLoginPassword.startGettingServerPublicId(
+        cubitLoginPassword.startCubitServerPublicId(
             parametsServerStatus: parametsServerStatus)
             .then((getJbossPublicId) {
           //TODO then

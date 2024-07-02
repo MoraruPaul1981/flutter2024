@@ -13,6 +13,7 @@ import '../../../Datalayer/remote/FuturesPing1cServer.dart';
 import '../../BI/Interfaces/Interfacebloc/Interfacebloc.dart';
 import '../../BI/adressJboss/getAdress.dart';
 import '../../BI/errors/Errors.dart';
+import 'EmitsLoginPassword.dart';
 
 
 
@@ -20,14 +21,11 @@ import '../../BI/errors/Errors.dart';
 class CubitLoginPassword extends Cubit<int>  {
   CubitLoginPassword( initialState):super( initialState);
 
-
 /*//TODO: RUN
 *    FUTURE  ServerStatus
 * */
 
-
-
-  Future<int> startGettingServerStatus({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> startCubitServerStatus({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
    late String ServerStatus;
     try {
@@ -46,9 +44,9 @@ class CubitLoginPassword extends Cubit<int>  {
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
       if (ServerStatus.length>=21) {
-        callBackUISuccessServerStatus();
+        EmitsLoginPassword(0). emitBackUISuccessServerStatus();
       } else {
-        callBackUIDontServerStatus();
+        EmitsLoginPassword(0).   emitBackUIDontServerStatus();
       }
       //TODO error
     }   catch (e, stacktrace) {
@@ -84,7 +82,7 @@ class CubitLoginPassword extends Cubit<int>  {
   /*//TODO: RUN
 *    FUTURE  Public ID
 * */
-  Future<int> startGettingServerPublicId({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> startCubitServerPublicId({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     late int PublicID;
     try{
@@ -128,127 +126,14 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
- /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
- *   */
- *   */
-  /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
- /* TODO:  EMIT() просто ответы   визуальные для обратно  UI
- *   */
- *   */
-
-
-
-  Future<void> callBackUIEmptyLoginAndPassword( ) async {
-    // TODO: implement getbasedonloginandpasswordPublicID
+  Future<void> startCubitLoginAndPasswordEmtyDont( String login,String password) async {
+    // TODO: implement startGettingLoginAndPasswordEmtyDont
     try{
-     emit(1);
-     print('  callBackUIEmptyLoginAndPassword  emit ${emit}  ');
+      print('login ... ${login}  password ... ${password} ');
+
+
+      EmitsLoginPassword(0).   emitBackUIEmptyLoginAndPassword();
+
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -257,60 +142,10 @@ class CubitLoginPassword extends Cubit<int>  {
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
-
-
-
-
-
-  Future<void> callBackUIDontServerStatus( ) async {
-    // TODO: implement getbasedonloginandpasswordPublicID
-    try{
-      emit(2);
-      print('  callBackUIDontServerStatus  emit ${emit}  ');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-    }
-  }
-
-
-  Future<void> callBackUISuccessServerStatus( ) async {
-    // TODO: implement getbasedonloginandpasswordPublicID
-    try{
-      emit(21);
-      print('  callBackUISuccessServerStatus  emit ${emit}  ');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-    }
-  }
-
-
-
-  Future<void> callBackUISuccessAuntifcation( ) async {
-    // TODO: implement getbasedonloginandpasswordPublicID
-    try{
-      emit(200);
-      print('  callBackUISuccessAuntifcation  emit ${emit}  ');
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
-    }
-  }
-
-
 
 //TODO: END class CountterCubitFuture
 }
+
 
 
 
