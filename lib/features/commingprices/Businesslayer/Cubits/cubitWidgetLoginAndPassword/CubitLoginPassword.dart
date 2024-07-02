@@ -100,7 +100,11 @@ class CubitLoginPassword extends Cubit<int>  {
       print(' Finifh()..  PublicID $PublicID  ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-      emit(PublicID);
+     if (PublicID>0) {
+       EmitsLoginPassword(0). emitBackUISuccessPublicId();
+     } else {
+       EmitsLoginPassword(0).     emitBackUIErrorPublicId( );
+     }
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -130,7 +134,6 @@ class CubitLoginPassword extends Cubit<int>  {
     // TODO: implement startGettingLoginAndPasswordEmtyDont
     try{
       print('login ... ${login}  password ... ${password} ');
-
 
       EmitsLoginPassword(0).   emitBackUIEmptyLoginAndPassword();
 

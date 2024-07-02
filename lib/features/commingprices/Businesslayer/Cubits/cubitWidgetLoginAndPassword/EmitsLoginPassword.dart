@@ -65,6 +65,35 @@ class EmitsLoginPassword extends CubitLoginPassword{
   }
 
 
+
+  Future<void> emitBackUIErrorPublicId( ) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    try{
+      emit(3);
+      print('  callBackUISuccessAuntifcation  emit ${emit}  ');
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///TODO:  Успешные Future Logon and Password
+*/
   Future<void> emitBackUISuccessServerStatus( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
@@ -81,7 +110,7 @@ class EmitsLoginPassword extends CubitLoginPassword{
 
 
 
-  Future<void> emitBackUISuccessAuntifcation( ) async {
+  Future<void> emitBackUISuccessPublicId( ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
       emit(200);
@@ -94,8 +123,6 @@ class EmitsLoginPassword extends CubitLoginPassword{
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
-
-
 
 }
 
