@@ -42,15 +42,15 @@ late Logger logger;
        *       */
                ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
 
-                //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен
+                //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен  шаг первый
                 cubitLoginPassword.startGettingServerStatus(  parametsServerStatus:parametsServerStatus)
                     .then(( ServerStatus) {
                   //TODO then
                   logger.i('ServerStatus..${ServerStatus} ');
 
-
-
-
+                  //TODO:сам запрос на получения PublicID  шаг Второй
+                  callBackPublicIDJboss(cubitLoginPassword, parametsServerStatus);
+                  logger.i('ServerStatus..${ServerStatus} ');
                   return  ServerStatus;
                 }).catchError(
                         (Object error) {
@@ -88,6 +88,32 @@ late Logger logger;
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
 
+  }
+
+
+/*  //TODO: Получаем после Аунтификации Публичный АДИ, на базе логина и пароля
+*      */
+ Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword, ParametsServerStatus parametsServerStatus) async {
+            //TODO:сам запрос на получения PublicID  шаг Второй
+    try{
+    cubitLoginPassword. startGettingServerPublicId(parametsServerStatus:parametsServerStatus)
+        .then(( getJbossPublicId) {
+      //TODO then
+      logger.i('PublicId..${getJbossPublicId} ');
+      return getJbossPublicId;
+    }).catchError(
+            (Object error) {
+          logger.i(' get ERROR $error  ');
+        }
+    );
+
+    //TODO error
+  }   catch (e, stacktrace) {
+print(' get ERROR $e get stacktrace $stacktrace ');
+//TODO: Gradle Error
+Errors errors=Errors();
+errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+}
   }
 
 

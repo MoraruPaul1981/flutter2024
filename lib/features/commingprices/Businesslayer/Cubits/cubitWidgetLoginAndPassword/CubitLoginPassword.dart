@@ -76,23 +76,28 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
+
   /*//TODO: RUN
 *    FUTURE  Public ID
 * */
-
-
-  Future<void> startGettingServerPublicId({required Map<String, dynamic> parametrgetPublicId}) async {
+  Future<int> startGettingServerPublicId({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
+    late int PublicID;
     try{
-      Future<int> futureValuePublicID =    Future<int>
-          .value(futurePublicID(parametrgetPublicId:parametrgetPublicId)
-          .catchError(
-              (Object error) {
-            print(' get ERROR $error  ');
-          })
-      );
-      int PublicID =await futureValuePublicID;
-      print(' Finifh()..  PublicID $PublicID  ');
+     Future<int> futureValuePublicID =    Future<int>.value(futurePublicID(parametsServerStatus: parametsServerStatus))
+     ..then((futureValuePublicID) {
+       //TODO then
+      print('start futureValuePublicID .. ');
+       return futureValuePublicID;
+
+     }).catchError(
+             (Object error) {
+               print(' get ERROR $error  ');
+         }
+     );
+
+      PublicID =await futureValuePublicID;
+      print(' Finifh()..  PublicID $PublicID  ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
       emit(PublicID);
@@ -103,12 +108,10 @@ class CubitLoginPassword extends Cubit<int>  {
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
+    return  PublicID ?? 0;
   }
 
-
-
-
-  Future<int> futurePublicID({required Map<String, dynamic> parametrgetPublicId}) async {
+  Future<int> futurePublicID({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement futurePublicID
     // TODO: implement valuePublicID
     final PublicID = await Isolate.run(() async {
@@ -120,6 +123,13 @@ class CubitLoginPassword extends Cubit<int>  {
     });
     return PublicID;
   }
+
+
+
+
+
+
+
 
 
 
