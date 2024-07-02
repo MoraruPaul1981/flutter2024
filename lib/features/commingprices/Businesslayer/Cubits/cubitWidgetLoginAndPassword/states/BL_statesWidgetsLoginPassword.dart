@@ -55,6 +55,9 @@ class BL_statesWidgetsLoginPassword {
   void completeBlocConsumerLoginandPassword(int state ) {
     try{
       switch (state){
+
+      /*          //TODO: Не успешные  EMIT
+*              */
       /* TODO: какой статус пришел от Cubit login and password
       *   */
         case 1:
