@@ -1,12 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../Businesslayer/BI/Interfaces/childinterface/IntafaceChildWidgetLoginAndPassword.dart';
 import '../../../../Businesslayer/BI/errors/Errors.dart';
 import '../CubitLoginPassword.dart';
-import '../paramets/ParametsLoginPassword.dart';
+import '../paramets/ParametsLoginServerPassword.dart';
 
 
 
@@ -38,9 +37,18 @@ late Logger logger;
         //TODO: login and password Not NULL
         if (login!.length>3 && password!.length>3) {
                 //TODO: параметры запроса
-       /*   //TODO: Класс с Парметрами для передачив кдласс логин и пароль
+
+
+       /*   //TODO: Класс с Парметрами для передачив кдласс логин и пароль #1
        *       */
-               ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
+          ParametsServerStatus parametsServerStatus=ParametsServerStatus(login,password,context,logger);
+      /* TODO: устанока параментов для параметров Статус Сервера
+      *   */
+          parametsServerStatus.setlogin(login);
+          parametsServerStatus.setpassword(password);
+          parametsServerStatus.setcontext(context);
+          parametsServerStatus.setlogger(logger);
+
 
                 //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен  шаг первый
                 cubitLoginPassword.startCubitServerStatus(  parametsServerStatus:parametsServerStatus)
@@ -48,9 +56,19 @@ late Logger logger;
                   //TODO then
                   logger.i('ServerStatus..${ServerStatus} ');
 
-                  //TODO:сам запрос на получения PublicID  шаг Второй  статус пришел 21 не пустой
-                    callBackPublicIDJboss(cubitLoginPassword, parametsServerStatus,ServerStatus);
 
+                  //TODO:сам запрос на получения PublicID  шаг Второй  статус пришел 21 не пустой #2
+                  if (ServerStatus >=21) {
+
+               /*     //TODO:  класс параметров получение Публичного ID
+               *         */
+                    ParametsServerPublicID parametsServerPublicID = ParametsServerPublicID(
+                        login, password, context, logger);
+
+                    callBackPublicIDJboss(
+                        cubitLoginPassword, parametsServerPublicID,
+                        ServerStatus);
+                  }
                   logger.i('ServerStatus..${ServerStatus} ');
                   return  ServerStatus;
                 }).catchError(
@@ -60,6 +78,11 @@ late Logger logger;
                 );
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
+
+
+
+
+
 
        /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
@@ -85,17 +108,25 @@ late Logger logger;
   }
 
 
+
+
+
+
+
+
+
+
+
 /*  //TODO: Получаем после Аунтификации Публичный АДИ, на базе логина и пароля
 *      */
- Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword, ParametsServerStatus parametsServerStatus,int ServerStatus) async {
+ Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword,
+     ParametsServerPublicID parametsServerPublicID,int ServerStatus) async {
             //TODO:сам запрос на получения PublicID  шаг Второй
     try{
    /*   //TODO:  если статус ПРИЩШЕЛ 21 то тогда запускаем получение Public ID
    *        */
       logger.i('ServerStatus..${ServerStatus} ');
-      if (ServerStatus>=21) {
-        cubitLoginPassword.startCubitServerPublicId(
-            parametsServerStatus: parametsServerStatus)
+        cubitLoginPassword.startCubitServerPublicId(parametsServerPublicID:   parametsServerPublicID)
             .then((getJbossPublicId) {
           //TODO then
           logger.i('PublicId..${getJbossPublicId} ');
@@ -105,7 +136,6 @@ late Logger logger;
               logger.i(' get ERROR $error  ');
             }
         );
-      }
     //TODO error
   }   catch (e, stacktrace) {
 print(' get ERROR $e get stacktrace $stacktrace ');

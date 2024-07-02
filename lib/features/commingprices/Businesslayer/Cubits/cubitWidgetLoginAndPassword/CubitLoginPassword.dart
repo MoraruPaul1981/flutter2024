@@ -2,15 +2,12 @@
 import 'dart:isolate';
 import 'dart:math';
 
-
-import 'package:commintprices/features/commingprices/Businesslayer/Cubits/cubitWidgetLoginAndPassword/paramets/ParametsLoginPassword.dart';
+import 'package:commintprices/features/commingprices/Businesslayer/Cubits/cubitWidgetLoginAndPassword/paramets/ParametsLoginServerPassword.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
-import '../../../Datalayer/entities/Entities1CMap.dart';
 import '../../../Datalayer/remote/FuturesPing1cServer.dart';
-import '../../BI/Interfaces/Interfacebloc/Interfacebloc.dart';
 import '../../BI/adressJboss/getAdress.dart';
 import '../../BI/errors/Errors.dart';
 import 'EmitsLoginPassword.dart';
@@ -20,6 +17,32 @@ import 'EmitsLoginPassword.dart';
 //TODO: CountterCubitFuture
 class CubitLoginPassword extends Cubit<int>  {
   CubitLoginPassword( initialState):super( initialState);
+
+ /* //TODO:CubitLoginPassword
+ *     */
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    print('error ... ${error}  password ... ${stackTrace} ');
+  }
+
+  @override
+  void addError(Object error, [StackTrace? stackTrace]) {
+    print('error ... ${error}  stackTrace ... ${stackTrace} ');
+  }
+
+  @override
+  void onChange(Change<int> change) {
+    print('change ... ${change}  ');
+  }
+
+
+
+
+
+
+
+
+
 
 /*//TODO: RUN
 *    FUTURE  ServerStatus
@@ -84,11 +107,11 @@ class CubitLoginPassword extends Cubit<int>  {
   /*//TODO: RUN
 *    FUTURE  Public ID
 * */
-  Future<int> startCubitServerPublicId({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> startCubitServerPublicId({required ParametsServerPublicID parametsServerPublicID}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     late int PublicID;
     try{
-     Future<int> futureValuePublicID =    Future<int>.value(futurePublicID(parametsServerStatus: parametsServerStatus))
+     Future<int> futureValuePublicID =    Future<int>.value(futurePublicID(parametsServerPublicID:   parametsServerPublicID))
      .then((futureValuePublicID) {
        //TODO then
       print('start futureValuePublicID .. ');
@@ -117,7 +140,7 @@ class CubitLoginPassword extends Cubit<int>  {
     return  PublicID ?? 0;
   }
 
-  Future<int> futurePublicID({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> futurePublicID({required ParametsServerPublicID parametsServerPublicID}) async {
     // TODO: implement futurePublicID
     // TODO: implement valuePublicID
     final PublicID = await Isolate.run(() async {
@@ -150,6 +173,9 @@ class CubitLoginPassword extends Cubit<int>  {
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
   }
+
+
+
 
 //TODO: END class CountterCubitFuture
 }
