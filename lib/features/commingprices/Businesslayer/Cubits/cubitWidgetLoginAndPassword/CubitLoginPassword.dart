@@ -42,9 +42,11 @@ class CubitLoginPassword extends Cubit<int>  {
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      String ServerStatus =await futureServerStatus(parsedUrl) ;
+      String ServerStatus =await futureServerStatus(parsedUrl)  ??   "0";
       print(' Finifh()..  ServerStatus $ServerStatus  ') ;
-
+      /* //TODO:
+   *     главная команда всегда кода eьше Ответ */
+      emit(ServerStatus.length);
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
