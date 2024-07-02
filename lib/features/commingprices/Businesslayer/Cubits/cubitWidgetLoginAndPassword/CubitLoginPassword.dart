@@ -43,7 +43,7 @@ class CubitLoginPassword extends Cubit<int>  {
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
       String ServerStatus =await futureServerStatus(parsedUrl)  ??   "0";
-      print(' Finifh()..  ServerStatus $ServerStatus  ') ;
+      print('ServerStatus ${ServerStatus}  ServerStatus.length ${ServerStatus.length} ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
       emit(ServerStatus.length);

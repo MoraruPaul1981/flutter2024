@@ -57,23 +57,29 @@ class BL_statesWidgetsLoginPassword {
       switch (state){
       /* TODO: какой статус пришел от Cubit login and password
       *   */
-        case 10:
+        case 1:
         /*  //TODO:логин и пароль не заполенн
         *      */
           callBackLoginAndPasswordEmpty(state:state,context: context);
           logger.i('state .....$state');
 
-        case 20:
+        case 2:
         /*  //TODO:сервер выключени
         *      */
           callBackServerRunAndStop(state:state,context: context);
           logger.i('state .....$state');
 
 
-        case 30:
+        case 3:
         /*  //TODO:логин и пароль не правильный
         *      */
           callBackLoginAndPasswordNotCorrect(state:state,context: context);
+          logger.i('state .....$state');
+
+
+        case 21:
+        /*  //TODO:логин и пароль не правильный
+        *      */
           logger.i('state .....$state');
 
 
