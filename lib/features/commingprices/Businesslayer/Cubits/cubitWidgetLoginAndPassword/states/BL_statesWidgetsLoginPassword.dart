@@ -17,12 +17,7 @@ class BL_statesWidgetsLoginPassword {
   late  Logger logger;
   late  BuildContext context;
   late Key? key;
-/*
- //TODO:login GET*/
-  final _loginicController = TextEditingController();
-  /*
- //TODO:password GET*/
-  final _passwordController = TextEditingController();
+
   ///
   ///TODO  аунтификация
   BL_statesWidgetsLoginPassword({ required this.logger,  required this.context});

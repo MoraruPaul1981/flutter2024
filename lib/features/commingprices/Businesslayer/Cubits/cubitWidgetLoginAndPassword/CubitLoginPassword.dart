@@ -62,7 +62,11 @@ class CubitLoginPassword extends Cubit<int>  {
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      ServerStatus =await futureServerStatus(parsedUrl)  ??   "0";
+      ServerStatus =await Future<String>.value(futureServerStatus(parsedUrl) )
+          .catchError(
+              (Object error) {
+            print(' get ERROR $error  ');
+          });
       print('ServerStatus ${ServerStatus}  ServerStatus.length ${ServerStatus.length} ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
@@ -81,6 +85,10 @@ class CubitLoginPassword extends Cubit<int>  {
     return  ServerStatus.length ?? 0;
     }
 
+
+
+/*//TODO: Получаем статус сервера через ISolate
+*    */
   Future<String> futureServerStatus(     Uri parsedUrl ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
     // TODO: implement futurePublicID
     final ServerStatus = await Isolate.run(() async {

@@ -20,16 +20,11 @@ class StatesWidgetsLoginPassword {
   late  BuildContext context;
   late Key? key;
 
-
- //TODO:login GET*/
-  final _loginicController = TextEditingController();
-  /*
- //TODO:password GET*/
-  final _passwordController = TextEditingController();
-
   ///TODO  аунтификация
   StatesWidgetsLoginPassword({ required this.logger,  required this.context,  required this.key});
-
+/*  //TODO:*/
+   TextEditingController   _loginicController = TextEditingController();
+     TextEditingController   _passwordController= TextEditingController();
 
   ////TODO:Компонеты Виджета  КОД
 

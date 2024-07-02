@@ -1,6 +1,7 @@
 
 
 import "dart:async";
+import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -125,38 +126,20 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
   //TODO ping
   @override
   Future<String> CallBackPing(Uri parsedUrl) async {
-    var getpingCallBack ;
+    late String getpingCallBack ;
     try {
       //TODO только для пинга
         BigInt Uuid=BigInt.parse('0')  ;
        int IdUser=0;
 
       //TODO: первая часть пинга
-      Future<Response>responsePingFirstPart =     getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
-      responsePingFirstPart.catchError(
-                  (Object error) {
-             print(' catchError  ERROR $error  ');
-                //TODO оБРАБОТКА пинга
-              });
-      //TODO:
-       var  getpingCallBackResponseFirstPart  = await  responsePingFirstPart as  Response;
-        print('Result  getpingCallBackResponseFirstPart ..  '+getpingCallBackResponseFirstPart.toString()+'' );
+        Future<Response> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
 
-      //TODO: вторая часть пинга
-        if (getpingCallBackResponseFirstPart.statusCode == 200) {
-          Future<String?> getProcessingPingTwoPart=  getCompetePing(   getpingCallBackResponseFirstPart);
-          getProcessingPingTwoPart.catchError(
-                  (Object error) {
-                    print(' catchError  ERROR $error  ');
-                //TODO оБРАБОТКА пинга
-              });
-          //TODO:
-          getpingCallBack   = await  getProcessingPingTwoPart as  String;
-          print('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
-        }else{
-          print('Result  getpingCallBack ..  '+getpingCallBack.toString()+'' );
-        }
 
+        final   Response responsePingCallBack=await  futurePingCallBack;
+
+        getpingCallBack="";
+        print("    responsePingCallBack : ${responsePingCallBack.toString()}");
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -164,7 +147,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-    return getpingCallBack;
+    return getpingCallBack   ;
   }
 
 
@@ -281,20 +264,15 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
   @override
   Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
-    // TODO: implement getDownloadJsonMaps
-     var  getResponse;
+    late   Response  getResponse;
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
       //TODO base64
-        String? basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
+        String basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
 
       print(' basicAuth  $basicAuth');
 
-
-
-
-      
       //TODO главный запрос
       getResponse =   await http.get(
           url,
@@ -313,21 +291,21 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
         },
       )
           .catchError(
-              (Object error) {
+              (Object error,stacktrace) {
             print(' get ERROR $error  ');
-          })  as Response ;
+          })    ;
 
    print('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
-      //TODO error
-    }   catch (e, stacktrace) {
-      print(' get ERROR $e get stacktrace $stacktrace ');
-      //TODO: Gradle Error
-      Errors errors=Errors();
-      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
-    }
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+}
 
-     return getResponse;
+     return getResponse ;
   }
 
 
