@@ -5,13 +5,13 @@ import 'dart:io';
 import 'InterfacePing.dart';
 
 
-class PingAyn  extends  InterfacePing{
+class PingAynJboss  extends  InterfacePing{
   @override
   Future<bool> get   connectedJboss async {
     // TODO: implement connected
     List<InternetAddress> conn;
     try {
-     conn =await InternetAddress.lookup('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/');
+     conn =await InternetAddress.lookup('80.70.108.165');
      print('conn...${conn}');
     } on SocketException catch (e) {
       // TODO
@@ -19,6 +19,24 @@ class PingAyn  extends  InterfacePing{
       return Future.value(false);
     }
    return Future.value(conn.isNotEmpty);
+  }
+
+}
+
+class PingAyn1C  extends  InterfacePing{
+  @override
+  Future<bool> get   connectedJboss async {
+    // TODO: implement connected
+    List<InternetAddress> conn;
+    try {
+      conn =await InternetAddress.lookup('ya.ru');
+      print('conn...${conn}');
+    } on SocketException catch (e) {
+      // TODO
+      print('conn...${false}');
+      return Future.value(false);
+    }
+    return Future.value(conn.isNotEmpty);
   }
 
 }

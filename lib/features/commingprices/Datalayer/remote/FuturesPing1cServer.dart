@@ -18,6 +18,7 @@ import '../../Businesslayer/Use case/adressJboss/getAdress.dart';
 import '../../Businesslayer/Use case/converts/GetConverts.dart';
 import '../../Businesslayer/Use case/decoding/getDecodingCallback.dart';
 import '../../Businesslayer/Use case/errors/Errors.dart';
+import '../../Businesslayer/Use case/ping/InterfacePing.dart';
 import '../../Businesslayer/Use case/ping/PingCheck.dart';
 import '../entities/Entities1CMap.dart';
 import 'FuturesDataFrom1cServer.dart';
@@ -279,7 +280,8 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 
 
-      PingAyn pingAyn = PingAyn();
+       InterfacePing pingAyn = PingAynJboss();
+     // InterfacePing pingAyn = PingAyn1C();
       bool  PingJboss= await pingAyn.connectedJboss;
       print(' PingJboss $PingJboss');
       print(' PingJboss $PingJboss');
