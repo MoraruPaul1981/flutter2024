@@ -150,7 +150,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-    return getpingCallBack   ;
+    return getpingCallBack ??=""   ;
   }
 
 
