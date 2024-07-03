@@ -83,7 +83,7 @@ class CubitLoginPassword extends Cubit<int>  {
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
-    return  ServerStatus.length ?? 0;
+    return  ServerStatus.length  ;
     }
 
 

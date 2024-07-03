@@ -2,7 +2,9 @@
 
 import "dart:async";
 import 'dart:io';
+import 'dart:typed_data';
 
+import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -133,10 +135,10 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
        int IdUser=0;
 
       //TODO: первая часть пинга
-        Future<Response> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
+        Future<Response?> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
 
 
-        final   Response responsePingCallBack=await  futurePingCallBack;
+        final   Response? responsePingCallBack=await  futurePingCallBack;
 
         getpingCallBack="";
         print("    responsePingCallBack : ${responsePingCallBack.toString()}");
@@ -262,9 +264,10 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 //TODO sendResponce
   @override
-  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
+  Future<Response?> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
-    late   Response  getResponse;
+    Response?     getResponse;
+
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
@@ -273,7 +276,61 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
       print(' basicAuth  $basicAuth');
 
-      //TODO главный запрос
+
+
+
+      final Result =await Ping('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/',  count:  5) ;
+
+      print(' Result  $Result');
+
+      print('Running command: ${Result}');
+      // Begin ping process and listen for output
+      Result.stream.listen((PingData event) {
+        final res = event.response;
+        if (res == null) return;
+        final ip = res.ip;
+        final ttl = res.ttl;
+        final time = res.time;
+        String ping =  res.toJson();
+      });
+
+
+
+
+
+/*final result =await InternetAddress.lookup('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/');
+     int d= result[0].rawAddress.first;
+  ByteBuffer builder=    result[0].rawAddress.buffer;
+
+      print(' d  $d');
+      print(' builder  $builder');
+      print(' result[0].isLoopback  $result[0].isLoopback');*/
+
+
+    /*  final  response =await http.head(Uri.parse('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/'));
+      print(' response.statusCode  $response.statusCode');
+      print('  response.isRedirect  $response.isRedirect');*/
+
+  /*    ////TODO: */
+
+   /*   PingData Result =await Ping('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/',  count:  5).stream.first;
+
+      print(' Result  $Result');
+
+    PingResponse? pingRs= Result.response;
+    Duration? time=  pingRs!.time;
+      PingError? geterror=  Result.error;
+    String? ping =  Result.toJson();
+
+      print(' time  $time');
+      print(' pingRs  $pingRs');
+      print(' ping  $ping');
+      print(' geterror  $geterror');
+*/
+
+
+
+      /*//TODO главный запрос
       getResponse =   await http.get(
           url,
           headers: {
@@ -293,19 +350,21 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
           .catchError(
               (Object error,stacktrace) {
             print(' get ERROR $error  ');
-          })    ;
+          });
 
-   print('start getResponse ..  '+getResponse.toString()+'' );
+      completer.complete(getResponse);*/
+
+      //print('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
     //TODO error
   }   catch (e, stacktrace) {
   print(' get ERROR $e get stacktrace $stacktrace ');
+
   //TODO: Gradle Error
   Errors errors=Errors();
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
 }
-
-     return getResponse ;
+     return        getResponse;
   }
 
 

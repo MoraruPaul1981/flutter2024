@@ -9,7 +9,7 @@ import '../../../Datalayer/entities/Entities1CMap.dart';
 
 abstract  class InterfaceFutureResponse {
   //TODO
-  Future<Response> getDownloadJsonMaps({ required  Uri   url, required int IdUser, required int UUID }) ;
+  Future<Response?> getDownloadJsonMaps({ required  Uri   url, required int IdUser, required int UUID }) ;
 }
 
 
