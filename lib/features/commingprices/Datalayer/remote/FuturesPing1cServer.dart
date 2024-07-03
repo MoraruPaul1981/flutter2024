@@ -119,7 +119,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
   @override
   Future<String> oneStepPing(Uri parsedUrl ) async {
  print('Result parsedUrl ..  '+parsedUrl.toString()+'' );
-    return CallBackPing(parsedUrl) ;
+    return  CallBackPing(parsedUrl ,BigInt.from(0),0); ;
   }
 
 
@@ -129,21 +129,24 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
 
   //TODO ping
   @override
-  Future<String> CallBackPing(Uri parsedUrl) async {
-    late String getpingCallBack ;
+  Future<String> CallBackPing(Uri parsedUrl,BigInt Uuid,int IdUser ) async {
+      String? getpingCallBack ;
+      Response?  getResponse;
     try {
       //TODO только для пинга
-        BigInt Uuid=BigInt.parse('0')  ;
-       int IdUser=0;
-
       //TODO: первая часть пинга
-        Future<Response?> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
+        Future<http.Response?> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
+       /* //TODO:*/
+        getResponse  =  await    futurePingCallBack;
+
+        getpingCallBack='';
 
 
-        final   Response? responsePingCallBack=await  futurePingCallBack;
-
-        getpingCallBack="";
-        print("    responsePingCallBack : ${responsePingCallBack.toString()}");
+    /*    if (getResponse!=null) {
+          print('Future finished successfully  getResponse... ${getResponse}');
+          getpingCallBack =getResponse.body;
+          print(' getpingCallBack... ${getpingCallBack}');
+        }*/
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -151,7 +154,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-    return getpingCallBack ??=""   ;
+    return getpingCallBack ??=''  ;
   }
 
 
@@ -175,7 +178,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
 
 //TODO получаем данные от 1с Севра
-         Future<Response> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
+         Future<Response?> responseSelfDataFuture =  futuresGetSelfData.getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
 
       responseSelfDataFuture.catchError(
               (Object error) {
@@ -183,7 +186,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
             //TODO оБРАБОТКА пинга
           });
       //TODO получаем Responce Self-Data
-      final   Response CallBackresponseSelfData=await  responseSelfDataFuture;
+      final   Response? CallBackresponseSelfData=await  responseSelfDataFuture;
       //TODO then
    print(' CallBackresponseSelfData .. $CallBackresponseSelfData');
 
@@ -268,101 +271,50 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
   @override
   Future<Response?> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
-    Response?     getResponse;
+    late Response?   getResponse;
 
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
-      //TODO base64
-        String basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
 
+     /* //TODO
+           base64 ДЛЯ запросов к сети*/
+        String basicAuth=     GetConverts().convertBase64(  user: 'dsu1Admin', password: 'dsu1Admin');
       print(' basicAuth  $basicAuth');
 
-
-
-       InterfacePing pingAyn = PingAynJboss();
-     // InterfacePing pingAyn = PingAyn1C();
-      bool  PingJboss= await pingAyn.connectedJboss;
-      print(' PingJboss $PingJboss');
-      print(' PingJboss $PingJboss');
-
-
-/*      final Result =await Ping('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/',  count:  5) ;
-
-      print(' Result  $Result');
-
-      print('Running command: ${Result}');
-      // Begin ping process and listen for output
-      Result.stream.listen((PingData event) {
-        final res = event.response;
-        if (res == null) return;
-        final ip = res.ip;
-        final ttl = res.ttl;
-        final time = res.time;
-        String ping =  res.toJson();
-      });*/
-
-
-
-
-
-/*final result =await InternetAddress.lookup('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/');
-     int d= result[0].rawAddress.first;
-  ByteBuffer builder=    result[0].rawAddress.buffer;
-
-      print(' d  $d');
-      print(' builder  $builder');
-      print(' result[0].isLoopback  $result[0].isLoopback');*/
-
-
-    /*  final  response =await http.head(Uri.parse('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/'));
-      print(' response.statusCode  $response.statusCode');
-      print('  response.isRedirect  $response.isRedirect');*/
-
-  /*    ////TODO: */
-
-   /*   PingData Result =await Ping('http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/',  count:  5).stream.first;
-
-      print(' Result  $Result');
-
-    PingResponse? pingRs= Result.response;
-    Duration? time=  pingRs!.time;
-      PingError? geterror=  Result.error;
-    String? ping =  Result.toJson();
-
-      print(' time  $time');
-      print(' pingRs  $pingRs');
-      print(' ping  $ping');
-      print(' geterror  $geterror');
+/*   ///TODO:  проверка реальной работы сервер аунтификации Jboss
 */
+      bool  ServerAuntJboss=  await checkingJbossServer();
+      print(' ServerAuntJboss  $ServerAuntJboss');
 
 
+    //TODO главный запрос
+      if (ServerAuntJboss==true) {
+        getResponse =   await http.get(
+                  url,
+                  headers: {
+                    'user':IdUser.toString(),
+                    'uuid':UUID.toString(),
+                    'authorization':'$basicAuth',
+                    "Access-Control-Allow-Origin": "*"
+                  }
+              )
+                  .timeout(
+                const Duration(seconds: 20),
+                onTimeout: () {
+                  // Time has run out, do what you wanted to do.
+                  return  Response(' Timeout Error !!! ', 408); // Request Timeout response status code
+                },
+              )
+                  .catchError(
+                      (Object error,stacktrace) {
+                    print(' get ERROR $error  ');
+                  });
+        print(' getResponse  $getResponse');
 
-      /*//TODO главный запрос
-      getResponse =   await http.get(
-          url,
-          headers: {
-            'user':IdUser.toString(),
-            'uuid':UUID.toString(),
-            'authorization':'$basicAuth',
-            "Access-Control-Allow-Origin": "*"
-          }
-      )
-          .timeout(
-        const Duration(seconds: 20),
-        onTimeout: () {
-          // Time has run out, do what you wanted to do.
-          return  Response(' Timeout Error !!! ', 408); // Request Timeout response status code
-        },
-      )
-          .catchError(
-              (Object error,stacktrace) {
-            print(' get ERROR $error  ');
-          });
-
-      completer.complete(getResponse);*/
-
-      //print('start getResponse ..  '+getResponse.toString()+'' );
+      } else {
+        print(' Future<bool>.value(false) ');
+      }
       //TODO error
     //TODO error
   }   catch (e, stacktrace) {
@@ -373,6 +325,29 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
   errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
 }
      return        getResponse;
+  }
+
+
+
+
+
+/*  //TODO: метод проверки реальной работы сервера аунтификации  Jboss
+*      */
+  Future<bool> checkingJbossServer() async {
+   late  bool  PingJboss;
+    try{
+    //InterfacePing pingAyn = PingAynJboss();
+         InterfacePing pingAyn = PingAyn1C();
+             PingJboss= await pingAyn.connectedJboss;
+          print(' PingJboss $PingJboss');
+    //TODO error
+  }   catch (e, stacktrace) {
+  print(' get ERROR $e get stacktrace $stacktrace ');
+  //TODO: Gradle Error
+  Errors errors=Errors();
+  errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+}
+          return  PingJboss;
   }
 
 

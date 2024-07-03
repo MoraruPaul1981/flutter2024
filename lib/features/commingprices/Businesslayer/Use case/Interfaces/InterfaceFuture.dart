@@ -24,7 +24,7 @@ abstract  class InterfaceCallBack {
   //TODO
 
   //TODO ping
-  Future<String> CallBackPing(Uri parsedUrl) ; //TODO ping
+  Future<String> CallBackPing(Uri parsedUrl,BigInt Uuid,int IdUser) ; //TODO ping
 
   //TODO self-data
   Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOtServer ,int IdUser,BigInt Uuid);

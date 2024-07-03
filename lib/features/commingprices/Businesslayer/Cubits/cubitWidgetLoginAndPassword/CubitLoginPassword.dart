@@ -94,7 +94,7 @@ class CubitLoginPassword extends Cubit<int>  {
     // TODO: implement futurePublicID
     final ServerStatus = await Isolate.run(() async {
       FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
-     String ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl );
+     String ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl ,BigInt.from(0),0);
       print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
       return ServerStatus;
     });

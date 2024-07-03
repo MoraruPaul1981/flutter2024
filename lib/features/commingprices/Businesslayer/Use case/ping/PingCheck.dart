@@ -12,7 +12,7 @@ class PingAynJboss  extends  InterfacePing{
     List<InternetAddress> conn;
     try {
      conn =await InternetAddress.lookup('80.70.108.165');
-     print('conn...${conn}');
+     print('conn...${conn}     conn.isNotEmpty...${    conn.isNotEmpty}');
     } on SocketException catch (e) {
       // TODO
       print('conn...${false}');
@@ -30,7 +30,7 @@ class PingAyn1C  extends  InterfacePing{
     List<InternetAddress> conn;
     try {
       conn =await InternetAddress.lookup('ya.ru');
-      print('conn...${conn}');
+      print('conn...${conn}     conn.isNotEmpty...${    conn.isNotEmpty}');
     } on SocketException catch (e) {
       // TODO
       print('conn...${false}');

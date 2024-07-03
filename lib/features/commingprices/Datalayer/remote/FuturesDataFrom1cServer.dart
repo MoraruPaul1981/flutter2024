@@ -24,9 +24,9 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
 
   //TODO получаем данные self-data
   @override
-  Future<Response> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
+  Future<Response?> getDownloadJsonMaps({required Uri url, required int IdUser, required int UUID }) async {
     // TODO: implement getDownloadJsonMaps
-      var getResponse;
+      late Response? getResponse;
     try{
       //TODO Paramerts
       print('url..$url'+'IdUser..$IdUser'+ 'UUID..$UUID');
@@ -55,7 +55,7 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
           .catchError(
               (Object error) {
             print(' get ERROR $error  ');
-          })  as Response;
+          })   ;
 
      print('start getResponse ..  '+getResponse.toString()+'' );
       //TODO error
@@ -75,13 +75,13 @@ class FuturesDataFrom1cServer  implements InterfaceFutureResponse,InterfaceFutur
  TODO  of processing the
  TODO  incoming stream */
   @override
-  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response response1C}) {
+  Future<List<Map<String, List<Entities1CMap>>>> getGeneratorProcessSelfData({required  Response? response1C}) {
     // TODO: implement getGeneratorMapCallBack
    late  Future<List<Map<String, List<Entities1CMap>>>> getJson1cSucces ;
     try{
       print('response1C.statusCode $response1C.statusCode');
 
-     print('Result esponse1C.statusCode ..  '+response1C.statusCode.toString()+
+     print('Result esponse1C.statusCode ..  '+response1C!.statusCode.toString()+
           '');
 
       if (response1C.statusCode==200) {
