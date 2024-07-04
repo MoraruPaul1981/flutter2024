@@ -59,7 +59,7 @@ late Logger logger;
 
 
                   //TODO:сам запрос на получения PublicID  шаг Второй  статус пришел 21 не пустой #2
-                  if (ServerStatus >=21) {
+                  if (ServerStatus ==200) {
 
                /*     //TODO:  класс параметров получение Публичного ID
                *         */
