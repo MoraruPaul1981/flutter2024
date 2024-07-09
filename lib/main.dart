@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'features/commingprices/Businesslayer/Use case/errors/Errors.dart';
@@ -26,20 +28,19 @@ void main() {
 
 
 //TODO метод запуска coming prices
-void startingCommintPrices() {
+Future<void> startingCommintPrices() async {
   try {
     //TODO int LOGGER
-    GetLogger().getFuturelogger()
-        .then((logger) {
-      //TODO then
-      logger as Logger;
-      logger.i('start startingCommintPrices()  .. ');
-      //TODO starting UI
-      runApp( CommingPricesWidget(logger: logger));
+  Logger logger= await  GetLogger().getFuturelogger().catchError(
+          (Object error) {
+        print(' get ERROR $error  ');
+      }) ;
 
-      logger.i('end startingCommintPrices()  ..  ');
-      return logger;
-    });
+    //TODO starting UI
+    runApp( CommingPricesWidget(logger: logger));
+
+    logger.i('    runApp( CommingPricesWidget(logger: logger)); ');
+
     //TODO error
   } catch (e, stacktrace) {
     print(' get ERROR $e get stacktrace $stacktrace ');
@@ -57,8 +58,7 @@ class CommingPricesWidget extends StatelessWidget {
   Logger logger;
 
 //TODO cunstructor
-  CommingPricesWidget({Key? key,required this.logger}):super(key: key);
-  //CommingPricesStatelessWidget({ required this.logger, super.key});
+  CommingPricesWidget({Key? key,required this.logger}):super(key: UniqueKey());
 
   @override
   Widget build(BuildContext context) {
@@ -67,17 +67,18 @@ class CommingPricesWidget extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: WidgetStateful(logger, key),
+      home: CommingPricesStateful( logger:logger),
     );
   }
 
 }
 
-class WidgetStateful extends StatefulWidget {
+class CommingPricesStateful extends StatefulWidget {
   Logger logger;
-  Key? key;
 
-  WidgetStateful(this.logger, this.key);
+/*  //TODO: StatefulWidget
+*      */
+  CommingPricesStateful({ Key? key  ,required this.logger}): super(key: key);
 
   @override
   //TODO Comming Prices main code
@@ -85,8 +86,7 @@ class WidgetStateful extends StatefulWidget {
   //TODO тест код  антификация пользователя
   //State<WidgetStateful> createState() => ParentWidgetPhoneMail(key:key, logger: logger);
 
-  State<WidgetStateful> createState() =>
-      ChildWidgetLoginAndPassword(key: key, logger: logger);
+  State<CommingPricesStateful> createState() => ChildWidgetLoginAndPassword(key: key, logger: logger);
 
 //TODO тест код  ROW
 // State<WidgetStateful> createState() => ParentWidgetRow(key:key, logger: logger);
@@ -94,6 +94,7 @@ class WidgetStateful extends StatefulWidget {
 
 //TODO ENDING widget
 }
+
 
 
 

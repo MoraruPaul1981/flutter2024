@@ -319,36 +319,9 @@ class StatesWidgetsLoginPassword {
           return previous==0;
         },
         builder: (context,state){
-          // return widget here based on BlocA's state
-          return Container(
-            margin: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 50),
-            padding: const EdgeInsets.all(2.0),
-            child: FloatingActionButton(
-              autofocus: true,
-              focusElevation: 5,
-              highlightElevation: 50,
-              onPressed: () {
+          // TODO:  return widget here based on BlocA's state  Создание самой Крушлой Кнопки
+        return  getFloatingAction (state,cubitLoginPassword);
 
-               /* //TODO: НАжимсаем на кнопку Кругдую запустить аунтифтикайция пользователя
-               *     */
-                BL_statesWidgetsLoginPassword(  logger: logger,context:context).    startingAyntificationLogingAdnPassword(state,context,    cubitLoginPassword,
-                    loginicController:_loginicController ,  passwordController:_passwordController );
-
-                logger.i('triggerStatusChange .....$state');
-
-
-              },
-              backgroundColor: Colors.blue[300],
-              tooltip: 'Вход !!!',
-              elevation: 15,
-              splashColor: Colors.grey,
-              child: const Icon(
-                CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(50.0))
-              ),
-            ),
-          );
         },
       ),
     );
@@ -357,6 +330,47 @@ class StatesWidgetsLoginPassword {
 
 
 
+
+
+
+
+/*  //TODO: Сама крглая кнопка
+*      */
+
+ Widget getFloatingAction (int state,CubitLoginPassword   cubitLoginPassword){
+
+  return Container(
+  margin: const EdgeInsets.only(left: 5, top: 20, right: 5, bottom:20),
+  padding: const EdgeInsets.all(2.0),
+  child: FloatingActionButton(
+  autofocus: true,
+  focusElevation: 5,
+  highlightElevation: 50,
+  onPressed: () {
+
+  /* //TODO: НАжимсаем на кнопку Кругдую запустить аунтифтикайция пользователя
+               *     */
+  BL_statesWidgetsLoginPassword(  logger: logger,context:context).    startingAyntificationLogingAdnPassword(state,context,
+      cubitLoginPassword,
+  loginicController:_loginicController ,  passwordController:_passwordController );
+
+  logger.i('triggerStatusChange .....$state');
+
+
+  },
+  backgroundColor: Colors.blue[300],
+  tooltip: 'Вход !!!',
+  elevation: 15,
+  splashColor: Colors.grey,
+  child: const Icon(
+  CupertinoIcons.arrow_right, color: Colors.white, size: 29,),
+  shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(50.0))
+  ),
+  ),
+  );
+
+}
 
 }
 

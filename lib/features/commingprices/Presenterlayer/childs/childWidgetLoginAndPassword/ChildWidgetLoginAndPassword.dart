@@ -20,7 +20,7 @@ import '../../../Businesslayer/Use case/animations/GetAntimations.dart';
 
 
 /////////TODO класс ожидание ответа пинга от 1с
-class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements IntarfaceChildWidgetAuthorizationUsers {
+class ChildWidgetLoginAndPassword extends State<CommingPricesStateful> implements IntarfaceChildWidgetAuthorizationUsers {
 
 //TODO: переменные
   @override
@@ -30,7 +30,7 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
 
   //TODO консруктор
   ChildWidgetLoginAndPassword({this.key, required this.logger });
-
+  //TODO:
   @override
   Widget build(BuildContext context) {
    /* //TODO: ССылка
@@ -126,6 +126,7 @@ class ChildWidgetLoginAndPassword extends State<WidgetStateful> implements Intar
 
       }
 
-  }
+
+}
 
 

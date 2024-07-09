@@ -21,7 +21,7 @@ import 'childs/ChildWidgetWaiting.dart';
 
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
-class BootCommingPricesWidget extends State<WidgetStateful> {
+class BootCommingPricesWidget extends State<CommingPricesStateful> {
   Logger logger;
   Key? key;
   BootCommingPricesWidget({this.key, required this.logger } ) ;
