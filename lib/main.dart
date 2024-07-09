@@ -37,7 +37,7 @@ Future<void> startingCommintPrices() async {
       }) ;
 
     //TODO starting UI
-    runApp( CommingPricesWidget(logger: logger));
+    runApp( CommingPricesWidget(key: GlobalKey(),logger: logger));
 
     logger.i('    runApp( CommingPricesWidget(logger: logger)); ');
 
@@ -56,9 +56,9 @@ Future<void> startingCommintPrices() async {
 class CommingPricesWidget extends StatelessWidget {
 //TODO log
   Logger logger;
-
+  Key key;
 //TODO cunstructor
-  CommingPricesWidget({Key? key,required this.logger}):super(key: UniqueKey());
+  CommingPricesWidget({ required this.key,required this.logger}) ;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class CommingPricesWidget extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: CommingPricesStateful( logger:logger),
+      home: CommingPricesStateful(key:key, logger:logger),
     );
   }
 
@@ -75,10 +75,10 @@ class CommingPricesWidget extends StatelessWidget {
 
 class CommingPricesStateful extends StatefulWidget {
   Logger logger;
-
+  Key key;
 /*  //TODO: StatefulWidget
 *      */
-  CommingPricesStateful({ Key? key  ,required this.logger}): super(key: key);
+  CommingPricesStateful({ required this.key   ,required this.logger}) ;
 
   @override
   //TODO Comming Prices main code
