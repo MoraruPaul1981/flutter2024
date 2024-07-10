@@ -287,21 +287,19 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       print(' basicAuth  $basicAuth');
 
 
-
-
-      for (var interface in await NetworkInterface.list()) {
-        print('== Interface: ${interface.name} ==');
-        for (var addr in interface.addresses) {
-          print(
-              '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
+      try {
+        final ipv4json = await Ipify.ipv64(format: Format.JSON);
+        print(ipv4json); //{"ip":"98.207.254.136"} or {"ip":"2a00:1450:400f:80d::200e"}
+      }  catch(e) {
+        if (e is SocketException) {
+          print('No Internet Connection. Please try again later.');
+        } else {
+          print('An error occurred');
         }
       }
+
+
       print(' basicAuth  $basicAuth');
-
-
-
-
-
 
       try {
       // TODO: implement connected
@@ -309,8 +307,12 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
 
         ipv4 = await Ipify.ipv4();
         print('ipv4...$ipv4.isNotEmpty'); // 98.207.254.136
-      } catch (e) {
-        print(e);
+      }  catch(e) {
+        if (e is SocketException) {
+          print('No Internet Connection. Please try again later.');
+        } else {
+          print('An error occurred');
+        }
       }
 
 
