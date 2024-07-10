@@ -78,11 +78,11 @@ class EmitsLoginPassword  {
 
 
 
-  Future<void> emitBackUIErrorPublicId( ) async {
+  Future<void> emitBackUIAuthenticationPublicId( int PublicID ) async {
     // TODO: implement getbasedonloginandpasswordPublicID
     try{
       cubitLoginPassword. emit(3);
-      print('  callBackUISuccessAuntifcation  emit ${cubitLoginPassword.emit}  ');
+      print('  PublicID  emit ${PublicID }  ');
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');

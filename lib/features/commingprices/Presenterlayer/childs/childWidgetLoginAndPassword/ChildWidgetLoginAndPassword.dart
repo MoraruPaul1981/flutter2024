@@ -30,6 +30,17 @@ class ChildWidgetLoginAndPassword extends State<CommingPricesStateful> implement
 
   //TODO консруктор
   ChildWidgetLoginAndPassword({this.key, required this.logger });
+
+
+
+  @override
+  void initState() {
+    debugPrint('initState()');
+    super.initState();
+  }
+
+
+
   //TODO:
   @override
   Widget build(BuildContext context) {

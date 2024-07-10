@@ -70,13 +70,6 @@ class CubitLoginPassword extends Cubit<int>  {
           })      ;
 
       print('ServerStatus ${ServerStatus} ') ;
-      /* //TODO:
-   *     главная команда всегда кода eьше Ответ */
-      if (  int.parse(ServerStatus)>=21 ) {
-        EmitsLoginPassword(this). emitBackUISuccessServerStatus();
-      } else {
-        EmitsLoginPassword(this).   emitBackUIDontServerStatus();
-      }
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -135,11 +128,6 @@ class CubitLoginPassword extends Cubit<int>  {
       print(' Finifh()..  PublicID $PublicID  ') ;
       /* //TODO:
    *     главная команда всегда кода eьше Ответ */
-     if (PublicID>0) {
-       EmitsLoginPassword(this). emitBackUISuccessPublicId();
-     } else {
-       EmitsLoginPassword(this).     emitBackUIErrorPublicId( );
-     }
       //TODO error
     }   catch (e, stacktrace) {
       print(' get ERROR $e get stacktrace $stacktrace ');
@@ -185,6 +173,39 @@ class CubitLoginPassword extends Cubit<int>  {
   }
 
 
+
+
+
+  Future<void> startCubitLoginAndPasswordServerDontWorker( int ServerStatus) async {
+    // TODO: implement startGettingLoginAndPasswordEmtyDont
+    try{
+      print('  password ... ${ServerStatus} ');
+
+      EmitsLoginPassword(this).   emitBackUIDontServerStatus();
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
+
+
+  Future<void> startCubitdidNotAskforAuthenticationLoginAndPassword( int PublicID) async {
+    // TODO: implement startGettingLoginAndPasswordEmtyDont
+    try{
+      print('  PublicID ... ${PublicID} ');
+
+      EmitsLoginPassword(this).   emitBackUIAuthenticationPublicId(PublicID);
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+  }
 
 
 //TODO: END class CountterCubitFuture

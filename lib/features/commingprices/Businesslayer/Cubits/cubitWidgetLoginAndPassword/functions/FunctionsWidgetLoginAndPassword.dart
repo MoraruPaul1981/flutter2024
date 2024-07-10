@@ -20,12 +20,12 @@ late Logger logger;
 
 
   @override
-  void clickFloatingButtonForGetLoginAndPassword(
+  Future<void> clickFloatingButtonForGetLoginAndPassword(
       int state,
       TextEditingController loginicController,
       TextEditingController passwordController,
       BuildContext context,
-      CubitLoginPassword   cubitLoginPassword) {
+      CubitLoginPassword   cubitLoginPassword) async {
     // TODO: implement actionFloatingActionButtonPressed
     try{
 
@@ -51,35 +51,53 @@ late Logger logger;
           parametsServerStatus.setlogger(logger);
 
 
-                //TODO:сам запрос на получение Статуса Рабочий ли сервер Включен  шаг первый
-                cubitLoginPassword.startCubitServerStatus(  parametsServerStatus:parametsServerStatus)
-                    .then(( ServerStatus) {
-                  //TODO then
-                  logger.i('ServerStatus..${ServerStatus} ');
+                //TODO:get State Server On and Off
+             int ServerStatus= await  cubitLoginPassword.startCubitServerStatus(  parametsServerStatus:parametsServerStatus)
+                 .catchError(
+                  (Object error) {
+                  logger.i(' get ERROR $error  ');
+                       });
+          logger.i('ServerStatus..${ServerStatus} ');
 
 
-                  //TODO:сам запрос на получения PublicID  шаг Второй  статус пришел 21 не пустой #2
-                  if (ServerStatus ==200) {
+          //TODO:get callback Статус Сервера
+            if (ServerStatus ==200) {
 
-               /*     //TODO:  класс параметров получение Публичного ID
+            /*     //TODO:  класс параметров получение Публичного ID
                *         */
-                    ParametsServerPublicID parametsServerPublicID = ParametsServerPublicID(
-                        login, password, context, logger);
+            ParametsServerPublicID parametsServerPublicID = ParametsServerPublicID(login, password, context, logger);
+            //TODO:get callback Public Id
+            int    PublicID =await      callBackPublicIDJboss(cubitLoginPassword, parametsServerPublicID, ServerStatus);
+            logger.i('PublicID..${PublicID} ....ServerStatus..${ServerStatus} ');
 
-                    callBackPublicIDJboss(
-                        cubitLoginPassword, parametsServerPublicID,
-                        ServerStatus);
-                  }
-                  logger.i('ServerStatus..${ServerStatus} ');
-                  return  ServerStatus;
-                }).catchError(
-                        (Object error) {
-                      logger.i(' get ERROR $error  ');
-                    }
-                );
+
+
+       /*     //TODO: if publicid arrived successfully
+       *         */
+            if (PublicID>0) {
+              logger.i('PublicID..${PublicID} ....ServerStatus..${ServerStatus} ');
+
+         /*     //TODO:Публичный ключ пришел пустой , Это ошибка в аунтифтикайии ЛОгин и пароль не правильный
+         *         */
+            } else {
+              /*     //TODO:Публичный ключ пришел пустой , Это ошибка в аунтифтикайии ЛОгин и пароль не правильный
+         *         */
+              cubitLoginPassword. startCubitdidNotAskforAuthenticationLoginAndPassword( PublicID);
+              logger.i('PublicID..${PublicID} ....ServerStatus..${ServerStatus} ');
+
+            }
+
+
+              //TODO:get callback Статус Сервера Выключин
+          }else{
+              //TODO:get callback Статус Сервера Выключин
+            logger.i('  ....ServerStatus..${ServerStatus} ');
+
+            cubitLoginPassword.startCubitLoginAndPasswordServerDontWorker( ServerStatus);
+
+          }
               print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  login..$login   password.....$password');
-
 
 
 
@@ -88,6 +106,7 @@ late Logger logger;
        /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
               } else {
+
           /*       //TODO:  Когда  логин и пароль не заполнент Вообще
        *           */
           cubitLoginPassword.startCubitLoginAndPasswordEmtyDont( login,password);
@@ -95,8 +114,6 @@ late Logger logger;
              print('  CLick FloatingActionButtonLocation  onPressed  Logon и Парол'
                     '  password..$password  password ....$password');
               }
-
-
 
       //TODO error
     }   catch (e, stacktrace) {
@@ -120,23 +137,20 @@ late Logger logger;
 
 /*  //TODO: Получаем после Аунтификации Публичный АДИ, на базе логина и пароля
 *      */
- Future<void> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword,
+ Future<int> callBackPublicIDJboss(CubitLoginPassword cubitLoginPassword,
      ParametsServerPublicID parametsServerPublicID,int ServerStatus) async {
             //TODO:сам запрос на получения PublicID  шаг Второй
-    try{
+   late int  PublicID;
+   try{
    /*   //TODO:  если статус ПРИЩШЕЛ 21 то тогда запускаем получение Public ID
    *        */
-      logger.i('ServerStatus..${ServerStatus} ');
-        cubitLoginPassword.startCubitServerPublicId(parametsServerPublicID:   parametsServerPublicID)
-            .then((getJbossPublicId) {
-          //TODO then
-          logger.i('PublicId..${getJbossPublicId} ');
-          return getJbossPublicId;
-        }).catchError(
+        PublicID =await cubitLoginPassword.startCubitServerPublicId(parametsServerPublicID:   parametsServerPublicID)
+           .catchError(
                 (Object error) {
               logger.i(' get ERROR $error  ');
             }
         );
+        logger.i('ServerStatus..${ServerStatus} ... PublicID..${PublicID} ....  ');
     //TODO error
   }   catch (e, stacktrace) {
 print(' get ERROR $e get stacktrace $stacktrace ');
@@ -144,6 +158,7 @@ print(' get ERROR $e get stacktrace $stacktrace ');
 Errors errors=Errors();
 errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
 }
+return PublicID ?? 0  ;
   }
 
 

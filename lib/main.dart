@@ -91,7 +91,6 @@ class CommingPricesStateful extends StatefulWidget {
 //TODO тест код  ROW
 // State<WidgetStateful> createState() => ParentWidgetRow(key:key, logger: logger);
 
-
 //TODO ENDING widget
 }
 

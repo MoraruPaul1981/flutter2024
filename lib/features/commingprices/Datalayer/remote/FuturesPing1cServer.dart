@@ -5,7 +5,8 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:typed_data';
 
-import 'package:dart_ping/dart_ping.dart';
+import 'package:dart_ipify/dart_ipify.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -286,6 +287,40 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       print(' basicAuth  $basicAuth');
 
 
+
+
+      for (var interface in await NetworkInterface.list()) {
+        print('== Interface: ${interface.name} ==');
+        for (var addr in interface.addresses) {
+          print(
+              '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
+        }
+      }
+      print(' basicAuth  $basicAuth');
+
+
+
+
+
+
+      try {
+      // TODO: implement connected
+      final ipv4;
+
+        ipv4 = await Ipify.ipv4();
+        print('ipv4...$ipv4.isNotEmpty'); // 98.207.254.136
+      } catch (e) {
+        print(e);
+      }
+
+
+
+
+
+
+
+/*
+
        InterfacePing pingAyn = PingAynJboss();
      // InterfacePing pingAyn = PingAyn1C();
       bool  PingJboss= await pingAyn.connectedJboss;
@@ -317,6 +352,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
         print('start PingJboss ..${getResponse}  ' );
       }
 
+*/
 
 
     //TODO error
