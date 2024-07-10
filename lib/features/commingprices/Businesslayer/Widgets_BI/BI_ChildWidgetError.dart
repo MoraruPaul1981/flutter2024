@@ -21,7 +21,7 @@ class BI_ChildWidgetError   implements InterfaceChildGetWidgetErrors {
   BuildContext context;
 
   @override
-  Key? key;
+  Key  key;
 
   @override
   Logger logger;

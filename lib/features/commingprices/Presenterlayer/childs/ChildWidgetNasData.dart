@@ -28,13 +28,16 @@ class ChildWidgetNasData   extends   StatelessWidget  implements   IntarfaceChil
   @override
   Logger logger;
 
+  @override
+  Key  key;
 
   //TODO: конструктор
-  ChildWidgetNasData(Key? key,
+  ChildWidgetNasData(
       {required this.context,
       required this.currentText,
       required this.snapshot,
-      required this.logger}) :super (key:key);
+      required this.logger,
+        required this.key}) ;
 
 
   @override

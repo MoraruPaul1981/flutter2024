@@ -34,14 +34,17 @@ class ChildWidgetDefault  extends   StatelessWidget implements IntarfaceChildWid
   @override
   Logger logger;
 
+  @override
+  Key key;
 
   //TODO: конструктор
-  ChildWidgetDefault(Key? key,
+  ChildWidgetDefault(
       {required this.context,
       required this.snapshot,
       required this.alwaysStop,
       required this.currentText,
-      required this.logger}) :super (key:key);
+      required this.logger,
+      required this.key})  ;
 
 
 

@@ -22,9 +22,11 @@ import 'childs/ChildWidgetWaiting.dart';
 
 //TODO Виджет сотоящий из трех строк Телефон и Две Почты
 class BootCommingPricesWidget extends State<CommingPricesStateful> {
+
   Logger logger;
-  Key? key;
-  BootCommingPricesWidget({this.key, required this.logger } ) ;
+  Key  key;
+
+  BootCommingPricesWidget({required this.key, required this.logger } ) ;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,7 @@ class BootCommingPricesWidget extends State<CommingPricesStateful> {
             } else {
               logger.i('napshot.connectionState$snapshot.connectionState');
               //TODO   Данных  нет
-              widgetWatingCallBack =   ChildWidgetNasData(key,context:context,currentText:"Данных нет !!!",snapshot:snapshot,logger:logger);
+              widgetWatingCallBack =   ChildWidgetNasData(key:key,context:context,currentText:"Данных нет !!!",snapshot:snapshot,logger:logger);
 
               logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length...$receiveddatafromC1.length'
                   +'napshot.connectionState$snapshot.connectionState');
@@ -99,7 +101,7 @@ class BootCommingPricesWidget extends State<CommingPricesStateful> {
        //TODO: ERROR
           }else{
             //TODO   ERROR
-           widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
+           widgetWatingCallBack =   ChildGetWidgetErrors(key:key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
             logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length. $snapshot.connectionState');
               return widgetWatingCallBack;
           }
@@ -109,7 +111,7 @@ class BootCommingPricesWidget extends State<CommingPricesStateful> {
           ///TODO сгенерировальсь Error
           if (snapshot.hasError) {
             //TODO   ERROR
-            widgetWatingCallBack =   ChildGetWidgetErrors(key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
+            widgetWatingCallBack =   ChildGetWidgetErrors(key:key,context:context,currentText:"Сервер выкл. !!!",snapshot:snapshot,logger:logger);
             logger.i('snapshot.hasData...$snapshot.hasData'+'receiveddatafromC1.length. $snapshot.connectionState');
             return widgetWatingCallBack;
           }
@@ -121,7 +123,7 @@ class BootCommingPricesWidget extends State<CommingPricesStateful> {
         //TODO DEFALUT   ПО Деволту рабоатет когда ни какой код еще не сработал
         logger.i('napshot.connectionState$snapshot.connectionState');
         //TODO нет DEFALUT
-        widgetWatingCallBack = ChildWidgetDefault(key,context:context, snapshot:snapshot,
+        widgetWatingCallBack = ChildWidgetDefault(key:key,context:context, snapshot:snapshot,
             alwaysStop:Colors.black,currentText:'Союз-Автодор', logger: logger);
         //TODO return ERROR
         return widgetWatingCallBack;

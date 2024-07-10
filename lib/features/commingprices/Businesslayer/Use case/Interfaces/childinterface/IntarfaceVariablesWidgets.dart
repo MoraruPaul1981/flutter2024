@@ -12,6 +12,7 @@ abstract  class IntarfaceChildWidgetErrors {
   late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
   late String currentText;
   late Logger   logger;
+  late Key  key;
 
 
 }
@@ -33,6 +34,7 @@ abstract  class IntarfaceChildWidgetDefault {
   late Color alwaysStop;
   late String currentText;
   late Logger   logger;
+  late   Key key;
 }
 
 
@@ -44,6 +46,7 @@ abstract  class IntarfaceChildWidgetNasData {
   late AsyncSnapshot<List<Map<String, List<Entities1CMap>>>?> snapshot;
   late String currentText;
   late Logger   logger;
+  late Key  key;
 }
 
 

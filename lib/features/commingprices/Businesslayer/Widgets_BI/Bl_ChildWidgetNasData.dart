@@ -15,13 +15,13 @@ class Bl_ChildWidgetNasData implements InterfaceChildWidgetNasData   {
 
 
   @override
-  BuildContext context;
+  late BuildContext context;
 
   @override
-  Key? key;
+  late Key key;
 
   @override
-  Logger logger;
+  late Logger logger;
 
 
 //TODO: конструктор для бизнес логики усершного получение данных
