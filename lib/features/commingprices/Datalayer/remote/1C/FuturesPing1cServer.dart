@@ -12,18 +12,20 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-
-
-import '../../Businesslayer/Use case/Interfaces/InterfaceFuture.dart';
-import '../../Businesslayer/Use case/Interfaces/InterfacePings.dart';
-import '../../Businesslayer/Use case/adressJboss/getAdress.dart';
-import '../../Businesslayer/Use case/converts/GetConverts.dart';
-import '../../Businesslayer/Use case/decoding/getDecodingCallback.dart';
-import '../../Businesslayer/Use case/errors/Errors.dart';
-import '../../Businesslayer/Use case/ping/InterfacePing.dart';
-import '../../Businesslayer/Use case/ping/PingCheck.dart';
-import '../entities/Entities1CMap.dart';
+import '../../../Businesslayer/Use case/Interfaces/InterfaceFuture.dart';
+import '../../../Businesslayer/Use case/Interfaces/InterfacePings.dart';
+import '../../../Businesslayer/Use case/adressJboss/getAdress.dart';
+import '../../../Businesslayer/Use case/converts/GetConverts.dart';
+import '../../../Businesslayer/Use case/decoding/getDecodingCallback.dart';
+import '../../../Businesslayer/Use case/errors/Errors.dart';
+import '../../../Businesslayer/Use case/ping/InterfacePing.dart';
+import '../../../Businesslayer/Use case/ping/PingCheck.dart';
+import '../../entities/Entities1CMap.dart';
 import 'FuturesDataFrom1cServer.dart';
+
+
+
+
 
 
 

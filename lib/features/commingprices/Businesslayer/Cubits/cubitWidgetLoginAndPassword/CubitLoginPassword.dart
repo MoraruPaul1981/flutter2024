@@ -5,7 +5,8 @@ import 'package:commintprices/features/commingprices/Businesslayer/Cubits/cubitW
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-import '../../../Datalayer/remote/FuturesPing1cServer.dart';
+import '../../../Datalayer/remote/1C/FuturesPing1cServer.dart';
+import '../../../Datalayer/remote/jboss/FuturesPingJbossServer.dart';
 import '../../Use case/adressJboss/getAdress.dart';
 import '../../Use case/errors/Errors.dart';
 import 'EmitsLoginPassword.dart';
@@ -100,9 +101,9 @@ class CubitLoginPassword extends Cubit<int>  {
 *    FUTURE  ServerStatus jboss
 * */
 
-  Future<int> startCubitServerStatusJboss({required ParametsServerStatus parametsServerStatus}) async {
+  Future<bool> startCubitServerStatusJboss({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
-    late String ServerStatusJboss;
+    late bool ServerStatusJboss;
     try {
       String login = parametsServerStatus.getlogin;
       String password = parametsServerStatus.getpassword;
@@ -114,11 +115,11 @@ class CubitLoginPassword extends Cubit<int>  {
       var adressCurrentJboss=  GetAdressJbossPing().adress1C( ) as String;
       final parsedUrlJboss=Uri.parse(adressCurrentJboss) as Uri;
 
-      ServerStatusJboss =await Future<String>.value(futureServerStatusJboss(parsedUrlJboss, BigInt.from(0),0) )
+      ServerStatusJboss =await Future<bool>.value(futureServerStatusJboss(parsedUrlJboss  )
           .catchError(
               (Object error) {
             print(' get ERROR $error  ');
-          })      ;
+          }) );
 
       print('ServerStatusJboss ${ServerStatusJboss} ') ;
       //TODO error
@@ -128,22 +129,22 @@ class CubitLoginPassword extends Cubit<int>  {
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
     }
-    return  int.parse(ServerStatusJboss) ;
+    return  ServerStatusJboss ;
   }
 
 
 
 /*//TODO: Получаем статус сервера 1c через ISolate
 *    */
-  Future<String> futureServerStatusJboss(     Uri parsedUrl,  BigInt Uuid,int IdUser ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+  Future<bool> futureServerStatusJboss(     Uri parsedUrl  ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
     // TODO: implement futurePublicID
-    final serverStatus = await Isolate.run(() async {
-      FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
-      String? ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl ,    Uuid, IdUser)   ;
+    final serverStatusJboss = await Isolate.run(() async {
+      FuturesPingJbossServer futuresPingJbossServer=FuturesPingJbossServer();
+      bool ServerStatus = await  futuresPingJbossServer.getResponseJboss( url: parsedUrl)   ;
       print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
       return ServerStatus;
     });
-    return serverStatus;
+    return serverStatusJboss;
   }
 
 

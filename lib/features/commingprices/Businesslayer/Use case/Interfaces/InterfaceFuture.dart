@@ -1,4 +1,5 @@
 
+import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
@@ -35,3 +36,19 @@ abstract  class InterfaceCallBack {
   //TODO когад пришли данные #1
   Future<String> oneStepPing(Uri parsedUrl,  BigInt Uuid,int IdUser );
 }
+
+
+
+
+
+
+//TODO JBOSS
+
+abstract  class InterfaceFutureResponseJboss {
+  //TODO
+  Future<bool> getResponseJboss ({ required  Uri   url   }) ;
+
+  Future<int?> getServergetPublicId({ required  Uri   url,    required String login,required String password }) ;
+}
+
+

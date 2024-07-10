@@ -59,8 +59,8 @@ late Logger logger;
                        });
           logger.i('ServerStatus1C..${ServerStatus1C} ');
 
-          //TODO:get State Server On and Off
-          int ServerStatusJboss= await  cubitLoginPassword.startCubitServerStatusJboss(  parametsServerStatus:parametsServerStatus)
+          //TODO:get State JBOSS
+          bool ServerStatusJboss= await  cubitLoginPassword.startCubitServerStatusJboss(  parametsServerStatus:parametsServerStatus)
               .catchError(
                   (Object error) {
                 logger.i(' get ERROR $error  ');

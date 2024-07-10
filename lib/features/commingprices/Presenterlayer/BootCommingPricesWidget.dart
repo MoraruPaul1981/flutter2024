@@ -3,9 +3,8 @@ import 'package:commintprices/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/src/logger.dart';
-
 import '../Datalayer/entities/Entities1CMap.dart';
-import '../Datalayer/remote/FuturesPing1cServer.dart';
+import '../Datalayer/remote/1C/FuturesPing1cServer.dart';
 import 'childs/ChildGetWidgetErrors.dart';
 import 'childs/ChildWidgetDefault.dart';
 import 'childs/ChildWidgetNasData.dart';
