@@ -1,11 +1,45 @@
 
 
 
+import 'package:flutter/cupertino.dart';
+import 'package:logger/logger.dart';
+
 import '../const/Сonstants.dart';
 import '../Interfaces/InAdressJboss.dart';
 import '../errors/Errors.dart';
 
 ////TODO jboss  ////TODO jboss ////TODO jboss ////TODO jboss
+
+
+
+
+
+
+
+
+class GetAdressJbossPing implements InAdress1C {
+  @override
+  String? adress1C() {
+    // TODO: implement adress1C
+    late  String  serverJbossPing;
+    try {
+      serverJbossPing  = "http://80.70.108.165:8888/jboss-1.0-SNAPSHOT/".trim();
+      //TODO
+      print('serverJbossPing .. $serverJbossPing');
+      //TODO error
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
+    }
+
+    return  serverJbossPing;
+  }
+}
+
+
 
 
 

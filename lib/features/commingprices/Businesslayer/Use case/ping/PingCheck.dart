@@ -51,15 +51,20 @@ class PingIpify  extends  InterfacePing{
   @override
   Future<bool> get   connectedJboss async {
     // TODO: implement connected
-    final ipv4;
+    final ipv4json;
     try {
-        ipv4 = await Ipify.ipv4();
-      print('ipv4...$ipv4.isNotEmpty'); // 98.207.254.136
-    } on SocketException catch (e) {
-      print('conn...${false}');
+      ipv4json = await Ipify.ipv64(format: Format.JSON);
+      print('ipv4json...$ipv4json.isNotEmpty'); // 98.207.254.136
+    }  catch(e) {
+      if (e is SocketException) {
+        print('No Internet Connection. Please try again later.');
+      } else {
+        print('An error occurred');
+      }
       return Future.value(false);
     }
-    return Future.value(ipv4.isNotEmpty);
+    return Future.value(ipv4json.isNotEmpty);
   }
 
 }
+

@@ -132,7 +132,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
   //TODO ping
   @override
   Future<String> CallBackPing(Uri parsedUrl,  BigInt Uuid,int IdUser) async {
-      String? getpingCallBack ;
+    late  String getpingCallBack ;
     try {
       //TODO: первая часть пинга
         Future<Response?> futurePingCallBack =    getDownloadJsonMaps(url:parsedUrl ,IdUser:IdUser ,UUID:Uuid.toInt() );
@@ -150,6 +150,9 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
             getpingCallBack =responsePingCallBack.statusCode.toString() ;
             print(' getpingCallBack... ${getpingCallBack}');
           }
+        }else{
+          getpingCallBack="0";
+          print("    responsePingCallBack : ${responsePingCallBack}");
         }
         print("    responsePingCallBack : ${responsePingCallBack}");
       //TODO error
@@ -159,7 +162,7 @@ class FuturesPing1cServer implements InterfacePings ,InterfaceFutureResponse,Int
       Errors errors=Errors();
       errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace );
     }
-    return getpingCallBack ??=""   ;
+    return getpingCallBack ??=""    ;
   }
 
 
@@ -287,46 +290,10 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
       print(' basicAuth  $basicAuth');
 
 
-      try {
-        final ipv4json = await Ipify.ipv64(format: Format.JSON);
-        print(ipv4json); //{"ip":"98.207.254.136"} or {"ip":"2a00:1450:400f:80d::200e"}
-      }  catch(e) {
-        if (e is SocketException) {
-          print('No Internet Connection. Please try again later.');
-        } else {
-          print('An error occurred');
-        }
-      }
-
-
-      print(' basicAuth  $basicAuth');
-
-      try {
-      // TODO: implement connected
-      final ipv4;
-
-        ipv4 = await Ipify.ipv4();
-        print('ipv4...$ipv4.isNotEmpty'); // 98.207.254.136
-      }  catch(e) {
-        if (e is SocketException) {
-          print('No Internet Connection. Please try again later.');
-        } else {
-          print('An error occurred');
-        }
-      }
-
-
-
-
-
-
-
-/*
-
-       InterfacePing pingAyn = PingAynJboss();
+       InterfacePing pingAyn = PingIpify();
      // InterfacePing pingAyn = PingAyn1C();
       bool  PingJboss= await pingAyn.connectedJboss;
-      print('start PingJboss ..${getResponse}  ' );
+      print('start PingJboss ..${PingJboss}  ' );
      //TODO главный запрос
       if (PingJboss==true) {
         getResponse =   await http.get(
@@ -354,7 +321,7 @@ Future<List<Map<String, List<Entities1CMap>>>> CallBackSelfData(String? IspingOt
         print('start PingJboss ..${getResponse}  ' );
       }
 
-*/
+
 
 
     //TODO error

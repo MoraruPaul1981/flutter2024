@@ -1,14 +1,11 @@
 
 import 'dart:isolate';
 import 'dart:math';
-
 import 'package:commintprices/features/commingprices/Businesslayer/Cubits/cubitWidgetLoginAndPassword/paramets/ParametsLoginServerPassword.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
-
 import '../../../Datalayer/remote/FuturesPing1cServer.dart';
-
 import '../../Use case/adressJboss/getAdress.dart';
 import '../../Use case/errors/Errors.dart';
 import 'EmitsLoginPassword.dart';
@@ -46,10 +43,10 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 /*//TODO: RUN
-*    FUTURE  ServerStatus
+*    FUTURE  ServerStatus 1c
 * */
 
-  Future<int> startCubitServerStatus({required ParametsServerStatus parametsServerStatus}) async {
+  Future<int> startCubitServerStatus1C({required ParametsServerStatus parametsServerStatus}) async {
     // TODO: implement getbasedonloginandpasswordPublicID
    late String ServerStatus;
     try {
@@ -63,7 +60,7 @@ class CubitLoginPassword extends Cubit<int>  {
       var adressCurrent1C=  GetAdress1CPrices().adress1C( ) as String;
       final parsedUrl=Uri.parse(adressCurrent1C) as Uri;
 
-      ServerStatus =await Future<String>.value(futureServerStatus(parsedUrl, BigInt.from(0),0) )
+      ServerStatus =await Future<String>.value(futureServerStatus1C(parsedUrl, BigInt.from(0),0) )
           .catchError(
               (Object error) {
             print(' get ERROR $error  ');
@@ -82,9 +79,9 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
-/*//TODO: Получаем статус сервера через ISolate
+/*//TODO: Получаем статус сервера 1c через ISolate
 *    */
-  Future<String> futureServerStatus(     Uri parsedUrl,  BigInt Uuid,int IdUser ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+  Future<String> futureServerStatus1C(     Uri parsedUrl,  BigInt Uuid,int IdUser ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
     // TODO: implement futurePublicID
      final serverStatus = await Isolate.run(() async {
       FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
@@ -94,6 +91,84 @@ class CubitLoginPassword extends Cubit<int>  {
     });
     return serverStatus;
   }
+
+
+
+
+
+  /*//TODO: RUN
+*    FUTURE  ServerStatus jboss
+* */
+
+  Future<int> startCubitServerStatusJboss({required ParametsServerStatus parametsServerStatus}) async {
+    // TODO: implement getbasedonloginandpasswordPublicID
+    late String ServerStatusJboss;
+    try {
+      String login = parametsServerStatus.getlogin;
+      String password = parametsServerStatus.getpassword;
+      BuildContext context = parametsServerStatus.getcontext;
+      Logger logger = parametsServerStatus.getlogger;
+
+      logger.i('login ${login} .. password ${password} ..  context ${context} ..  logger ${logger} ..  ');
+
+      var adressCurrentJboss=  GetAdressJbossPing().adress1C( ) as String;
+      final parsedUrlJboss=Uri.parse(adressCurrentJboss) as Uri;
+
+      ServerStatusJboss =await Future<String>.value(futureServerStatusJboss(parsedUrlJboss, BigInt.from(0),0) )
+          .catchError(
+              (Object error) {
+            print(' get ERROR $error  ');
+          })      ;
+
+      print('ServerStatusJboss ${ServerStatusJboss} ') ;
+      //TODO error
+    }   catch (e, stacktrace) {
+      print(' get ERROR $e get stacktrace $stacktrace ');
+      //TODO: Gradle Error
+      Errors errors=Errors();
+      errors.writerError(e: e as Exception, stacktrace: stacktrace as StackTrace);
+    }
+    return  int.parse(ServerStatusJboss) ;
+  }
+
+
+
+/*//TODO: Получаем статус сервера 1c через ISolate
+*    */
+  Future<String> futureServerStatusJboss(     Uri parsedUrl,  BigInt Uuid,int IdUser ) async {//TODO: {required Map<String, dynamic> parametrgetPublicId}
+    // TODO: implement futurePublicID
+    final serverStatus = await Isolate.run(() async {
+      FuturesPing1cServer futuresPing1cServer=FuturesPing1cServer();
+      String? ServerStatus = await  futuresPing1cServer.CallBackPing(parsedUrl ,    Uuid, IdUser)   ;
+      print(' Finifh()..  ServerStatus $ServerStatus  '+" Isolate.current.debugName.toString() "+Isolate.current.debugName.toString());
+      return ServerStatus;
+    });
+    return serverStatus;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157,6 +232,23 @@ class CubitLoginPassword extends Cubit<int>  {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/*  //TODO:
+        void*/
+  /*  //TODO:
+        void*/
+  /*  //TODO:
+        void*/
   Future<void> startCubitLoginAndPasswordEmtyDont( String login,String password) async {
     // TODO: implement startGettingLoginAndPasswordEmtyDont
     try{
