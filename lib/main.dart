@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:logger/logger.dart';
 import 'features/commingprices/Businesslayer/Use case/errors/Errors.dart';
 import 'features/commingprices/Businesslayer/Use case/loggers/GetLogger.dart';
@@ -37,7 +38,7 @@ Future<void> startingCommintPrices() async {
       }) ;
 
     //TODO starting UI
-    runApp( CommingPricesWidget(key: GlobalKey(),logger: logger));
+    runApp( CommingPricesWidget(key: UniqueKey(),logger: logger));
 
     logger.i('    runApp( CommingPricesWidget(logger: logger)); ');
 
@@ -97,6 +98,37 @@ class CommingPricesStateful extends StatefulWidget {
 
 
 
+class blee {
 
 
+/*  void _wait() async {
+    await FlutterBluePlus.adapterState
+        .where((state) => state == BluetoothAdapterState.on)
+        .first;
+    void _startScanning() {
+      FlutterBluePlus.startScan(timeout: const Duration(seconds: 2));
+    }
+
+    void _listenScanResult() {
+      FlutterBluePlus.setLogLevel(LogLevel.verbose, color: false);
+      FlutterBluePlus.scanResults.listen((scanList) async {
+        for (ScanResult result in scanList) {
+          if (result.device.remoteId.toString() == weightRemoteID) {
+            result.device.connect(autoConnect: true);
+            List<BluetoothService> services =
+            await result.device.discoverServices();
+            services.forEach((service) async {
+              var characteristics = service.characteristics;
+              for (BluetoothCharacteristic c in characteristics) {
+                await c.setNotifyValue(true);
+                weightReceivedValue = await c.read();
+                setState(() {
+                });
+              }
+            });
+          }
+        }
+
+  }*/
+}
 
